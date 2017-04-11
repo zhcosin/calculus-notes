@@ -1,0 +1,26 @@
+
+% 自定义环境
+\newcounter{example}[section]
+\renewcommand{\theexample}{\thesection.\arabic{example}}
+
+\newenvironment{example}[1][]{\refstepcounter{example} \textbf{例 \theexample  \ #1} \hspace{0.5em}}{\hspace{\stretch{1}} \rule{1ex}{1ex}}
+
+\newtheorem{definition}{定义}[section]
+\newtheorem{property}{性质}[section]
+\newtheorem{theorem}{定理}[section]
+\newtheorem{inference}{推论}[section]
+\newtheorem{axiom}{公理}[section]
+\newtheorem{lemma}{引理}[section]
+\newtheorem{principle}{原理}[section]
+\newtheorem{exercise}{题目}[section]
+\newtheorem{topic}{问题}[section]
+\newtheorem{statement}{命题}[section]
+% \newtheorem{example}{例}[section]
+
+% 使公式编号与章节关联，命令由 amsmath 宏包提供
+\numberwithin{equation}{section}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "book"
+%%% End:

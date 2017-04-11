@@ -1,4 +1,73 @@
 
+%\tableofcontents
+%\addcontentsline{toc}{chapter}{目录}
+
+\newcommand*\cdotfill{%
+  \leavevmode
+  \leaders \hbox to .5em {\hss\textcdot\hss}\hfill}
+ 
+\etocsetstyle{chapter}
+  {%
+    \setlength\rightskip{4\ccwd}%
+    \addtolength\parfillskip{-\rightskip}%
+    \etocskipfirstprefix
+  }
+  {\medskip}
+  {%
+    \bfseries
+    \noindent
+    \etocifnumbered
+      {%
+        \sbox0{\etocthenumber\unskip\quad}%
+        \setlength\leftskip{\wd0}%
+        \etoclink{\llap{\box0}\etocthename}%
+      }
+      {%
+        \setlength\leftskip{\rightskip}%
+        \hskip-\leftskip
+        \etocname
+      }%
+    \nobreak\cdotfill\etocpage\par
+  }
+  {}
+ 
+\etocsetstyle{section}
+  {\nopagebreak\normalfont}
+  {\smallskip}
+  {%
+    \noindent
+    \etocifnumbered
+      {\etoclink{\llap{\etocthenumber\quad}\etocthename}}
+      {\etocname}%
+    \nobreak\cdotfill\etocpage\par
+  }
+  {}
+ 
+\etocsetstyle{subsection}
+  {%
+    \nopagebreak
+    \begingroup
+    \addtolength\parfillskip{\rightskip}%
+    \addtolength\rightskip{\fill}%
+    \etocskipfirstprefix
+    \noindent
+  }
+  {\quad}
+  {%
+    \hbox{%
+      \etoclink{%
+        \etocifnumbered{\etocthenumber\enskip}{}%
+        \etocthename\ (\etocthepage)%
+      }%
+    }%
+  }
+  {\par\endgroup}
+ 
+
+
 \tableofcontents
 \addcontentsline{toc}{chapter}{目录}
-
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "book"
+%%% End:
