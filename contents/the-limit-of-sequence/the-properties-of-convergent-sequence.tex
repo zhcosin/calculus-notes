@@ -2,7 +2,7 @@
 \section{收敛数列的性质}
 \label{sec:the-properties-of-convergent-sequence.tex}
 
-\subsection{唯一性与保号性及有界数列}
+\subsection{唯一性与保号性}
 \label{sec:limit-uniqueness-and-sign-keep-of-limit}
 
 \begin{theorem}[极限唯一性]
@@ -24,18 +24,6 @@
 \begin{inference}[极限的保号性]
   如果数列收敛到一个正的实数，则数列必从某项起恒保持正号，同样，若收敛到一个负的实数，则必从某项起恒保持负号。
 \end{inference}
-
-如果数列的全部项都能包含于某个有限的区间上，则称此数列\emph{有界}。具体还有上界与下界，如果存在实数$M$，数列全部项都大于它，则数$M$称为数列的下界，反之，若数列的全部项都小于它，则它称为数列的上界。有界自然是同时有上界和下界。
-
-有界的另一种表述是，存在正实数$M>0$，使得数列的全部项都满足$|x_n| \leqslant M$，这与前述说法是等价的，另外是小于号还是等号是无关紧要的。
-
-\begin{theorem}
-  收敛数列必有界。
-\end{theorem}
-
-\begin{proof}[证明]
-  这其实从定义就可以得出了，随便取一个$\epsilon>0$，即知数列从某项起全部落在区间$(a-\epsilon, a+\epsilon)$内，这里$a$是数列极限，再扩大此区间把前面的那些项(有限个)包含进来，于是数列便有界。
-\end{proof}
 
 \subsection{极限的四则运算}
 \label{sec:operate-limit}

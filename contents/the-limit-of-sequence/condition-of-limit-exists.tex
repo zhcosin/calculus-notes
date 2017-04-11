@@ -1,0 +1,62 @@
+
+\section{数列极限存在的条件}
+\label{sec:condition-of-limit-exists}
+
+\subsection{有界数列与确界定理}
+\label{sec:bound-number-sequence}
+
+对于一个实数集，如果存在实数$M$，使得集合中的全部数$x$都满足$x \leqslant M$，则称实数$M$是这数集的一个\emph{上界}，如果不等式是反向的，则称这实数是这数集的一个\emph{下界}，显然，如果$M$是某个数集的上界，则比$M$大的所有实数也都是这数集的上界，对下界亦有类似结论。
+
+如果数集既有上界又有下界，则称数集\emph{有界}，有界数集的所有项的数值能够被某个区间所全部包含。
+
+有界的另一种表述是，存在正实数$M>0$，使得数集的全部数$x$都满足$|x| \leqslant M$，这与前述说法是等价的。
+
+\begin{theorem}[收敛数列的有界性]
+  收敛数列必有界。
+\end{theorem}
+
+\begin{proof}[证明]
+  这其实从定义就可以得出了，随便取一个$\epsilon>0$，即知数列从某项起全部落在区间$(a-\epsilon, a+\epsilon)$内，这里$a$是数列极限，再扩大此区间把前面的那些项(有限个)包含进来，于是数列便有界。
+\end{proof}
+
+\begin{definition}
+对于一个有上界的实数集，如果某个实数$M$满足: (1)它是这数集的上界. (2)对于无论多么小的正实数$\epsilon$，总存在数集中的数$x$使得$x>M-\epsilon$，则称实数$M$是这数集的\emph{上确界}，类似的有\emph{下确界}的定义.
+\end{definition}
+
+显然，上确界是最小的上界，下确界是最大的下界。
+
+确界定理的证明依赖于实数的完备性，这放在后续章节来完成。
+
+\begin{theorem}
+  如果数集有上界，则必有上确界，如果有下界，则必有下确界。
+\end{theorem}
+
+\subsection{单调有界定理}
+\label{sec:monotone-bound-theorem}
+
+\begin{theorem}
+  单调递增有上界的数列必定收敛，而且收敛到它的上确界。单调递减有下界的数列也类似。
+\end{theorem}
+
+\begin{proof}[证明]
+  只证明单调递增有上界的情况，假如数列$x_n$就是这样的数列，它的上确界是$M$，则数列中的全部项都满足$x_n \leqslant M$，另外，对于任意小的正实数$\epsilon$，由上确界定义，总存在某个$x_N$满足$x_N>M-\epsilon$，再由单调性即知对于$n>N$恒有$M-\epsilon < x_n \leqslant M < M+\epsilon$，所以$M$就是这数列的极限。
+\end{proof}
+
+\subsection{柯西收敛准则}
+\label{sec:cauchy-converage-principle}
+
+\begin{theorem}[柯西收敛准则]
+  数列$x_n$收敛的充分必要条件是，对于任意正实数$\epsilon$，总存在正整数$N>0$，使得任意$n_1>N$和任意$n_2>N$及任意恒有$|x_{n_1}-x_{n_2}| < \epsilon$。
+\end{theorem}
+
+\begin{proof}[证明]
+  只证明必要性，充分性的证明放在实数完备性那一节。
+
+  如果数列$x_n$收敛到$x$，那么对于任意正实数$\epsilon$，都有正整数$N$，使得$n>N$时恒有$|x_n-x|<\epsilon / 2$，于是对于任意$n_1>N$及$n_2>N$，便有$|x_{n_1}-x_{n_2}|=|(x_{n_1}-x)- (x_{n_2}-x)|\leqslant |x_{n_1}-x|+|x_{n_2}-x|<\epsilon / 2+\epsilon / 2 = \epsilon$。必要性得证。
+\end{proof}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
