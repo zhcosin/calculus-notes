@@ -2,16 +2,28 @@
 \section{数列极限的概念}
 \label{sec:the-definition-of-sequence-limit}
 
+\subsection{极限的定义}
+\label{sec:definition-number-sequence-limit}
+
 \begin{definition}
   对于实数数列${a_n}$，如果存在实数$a$，使得对于任意小的正实数$\epsilon$，都存在某一下标$N$，使得该数列在这之后的所有项(即$n>N$)都满足
   \begin{equation}
     \label{eq:the-definition-of-sequence-limit}
     |a_n-a|<\epsilon
   \end{equation}
-  则称该数列存在极限，实数$a$称为该数列的极限。也称该数列为收敛数列，并且收敛到实数$a$。
+  则称该数列存在极限，实数$a$称为该数列的极限。也称该数列为收敛数列，并且收敛到实数$a$，记为
+  \begin{equation}
+    \label{eq:limit-definition-for-number-sequence}
+    \lim_{n \to \infty}x_n = a
+  \end{equation}
 \end{definition}
 
-极限为零的数列称为无穷小数列。
+极限为零的数列称为无穷小数列，简称无穷小。如果数列不存在有限的极限，称为数列为\emph{发散数列}。
+
+如果数列无论对于多大的实数$M>0$，总能从某项开始，后续的全部项都有$a_n>M$，则称数列为\emph{正无穷大}。类似的也有负无穷大和(绝对值)无穷大的概念。
+
+\subsection{一些例子}
+\label{sec:some-example-for-number-sequence}
 
 %%% Local Variables:
 %%% mode: latex
