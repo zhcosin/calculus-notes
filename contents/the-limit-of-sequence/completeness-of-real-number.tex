@@ -2,30 +2,59 @@
 \section{实数的完备性}
 \label{sec:completeness-of-real-number}
 
-\subsection{确界定理}
-\label{sec:supremum-infimum-theorem}
+\subsection{实数完备性的几个定理}
 
-\subsection{单调有界定理}
-\label{sec:dull-bound-number-sequence-convergence-theorem}
+\begin{theorem}[确界定理]
+  如果数集有上界，则必有上确界，如果有下界，则必有下确界。
+\end{theorem}
 
-\subsection{柯西收敛准则}
-\label{sec:cauchy-convergence-number-sequence}
+\begin{theorem}[单调有界定理]
+  单调递增有上界的数列收敛，单调递减有下界的数列也收敛。
+\end{theorem}
 
-\subsection{闭区间套定理}
-\label{sec:closed-interval-theorem}
+\begin{theorem}[柯西收敛准则]
+  数列$x_n$收敛的充分必要条件是，对于任意正实数$\epsilon$，都存在正整数$N$，使得对于任意满足$n_1>N,n_2>N$的$n_1,n_2$都成立$|x_{n_1}-x_{n_2}| < \epsilon$。
+\end{theorem}
 
-\subsection{有限覆盖定理}
-\label{sec:finite-coverage-theorem}
+\begin{theorem}[闭区间套定理]
+  如果闭区间无穷序列$[a_i,b_i](i=1,2,\ldots)$满足两个条件: (1)$[a_k,b_k]\supset[a_{k+1},b_{k+1}](i=1,2,\ldots)$，(2)$\lim_{n\to\infty}(b_n-a_n)=0$，则存在唯一实数，同时位于所有闭区间内。
+\end{theorem}
 
-\subsection{聚点定理}
-\label{sec:collect-point-theorem}
+\begin{theorem}[有限覆盖定理]
+  如果有无穷多个开区间的并集覆盖了一个闭区间，那么能够从中选取有限个开区间，它们的并集就足够覆盖这个闭区间了。
+\end{theorem}
+
+\begin{definition}
+  对于一个数集和一个实数，如果在这实数的任意空心邻域内都有这数集中的点，则这实数称为这数集的\emph{聚点}。
+\end{definition}
+
+\begin{theorem}
+  有界的无穷数集必有聚点。
+\end{theorem}
+
+\subsection{确界定理推证其它定理}
+
+\begin{theorem}
+  确界定理与单调有界定理等价。
+\end{theorem}
+
+\begin{proof}[证明]
+  先证必要性，假定数列$x_n$单调递增有上界，由确界定理，必有上确界，记为$M$，将证明这上确界就是该数列的极限，这是因为由上确界定义可知，对于任意正实数$\epsilon>0$，存在某个$x_N$，使得$x_N>M-\epsilon$，由单调递增知对于一切$n>N$就都有$x_n>M-\epsilon$，显然又有$x_n<M<M+\epsilon$，所以$M$就是这数列的极限，单调递减有下界的情况也是一样的，下确界就是它的极限。必要性得证。
+
+  再证充分性，假定非空数集$E$有上界$M$，如果数集中有数能够等于$M$，则显然$M$就是上确界，所以只考虑$M\notin E$的情况，作序列$M_n$，取$M_0=M$，以后的选择是这样的，在确定了数$M_i$之后，$M_{i+1}$的确定方式是，考虑无穷数集$T_m = M_i-(M_i-x)/m(m=2,3,\ldots)$，这无穷数集中或者有数集$E$的上界，或者没有，如果有，就取下标最小的那个$T_m$作为$M_{i+1}$，如果没有，就取$M_{i+1}=M_i$，按此方式定义出一个单调递减(单调不增)序列$M_i(i=0,1,\ldots)$，每一个$M_i$都是数集$E$的上界，显然$M_i>x$，所以序列$M_i$是单调递减有下界的，按单调有界定理，它就有极限$M_{\infty}$，剩下的就是证明，这极限$M_{\infty}$就是数集$E$的上确界。首先它必是数集$E$的一个上界，若不然，就必存在某个$r \in E$满足$r>M_{\infty}$，然而序列$M_i$既然以$M_{\infty}$为极限，则必定从某一项起，后续的$M_i$都满足$M_{\infty} \leqslant M_i<M_{\infty}+(r-M_{\infty})=r$，这与$M_i$都是数集$E$的上界矛盾，所以$M_f$必定是数集$E$的一个上界。继续用反证法证明它是上确界，若不然，则存在$\epsilon > 0$，使得$M_{\infty}$的单侧空心邻域$(M_{\infty}-\epsilon, M_{\infty})$上不存在数集$E$中的数，也就是$M_{\infty}-\epsilon$是数集$E$的一个上界，下面来推矛盾，取一个远远小于1的正因子$\lambda$，不等式$M_i<M_{\infty}-\lambda \epsilon$能在$i$充分大时恒成立，只要$\lambda$选的适当小，无穷序列$M_i-(M_i-x)/m(m=2,3,\ldots)$中就必定有某个数能够落在区间$(M_{\infty}-\epsilon, M_{\infty})$上，这样一来，$M_{i+1}$的选择就应该小于$M$，但这显然矛盾。
+\end{proof}
+
+\subsection{单调有界定理推证其它定理}
+
+\subsection{柯西收敛准则推证其它定理}
+
+\subsection{闭区间套定理推证其它定理}
+
+\subsection{有限覆盖定理推证其它定理}
+
+\subsection{聚点定理推证其它定理}
 
 
-
-
-
-\subsection{实数完备性定理相互等价}
-\label{sec:the-proof-of-real-completeness-theorems}
 
 
 
