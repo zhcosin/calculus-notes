@@ -1,0 +1,23 @@
+
+\section{函数的极限}
+\label{sec:the-limit-concept-of-function}
+
+与数列的极限有所区别，函数的极限过程有两大类，一类是自变量趋于正无穷或者负无穷的极限，一类是自变量趋于某个固定点的极限。
+
+\begin{definition}
+  设函数$f(x)$在无穷区间$(a,+\infty)$上有定义，$A$是一个实数，如果对于任意小的正实数$\varepsilon$，总存在实数$X>a$，使得$x>X$时恒有$|f(x)-A|<\varepsilon$成立，则称数$A$是函数$f(x)$在自变量$x$趋于正无穷大时的 \emph{极限}，记作:
+  \[ \lim_{x\to\infty}f(x) = A \]
+\end{definition}
+类似的可以得函数当自变量趋于负无穷大的极限定义，并且如果函数当自变量趋于正无穷大和负无穷大时都有极限而且极限相同，则称函数当自变量趋于无穷大时有极限，这也可以从绝对值来定义而不考虑自变量的符号。
+
+当自变量趋于某点的极限定义如下:
+\begin{definition}
+  设函数$f(x)$在$x_0$的某空心邻域内有定义，$A$是一个实数，如果对于任意小的正实数$\varepsilon>0$，总存在另一正实数$\delta>0$，使得定义域中满足$|x-x_0|<\delta$的数$x$恒有$|f(x)-A|<\varepsilon$，则称$A$是函数$f(x)$当自变量趋于$x_0$时的极限，记作
+  \[ \lim_{x\to x_0} f(x) = A \]
+\end{definition}
+要指出的是，函数$f(x)$在自变量趋于$x_0$时即使收敛，其极限值也并不一定等于$f(x_0)$，实际上函数在$x_0$也并不一定有定义。
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
