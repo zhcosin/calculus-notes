@@ -1,0 +1,41 @@
+
+\section{函数极限的性质}
+\label{sec:the-properties-of-function-limit}
+
+与数列极限的性质相仿，函数极限具有类似的性质，以下定理都以$x\to x_0$为例，但它们对于自变量趋于无穷大时的极限也是成立的。
+
+\begin{property}[唯一性]
+  函数极限$\lim_{x \to x_0}f(x)$若存在必唯一.
+\end{property}
+
+\begin{theorem}[局部有界性]
+  设函数$f(x)$在$x_0$的某空心邻域内有定义，若$\lim_{x \to x_0}f(x)$存在(非无穷的有限值)，则$f(x)$在$x_0$的某个空心邻域内有界。
+\end{theorem}
+
+\begin{theorem}[局部保号性]
+  若函数$f(x)$在$x \to x_0$处的极限存在为$A$，则对于任意$r<A$都存在$x_0$的某个空心邻域内，在这邻域内恒有$f(x)>r$，同样，对于任意$r>A$，都存在$x_0$的某空心邻域，在这邻域内恒有$f(x)<r$.
+\end{theorem}
+
+\begin{theorem}[保不等式性]
+ 如果函数$f(x)$和$g(x)$都在$x_0$的某个空心邻内有定义，且在这邻域内上恒满足$f(x) \geqslant g(x)$，那么如果当$x \to x_0$时两个函数分别有极限$A$和$B$，则必有$A \geqslant B$.
+\end{theorem}
+
+\begin{theorem}[夹逼定理]
+  在$x_0$的某空心邻域内有定义的三个函数$f(x)$、$g(x)$和$h(x)$，如果在这邻域内恒满足$f(x) \leqslant h(x) \leqslant g(x)$，那么如果当$x \to x_0$时$f(x)$和$g(x)$都收敛到$A$，那么这时$h(x)$也必收敛，且也收敛到$A$.
+\end{theorem}
+
+\begin{theorem}[四则运算法则]
+  如果在$x_0$的某空心邻域内有定义的二函数$f(x)$和$g(x)$在$x \to x_0$时分别收敛到$A$和$B$，那么这由两个函数的和、差、积、商作成的新函数也收敛，并分别收敛到原先两个极限值和和、差、积、商，在商的情况下，要求分母不为零.
+\end{theorem}
+
+写成公式就是，在$\lim_{x \to x_0} f(x)$和$\lim_{x \to x_0}g(x)$都存在的前提下，有
+\begin{eqnarray*}
+  \lim_{x \to x_0} (f(x) \pm g(x)) & = & \lim_{x \to x_0} f(x) \pm \lim_{x \to x_0} g(x)  \\
+  \lim_{x \to x_0} f(x)g(x) & = & \lim_{x \to x_0} f(x) \cdot \lim_{x \to x_0} g(x)  \\
+  \lim_{x \to x_0} \frac{f(x)}{g(x)} & = & \frac{\lim_{x \to x_0} f(x)}{\lim_{x \to x_0} g(x)}  
+\end{eqnarray*}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
