@@ -1,0 +1,18 @@
+
+\section{函数极限存在的条件}
+\label{sec:the-condition-of-function-limit-exist}
+
+\begin{theorem}[函数极限与数列极限的关系]
+  在$x_0$的某空心邻域内有定义的函数$f(x)$，当$x \to x_0$时存在极限的充分必要条件是，对于任意一个在这空心邻域内取值并以$x_0$为极限的数列$x_n$，$\lim_{n \to \infty}f(x_n)$都存在而且都相等。
+\end{theorem}
+
+\begin{proof}[证明]
+  先证必要性，如果$\lim_{x \to x_0} = A$，那么对于任意小的正实数$\varepsilon > 0$，都存在另一个正实数$\delta > 0$，使得对这邻域内满足$|x-x_0|<\delta$的实数$x$都成立不等式$|f(x)-A|<\varepsilon$，那么对于任意一个也在这空心邻域内取值并以$x_0$为极限的数列$x_n$，因为它以$x_0$为极限，所以对于这个$\delta>0$，就必然能够从某一项$x_N$开始，后面的所有项都满足$|x_n-x_0|<\delta$，于是就有$|f(x_n)-A|<\varepsilon$，这就表明$f(x_n)$当$n \to \infty$时以$A$为极限，必要性得证。
+
+  再证充分性，如果对于任意一个在这空心邻域内取值并收敛到$x_0$的数列$x_n$，对应的函数值数列$f(x_n)$都收敛到同一实数$A$，我们将证明，函数$f(x)$在$x \to x_0$时也必将收敛到$A$. 采用反证法，假使函数$f(x)$当$x \to x_0$时不以数$A$为极限，那么必然存在某个$\varepsilon_0>0$，使得无论把另一个正实数$\delta>0$限制得多么小，总有满足$|x-x_0|<\delta$的实数$x$能够使得$|f(x)-A| \geqslant \varepsilon_0$成立，于是先取$\delta=1$，得出一个符合这条件的实数$x_1$，然而取$\delta=\min\{\frac{1}{2}, |x_1-x_0|\}>0$，又可以选出$x_2$，依次这样下去，逐个令$\delta_n=\min\{\frac{1}{n}, |x_{n-1}-x_0|\}$，就可以挑选出$x_{n+1}$，这样就作出一个数列$x_n$，由$|x_n-x_0|<\delta_n<\frac{1}{n}$可知$x_n$收敛到$x_0$，但是由于$|f(x_n)-A| \geqslant \varepsilon$恒成立，可知数列$f(x_n)$并不收敛到$A$，这样，我们就证明了如果函数$f(x)$当$x \to x_0$时不以$A$为极限，那么就可以构造出一个以$x_0$为极限的数列$x_n$，使得$f(x_n)$也不以$A$为极限，这与我们的条件是矛盾的，所以充分性得证。
+\end{proof}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
