@@ -1,0 +1,41 @@
+
+\section{刻画实数完备性的几个定理}
+\label{sec:some-theorems-for-real-completeness}
+
+
+\begin{theorem}[确界定理]
+  如果数集有上界，则必有上确界，如果有下界，则必有下确界。
+\end{theorem}
+
+\begin{theorem}[单调有界定理]
+  单调递增有上界的数列收敛，单调递减有下界的数列也收敛。
+\end{theorem}
+
+\begin{theorem}[柯西收敛准则]
+  数列$x_n$收敛的充分必要条件是，对于任意正实数$\epsilon$，都存在正整数$N$，使得对于任意满足$n_1>N,n_2>N$的$n_1,n_2$都成立$|x_{n_1}-x_{n_2}| < \epsilon$。
+\end{theorem}
+
+\begin{theorem}[闭区间套定理]
+  如果闭区间无穷序列$[a_i,b_i](i=1,2,\ldots)$满足两个条件: (1)$[a_k,b_k]\supset[a_{k+1},b_{k+1}](i=1,2,\ldots)$，(2)$\lim_{n\to\infty}(b_n-a_n)=0$，则存在唯一实数，同时位于所有闭区间内。
+\end{theorem}
+
+\begin{theorem}[有限覆盖定理]
+  如果有无穷多个开区间的并集覆盖了一个闭区间，那么能够从中选取有限个开区间，它们的并集就足够覆盖这个闭区间了。
+\end{theorem}
+
+\begin{definition}
+  对于一个数集和一个实数，如果在这实数的任意空心邻域内都有这数集中的数，则这实数称为这数集的\emph{聚点}。
+\end{definition}
+
+容易知道，假若$x$是数集$A$的一个聚点，则它的任意邻域内必包含数集中的无穷多个数。
+
+\begin{theorem}[聚点定理]
+  有界的无穷数集必有聚点。
+\end{theorem}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
