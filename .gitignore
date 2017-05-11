@@ -1,0 +1,16 @@
+.*
+*.eps
+*.pdf
+*.swp
+*.log
+*.aux
+*.maf
+*.mtc
+*.mtc*
+*.toc
+*.out
+*.dvi
+*~
+*#*#
+_*_.*
+auto/*
