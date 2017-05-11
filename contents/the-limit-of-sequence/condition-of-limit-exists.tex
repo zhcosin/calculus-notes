@@ -42,6 +42,50 @@
   只证明单调递增有上界的情况，假如数列$x_n$就是这样的数列，它的上确界是$M$，则数列中的全部项都满足$x_n \leqslant M$，另外，对于任意小的正实数$\epsilon$，由上确界定义，总存在某个$x_N$满足$x_N>M-\epsilon$，再由单调性即知对于$n>N$恒有$M-\epsilon < x_n \leqslant M < M+\epsilon$，所以$M$就是这数列的极限。
 \end{proof}
 
+\subsection{一个重要的数列极限}
+\label{sec:a-import-sequence-limit}
+
+这一小节我们来证明下面这个数列有极限:
+\[ x_n=\left( 1+\frac{1}{n} \right)^n \]
+
+\begin{proof}[证明一]\footnote{这个证明来自参考文献\cite{olympic-math}.}
+  由多元均值不等式，把$x_n$看成$n$个$(1+1/n)$的乘积，再添加上一个因数1构成$n+1$个数的乘积，有
+  \[ \left( 1+\frac{1}{n} \right)^n = 1 \cdot \left( 1+\frac{1}{n} \right)^n < \left( \frac{1+n\left( 1+\frac{1}{n} \right)}{n+1} \right)^{n+1} = \left( 1+\frac{1}{n+1} \right)^{n+1} \]
+  这便表明它是递增的。
+
+  下证它是有上界的，把$n+1$拆分成$\frac{5}{6}$和$n$个$1+\frac{1}{6n}$，由均值不等式得
+  \[ n+1 = \frac{5}{6} + n \left( 1+\frac{1}{6n} \right) > (n+1)\sqrt[n+1]{\frac{5}{6} \cdot \left( 1+\frac{1}{6n} \right)^n} \]
+  整理即得
+  \[ \left( 1+\frac{1}{6n} \right)^n < \frac{5}{6} \]
+  所以
+  \[ \left( 1+\frac{1}{6n} \right)^{6n} < \left( \frac{5}{6} \right)^6 < 3 \]
+  于是由单调性便知
+  \[ \left( 1+\frac{1}{n} \right)^n < 3 \]
+  所以数列$x_n$单调增加且有上界，故此存在极限。
+\end{proof}
+
+\begin{proof}[证明二]\footnote{这个证明来自于参考文献\cite{math-analysis}.}
+  把$x_n$按二项式定理展开得
+  \begin{eqnarray*}
+    x_n & = & \sum_{i=0}^n C_n^i \frac{1}{n^i} \\
+    & = & \sum_{i=0}^n \frac{1}{i!}\left( 1-\frac{1}{n} \right) \left( 1-\frac{2}{n} \right)\cdots \left( 1-\frac{i-1}{n} \right)
+  \end{eqnarray*}
+  易见对于$x_{n+1}$而言，在上式的基础上会多出$i=n+1$的一个正项，并且其它项是把上式中每一个项中的每一个因子$1-\frac{i}{n}$更换为更大的因子$1-\frac{i}{n+1}$，所以$x_{n+1}>x_n$，这是一个递增的数列.
+
+  将每一个项中的所有$(1-i/n)$因子全部放大为1，则有
+  \[  x_n < 1+\frac{1}{1!}+\frac{1}{2!}+\cdots+\frac{1}{n!} \]
+  接下来有两种放缩方式都可以证明它有上限:
+  \[ \frac{1}{k!} < \frac{1}{k(k-1)} = \frac{1}{k-1} - \frac{1}{k} \]
+  和
+  \[ \frac{1}{k!} < \frac{1}{2^{k-1}} \]
+  于是
+  \[ x_n < 2 + \sum_{i=2}^n \left( \frac{1}{i-1}-\frac{1}{i} \right) = 3-\frac{1}{n} < 3 \]
+  或者
+  \[ x_n < 2 + \sum_{i=2}^n \frac{1}{2^{i-1}} = 3-\frac{1}{2^{n-1}} < 3 \]
+  所以数列单调递增有上界，故此有极限.
+\end{proof}
+
+
 \subsection{柯西收敛准则}
 \label{sec:cauchy-converage-principle}
 
