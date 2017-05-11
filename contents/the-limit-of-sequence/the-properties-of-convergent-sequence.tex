@@ -50,6 +50,14 @@
   对于任意正实数$\epsilon>0$，上式的分子能从某一个下标$N$开始恒小于$\epsilon$，同时再取另外一个正实数$|y|/2$，数列能从某项起恒有$|y_n|>|y|/2$，于是从某个下标开始，上式就能恒小于$2\epsilon / y^2$，所以数列$1/y_n$收敛到$1/y$，再将$x_n/y_n$视为$x_n$乘以$1/y_n$并利用乘积的结果，便得商的情形。
 \end{proof}
 
+\begin{example}
+  \label{example:limit-of-n-sqrt-a}
+  设实数$a>0$且$a \neq 1$，证明极限$\lim_{n \to \infty} \sqrt[n]{a} = 1$.
+
+  我们在 \autoref{example:limit-of-n-sqrt-a-when-a-greater-than-1}中已经证明了$a>1$时的情形，现在假设$0<a<1$，则有
+  \[ \lim_{n \to \infty} \sqrt[n]{a} = \lim_{n \to \infty} \frac{1}{\sqrt[n]{\frac{1}{a}}} = 1 \]
+\end{example}
+
 \begin{theorem}[Stolz 定理]
   对于两个数列$x_n$和$y_n$，其中$y_n$是一个单调增或者单调减的数列，如果$\lim_{n\to\infty}\frac{x_{n+1}-x_n}{y_{n+1}-y_n} = M$，那么有$\lim \frac{x_n}{y_n} = M$。
 \end{theorem}

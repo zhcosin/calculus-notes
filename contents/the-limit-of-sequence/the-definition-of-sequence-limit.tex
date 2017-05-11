@@ -25,6 +25,26 @@
 \subsection{一些例子}
 \label{sec:some-example-for-number-sequence}
 
+\begin{example}
+  \label{example:limit-of-n-sqrt-a-when-a-greater-than-1}
+  设实数$a>1$且，则 $\lim_{n \to \infty} \sqrt[n]{a} = 1$
+
+  \begin{proof}[证明一]
+    利用乘法公式$x^n-1=(x-1)(x^{n-1}+x^{n-2}+\cdots+1)$可得
+    \[ \sqrt[n]{a}-1 = \frac{a-1}{(\sqrt[n]{a})^{n-1}+(\sqrt[n]{a})^{n-2}+\cdots+1} < \frac{1}{n}(a-1) \]
+   于是对于任意正实数$\varepsilon$，只要取$N>\frac{a-1}{\varepsilon}$便能保证$n>N$时有$0<\sqrt[n]{a}-1<\varepsilon$,所以这极限得证。
+  \end{proof}
+
+  \begin{proof}[证明二]
+    设$z_n=\sqrt[n]{a}-1$，则
+    \[ a = (1+z_n)^n = 1+ nz_n+\frac{1}{2!}z_n^2+\cdots+z_n^n > 1+ n z_n \]
+    所以得到
+    \[ 0<z_n<\frac{1}{n}(a-1) \]
+    下同证明一.
+  \end{proof}
+\end{example}
+
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../book"
