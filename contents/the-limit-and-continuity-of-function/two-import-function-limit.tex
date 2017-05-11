@@ -51,7 +51,7 @@
   \[ \lim_{x \to +\infty} \left( 1+\frac{1}{x} \right)^x = e \]
   这是函数在正无穷远处的极限，再来看负无穷处的极限，当$x$以负值趋于负无穷时，令$x=-t$，则$x$趋于负无穷等价于$t$趋于正无穷，而
   \[ \left( 1+\frac{1}{x} \right)^x = \frac{1}{\left( 1-\frac{1}{t} \right)^t} = \left( 1+\frac{1}{t-1} \right)^t = \left( 1+\frac{1}{t-1} \right)^{(t-1) \cdot \frac{t}{t-1}} \]
-  利用复合函数的极限结果，便知当式右端当$t \to +\infty$时的极限是$e$，所以当$x \to -\infty$时左端的极限也就是$e$，所以最终当$x \to \infty$时，函数$(1+1/x)^x$的极限都是$e$.
+  利用复合函数的极限结果(\autoref{theorem:limit-of-combine-function})，便知当式右端当$t \to +\infty$时的极限是$e$，所以当$x \to -\infty$时左端的极限也就是$e$，所以最终当$x \to \infty$时，函数$(1+1/x)^x$的极限都是$e$.
 \end{proof}
 
 %%% Local Variables:

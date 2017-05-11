@@ -35,6 +35,19 @@
   \lim_{x \to x_0} \frac{f(x)}{g(x)} & = & \frac{\lim_{x \to x_0} f(x)}{\lim_{x \to x_0} g(x)}  
 \end{eqnarray*}
 
+关于复合函数的极限，有如下结论
+\begin{theorem}
+  \label{theorem:limit-of-combine-function}
+  设有如下函数极限
+  \[ \lim_{x \to x_0}g(x) = u_0, \  \lim_{u \to u_0}f(u) = y_0 \]
+  则有
+  \[ \lim_{x \to x_0} f(g(x))=y_0 \]
+\end{theorem}
+
+\begin{proof}[证明]
+  因为当$u \to u_0$时，$f(u) \to y_0$，所以对于无论多么小的正实数$\varepsilon$，总存在另一正实数$\delta$，使得当$|u-u_0|<\delta$时恒有$|f(u)-y_0|<\varepsilon$，而又由于当$x \to x_0$时$g(x) \to u_0$，所以对于前面提到的$\delta$，存在另一正实数$r$，使得当$|x-x_0|<r$时恒有$|g(x)-u_0|<\delta$，从而有$|f(g(x))-y_0|<\varepsilon$，所以最终得到的结论就是：对于无论多么小的正实数$\varepsilon$，总存在另一正实数$r$，使得当$|x-x_0|<r$时，恒有$|f(g(x))-y_0|<\varepsilon$，这就证得结论。
+\end{proof}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../book"
