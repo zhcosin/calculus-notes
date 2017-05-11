@@ -26,6 +26,10 @@
   函数$f(x)$在$x_0$的某空心邻域内有定义，则它在该存在极限的充分必要条件是: 任给无论多么小的正实数$\varepsilon$，恒存在另一正实数$\delta$，使得对任意满足$|x-x_0|<\delta$的两个实数$x_1$和$x_2$都成立$|f(x_1)-f(x_2)|<\varepsilon$.
 \end{theorem}
 
+\begin{proof}[证明]
+  必要性是容易证明的，略去，下证充分性，取正实数数列$\varepsilon_n=1/n(n=1,2,\ldots)$，存在另一单调递减的正实数数列$\delta_n$，使得对于任意满足$|x_1-x_0|<\delta_n$和$|x_2-x_0|<\delta_n$的$x_1,x_2$都成立$|f(x_1)-f(x_2)|<\varepsilon_n$，于是函数$f(x)$在$x_0$的以$\delta_n$为半径的空心邻域内的函数值都必将限于一个长度为$\varepsilon$的闭区间$[m_n,M_n]$上，显然这个闭区间序列符合闭区间套定理的条件，所以有唯一实数$A$从属于所有的闭区间，显然这实数$A$也是函数$f(x)$在$x_0$处的极限。
+\end{proof}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../book"
