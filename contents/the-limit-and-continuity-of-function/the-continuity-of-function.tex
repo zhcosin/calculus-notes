@@ -1,0 +1,50 @@
+
+\section{函数的连续性}
+\label{sec:the-continuity-of-function}
+
+\subsection{连续的概念与性质}
+\label{sec:the-concept-and-properties-of-continuity-function}
+
+\begin{definition}
+  如果函数$f(x)$在$x_0$处的极限正好是该点处的函数值$f(x_0)$则称函数在$x_0$处 \emph{连续}，即
+  \[ \lim_{x \to x_0} = f(x_0) \]
+\end{definition}
+
+如果是该点处的左极限等于该点处函数值，则称函数在该点处 \emph{左连续}，类似的有 \emph{右连续}的概念。
+
+连续用极限的精确语言描述就是，对于无论多么小的正实数$\varepsilon$，恒存在另一正实数$\delta$，使得对区间$(x_0-\delta, x_0+\delta)$上的一切实数成立着$|f(x)-f(x_0)|<\varepsilon$成立。
+
+如果函数在某点处不连续，则称该点是函数的一个 \emph{间断点}，如果函数在该点处存在极限，只是这极限与函数值不相等或者该点根本就没有定义函数值，那么称这点是 \emph{可去间断点}，可以通过改变或者定义该点的函数值为该点的极限值的方式来将函数进行 \emph{连续开拓}。
+
+讨论下函数在某点处连续时所具有的性质:
+\begin{theorem}[局部有界性]
+  若函数在某点处连续，则必在该点的某邻域上有界。
+\end{theorem}
+
+\begin{theorem}[局部保号性]
+  若函数在$x_0$处连续，则对于任意小于$f(x_0)$的实数$r$，存在$x_0$的某邻域$(x_0-\delta,x_0+\delta)$，使得函数在该邻域内恒有$f(x)>r$，类似的，对于任意大于$f(x_0)$的实数$r$，也存在$x_0$的某邻域$(x_0-\delta,x_0+\delta)$，使得函数在该区间上恒有$f(x)<r$.
+\end{theorem}
+
+\begin{inference}
+  如果函数在某点处连续，且该点处函数值为正，则存在该点的某邻域内，函数在这邻域内恒为正号，同理，如果该点函数值为负，则函数必在该点的某邻域内恒保持负号。
+\end{inference}
+
+\begin{theorem}
+  如果函数$f(x)$和$g(x)$都在$x_0$处连续，则它们的和、差、积、商所作成的函数在该点也连续，在商的情形，要求$g(x_0) \neq 0$。
+\end{theorem}
+
+\begin{theorem}[复合函数的连续性]
+  设函数$g(x)$在$x_0$处连续，记$u_0=g(x_0)$，若另一函数$f(u)$在$u_0$处连续，则复合函数$f(g(x))$在$x_0$处连续。
+\end{theorem}
+
+以上性质和定理均可直接由极限的相应性质得出。
+
+\subsection{初等函数的连续性}
+\label{sec:the-continuity-of-elementary-function}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
