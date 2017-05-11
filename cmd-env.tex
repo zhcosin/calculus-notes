@@ -20,6 +20,27 @@
 % 使公式编号与章节关联，命令由 amsmath 宏包提供
 \numberwithin{equation}{section}
 
+% 配合 \autoref 命令使引用不只引用编号，也能引用环境命名，如: 定理 3.2.5，来自 hyperref 宏包。
+%\newcommand\equationautorefname{式}
+%\newcommand\footnoteautorefname{脚注}%
+%\newcommand\itemautorefname{项}
+\def\figureautorefname{图}
+\def\tableautorefname{表}
+\def\chapterautorefname{章}
+\def\sectionautorefname{节}
+\def\subsectionautorefname{小节}
+\def\appendixautorefname{附录}
+\def\propertyautorefname{性质}
+\def\theoremautorefname{定理}
+\def\definitionautorefname{定义}
+\def\inferenceautorefname{推论}
+\def\axiomautorefname{公理}
+\def\lemmaautorefname{引理}
+\def\principleautorefname{原理}
+\def\exerciseautorefname{题目}
+\def\topicautorefname{问题}
+\def\statementautorefname{命题}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "book"
