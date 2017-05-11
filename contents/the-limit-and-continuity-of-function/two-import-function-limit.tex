@@ -9,10 +9,50 @@
   \[ \lim_{x \to 0} \frac{\sin{x}}{x} = 1 \]
 \end{theorem}
 
+\begin{proof}[证明]
+
+  如\autoref{fig:limit-of-sinx-over-x-at-0}，在单位圆中，点$A$和$C$是圆周上两点,并且$\angle AOC$的弧度值为$x$，$x$是锐角，$OC$与点$A$处的切线相交于点$B$,由图可得
+  
+\begin{figure}[htbp]
+\centering
+\includegraphics{contents/the-limit-and-continuity-of-function/pic/limit-of-sinx-over-x-at-0.pdf}
+\includegraphics{contents/the-limit-and-continuity-of-function/pic/graphy-of-function-sinx-over-x.pdf}
+\caption{}
+\label{fig:limit-of-sinx-over-x-at-0}
+\end{figure}
+
+  \[ S_{\triangle AOC} < S_{\text{扇形}AOC} < S_{\triangle AOB} \]
+  于是便得
+  \[ \sin{x} < x < \tan{x} \]
+  从而
+  \[ \cos{x} < \frac{\sin{x}}{x} < 1 \]
+  而当$x \to 0$时, $\cos{x} \to 1$，所以最终得极限
+  \[ \lim_{x \to 0} \frac{\sin{x}}{x} = 1 \]
+\end{proof}
+
+函数$f(x)=\sin{x}/x$在$x=0$附近的图象如\autoref{fig:limit-of-sinx-over-x-at-0}所示，它的图象反得在函数$y=1/x$和$y=-1/x$之间振荡，在$x=0$附近，函数值趋于1，但它在$x=0$处并无定义。
+
+我们在数列极限的部分曾经证明过下面这个数列存在极限
+\[ x_n = \left( 1+\frac{1}{n} \right)^n \]
+并把它的极限记作$e$，今来把它推广成函数的极限，这就是以下的定理:
 \begin{theorem}
   \[ \lim_{x \to \infty} \left( 1+\frac{1}{x} \right)^x = e \]
   这里$e$是自然对数的底数.
 \end{theorem}
+
+\begin{proof}[证明]
+  设实数$x$的整数部分为$n$，即$n \leqslant x < n+1$，有
+  \[ \left( 1+\frac{1}{n+1} \right)^n < \left( 1+\frac{1}{x} \right)^x < \left( 1+\frac{1}{n} \right)^{n+1} \]
+  显见左右两边作为两个数列，都以$e$为极限，我们把这左右两边转化为两个函数，即设$x$的整数部分为$n$，定义
+  \[ h_1(x) =  \left( 1+\frac{1}{n+1} \right)^n, \ h_2(x)=\left( 1+\frac{1}{n} \right)^{n+1} \]
+  于是就有
+  \[ \lim_{x \to +\infty} h_1(x) = \lim_{x \to +\infty} h_2(x) = e \]
+  所以由夹逼准则即得
+  \[ \lim_{x \to +\infty} \left( 1+\frac{1}{x} \right)^x = e \]
+  这是函数在正无穷远处的极限，再来看负无穷处的极限，当$x$以负值趋于负无穷时，令$x=-t$，则$x$趋于负无穷等价于$t$趋于正无穷，而
+  \[ \left( 1+\frac{1}{x} \right)^x = \frac{1}{\left( 1-\frac{1}{t} \right)^t} = \left( 1+\frac{1}{t-1} \right)^t = \left( 1+\frac{1}{t-1} \right)^{(t-1) \cdot \frac{t}{t-1}} \]
+  利用复合函数的极限结果，便知当式右端当$t \to +\infty$时的极限是$e$，所以当$x \to -\infty$时左端的极限也就是$e$，所以最终当$x \to \infty$时，函数$(1+1/x)^x$的极限都是$e$.
+\end{proof}
 
 %%% Local Variables:
 %%% mode: latex
