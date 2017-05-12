@@ -64,9 +64,9 @@
 \end{lemma}
 
 \begin{proof}[证明]
-  我们在\autoref{example:limit-of-n-sqrt-a}中已经证得$\lim_{n \to \infty} \sqrt[n]{a} = 1$，因此对于任意小的正实数$\varepsilon$，都存在正整数$N$，使得$n>N$时恒有$|\sqrt[n]{a}-1|<\varepsilon$，在$a>1$时，就是$1<\sqrt[n]{a}<1+\epsilon$，现在就任意取定一个$n_0>N$，从而有$1<\sqrt[n_0]{a}<1+\varepsilon$ 而由引理条件，$r_n$以零为极限，所以对于正实数$1/n_0$，存在正整数$N_1$，使得当$n>N_1$时有$|r_n|<1/n_0$，这时按照定义在有理数集上的指数函数的单调性，
-  \[ 1<a^{r_n}<\sqrt[n_0]{a}<1+\varepsilon \]
-  由此即知$|a^{r_n}-1|<\varepsilon$，所以只要$n>\max{N, N_1}$时便能保证$|a^{r_n}-1|<\varepsilon$，这即表明引理中的极限成立，而类似的可以证明$0<a<1$的情况。
+  我们在\autoref{example:limit-of-n-sqrt-a}中已经证得$\lim_{n \to \infty} \sqrt[n]{a} = 1$，因此对于任意小的正实数$\varepsilon$，都存在正整数$N$，使得$n>N$时恒有$|\sqrt[n]{a}-1|<\varepsilon$，在$a>1$时，就是$1<\sqrt[n]{a}<1+\epsilon$，现在就任意取定一个$n_0>N$，从而有$1<\sqrt[n_0]{a}<1+\varepsilon$ 而由引理条件，$r_n$以零为极限，所以对于正实数$1/n_0$，存在正整数$N_1$，使得当$n>N_1$时有$|r_n|<1/n_0$，这时按照定义在有理数集上的指数函数的单调性(下式中做了限定$\varepsilon<1$)
+  \[ 1-\varepsilon<\frac{1}{1+\varepsilon}<\frac{1}{\sqrt[n_0]{a}}<a^{r_n}<\sqrt[n_0]{a}<1+\varepsilon \]
+  由此即知$|a^{r_n}-1|<\varepsilon$，所以只要$n>\max\{N, N_1\}$时便能保证$|a^{r_n}-1|<\varepsilon$，这即表明引理中的极限成立，而类似的可以证明$0<a<1$的情况。
 \end{proof}
 
 现在回过头来证明前面的定理
@@ -74,7 +74,7 @@
   我们先通过两个特殊的有理数数列来确定出这个极限值来，再证明所有收敛到无理数$r$的有理数数列都必以它为极限。
 
   取无理数$r$的$n$位不足近似值$x_n$和$n$位过剩近似值$y_n$，即$x_n$是把无理数$r$的第$n$位小数以后的小数全部舍去而得的有理数，$y_n$是把它第$n$位小数以后的小数收上来而得到的有理数，显然$x_n<r<y_n$并且$y_n-x_n=10^{-n}$,同时，$x_n$单调不减，而$y_n$单调不增，考虑由它们构成的两个有理指数幂的数列$a^{x_n}$和$a^{y_n}$，由定义在有理数集上的指数函数的单调性，在$a>1$的假定下有
-  \[ a^{x_n} \leqslant a^{x_{n+1}} \leqslant \cdots a^{y_{n+1}} \leqslant a^{y_n} \]
+  \[ a^{x_n} \leqslant a^{x_{n+1}} \leqslant \cdots \leqslant a^{y_{n+1}} \leqslant a^{y_n} \]
   于是作闭区间序列$U_n = [a^{x_n},a^{y_n}]$，则显见$U_{n+1} \subset U_n$，而区间的长度$a^{y_n}-a^{x_n}=a^{x_n}(a^{y_n-x_n}-1)$，因为$y_n-x_n=10^{-n} \to 1$，由刚才所证的引理，$a^{y_n-x_n}-1$是一个无穷小，而前面的因子$a^{x_n}<a^{y_n} \leqslant a^{y_1}$是有界量，所以这闭区间的长度序列趋于零，于是由闭区间套定理，存在唯一实数$K$，使得$a^{x_n}<K<a^{y_n}$对一切正整数$n$成立，显然$\lim_{n \to \infty}a^{x_n} = \lim_{n \to \infty}a^{y_n}=K$。
 
   接下来我们需要证明，对于其它任何收敛到无理数$r$的有理数数列$z_n$，也必将有$\lim_{n \to \infty}a^{z_n}=K$，这是因为
