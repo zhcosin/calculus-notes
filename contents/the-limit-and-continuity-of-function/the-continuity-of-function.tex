@@ -208,12 +208,7 @@
 所以$a^x < a^y$，这就表明$a>1$时，指数函数$0<a<1$是$R$上的递增函数，而对于$0<a<1$的情况，容易知道$a^{-x}=1/a^x$对无理数$x$也是成立的，所以由这关系即可知道$0<a<1$时指数函数是单调递减的。
 \end{proof}
 
-接着考虑指数函数在$R$上的连续性
-\begin{theorem}
-  定义在$R$上的指数函数$f(x)=a^x$($a>0$且$a \neq 1$)，是$R$上的连续函数。
-\end{theorem}
-
-为着证明这一点，我们需要先证一个极限
+接着考虑指数函数在$R$上的连续性，结论是，指数函数是实数集$R$上的连续函数。为着证明这一点，我们需要先证一个极限
 \begin{lemma}
   \label{lemma:a-power-x-to-1-when-real-x-to-0}
   设实数$a>0$且$a \neq 1$，则有极限$\lim_{x \to 0} a^x = 1$
@@ -227,11 +222,17 @@
   这就表明区间$(-\delta,\delta)$上的全体实数$x$无论有理数无理数都满足$|a^x-1|<\varepsilon$，所以此极限得证。
 \end{proof}
 
+\begin{theorem}
+  定义在$R$上的指数函数$f(x)=a^x$($a>0$且$a \neq 1$)，是$R$上的连续函数。
+\end{theorem}
+
 \begin{proof}[证明]
   只要证明它在$R$上任何一点$x_0$处都连续即可，因为
   \[ a^{x_0+h} - a^{x_0} = a^{x_0}(a^h-1) \]
   由\autoref{lemma:a-power-x-to-1-when-real-x-to-0}即知$\lim_{h \to 0} a^{x_0+h} = a^{x_0}$，这就表明指数函数在$x_0$处是连续的，由$x_0$的任意性即得知它在整个$R$上都是连续的。
 \end{proof}
+
+现在，我们有了定义在全体实数上的指数函数，并且也知道它在$R$上是单调增加的，那么它就必然存在反函数，这就是对数函数，我们把指数弄清楚了，对数的含义以及对数函数的性质也就清楚了。
 
 \subsection{初等函数的连续性}
 \label{sec:the-continuity-of-elementary-function}
