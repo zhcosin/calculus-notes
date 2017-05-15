@@ -6,10 +6,10 @@
 \label{sec:definition-number-sequence-limit}
 
 \begin{definition}
-  对于实数数列${a_n}$，如果存在实数$a$，使得对于任意小的正实数$\epsilon$，都存在某一下标$N$，使得该数列在这之后的所有项(即$n>N$)都满足
+  对于实数数列${a_n}$，如果存在实数$a$，使得对于任意小的正实数$\varepsilon$，都存在某一下标$N$，使得该数列在这之后的所有项(即$n>N$)都满足
   \begin{equation}
     \label{eq:the-definition-of-sequence-limit}
-    |a_n-a|<\epsilon
+    |a_n-a|<\varepsilon
   \end{equation}
   则称该数列存在极限，实数$a$称为该数列的极限。也称该数列为收敛数列，并且收敛到实数$a$，记为
   \begin{equation}
@@ -24,6 +24,17 @@
 
 \subsection{一些例子}
 \label{sec:some-example-for-number-sequence}
+
+\begin{example}
+  设实数$a>1$，则
+  \[ \lim_{n \to \infty} \frac{1}{a^n} = 0 \]
+
+  对于无论多么小的正实数$\varepsilon$，为了找到极限定义中所要求的$N$，考虑不等式
+  \[ \frac{1}{a^n} < \varepsilon \]
+  也就是$a^n>1/\varepsilon$，设$a=1+\lambda$，则$\lambda>0$，按二项式定理有\footnote{我们这里并没有从$a^n>1/\varepsilon$中直接使用对数来得出$n>\log_a{(1/\varepsilon)}$，这是因为尽管中学数学中已经学过对数概念，但那时还没有给出无理指数幂的定义，所以指数的定义是不完整的，因此我们无法确认，对于底数$a$，正实数$1/\varepsilon$的对数是否存在，以后我们将在\autoref{sec:the-power-of-real-with-rational-exponent}中专门讨论指数的定义和值域问题。}
+  \[ a^n = (1+\lambda)^n = 1 + n\lambda + \frac{n(n-1)}{2!}\lambda^2+\cdots+\lambda^n > 1+n \lambda \]
+  所以只要$1+n\lambda>1/\varepsilon$，便能保证$a^n>1/\varepsilon$成立，也就是只需要$n > (1/\varepsilon-1) / (a-1)$就行了，所以只要选择$N>(1/\varepsilon-1)/(a-1)$就行了，这就证得了此极限。
+\end{example}
 
 \begin{example}
   \label{example:limit-of-n-sqrt-a-when-a-greater-than-1}
