@@ -239,6 +239,18 @@
   设实数$a>0$且$a \neq 1$，则指数函数$f(x)=a^x$的函数值可以取遍一切正实数，换句话说，它的值域是$(0,+\infty)$.
 \end{theorem}
 
+先证明如下引理
+\begin{lemma}
+  \label{lemma:exponent-fucntion-is-positive}
+  指数函数$f(x)=a^x$($a>0$且$a \neq 1$)的函数值恒为正值。
+\end{lemma}
+
+\begin{proof}[证明]
+  由指数的定义可知，当$x$为有理数时恒有$a^x>0$，只要证明$x$为无理数时仍有此结论便可，由
+  \[ a^x = \frac{1}{\left( \frac{1}{a} \right)^x} \]
+  知只要证明$a>1$的情况就可以了，在$a>1$和$x$为无理数的情况下，设$r$是一个小于$x$的有理数，由指数函数单调性即有$0<a^r<a^x$，这就证得了结论。
+\end{proof}
+
 \subsection{初等函数的连续性}
 \label{sec:the-continuity-of-elementary-function}
 
