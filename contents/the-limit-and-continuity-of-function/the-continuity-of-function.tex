@@ -38,6 +38,7 @@
 \end{theorem}
 
 \begin{theorem}[复合函数的连续性]
+  \label{theorem:the-continuity-of-combine-function}
   设函数$g(x)$在$x_0$处连续，记$u_0=g(x_0)$，若另一函数$f(u)$在$u_0$处连续，则复合函数$f(g(x))$在$x_0$处连续。
 \end{theorem}
 
@@ -239,17 +240,7 @@
   设实数$a>0$且$a \neq 1$，则指数函数$f(x)=a^x$的函数值可以取遍一切正实数，换句话说，它的值域是$(0,+\infty)$.
 \end{theorem}
 
-先证明如下引理
-\begin{lemma}
-  \label{lemma:exponent-fucntion-is-positive}
-  指数函数$f(x)=a^x$($a>0$且$a \neq 1$)的函数值恒为正值。
-\end{lemma}
-
-\begin{proof}[证明]
-  由指数的定义可知，当$x$为有理数时恒有$a^x>0$，只要证明$x$为无理数时仍有此结论便可，由
-  \[ a^x = \frac{1}{\left( \frac{1}{a} \right)^x} \]
-  知只要证明$a>1$的情况就可以了，在$a>1$和$x$为无理数的情况下，设$r$是一个小于$x$的有理数，由指数函数单调性即有$0<a^r<a^x$，这就证得了结论。
-\end{proof}
+这利用连续函数在闭区间上的介值性便可以证明，我们在本节的后文给出。
 
 \subsection{初等函数的连续性}
 \label{sec:the-continuity-of-elementary-function}
@@ -269,10 +260,31 @@
   显然当$h \to 0$时，右边的各项(有限项)都趋于0，因此$(x_0+h)^p \to x_0^p$，所以函数在$x_0$处连续，由$x_0$的任意性，$p$为正整数的情形得证。
 \end{proof}
 
-2. 指数函数
+2. 指数函数与对数函数
 \begin{theorem}
   指数函数$f(x)=a^x(a>0,a\neq 1)$是$R$上的连续函数。
 \end{theorem}
+
+这在上一小节我们已经证明过了。
+
+3. 三角函数.
+\begin{theorem}
+  正弦函数$f(x)=\sin{x}$在$R$上连续，余弦函数$g(x)=\cos{x}$在$R$上连续，正切函数$h(x)=\tan{x}$在定义域的每一个区间上都是连续函数。
+\end{theorem}
+
+\begin{proof}[证明]
+  先证明正弦函数，任取$x_0 \in R$，有
+  \[ \sin{(x_0+r)} - \sin{x_0} = 2\cos{ \left( x_0 + \frac{r}{2} \right) }\sin{ \frac{h}{2} } \]
+  我们在\autoref{theorem:sinx-over-x-to-1-when-x-to-0}中就已经知道，不等式$|\sin{x}| \leqslant |x|$对一切实数$x$恒成立，所以当$r \to 0$时，上式右端是一个有界量和一个无穷小的乘积，也收敛到零，所以
+  \[ \lim_{r \to 0} \sin{(x_0+r)} = \sin{x_0} \]
+  从而正弦函数在$x_0$处连续，由$x_0$的任意性，它在$R$上都是连续的。
+
+  对于余弦函数，把它写成
+  \[ \cos{x} = \sin{ \left( x+\frac{\pi}{2} \right) } \]
+  由正弦函数的连续性和关于复合函数连续性的\autoref{theorem:the-continuity-of-combine-function}即知余弦函数也是连续的。
+
+  正切函数，把它表为正弦函数和余弦函数的商，由商函数的连续性即知它在定义域的各区间上也都是连续的。
+\end{proof}
 
 
 
