@@ -99,6 +99,19 @@
   如果数列$x_n$收敛到$x$，那么对于任意正实数$\epsilon$，都有正整数$N$，使得$n>N$时恒有$|x_n-x|<\epsilon / 2$，于是对于任意$n_1>N$及$n_2>N$，便有$|x_{n_1}-x_{n_2}|=|(x_{n_1}-x)- (x_{n_2}-x)|\leqslant |x_{n_1}-x|+|x_{n_2}-x|<\epsilon / 2+\epsilon / 2 = \epsilon$。必要性得证。
 \end{proof}
 
+\begin{example}
+  前$n$个正整数的平方倒数和
+  \[ S_n = 1 + \frac{1}{2^2} + \cdots + \frac{1}{n^2} \]
+  对它的片段有
+  \begin{eqnarray*}
+    S_{m+p}-S_m  & = & \frac{1}{(m+1)^2} + \frac{1}{(m+2)^2} + \cdots + \frac{1}{(m+p)^2} \\
+                 & < & \frac{1}{m(m+1)} + \frac{1}{(m+1)(m+2)} + \cdots + \frac{1}{(m+p-1)(m+p)} \\
+                 & = & \left( \frac{1}{m} - \frac{1}{m+1} \right) + \left( \frac{1}{m+1} - \frac{1}{m+2} \right) + \cdots + \left( \frac{1}{m+p-1} - \frac{1}{m+p} \right) \\
+    & = & \frac{1}{m} - \frac{1}{m+p} < \frac{1}{m}
+  \end{eqnarray*}
+  所以对于任意正实数$\varepsilon$，只要取$N>1/\varepsilon$，就能保证柯西条件成立，于是数列$S_n$有极限，不过这极限值在此处是求不出来的，在以后我们将会利用无穷级数理论，得到它的极限值，这极限值与圆周率有关:
+  \[ \lim_{n \to \infty} \sum_{i=1}^n \frac{1}{i^2} = \frac{\pi^2}{6} \]
+\end{example}
 
 %%% Local Variables:
 %%% mode: latex
