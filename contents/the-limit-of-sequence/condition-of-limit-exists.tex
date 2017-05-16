@@ -113,6 +113,19 @@
   \[ \lim_{n \to \infty} \sum_{i=1}^n \frac{1}{i^2} = \frac{\pi^2}{6} \]
 \end{example}
 
+\begin{example}
+  前$n$个正整数的阶乘的倒数和
+  \[ T_n = 1 + \frac{1}{2!} + \cdots + \frac{1}{n!} \]
+  它的片段和
+  \begin{eqnarray*}
+    T_{m+p} - T_m & = & \frac{1}{(m+1)!} + \frac{1}{(m+2)!} + \cdots + \frac{1}{(m+p)!} \\
+                  & < & \frac{1}{2^{m+1}} + \frac{1}{2^{m+2}} + \cdots + \frac{1}{2^{m+p}} \\
+    & = & \frac{1}{2^m} \left( 1-\frac{1}{2^p} \right) < \frac{1}{2^m}
+  \end{eqnarray*}
+  可见它也满足柯西收敛条件，所以这个数列也有极限，它的极限便是自然对数的底数$e$:
+  \[ \lim_{n \to \infty} \sum_{i=1}^n \frac{1}{i!} = e \]
+\end{example}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../book"
