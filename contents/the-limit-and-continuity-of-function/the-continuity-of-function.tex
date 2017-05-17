@@ -163,7 +163,7 @@
   设实数$a>0$且$a \neq 1$，$r_n$是一个有理数数列，并且收敛到一个有理数$r$，则$\lim_{n \to \infty} a^{r_n} = a^{r}$.
 \end{lemma}
 
-\begin{proof}
+\begin{proof}[证明]
   由有理数数列$r_n$收敛到有理数$r$即知有理数数列$r_n-r$收敛到零，由\autoref{lemma:a-power-rn-to-1-when-rational-rn-to-0}即知$\lim_{n \to \infty}a^{r_n-r} = 1$，从而
   \[ \lim_{n \to \infty} a^{r_n} = \lim_{n \to \infty} a^{r+(r_n-r)} = \lim_{n \to \infty} a^ra^{r_n-r} = a^r \lim_{n \to \infty}a^{r_n-r} = a^r \]
 \end{proof}
