@@ -41,6 +41,20 @@
   \[ f'(\xi) = \frac{f(a)-f(b)}{a-b} \]
 \end{proof}
 
+\begin{theorem}[柯西(Cauchy)中值定理]
+  如果函数$f(x)$和函数$g(x)$都在闭区间$[a,b]$上连续且在开区间$(a,b)$内可导，并且$g(b) \neq g(a)$，同时导函数$f'(x)$和$g'(x)$不同时取零值，那么存在$\xi \in (a,b)$，使得
+  \[ \frac{f'(\xi)}{g'(\xi)} = \frac{f(a)-f(b)}{g(a)-g(b)} \]
+\end{theorem}
+
+\begin{proof}[证明]
+  作辅助函数
+  \[ h(x) = f(x)-f(a)-\frac{f(a)-f(b)}{g(a)-g(b)}(g(x)-g(a)) \]
+  显见$h(x)$满足罗尔中值定理的条件，因此存在$\xi \in (a,b)$，使得$h'(\xi)=0$，于是
+  \[ \frac{f'(\xi)}{g'(\xi)} = \frac{f(a)-f(b)}{g(a)-g(b)} \]
+\end{proof}
+
+柯西中值定理实际上就是把拉格朗日中值定理应用到了用参数方程$x=f(t),y=g(t)$表示的曲线上。
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../book"
