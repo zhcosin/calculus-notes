@@ -1,0 +1,24 @@
+
+\section{微分中值定理}
+\label{sec:differential-mean-value-theorems}
+
+\begin{theorem}[罗尔定理]
+  如果函数$f(x)$在开区间$(a,b)$上可导，而且在$x_0 \in (a,b)$处取得极大值或者极小值，则必有$f'(x_0)=0$.
+\end{theorem}
+
+\begin{proof}[证明]
+  假定在$x_0$处取得极大值，那么必存在$x_0$的某邻域$(x_0-\delta,x_0+\delta)$，使得任意$x \in (x_0-\delta,x_0+\delta)$有$f(x) \leqslant f(x_0)$，于是当$x \in (x_0-\delta, x_0)$时，成立
+  \[ \frac{f(x)-f(x_0)}{x-x_0} \geqslant 0 \]
+  而在$x \in (x_0,x_0+\delta)$时，则成立
+  \[ \frac{f(x)-f(x_0)}{x-x_0} \leqslant 0 \]
+  于是分别就有
+  \[ f'(x_0-0) = \lim_{x \to x_0^-} \frac{f(x)-f(x_0)}{x-x_0} \geqslant 0 \]
+  和
+  \[ f'(x_0+0) = \lim_{x \to x_0^+} \frac{f(x)-f(x_0)}{x-x_0} \leqslant 0 \]
+  但由$f'(x_0)$是存在的，所以只能$f'(x_0)=0$，极小值的情况也是类似的。
+\end{proof}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
