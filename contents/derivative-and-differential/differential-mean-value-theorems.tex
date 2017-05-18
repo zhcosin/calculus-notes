@@ -2,6 +2,9 @@
 \section{微分中值定理}
 \label{sec:differential-mean-value-theorems}
 
+\subsection{拉格朗日中值定理与柯西中值定理}
+\label{sec:lagrange-and-cauchy-mean-value-theorem}
+
 \begin{theorem}
   \label{theorem:derivative-at-extreme-value-is-0}
   如果函数$f(x)$在$x_0$处取得极大值或者极小值，且该点处可导，则必有$f'(x_0)=0$.
@@ -54,6 +57,26 @@
 \end{proof}
 
 柯西中值定理实际上就是把拉格朗日中值定理应用到了用参数方程$x=f(t),y=g(t)$表示的曲线上。
+
+\subsection{洛必达法则}
+\label{sec:Hospital-limit-rule}
+
+\subsection{泰勒公式}
+\label{sec:taylor-theorem}
+
+\begin{theorem}
+  设函数$f(x)$在$x_0$的某邻域内有定义，而且在$x_0$处存在直到$n$阶的导数，若记
+  \[ T_n(x) = f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2 + \cdots
+    + \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n \]
+  则有
+  \[ f(x) = T_n(x) + o(x-x_0)^n \]
+\end{theorem}
+
+\begin{proof}[证明]
+  只需要证明
+  \[ \lim_{x \to x_0} \frac{f(x) - T_n(x)}{(x-x_0)^n} = 0 \]
+  即可，这只要连续使用$n$次洛必达法则就能办到。
+\end{proof}
 
 %%% Local Variables:
 %%% mode: latex
