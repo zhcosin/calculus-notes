@@ -1,0 +1,53 @@
+
+\section{正项级数的收敛性判别}
+\label{sec:positive-number-series}
+
+对于级数$\sum_{n=1}^{\infty}a_n$，如果它的每一项都是正数（或者当$n$充分大时恒保持正号），我们有一系列的判别方法可以判断它的收敛性。
+
+由于正项级数的部分和是单调增加的，所以回想起数列极限的单调有界定理，我们就有
+
+\begin{theorem}
+  正项级数收敛的充分必要条件是它的部分和有界。
+\end{theorem}
+
+\begin{example}
+  级数$\sum_{n=1}^{\infty}\frac{1}{n(n+1)}$的部分和$S_n=1-\frac{1}{n+1}<1$，所以级数收敛。
+\end{example}
+
+\begin{example}
+  级数$\sum_{n=1}^{\infty}\frac{1}{n!}$的部分和$S_n=1+\frac{1}{1!}+\frac{1}{2!}+\cdots+\frac{1}{n!}$，我们在\autoref{sec:a-import-sequence-limit}便已经得到过$S_n<3$，所以级数收敛。
+\end{example}
+
+\begin{example}
+  \label{example:series-ln-1-plus-1-over-n-converage}
+  级数$\sum_{n=1}^{\infty}\ln{\left( 1+\frac{1}{n} \right)}$，注意到$\ln{\left( 1+\frac{1}{n} \right)} = \ln{(n+1)}-\ln{n}$，所以部分和$S_n=\ln{(n+1)}$，显然无界，所以级数发散。
+\end{example}
+
+如下的比较判别法是相当重要的:
+\begin{theorem}[比较判别法]
+  对于两个正项级数$\sum_{n=1}^{\infty}a_n$和$\sum_{n=1}^{\infty}b_n$，如果从某一项起恒有$a_n \leqslant b_n$，那么由$\sum_{n=1}^{\infty}b_n$的收敛便能推得$\sum_{n=1}^{\infty}a_n$也收敛，同理，由$\sum_{n=1}^{\infty}a_n$发散便能推得$\sum_{n=1}^{\infty}b_n$也发散。
+\end{theorem}
+
+\begin{proof}[证明]
+  由条件，存在下标$N$，使得当$n>N$时恒有$a_n \leqslant b_n$，分别用$A_n$和$B_n$表示两个级数的部分和，则
+  \[ A_n = A_N + (a_{N+1}+\cdots+a_n), \  B_n=B_N+(b_{N+1}+\cdots+b_n) \]
+  显然$A_n - A_N \leqslant B_n-B_N$，所以如果$\sum_{n=1}^{\infty}b_n$收敛，则$B_n$有上界，从而$A_n$也有上界，所以$\sum_{n=1}^{\infty}a_n$也收敛。而如果$\sum_{n=1}^{\infty}$是发散的，那么$A_n$必定没有上界，从而$B_n$也不可能有上界，因而$\sum_{n=1}^{\infty}b_n$也必然发散。
+\end{proof}
+
+这个判别法还有以下的极限形式
+\begin{theorem}
+  如果正项级数$\sum_{n=1}^{\infty}a_n$和正项级数$\sum_{n=1}^{\infty}b_n$的通项之比有极限(有限的或无穷的均可)
+  \[ \lim_{n \to \infty} \frac{a_n}{b_n} = K \]
+  则如果$K$是正常数，那么两个级数同时收敛同时发散。如果$K=0$，则由$\sum_{n=1}^{\infty}b_n$收敛可推得$\sum_{n=1}^{\infty}a_n$也收敛，如果$K=+\infty$，由由$\sum_{n=1}^{\infty}b_n$发散可推得$\sum_{n=1}^{\infty}a_n$也发散。
+\end{theorem}
+
+\begin{example}
+  设$a_n=\frac{1}{n}$，$b_n=\ln{\left( 1+\frac{1}{n} \right)}$，由极限
+  \[ \lim_{n \to \infty} \frac{\frac{1}{n}}{\ln{\left( 1+\frac{1}{n} \right)}} =1 \]
+  知道它们同时收敛同时发散，而在\autoref{example:series-ln-1-plus-1-over-n-converage}中已经知道$\sum_{n=1}^{\infty}b_n$是发散的，所以$\sum_{n=1}^{\infty}a_n$也是发散的。
+\end{example}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
