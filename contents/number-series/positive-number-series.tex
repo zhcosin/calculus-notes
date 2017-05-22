@@ -23,8 +23,12 @@
   级数$\sum_{n=1}^{\infty}\ln{\left( 1+\frac{1}{n} \right)}$，注意到$\ln{\left( 1+\frac{1}{n} \right)} = \ln{(n+1)}-\ln{n}$，所以部分和$S_n=\ln{(n+1)}$，显然无界，所以级数发散。
 \end{example}
 
+\subsection{比较判别法}
+\label{sec:compare-method-aboud-series-converage}
+
 如下的比较判别法是相当重要的:
 \begin{theorem}[比较判别法]
+  \label{theorem:comparison-method-about-series-converage}
   对于两个正项级数$\sum_{n=1}^{\infty}a_n$和$\sum_{n=1}^{\infty}b_n$，如果从某一项起恒有$a_n \leqslant b_n$，那么由$\sum_{n=1}^{\infty}b_n$的收敛便能推得$\sum_{n=1}^{\infty}a_n$也收敛，同理，由$\sum_{n=1}^{\infty}a_n$发散便能推得$\sum_{n=1}^{\infty}b_n$也发散。
 \end{theorem}
 
@@ -33,6 +37,8 @@
   \[ A_n = A_N + (a_{N+1}+\cdots+a_n), \  B_n=B_N+(b_{N+1}+\cdots+b_n) \]
   显然$A_n - A_N \leqslant B_n-B_N$，所以如果$\sum_{n=1}^{\infty}b_n$收敛，则$B_n$有上界，从而$A_n$也有上界，所以$\sum_{n=1}^{\infty}a_n$也收敛。而如果$\sum_{n=1}^{\infty}$是发散的，那么$A_n$必定没有上界，从而$B_n$也不可能有上界，因而$\sum_{n=1}^{\infty}b_n$也必然发散。
 \end{proof}
+
+实际上，条件$a_n \leqslant b_n$可以改成$a_n \leqslant \lambda b_n$，其中$\lambda$是一个正常数，这是因为正项级数$\sum_{n=1}^{\infty}b_n$跟正项级数$\sum_{n=1}^{\infty}\lambda b_n$的收敛性是相同的。
 
 这个判别法还有以下的极限形式
 \begin{theorem}
@@ -46,6 +52,57 @@
   \[ \lim_{n \to \infty} \frac{\frac{1}{n}}{\ln{\left( 1+\frac{1}{n} \right)}} =1 \]
   知道它们同时收敛同时发散，而在\autoref{example:series-ln-1-plus-1-over-n-converage}中已经知道$\sum_{n=1}^{\infty}b_n$是发散的，所以$\sum_{n=1}^{\infty}a_n$也是发散的。
 \end{example}
+
+我们还有另一种形式的比较判别法
+\begin{theorem}
+  对于两个正项级数$\sum_{n=1}^{\infty}a_n$和$\sum_{n=1}^{\infty}b_n$，如果从某一项起恒有
+  \[ \frac{a_{n+1}}{a_n} \leqslant \frac{b_{n+1}}{b_n} \]
+  那么由$\sum_{n=1}^{\infty}b_n$收敛可推出$\sum_{n=1}^{\infty}a_n$也收敛，同样，由$\sum_{n=1}^{\infty}a_n$发散也可以推出$\sum_{n=1}^{\infty}b_n$发散。
+\end{theorem}
+
+\begin{proof}[证明]
+  设从$n>N$时就有条件中的不等式恒成立，则可得
+  \[ \frac{a_n}{a_N} \leqslant \frac{b_n}{b_N} \]
+  由\autoref{theorem:comparison-method-about-series-converage}即得结论。
+\end{proof}
+
+利用比较判别法，我们把给定级数与一些已知为收敛的级数相比较，可以开发出一系列更具体的判别法，下文的判别法，基本都是如此。
+
+\subsection{柯西判别法与达朗贝尔判别法}
+\label{sec:cauchy-dalembert-method-aboud-series-converage}
+
+因为几何级数$\sum_{n=1}^{\infty}q^n$在$0<q<1$时收敛，我们以它为比较标准，就可以得到柯西判别法和达朗贝尔判别法。
+
+\begin{theorem}[柯西判别法]
+  对于正项级数$\sum_{n=1}^{\infty}a_n$，作柯西序列
+  \[ \mathcal{C}_n = \sqrt[n]{a_n} \]
+  如果存在正实数$0<q<1$，使得当$n$充分大时恒有$\mathcal{C}_n \leqslant q$，那么级数$\sum_{n=1}^{\infty}a_n$收敛，如果当$n$充分大时恒有$\mathcal{C}_n \geqslant 1$，那么级数发散。
+\end{theorem}
+
+\begin{proof}[证明]
+  设当$n>N$时恒有$\mathcal{C}_n \leqslant q$，那么此时有$a_n \leqslant q^n$，而级数$\sum_{n=1}^{\infty}q^n$在$0<q<1$时是收敛的，由比较判别法可得$\sum_{n=1}^{\infty}a_n$也收敛。而如果当$n>N$时恒有$\mathcal{C}_n \geqslant 1$，那么此时恒有$a_n \geqslant 1$，通项不能趋于零，故级数发散。
+\end{proof}
+
+柯西判别法也有极限形式
+\begin{inference}
+  对于正项级数$\sum_{n=1}^{\infty}a_n$，如果柯西序列有极限$\lim_{n \to \infty} \mathcal{C}_n=q$，那么当$0<q<1$时级数收敛，当$q>1$时级数发散，当$q=1$时可能收敛也可能发散。
+\end{inference}
+
+\begin{theorem}[达朗贝尔判别法]
+  对于正项级数$\sum_{n=1}^{\infty}a_n$，作达朗贝尔序列
+  \[ \mathcal{D}_n = \frac{a_{n+1}}{a_n} \]
+  如果当$n$充分大时有$\mathcal{D}_n \leqslant q$，其中$0<q<1$为常数，那么级数收敛，如果当$n$充分大时恒有$\mathcal{D}_n \geqslant 1$，那么级数发散。
+\end{theorem}
+
+\begin{proof}[证明]
+  设当$n>N$时，$\mathcal{D}_n \leqslant q$，其中$0<q<1$，那么自然就有$a_n \leqslant a_N q^{n-N}$，由比较判别法即知原级数收敛。而如果当$n>N$时$\mathcal{D}_n \geqslant 1$，那么自然有$a_n \geqslant a_N$，通项不趋于零，级数发散。
+\end{proof}
+
+达朗贝尔判别法的极限形式
+\begin{inference}
+  对于正项级数$\sum_{n=1}^{\infty}a_n$，如果达朗贝尔序列有极限$\lim_{n \to \infty} \mathcal{D}_n = q$，在$0<q<q$时级数收敛，在$q>1$时级数发散，$q=1$时级数可能收敛也可能发散。
+\end{inference}
+
 
 %%% Local Variables:
 %%% mode: latex
