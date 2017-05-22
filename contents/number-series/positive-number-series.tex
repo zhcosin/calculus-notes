@@ -23,6 +23,16 @@
   级数$\sum_{n=1}^{\infty}\ln{\left( 1+\frac{1}{n} \right)}$，注意到$\ln{\left( 1+\frac{1}{n} \right)} = \ln{(n+1)}-\ln{n}$，所以部分和$S_n=\ln{(n+1)}$，显然无界，所以级数发散。
 \end{example}
 
+\begin{example}
+  设$s>0$为一个常数，我们来研究级数$\sum_{n=1}^{\infty}\frac{1}{n^s}$的收敛性。
+
+  如果$s=1$，则级数成为
+  \[ \sum_{n=1}^{\infty}\frac{1}{n} = 1+\frac{1}{2} + \frac{1}{3} + \cdots \]
+  有如下的片段和估计
+  \[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n} > n \cdots \frac{1}{2n} = \frac{1}{2} \]
+  片断和不能任意小，违反柯西收敛准则，所以$s=1$时级数发散，于是$s<1$时级数也都发散，因为部分和会更大。
+\end{example}
+
 \subsection{比较判别法}
 \label{sec:compare-method-aboud-series-converage}
 
