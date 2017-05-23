@@ -115,6 +115,38 @@
 
 由达朗贝尔的条件出发，可以得它也满足柯西判别法的条件，因为由$a_n \leqslant a_N q^{n-N}$可得$\sqrt[n]{a_n} \leqslant q \sqrt[n]{a_N/q^N}$，后一根式极限为1，所以当$n$充分大时它可以保证$q \sqrt[n]{a_N/q^N}<q'<1$，这里$q'$是比$q$稍大些但仍然小于1的常数，这样就得出了柯西判别法的条件，所以能用达朗判别法判断为收敛的级数，也能用柯西判别法来判别，但不一定能有达朗贝尔判别法来得方便。
 
+\subsection{拉阿伯判别法}
+\label{sec:raabe-method-about-positive-series}
+
+我们已知级数$\sum_{n=1}^{\infty}\frac{1}{n^s}$在$s>1$时收敛，在$s \leqslant 1$时发散，把给定的级数与这个级数相比较，就得出拉阿伯判别法。
+
+\begin{theorem}[拉阿伯判别法]
+  对于正项级数$\sum_{n=1}^{\infty}a_n$，记拉阿伯序列
+  \[ \mathcal{R}_n = n \left( \frac{a_n}{a_{n+1}}-1 \right) \]
+  如果存在常数$r>1$，使得当$n$充分大时恒有$\mathcal{R}_n \geqslant r$，则级数收敛，如果当$n$充分大时恒有$\mathcal{R}_n \leqslant 1$，则级数发散。
+\end{theorem}
+
+\begin{proof}[证明]
+  假定当$n>N$时恒有$\mathcal{R}_n \geqslant r$，则可得
+  \[ \frac{a_{n+1}}{a_n} \leqslant \frac{n}{n+r} \]
+  对于右边的分式，我们将说明存在$s>1$，使得当$n$充分大时恒有
+  \[ \frac{n}{n+r} \leqslant \left( \frac{n}{n+1} \right)^s \]
+  这$s$只要满足下式
+  \[ s \leqslant \frac{\ln{\left( 1+\frac{r}{n} \right)}}{\ln{\left( 1+\frac{1}{n} \right)}} \]
+  借由当$x \to 0$时的等价无穷小$\ln(1+x) \sim x$，我们可得出上式右边以$r$为极限，而$r>1$，所以取$1<s<r$，则上式右边充分大时便能恒大于$s$，于是
+  \[ \frac{a_{n+1}}{a_n} \leqslant \left( \frac{n}{n+1} \right)^s \]
+  便能在$n$充分大时恒成立，由级数$\sum_{n=1}^{\infty}\frac{1}{n^s}$在$s>1$时收敛知原级数收敛。
+
+  如果当$n$充分大时$\mathcal{R}_n \leqslant 1$，则此时
+  \[ \frac{a_{n+1}}{a_n} \geqslant \frac{n}{n+1} \]
+  由级数$\sum_{n=1}^{\infty}\frac{1}{n}$的发散知原级数发散。
+\end{proof}
+
+拉阿伯判别法的极限形式是
+\begin{inference}
+  对于正项级数$\sum_{n=1}^{\infty}a_n$，如果拉阿伯序列存在极限$\lim_{n \to \infty} \mathcal{R}_n=R$，则$R>1$时级数收敛，$R<1$时级数发散，$R=1$时级数可能收敛也可能发散。
+\end{inference}
+
 
 %%% Local Variables:
 %%% mode: latex
