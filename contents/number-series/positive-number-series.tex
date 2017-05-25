@@ -23,16 +23,6 @@
   级数$\sum_{n=1}^{\infty}\ln{\left( 1+\frac{1}{n} \right)}$，注意到$\ln{\left( 1+\frac{1}{n} \right)} = \ln{(n+1)}-\ln{n}$，所以部分和$S_n=\ln{(n+1)}$，显然无界，所以级数发散。
 \end{example}
 
-\begin{example}
-  设$s>0$为一个常数，我们来研究级数$\sum_{n=1}^{\infty}\frac{1}{n^s}$的收敛性。
-
-  如果$s=1$，则级数成为
-  \[ \sum_{n=1}^{\infty}\frac{1}{n} = 1+\frac{1}{2} + \frac{1}{3} + \cdots \]
-  有如下的片段和估计
-  \[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n} > n \cdots \frac{1}{2n} = \frac{1}{2} \]
-  片断和不能任意小，违反柯西收敛准则，所以$s=1$时级数发散，于是$s<1$时级数也都发散，因为部分和会更大。
-\end{example}
-
 \subsection{比较判别法}
 \label{sec:compare-method-aboud-series-converage}
 
@@ -62,6 +52,29 @@
   \[ \lim_{n \to \infty} \frac{\frac{1}{n}}{\ln{\left( 1+\frac{1}{n} \right)}} =1 \]
   知道它们同时收敛同时发散，而在\autoref{example:series-ln-1-plus-1-over-n-converage}中已经知道$\sum_{n=1}^{\infty}b_n$是发散的，所以$\sum_{n=1}^{\infty}a_n$也是发散的。
 \end{example}
+
+
+\begin{example}
+  我们来研究一个重要的级数，即级数$\sum_{n=1}^{\infty}\frac{1}{n^s}$的收敛性。
+
+  如果$s=1$，则级数成为
+  \[ \sum_{n=1}^{\infty}\frac{1}{n} = 1+\frac{1}{2} + \frac{1}{3} + \cdots \]
+  有如下的片段和估计
+  \[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n} > n \cdots \frac{1}{2n} = \frac{1}{2} \]
+  片断和不能任意小，违反柯西收敛准则，所以$s=1$时级数发散，于是$s<1$时级数也都发散，因为部分和会更大。
+
+  而对于$s>1$的情况，我们将证明它是收敛的，这是因为我们有
+  \[ \frac{1}{(n+1)^s} + \frac{1}{(n+2)^s} + \cdots + \frac{1}{(2n)^s} < n \cdot \frac{1}{n^s} = \frac{1}{n^{s-1}} \]
+  所以我们把正整数分段，每一段以$2^k+1$作为开始，以$2^{k+1}$作为结尾，就有
+  \[ \sum_{i=1}^{2^n}\frac{1}{i^s} = 1+\sum_{k=0}^n \sum_{i=1}^{2^k} \frac{1}{(2^k+i)^s} < 1+\sum_{k=0}^n \frac{1}{(2^k)^{s-1}} =  1+\sum_{k=0}^n \left( \frac{1}{2^{s-1}} \right)^k \]
+  注意到$s>1$，所以上式最右边是一个公比小于1的等比级数，显然它是收敛的，于是左边的部分和有上界，从而级数收敛。
+
+  这个级数的和作为$s$的函数，便是著名的 \emph{黎曼函数}$\zeta(s)$，即对于$s>1$，
+  \[ \zeta (s) = \sum_{n=1}^{\infty} \frac{1}{n^s} \]
+  这函数在数论中有非常重要的地位。
+\end{example}
+
+
 
 我们还有另一种形式的比较判别法
 \begin{theorem}
