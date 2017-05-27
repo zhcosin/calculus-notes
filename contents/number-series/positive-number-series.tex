@@ -171,6 +171,16 @@
   如果存在正常数$r$，使得当$n$充分大时恒有$\mathcal{K}_n \geqslant r$，那么级数$\sum_{n=1}^{\infty}a_n$收敛，如果当$n$充分大时恒有$\mathcal{K}_n \leqslant 0$，则级数$\sum_{n=1}^{\infty}$发散。
 \end{theorem}
 
+\begin{proof}[证明]
+  如果当$n \geqslant N$时有$\mathcal{K}_n \geqslant r > 0$，那么此时有$c_na_n-c_{n+1}a_{n+1} \geqslant r a_{n+1} > 0$，这表明数列$c_na_n$是一个单调递减的正项数列，因而它存在极限，进而有
+  \[ c_Na_N-c_{n+1}a_{n+1} = \sum_{i=N}^n (c_ia_i-c_{i+1}a_{i+1}) \geqslant r \sum_{i=N}^n a_{i+1} \]
+  由于$c_na_n$存在极限，因而正项(至少从$N$开始为正)级数$\sum_{n=1}^{\infty}(c_na_n-c_{n+1}a_{n+1})$收敛，于是由比较判别法，级数$\sum_{n=1}^{\infty}a_n$收敛，而且从这证明过程中可以看到，条件$\sum_{n=1}^{\infty}\frac{1}{c_n}$发散并没有用到，但这条件在证明定理的后一半结论时会用到。
+
+  如果当$n$充分大时恒有$\mathcal{K}_n \leqslant 0$，便有
+  \[ \frac{a_{n+1}}{a_n} \leqslant \frac{\frac{1}{c_n}}{\frac{1}{c_{n+1}}} \]
+  由级数$\sum_{n=1}^{\infty}\frac{1}{c_n}$的发散，知级数$\sum_{n=1}^{\infty}a_n$发散。
+\end{proof}
+
 在库默尔判别法中，取$c_n=1$，就得出达朗贝尔判别法，取$c_n=n$，就得出拉阿伯判别法。
 
 库默尔判别法的极限形式是
@@ -182,7 +192,7 @@
 \label{sec:the-integrate-method-of-determination-number-series}
 
 可以得反常积分来判别一类级数的敛散性.
-\begin{theorem}[积分判别式法]
+\begin{theorem}[积分判别法]
   若可积函数$f(x)$在$[0,+\infty)$上恒取非负值且单调递减，则反常积分$\int_0^{+\infty}f(x)dx$与级数$\sum_{n=1}^{\infty}f(n)$有相同的敛散性。
 \end{theorem}
 
