@@ -1,0 +1,31 @@
+
+\section{一般项级数}
+\label{sec:signed-series}
+
+\subsection{交错级数}
+\label{sec:alternating-sign-series}
+
+\begin{definition}
+  如果序列$\{a_n\}$的任意相邻两项的符号都相反，即整个序列交错的取正值和负值，则称其为\emph{交错序列}，而对应级数$\sum_{i=1}^{\infty}a_n$为\emph{交错级数}.
+\end{definition}
+
+对于交错级数的收敛性有如下结论
+
+\begin{theorem}
+  如果数列$\{a_n\}(n=0,1,\ldots)$单调递减并趋于零，则级数$\sum_{i=0}^{\infty}(-1)^{n}a_n$收敛。
+\end{theorem}
+
+\begin{proof}[证明]
+级数$\sum_{i=0}^{\infty}(-1)^{n-1}a_n$与级数$\sum_{i=0}^n(-1)^na_n$的收敛性是相同的，这里只是为了方便而让首项$a_0$的符号是正的。  
+
+作级数的部分和$S_n=a_0-a_1+a_2-\cdots+(-1)^na_n$,显然
+\[ S_{2n+1}=(a_0-a_1)+(a_2-a_3)+\cdots+(a_{2n}-a_{2n+1}) \]
+由$\{a_n\}$单调递减可知$S_{2n+1}$是单调增加的正项数列，但是
+\[ S_{2n+1}=a_0-(a_1-a_2)-(a_3-a_4)-\cdots-(a_{2n-1}-a_{2n})-a_{2n+1} \]
+显然就有$S_{2n+1}<a_0$，即$S_{2n+1}$又有上界，所以$S_{2n+1}$收敛，同样的方法还可得出$S_{2n}$是单调递减有下界，因而也收敛，而由$S_{2n+1}=S_{2n}+a_{2n+1}$及$a_n \to 0(n \to \infty)$可知这两个子列只能收敛到相同的极限，即级数$\sum_{i=0}^{\infty}(-1)^na_n$收敛。
+\end{proof}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
