@@ -25,6 +25,41 @@
 显然就有$S_{2n+1}<a_0$，即$S_{2n+1}$又有上界，所以$S_{2n+1}$收敛，同样的方法还可得出$S_{2n}$是单调递减有下界，因而也收敛，而由$S_{2n+1}=S_{2n}+a_{2n+1}$及$a_n \to 0(n \to \infty)$可知这两个子列只能收敛到相同的极限，即级数$\sum_{i=0}^{\infty}(-1)^na_n$收敛。
 \end{proof}
 
+\subsection{绝对收敛级数及其性质}
+\label{sec:abs-converage-series-and-its-properties}
+
+\begin{definition}
+  对于级数$\sum_{n=1}^{\infty}a_n$，如果它的各项的绝对值相加而得的新级数$\sum_{n=1}^{\infty}|a_n|$收敛，则称原来的级数是 \emph{绝对收敛} 的.
+\end{definition}
+
+\begin{theorem}
+  如果一个级数绝对收敛，则它一定收敛。
+\end{theorem}
+
+\begin{proof}[证明]
+  由柯西准则，如果级数$\sum_{n=1}^{\infty}a_{n}$绝对收敛，则对于任意$\varepsilon>0$，存在正整数$N$，使得对于任意$n>N$和任意正整数$m$成立
+  \[ |a_{n+1}|+|a_{n+2}|+\cdots+|a_{n+m}| < \varepsilon \]
+  于是也有
+  \[ |a_{n+1}+a_{n+2}+\cdots+a_{n+m}| < \varepsilon \]
+  所以原来的级数也收敛。
+\end{proof}
+
+注意收敛级数并一定都是绝对收敛，如交错级数$\sum_{n=1}^{\infty}(-1)^{n-1}\frac{1}{n}$。
+
+下面的定理提示了绝对收敛级数的一个非常重要的性质
+\begin{theorem}
+  如果一个级数绝对收敛，则将它的项任意重新排列后所得新级数仍然绝对收敛，且其和不变。
+\end{theorem}
+
+\begin{proof}[证明]
+  对于绝对收敛的级数$\sum_{n=1}^{\infty}a_n$，将它的项任意重新排列后所得新级数记为$\sum_{n=1}^{\infty}b_n$，记$A_n=\sum_{i=1}^n|a_i|$，$B_n=\sum_{i=1}^n|b_i|$，则对于任一$B_n$，组成它的各个$b_i$在原来的级数中的下标最大值记为$m$，则显然$B_n \leqslant A_m$，于是$B_n$单调增加有上界，故级数$\sum_{n=1}^{\infty}b_n$绝对收敛。
+\end{proof}
+
+以下定理深刻提示了绝对收敛级数与非绝对收敛级数之间的区别。
+\begin{theorem}[黎曼定理]
+  如果一个级数收敛但非绝对收敛，则将它的项进行适当的重新排列后，可使新级数收敛到任意预先指定的实数。
+\end{theorem}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../book"
