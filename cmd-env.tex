@@ -1,9 +1,16 @@
 
-% 自定义环境
+% 例题环境
 \newcounter{example}[section]
 \renewcommand{\theexample}{\thesection.\arabic{example}}
 
 \newenvironment{example}[1][]{\refstepcounter{example} \textbf{例 \theexample  \ #1} \hspace{0.5em}}{\hspace{\stretch{1}} \rule{1ex}{1ex}}
+
+% 习题环境
+\newcounter{exercise}[section]
+\renewcommand{\theexercise}{\thesection.\arabic{exercise}}
+
+\newenvironment{exercise}[1][]{\refstepcounter{exercise} \textbf{题 \theexercise  \ #1} \hspace{0.5em}}{\hspace{\stretch{1}} \rule{1ex}{1ex}}
+
 
 \newtheorem{definition}{定义}[section]
 \newtheorem{property}{性质}[section]
@@ -12,7 +19,7 @@
 \newtheorem{axiom}{公理}[section]
 \newtheorem{lemma}{引理}[section]
 \newtheorem{principle}{原理}[section]
-\newtheorem{exercise}{题目}[section]
+%\newtheorem{exercise}{题目}[section]
 \newtheorem{topic}{问题}[section]
 \newtheorem{statement}{命题}[section]
 % \newtheorem{example}{例}[section]
@@ -24,8 +31,6 @@
 %\newcommand\equationautorefname{式}
 %\newcommand\footnoteautorefname{脚注}%
 %\newcommand\itemautorefname{项}
-
-\def\equationautorefname{式}
 \def\figureautorefname{图}
 \def\tableautorefname{表}
 \def\chapterautorefname{章}
@@ -42,6 +47,8 @@
 \def\exerciseautorefname{题目}
 \def\topicautorefname{问题}
 \def\statementautorefname{命题}
+\def\exampleautorefname{例}
+\def\equationautorefname{式}
 
 %%% Local Variables:
 %%% mode: latex
