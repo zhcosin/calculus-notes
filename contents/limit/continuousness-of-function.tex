@@ -1,0 +1,120 @@
+
+\section{函数的连续性}
+\label{sec:continuousness-of-function}
+
+\subsection{连续与单侧连续}
+\label{sec:continuousness-and-single-continuousness}
+
+\begin{definition}
+  如果函数$f(x)$在$x_0$处的极限正好是该点处的函数值$f(x_0)$则称函数在$x_0$处 \emph{连续}，即
+  \[ \lim_{x \to x_0} = f(x_0) \]
+\end{definition}
+
+如果是该点处的左极限等于该点处函数值，则称函数在该点处 \emph{左连续}，类似的有 \emph{右连续}的概念。
+
+连续用极限的精确语言描述就是，对于无论多么小的正实数$\varepsilon$，恒存在另一正实数$\delta$，使得对区间$(x_0-\delta, x_0+\delta)$上的一切实数成立着$|f(x)-f(x_0)|<\varepsilon$成立。
+
+如果函数在某点处不连续，则称该点是函数的一个 \emph{间断点}，如果函数在该点处存在极限，只是这极限与函数值不相等或者该点根本就没有定义函数值，那么称这点是 \emph{可去间断点}，可以通过改变或者定义该点的函数值为该点的极限值的方式来将函数进行 \emph{连续开拓}。如果函数在某点处分别存在左极限和右极限，但是两个极限不相等，则称该点是函数的 \emph{跳跃间断点}，跳跃间断点和可去间断点统称 \emph{第一类间断点}，第一类间断点的特征是函数在该点存在两个方向的单侧极限。除第一类间断点之外的其它间断点统称 \emph{第二类间断点}，显然，第二类间断点处至少有一个单侧极限不存在。
+
+\begin{definition}
+  如果函数在某个区间上处处连续，则称函数在这区间上连续，或者说它是这区间上的连续函数。
+\end{definition}
+
+
+\subsection{间断点及其分类}
+\label{sec:discontinuity-point-and-its-category}
+
+\subsection{连续函数的性质}
+\label{sec:properties-of-continuous-function}
+
+
+讨论下函数在某点处连续时所具有的性质:
+\begin{theorem}[局部有界性]
+  若函数在某点处连续，则必在该点的某邻域上有界。
+\end{theorem}
+
+\begin{theorem}[局部保号性]
+  若函数在$x_0$处连续，则对于任意小于$f(x_0)$的实数$r$，存在$x_0$的某邻域$(x_0-\delta,x_0+\delta)$，使得函数在该邻域内恒有$f(x)>r$，类似的，对于任意大于$f(x_0)$的实数$r$，也存在$x_0$的某邻域$(x_0-\delta,x_0+\delta)$，使得函数在该区间上恒有$f(x)<r$.
+\end{theorem}
+
+\begin{inference}
+  如果函数在某点处连续，且该点处函数值为正，则存在该点的某邻域内，函数在这邻域内恒为正号，同理，如果该点函数值为负，则函数必在该点的某邻域内恒保持负号。
+\end{inference}
+
+\begin{theorem}
+  如果函数$f(x)$和$g(x)$都在$x_0$处连续，则它们的和、差、积、商所作成的函数在该点也连续，在商的情形，要求$g(x_0) \neq 0$。
+\end{theorem}
+
+\subsection{复合函数的连续性}
+\label{sec:continuousness-of-composite-function}
+
+\begin{theorem}[复合函数的连续性]
+  \label{theorem:the-continuity-of-combine-function}
+  设函数$g(x)$在$x_0$处连续，记$u_0=g(x_0)$，若另一函数$f(u)$在$u_0$处连续，则复合函数$f(g(x))$在$x_0$处连续。
+\end{theorem}
+
+
+
+\subsection{有限覆盖定理}
+\label{sec:finite-covering-theorem}
+
+\subsection{闭区间上的连续函数}
+\label{sec:continuous-function-in-closed-interval}
+
+\subsection{反函数的连续性}
+\label{sec:continuousness-of-reverse-function}
+
+\subsection{一致连续}
+\label{sec:uniform-continuity}
+
+\subsection{初等函数的连续性}
+\label{sec:continuousness-of-elementary-function}
+
+
+在中学里，我们接触过几类 \emph{基本初等函数}: 幂函数、指数函数、对数函数、三角函数. 我们在这一小节里来证明这些函数在它们的定义域的各个区间上都是连续函数，在有了这个结论之后，根据连续的性质，所有的初等函数就都是连续函数了。
+
+1. 幂函数
+\begin{theorem}
+  幂函数$f(x)=x^p$在定义域的各个区间上连续。
+\end{theorem}
+
+\begin{proof}[证明]
+  因为如果$p<0$，有$f(x)=1/x^{-p}$，如果分母是连续的，则$f(x)$就是连续的，所以只要证明$p>0$的情况就可以了。
+
+  先证明$p$是正整数的情况，这时由
+  \[ (x_0+h)^p-x_0^p = \sum_{i=1}^nx_0^{p-i}h^i \]
+  显然当$h \to 0$时，右边的各项(有限项)都趋于0，因此$(x_0+h)^p \to x_0^p$，所以函数在$x_0$处连续，由$x_0$的任意性，$p$为正整数的情形得证。
+\end{proof}
+
+2. 指数函数与对数函数
+\begin{theorem}
+  指数函数$f(x)=a^x(a>0,a\neq 1)$是$R$上的连续函数。
+\end{theorem}
+
+这在上一小节我们已经证明过了。
+
+3. 三角函数.
+\begin{theorem}
+  正弦函数$f(x)=\sin{x}$在$R$上连续，余弦函数$g(x)=\cos{x}$在$R$上连续，正切函数$h(x)=\tan{x}$在定义域的每一个区间上都是连续函数。
+\end{theorem}
+
+\begin{proof}[证明]
+  先证明正弦函数，任取$x_0 \in R$，有
+  \[ \sin{(x_0+r)} - \sin{x_0} = 2\cos{ \left( x_0 + \frac{r}{2} \right) }\sin{ \frac{h}{2} } \]
+  我们在\autoref{theorem:sinx-over-x-to-1-when-x-to-0}中就已经知道，不等式$|\sin{x}| \leqslant |x|$对一切实数$x$恒成立，所以当$r \to 0$时，上式右端是一个有界量和一个无穷小的乘积，也收敛到零，所以
+  \[ \lim_{r \to 0} \sin{(x_0+r)} = \sin{x_0} \]
+  从而正弦函数在$x_0$处连续，由$x_0$的任意性，它在$R$上都是连续的。
+
+  对于余弦函数，把它写成
+  \[ \cos{x} = \sin{ \left( x+\frac{\pi}{2} \right) } \]
+  由正弦函数的连续性和关于复合函数连续性的\autoref{theorem:the-continuity-of-combine-function}即知余弦函数也是连续的。
+
+  正切函数，把它表为正弦函数和余弦函数的商，由商函数的连续性即知它在定义域的各区间上也都是连续的。
+\end{proof}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
