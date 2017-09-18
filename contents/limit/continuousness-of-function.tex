@@ -61,6 +61,31 @@
 \subsection{闭区间上的连续函数}
 \label{sec:continuous-function-in-closed-interval}
 
+\begin{theorem}
+  \label{theorem:function-bound-when-continuous-at-closed-interval}
+  闭区间上的连续函数在此区间上必定有界.
+\end{theorem}
+
+\begin{proof}[证明]
+  因为函数在闭区间上连续，所以对于此区间上任一点，函数都能在它的某个邻域上有界，显然这些邻域覆盖了整个闭区间，根据有限覆盖定理，能在其中选出有限个开区间，它们的并就能覆盖住这个闭区间，而函数在这有限个开区间中每一个上都是有界的，因此只要取最大的上界和最小的下界，便是它在这闭区间上的界。
+\end{proof}
+
+\begin{theorem}
+  闭区间上的连续函数存在最大值和最小值。
+\end{theorem}
+
+\begin{proof}[证明]
+  根据\autoref{theorem:function-bound-when-continuous-at-closed-interval}，函数在闭区间上连续则有界，从而便有上下确界，只要证明这两个确界能够取到就行了，只证明上确界可以取到，下确界也是同理的。设函数$f(x)$在这闭区间上的上确界为$M$，则存在收敛到$M$的函数值序列$f(x_1),f(x_2),\cdots$，而自变量序列$x_1,x_2,\cdots$是有界的，所以它存在收敛的子列，仍以$x_1,x_2,\cdots$来表示它，设这子列的极限为$x_M$，显然$x_M$仍然在这闭区间上，而且$\lim\limits_{n \to \infty}f(x_n)=M$，则由连续性得有$f(x_M)=f(\lim\limits_{n \to \infty} x_n) = \lim\limits_{n \to \infty} f(x_n) = M$.
+\end{proof}
+
+\begin{theorem}[介值定理]
+  闭区间上的连续函数，其函数值能够遍历最大值与最小值之间的任意值。
+\end{theorem}
+
+\begin{inference}[零点定理]
+  若闭区间上连续函数在两个端点处函数值异号，则它在这区间上必存在至少一个零点。
+\end{inference}
+
 \subsection{反函数的连续性}
 \label{sec:continuousness-of-reverse-function}
 
