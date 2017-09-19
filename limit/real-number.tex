@@ -35,7 +35,7 @@
 
 利用带余除法，可以证明
 \begin{theorem}
-  有理数都是无限循环小数.
+  有理数都是有限小数或者无限循环小数.
 \end{theorem}
 
 \begin{proof}[证明]
@@ -48,8 +48,25 @@
   这里从$q_i$到$q_{j-1}$便是一个重复片段，为小数的循环部分（不一定是最小循环片段），即为无限循环小数。
 \end{proof}
 
+反之，有限小数与无限循环小数也都是有理数，但无限循环小数是有理数的证明涉及无限个数相加的和，这里暂不讨论。
+
+我们规定，循环部分为一个单9的实数，等于将后面的9全部收上来的有限小数，即$1=0.\dot{9}$，等等。
+
+接下来讨论实数的大小问题，我们首先规定0-9这10个数符的大小关系，即0小于1，1小于2，如此递推，直到8小于9，在此基础上，我们定义实数的大小关系:
+\begin{definition}
+  对于两个实数$a=a_na_{n-1}\cdots a_1a_0.a_{-1}a_{-2}\cdots$与$b=b_nb_{n-1}\cdots b_1b_0.b_{-1}b_{-2}\cdots$(如果它俩最高位不是同一数位，可以将最高位权重较低的那个前面补零)，如果存在某个整数$m (\leqslant n)$，使得$a_m<b_m$，并且对于所有大于$m$的整数$i$都有$a_i=b_i$，则称实数$a$小于实数$b$，记作$a<b$，这时也称实数$b$大于实数$a$，记作$b>a$.
+\end{definition}
+
+这定义就是说，实数$a$小于实数$b$的充分必要条件是，从左边开始，第一个数符不同的数位上，$a$在该数位上的数符小于$b$在该数位上的数符。
+
 \subsection{最小自然数原理}
 \label{sec:minimum-nature-number-principle}
+
+\begin{principle}[最小自然数原理]
+  任意非空的自然数集合中，必定存在一个最小的自然数。
+\end{principle}
+
+这个原理虽然看起来显而易见，但它是实数公理化体系的一部分。
 
 \subsection{确界定理}
 \label{sec:least-bound-theorem}
@@ -83,6 +100,108 @@
 \subsection{复数}
 \label{sec:complex-number}
 
+数系的扩充与解方程密切相关，为了解一元一次方程引入了有理数，数系被扩充为有理数集，为了解二次方程又发现了无理数，由此我们的数系被扩充到了实数集。但在实数范围内，方程$x^2+1=0$仍然无解，于是引入了虚数，虚数与实数一起构成了更加广阔的复数集。
+
+复数集的引入，理由虽然比较牵强，但后来的事实表明，很多数学理论在复数范围内都能得到完美的解决，例如代数学基本定理就表明，任何一个关于某未知数的$n$次方程，在复数范围内都有且仅有$n$个根(重根按重数计数)，又例如，有些数列，它的每一项都是整数，然而它的通项，却只能借助复数来表达，又比如，在复数范围内，指数函数将与三角函数产生密切关系，欧拉公式$e^{ix}=\cos{x}+i\sin{x}$便揭示了这一点，这在实数范围内是很难看清二者的关系的。诸如此类，许多理论都表明复数具有重大的理论意义，这一点随着我们对高等数学的更多了解，将能有更多体会。
+
+为了解方程$x^2+1=0$，引入一个虚数$i$，规定$i^2=-1$，因为实数范围内是不可能有某个数的平方是负的，所以这引入的$i$便称为一个虚数，并且称它是虚数单位。规定虚数可以与实数相加与相乘，并且符合实数运算所满足的交换律、结合律、分配律。
+
+那么将实数与虚数进行混合加法与乘法运算，会有什么结果呢，将$i$与实数$b$相乘得出$bi$，再将$bi$与实数$a$相加得到$a+bi$，这个形式无法继续化简了，它就是复数的一般形式，也就是任意一个复数都具有这种形式，我们就来证明它。
+
+\begin{theorem}
+  将实数与虚数单位$i$进行有限次加法与乘法的混合运算，得出的结果都具有形式$a+bi(a,b\in R)$.
+\end{theorem}
+
+\begin{proof}[证明]
+  只利用加法与乘法，运算对象为实数与虚数单位$i$，那么最终结果是关于$i$的实系数多项式
+  \[ a_ni^n+a_{n-1}i^{n-1} + \cdots + a_2i^2 + a_1i+a_0 \]
+  根据虚数单位$i$的定义，可知其乘幂$i^n$依次循环取值$i,-1,-i,1$，由此便知定理成立。
+\end{proof}
+
+由此，复数都具有形式$z=a+bi(a,b\in R)$，$a$称为它的\emph{实部}，记作$Re(z)$，$b$称为它的虚部，记作$Im(z)$，显然复数$a+bi$与数对$(a,b)$一一对应，于是便与坐标平面上的点一一对应，于是坐标平面上的每一个点都对应着一个复数，于是这平面便被称为\emph{复平面}.
+
+规定，两个复数相等当且仅当它们的实部和虚部分别相等。
+
+再定义减法为加法的逆运算，那么按照实数的运算定律，有
+\[ (a_1+b_1i) \pm (a_2+b_2i) = (a_1 \pm a_2) + (b_1 \pm b_2)i \]
+这显然也可以推广到任意有限个复数相加的情形，显然，复数的加减法对应着数对的加减法，也就对应着向量的加减法。
+
+关于乘法，有
+\begin{eqnarray*}
+  (a_1+b_1i)(a_2+b_2i) & = & a_1a_2+(a_1b_2+a_2b_1)i + b_1b_2 i^2 \\
+  & = & (a_1a_2-b_1b_2) + (a_1b_2+a_2b_1)i
+\end{eqnarray*}
+
+同样规定除法为乘法的逆运算，有
+\begin{eqnarray*}
+  \frac{a_1+b_1i}{a_2+b_2i} & = & \frac{(a_1+b_1i)(a_2-b_2i)}{(a_2+b_2i)(a_2-b_2i)} \\
+  & = & \frac{(a_1a_2+b_1b_2)+(b_1a_2-a_1b_2)i}{a_2^2+b_2^2}
+\end{eqnarray*}
+
+利用变换$x=r\cos{\theta}$，$y=r\sin{\theta}$，复数$z=a+bi$可以改写为
+\[ z=r(\cos{\theta}+i\sin{\theta}) \]
+这称为复数的三角形式，其中$r=\sqrt{x^2+y^2}$称为复数的\emph{模}，记作$|z|$，角$\theta$称为这复数的\emph{辐角}，记作$Arg(z)$，由于三角函数的周期性，将满足$0\leqslant \theta < 2\pi$的那个辐角称为\emph{辐角主值}，记作$arg(z)$.
+
+显然，如果两个复数相等，它们的模相等，并且它们辐角集合相等。
+
+我们看一下在这种形式下复数的乘除法运算:
+\begin{eqnarray*}
+  &&  r_1(\cos{\theta_1}+i\sin{\theta_1}) \cdot r_2(\cos{\theta_2}+i\sin{\theta_2}) \\
+  & = & r_1r_2[(\cos{\theta_1}\cos{\theta_2}-\sin{\theta_1}\sin{\theta_2})+(\cos{\theta_1}\sin{\theta_2}+\cos{\theta_2}\sin{\theta_1})i] \\
+  & = & r_1r_2(\cos{(\theta_1+\theta_2)}+i\sin{(\theta_1+\theta_2)})
+\end{eqnarray*}
+而
+\begin{eqnarray*}
+  &&  \frac{r_1(\cos{\theta_1}+i\sin{\theta_1})}{r_2(\cos{\theta_2}+i\sin{\theta_2})} \\
+  & = & \frac{r_1(\cos{\theta_1}+i\sin{\theta_1}) \cdot r_2(\cos{\theta_2}-i\sin{\theta_2})}{r_2(\cos{\theta_2}+i\sin{\theta_2}) \cdot r_2(\cos{\theta_2}-i\sin{\theta_2})} \\
+  & = & \frac{r_1r_2[(\cos{\theta_1}\cos{\theta_2}+\sin{\theta_1}\sin{\theta_2})+i(\sin{\theta_1}\cos{\theta_2}-\cos{\theta_1}\sin{\theta_2})]]}{r_2^2(\cos^2{\theta_2}+\sin^2{\theta_2})} \\
+  & = & \frac{r_1}{r_2}[\cos{(\theta_1-\theta_2)+i\sin{(\theta_1-\theta_2)}}]
+\end{eqnarray*}
+
+可见两个复数相乘除，就是将两个复数的模相乘除得到乘积的模，两个复数的辐角相加减得到乘积的辐角，这与向量的乘法(无论内积还是外积)不再一致，复数乘法在三角形式下变得相当简单，而且这显然可以推广到任意有限个复数相乘的情形。
+
+更特别的是复数的乘幂，容易知道
+\begin{equation}
+  \label{eq:de-moivre-formula}
+  [r(\cos{\theta}+i\sin{\theta})]^n = r^n(\cos{n\theta}+i\sin{n\theta})
+\end{equation}
+这就是复数乘幂的\emph{棣莫弗公式}.
+
+\begin{example}[正余弦的$n$倍角公式与切比雪夫多项式]
+  利用棣莫弗公式，我们可以得到正余弦的$n$倍角公式，在棣莫弗公式中令$r=1$，得
+  \[ \cos{n\theta}+i\sin{n\theta} = (\cos{\theta}+i\sin{\theta})^n \]
+  将右边利用二项式定理展开，得
+  \[ \cos{n\theta}+i\sin{n\theta} = \sum_{k=0}^n C_n^k i^k \cos^{n-k}{\theta}\sin^k{\theta} \]
+  当$k$为偶数时，求和中的通项变为实数，当$k$为奇数时，则它为虚数，据此可以将上式右端的实数和虚部分开
+  \begin{eqnarray*}
+   && \cos{n\theta}+i\sin{n\theta}  \\
+    & = & \sum_{0< 2r \leqslant n}^n (-1)^rC_n^{2r} \cos^{n-2r}{\theta}\sin^{2r}{\theta} + i\sum_{0<2r+1 \leqslant n}(-1)^rC_n^{2r+1} \cos^{n-2r-1}{\theta}\sin^{2r+1}{\theta} 
+  \end{eqnarray*}
+  于是得到
+  \begin{eqnarray}
+    \label{eq:cos-sin-of-n-theta}
+    \cos{n\theta} & = & \sum_{0< 2r \leqslant n}^n (-1)^rC_n^{2r} \cos^{n-2r}{\theta}\sin^{2r}{\theta} \\
+    \sin{n\theta} & = & \sum_{0<2r+1 \leqslant n}(-1)^rC_n^{2r+1} \cos^{n-2r-1}{\theta}\sin^{2r+1}{\theta}
+  \end{eqnarray}
+  这就是余弦和正弦的$n$倍角公式.
+
+  根据这公式，由于$\cos{n\theta}$的每一项中的正弦的指数都是偶数，所以都可以化为余弦，于是$\cos{n\theta}$可以展开为$\cos{\theta}$的多项式，这就是\emph{第一类切比雪夫多项式}，在$\sin{n\theta}$的展式中，$\sin{\theta}$的次数都是奇数，所以$\dfrac{\sin{n\theta}}{\sin{\theta}}$也可以展开为$\cos{\theta}$的多项式，这就是\emph{第二类切比雪夫多项式}.关于切比雪夫多项式的更多讨论参见\cite{elementary-math-notes}.
+\end{example}
+
+有了棣莫弗公式，我们来讨论一下复数的开方。
+
+记$z=r(\cos{\theta}+i\sin{\theta})$，现在来求它的$n$次方根，设$z'=r'(cos{\theta'+i\sin{\theta'}})$是它的一个$n$次方根，按棣莫弗公式，应有
+\[ z'^n=r'^n(\cos{n\theta'}+i\sin{n\theta'}) \]
+因为$z'^n=z$，所以有$r'^n=r$，以及$n\theta'=\theta+2m\pi(m \in Z)$，即
+\[ r'=\sqrt[n]{r}, \  \theta'=\frac{\theta+2m\pi}{n}(m=0,1,\ldots,n-1) \]
+根据周期性，可知$z$的$n$次方根正好有$n$个，它们均匀分布在复平面上以原点为圆心，以$|z|$为半径的圆上，于是在复数范围内，任何数都可以开$n$次方.
+
+特别的是当$z=1$时，对1进行开$n$次方，因为$1=\cos{0}+i\sin{0}$，于是得它的根
+\[ \varepsilon_i = \cos{\frac{2i\pi}{n}}+i\sin{\frac{2i\pi}{n}}, \  i=0,1,\ldots,n-1 \]
+这些根$\varepsilon_i(i=0,1,\ldots,n-1)$称为\emph{$n$次单位根}，根据复数乘法可以知道
+\[ \varepsilon_{i+1} = \varepsilon_1 \varepsilon_i \]
+实际上更一般的结论是
+\[ \varepsilon_i \varepsilon_j = \varepsilon_{i+j} \]
 
 
 %%% Local Variables:
