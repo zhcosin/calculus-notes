@@ -185,7 +185,11 @@
   \end{eqnarray}
   这就是余弦和正弦的$n$倍角公式.
 
-  根据这公式，由于$\cos{n\theta}$的每一项中的正弦的指数都是偶数，所以都可以化为余弦，于是$\cos{n\theta}$可以展开为$\cos{\theta}$的多项式，这就是\emph{第一类切比雪夫多项式}，在$\sin{n\theta}$的展式中，$\sin{\theta}$的次数都是奇数，所以$\dfrac{\sin{n\theta}}{\sin{\theta}}$也可以展开为$\cos{\theta}$的多项式，这就是\emph{第二类切比雪夫多项式}.关于切比雪夫多项式的更多讨论参见\cite{elementary-math-notes}.
+  根据这公式，由于$\cos{n\theta}$的每一项中的正弦的指数都是偶数，所以都可以化为余弦，于是$\cos{n\theta}$可以展开为$\cos{\theta}$的多项式，这就是\emph{第一类切比雪夫多项式}，即
+  \[ T_n(x) = \sum_{0<2r\leqslant n}(-1)^rC_n^{2r}x^{n-2r}(1-x^2)^r \]
+  在$\sin{n\theta}$的展式中，$\sin{\theta}$的次数都是奇数，所以$\dfrac{\sin{n\theta}}{\sin{\theta}}$也可以展开为$\cos{\theta}$的多项式，这就是\emph{第二类切比雪夫多项式}，即
+  \[ U_n(x)=\sum_{0<2r+1 \leqslant n}(-1)^rC_n^{2r+1}x^{n-2r-1}(1-x^2)^r \]
+  关于切比雪夫多项式的更多讨论参见\cite{elementary-math-notes}.
 \end{example}
 
 有了棣莫弗公式，我们来讨论一下复数的开方。
