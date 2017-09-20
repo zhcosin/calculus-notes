@@ -145,15 +145,29 @@
 \subsection{Stolz 定理}
 \label{sec:stolz-theorem}
 
-
-
 \begin{theorem}[Stolz 定理]
   对于两个数列$x_n$和$y_n$，其中$y_n$是一个严格增加到正无穷或者严格减小到负无穷的数列，如果$\lim\limits_{n\to\infty}\dfrac{x_{n+1}-x_n}{y_{n+1}-y_n} = M$，那么有$\lim\limits \dfrac{x_n}{y_n} = M$，这里的$M$可以是一个实数，也可以是正无穷或者负无穷。
 \end{theorem}
 
+\begin{proof}[证明]
+  只证明$b_n$严格增加到正无穷以及$l$是一个有限数的情况，此时由两个数列增量之比收敛到$l$，所以对于任意小的正数$\varepsilon$，当$n$充分大时($n \geqslant N$)恒有
+  \[ (l-\varepsilon)(b_{n+1}-b_n) < a_{n+1}-a_n < (l+\varepsilon)(b_{n+1}-b_n) \]
+  累加可得
+  \[ (l-\varepsilon)(b_{n}-b_N) < a_{n}-a_N < (l+\varepsilon)(b_{n}-b_N) \]
+  三边同时加上$a_N$再除以$b_n$可得($b_n$必定从某一项开始恒保持正号)
+  \[ l-\varepsilon+\frac{a_N-(l-\varepsilon)b_N}{b_n} < \frac{a_n}{b_n} < l+\varepsilon+\frac{a_N-(l+\varepsilon)b_N}{b_n}\]
+  因为$b_n$收敛到正无穷，所以当$n$充分大时，上式左右两边以$b_n$为分母的两项的绝对值可以任意小，从而当$n$充分大时就有
+  \[ l-2\varepsilon < \frac{a_n}{b_n} < l + 2\varepsilon \]
+  这就表明两个数列之比也收敛到$l$.
+\end{proof}
+
 \begin{inference}
   如果数列$x_n$收敛到$A$，则$(x_1+x_2+\cdots+x_n)/n$也收敛到$A$，反之亦然。
 \end{inference}
+
+\begin{proof}[证明]
+  只要在 Stolz 定理中取$a_n=x_1+x_2+\cdots+x_n$，$b_n=n$便得此结论。
+\end{proof}
 
 
 \subsection{单调有界定理}
