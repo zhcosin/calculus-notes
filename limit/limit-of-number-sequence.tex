@@ -109,6 +109,24 @@
 \subsection{无穷小与无穷大}
 \label{sec:infinite-small-and-great}
 
+\begin{definition}
+  如果数列收敛到零，则称它在$n$无限增大时是一个\emph{无穷小}.
+\end{definition}
+
+\begin{definition}
+  如果数列$a_n$满足: 对任意大的正实数$M$，总存在正整数$N$，使得当$n>N$时恒有$|a_n|\geqslant M$，则称这数列在$n$无限增大时是一个\emph{无穷大}.
+\end{definition}
+
+例如$\dfrac{1}{n}$便是无穷小的例子，而$n^2$则是一个无穷大的例子。
+
+\begin{definition}
+   设数列$a_n$与$b_n$都是无穷小，即在$n$无限增大时都收敛到零，\\
+  (1). 若$\lim\limits_{n \to \infty} \dfrac{a_n}{b_n} = 0$，则称$a_n$是$b_n$的\emph{高阶无穷小}，记作$a_n=o(b_n)$. \\
+  (2). 若$\lim\limits_{n \to \infty} \dfrac{a_n}{b_n} = K(\neq 0)$，则称$a_n$与$b_n$是\emph{同阶无穷小}，特别的，如果$K=1$，则称它俩是\emph{等价无穷小}，记作$a_n \sim b_n$.
+\end{definition}
+
+例如，$\dfrac{1}{n^2}$是$\dfrac{1}{n}$的高阶无穷小，这个概念体现了无穷小之间的比较，需要说明的是，两个无穷小之间并不必然有阶的高低之分，因为它俩之比可以不收敛。
+
 \subsection{极限的性质与运算}
 \label{sec:properties-and-operation-of-limit}
 
