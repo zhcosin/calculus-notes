@@ -44,6 +44,14 @@
 
 如果数列无论对于多大的实数$M>0$，总能从某项开始，后续的全部项都有$a_n>M$，则称数列为\emph{正无穷大}。类似的也有负无穷大和(绝对值)无穷大的概念。
 
+\subsection{一些极限的例}
+\label{sec:some-examples-about-limit-of-number-sequence}
+
+\begin{example}
+  前面在提炼极限定义时用了$\dfrac{1}{n}$在$n$无限增大时的情形，现在利用极限定义来证明这个极限:
+  \[ \lim_{n \to \infty} \frac{1}{n} = 0 \]
+  对于任意小的正实数$\varepsilon$，要使$\dfrac{1}{n}<\varepsilon$，只要$n>\dfrac{1}{\varepsilon}$就可以了，于是可以取$N=1+\left[ \dfrac{1}{\varepsilon} \right]$就可以了，这就证明了它的极限是零，实际上这里的$N$，只要比$\dfrac{1}{\varepsilon}$大就都可以了，以后我们就不专门作取整处理了。
+\end{example}
 
 \begin{example}
   设实数$a>1$，则
@@ -75,6 +83,28 @@
   \end{proof}
 \end{example}
 
+\begin{example}
+  \label{example:mean-value-of-converge-number-sequence}
+  假定数列$a_n$以$A$为极限，我们来考察一下它的前$n$项的算术平均序列
+  \[ M_n=\frac{x_1+x_2+\cdots+x_n}{n} \]
+  作为一个数列的收敛情况。
+
+  先可以直观的想象一下，数列以$A$为极限，那么数列的项随着下标的无限增大将与$A$无限接近，除前面的项外，越往后的连续片段的算术平均也应该与$A$无限接近，而是越着$n$的无限增大，数列最前面的与$A$相差的项对算术平均的影响也将越来越小，因此猜想$M_n$也收敛到$A$.
+
+  事实上也的确如此，因为对于任意正实数$\varepsilon$，存在正整数$N$，使得$n>N$时恒有$|a_n-A|<\varepsilon$，即$A-\varepsilon<a_n<A+\varepsilon$，于是有
+  \[ (n-N)(A-\varepsilon) < a_{N+1}+a_{N+2}+\cdots+a_n < (n-N)(A+\varepsilon) \]
+  所以
+  \[ \sum_{i=1}^Na_i + (n-N)(A-\varepsilon) < a_{1}+a_{2}+\cdots+a_n < \sum_{i=1}^Na_i + (n-N)(A+\varepsilon) \]
+  从而
+  \[ A-\varepsilon + \frac{1}{n} \left( \sum_{i=1}^Na_i - N(A-\varepsilon) \right) < M_n <  A+\varepsilon + \frac{1}{n} \left( \sum_{i=1}^Na_i - N(A+\varepsilon) \right)\]
+  因为$\lim\limits_{n \to \infty}\dfrac{1}{n} = 0$，所以对于前述正实数$\varepsilon$，令
+  \[ \varepsilon_1= \frac{\varepsilon}{\left| \sum_{i=1}^Na_i - N(A-\varepsilon) \right|} \]
+  和正实数
+  \[ \varepsilon_2= \frac{\varepsilon}{\left| \sum_{i=1}^Na_i - N(A+\varepsilon) \right|} \]
+  再令$\varepsilon_0=\max\{\varepsilon_1,\varepsilon_2\}$，则存在正整数$N_0$，使得当$n>N_0$时，$\dfrac{1}{n}<\varepsilon_0$，于是在$n>N_1=\max\{N,N_0\}$时有
+  \[ A-2\varepsilon < M_n < A+2\varepsilon \]
+  这便说明$\lim\limits_{n \to \infty}M_n = A$，需要提醒的是这里出现的$2\varepsilon$似乎与极限定义不一致，但实际上，只要在这整个过程将$\varepsilon$替换为$\dfrac{1}{2}\varepsilon$，就可以与极限定义完全一致，而且从另一个角度来说，极限定义中只是说$\varepsilon$是任意正实数，那么如果$\varepsilon$是任意正实数，$2\varepsilon$照样可以取遍任意正实数，所以这并没有本质上的不同，关于这一点以后将不再说明了。
+\end{example}
 
 \subsection{无穷小与无穷大}
 \label{sec:infinite-small-and-great}
@@ -159,11 +189,15 @@
   因为$b_n$收敛到正无穷，所以当$n$充分大时，上式左右两边以$b_n$为分母的两项的绝对值可以任意小，从而当$n$充分大时就有
   \[ l-2\varepsilon < \frac{a_n}{b_n} < l + 2\varepsilon \]
   这就表明两个数列之比也收敛到$l$.
+
+  要说明的是，上述证明过程中，$N$的取值并不是恒定不变的，每出现一次“当$n$充分大时”之类的字眼，就意味着$N$可能需要取更大的值，以使得前面的不等式与新引入的不等关系能够同时成立。
 \end{proof}
 
 \begin{inference}
   如果数列$x_n$收敛到$A$，则$(x_1+x_2+\cdots+x_n)/n$也收敛到$A$，反之亦然。
 \end{inference}
+
+这正是我们在\autoref{example:mean-value-of-converge-number-sequence}中所得到的结论，那里是用极限定义证明了这个事实，现在有了 Stolz 定理，它就是一个显而易见的结论了。
 
 \begin{proof}[证明]
   只要在 Stolz 定理中取$a_n=x_1+x_2+\cdots+x_n$，$b_n=n$便得此结论。
