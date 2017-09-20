@@ -120,7 +120,7 @@
 
 由此，复数都具有形式$z=a+bi(a,b\in R)$，$a$称为它的\emph{实部}，记作$Re(z)$，$b$称为它的虚部，记作$Im(z)$，显然复数$a+bi$与数对$(a,b)$一一对应，于是便与坐标平面上的点一一对应，于是坐标平面上的每一个点都对应着一个复数，于是这平面便被称为\emph{复平面}.
 
-规定，两个复数相等当且仅当它们的实部和虚部分别相等。
+规定，两个复数相等当且仅当它们的实部和虚部分别相等.此外，复数集上没有大小关系。
 
 再定义减法为加法的逆运算，那么按照实数的运算定律，有
 \[ (a_1+b_1i) \pm (a_2+b_2i) = (a_1 \pm a_2) + (b_1 \pm b_2)i \]
@@ -158,7 +158,7 @@
   & = & \frac{r_1}{r_2}[\cos{(\theta_1-\theta_2)+i\sin{(\theta_1-\theta_2)}}]
 \end{eqnarray*}
 
-可见两个复数相乘除，就是将两个复数的模相乘除得到乘积的模，两个复数的辐角相加减得到乘积的辐角，这与向量的乘法(无论内积还是外积)不再一致，复数乘法在三角形式下变得相当简单，而且这显然可以推广到任意有限个复数相乘的情形。
+可见两个复数相乘除，就是将两个复数的模相乘除得到乘积或商的模，两个复数的辐角相加减得到乘积或商的辐角，这与向量的乘法(无论内积还是外积)不再一致，复数乘法在三角形式下变得相当简单，而且这显然可以推广到任意有限个复数相乘的情形。
 
 更特别的是复数的乘幂，容易知道
 \begin{equation}
@@ -175,20 +175,20 @@
   当$k$为偶数时，求和中的通项变为实数，当$k$为奇数时，则它为虚数，据此可以将上式右端的实数和虚部分开
   \begin{eqnarray*}
    && \cos{n\theta}+i\sin{n\theta}  \\
-    & = & \sum_{0< 2r \leqslant n}^n (-1)^rC_n^{2r} \cos^{n-2r}{\theta}\sin^{2r}{\theta} + i\sum_{0<2r+1 \leqslant n}(-1)^rC_n^{2r+1} \cos^{n-2r-1}{\theta}\sin^{2r+1}{\theta} 
+    & = & \sum_{0 \leqslant 2r \leqslant n}^n (-1)^rC_n^{2r} \cos^{n-2r}{\theta}\sin^{2r}{\theta} + i\sum_{0 \leqslant 2r+1 \leqslant n}(-1)^rC_n^{2r+1} \cos^{n-2r-1}{\theta}\sin^{2r+1}{\theta} 
   \end{eqnarray*}
   于是得到
   \begin{eqnarray}
     \label{eq:cos-sin-of-n-theta}
-    \cos{n\theta} & = & \sum_{0< 2r \leqslant n}^n (-1)^rC_n^{2r} \cos^{n-2r}{\theta}\sin^{2r}{\theta} \\
-    \sin{n\theta} & = & \sum_{0<2r+1 \leqslant n}(-1)^rC_n^{2r+1} \cos^{n-2r-1}{\theta}\sin^{2r+1}{\theta}
+    \cos{n\theta} & = & \sum_{0 \leqslant 2r \leqslant n}^n (-1)^rC_n^{2r} \cos^{n-2r}{\theta}\sin^{2r}{\theta} \\
+    \sin{n\theta} & = & \sum_{0 \leqslant 2r+1 \leqslant n}(-1)^rC_n^{2r+1} \cos^{n-2r-1}{\theta}\sin^{2r+1}{\theta}
   \end{eqnarray}
   这就是余弦和正弦的$n$倍角公式.
 
-  根据这公式，由于$\cos{n\theta}$的每一项中的正弦的指数都是偶数，所以都可以化为余弦，于是$\cos{n\theta}$可以展开为$\cos{\theta}$的多项式，这就是\emph{第一类切比雪夫多项式}，即
-  \[ T_n(x) = \sum_{0<2r\leqslant n}(-1)^rC_n^{2r}x^{n-2r}(1-x^2)^r \]
-  在$\sin{n\theta}$的展式中，$\sin{\theta}$的次数都是奇数，所以$\dfrac{\sin{n\theta}}{\sin{\theta}}$也可以展开为$\cos{\theta}$的多项式，这就是\emph{第二类切比雪夫多项式}，即
-  \[ U_n(x)=\sum_{0<2r+1 \leqslant n}(-1)^rC_n^{2r+1}x^{n-2r-1}(1-x^2)^r \]
+  根据这公式，由于$\cos{n\theta}$的每一项中的正弦的指数都是偶数，所以都可以化为余弦，于是$\cos{n\theta}$可以展开为$\cos{\theta}$的$n$次多项式，这就是\emph{第一类切比雪夫多项式}，即
+  \[ T_n(x) = \sum_{0 \leqslant 2r\leqslant n}(-1)^rC_n^{2r}x^{n-2r}(1-x^2)^r \]
+  在$\sin{n\theta}$的展式中，$\sin{\theta}$的次数都是奇数，所以$\dfrac{\sin{(n+1)\theta}}{\sin{\theta}}$也可以展开为$\cos{\theta}$的$n$次多项式，这就是\emph{第二类切比雪夫多项式}，即
+  \[ U_n(x)=\sum_{0 \leqslant 2r+1 \leqslant n+1}(-1)^rC_{n+1}^{2r+1}x^{n-2r}(1-x^2)^r \]
   关于切比雪夫多项式的更多讨论参见\cite{elementary-math-notes}.
 \end{example}
 
@@ -198,7 +198,10 @@
 \[ z'^n=r'^n(\cos{n\theta'}+i\sin{n\theta'}) \]
 因为$z'^n=z$，所以有$r'^n=r$，以及$n\theta'=\theta+2m\pi(m \in Z)$，即
 \[ r'=\sqrt[n]{r}, \  \theta'=\frac{\theta+2m\pi}{n}(m=0,1,\ldots,n-1) \]
+或者写成
+\[ \sqrt[n]{z}=\sqrt[n]{r} \left( \cos{\frac{\theta+2m\pi}{n}}+i\sin{\frac{\theta+2m\pi}{n}} \right), \  (m=0,1,\ldots,n-1) \]
 根据周期性，可知$z$的$n$次方根正好有$n$个，它们均匀分布在复平面上以原点为圆心，以$|z|$为半径的圆上，于是在复数范围内，任何数都可以开$n$次方.
+
 
 特别的是当$z=1$时，对1进行开$n$次方，因为$1=\cos{0}+i\sin{0}$，于是得它的根
 \[ \varepsilon_i = \cos{\frac{2i\pi}{n}}+i\sin{\frac{2i\pi}{n}}, \  i=0,1,\ldots,n-1 \]
