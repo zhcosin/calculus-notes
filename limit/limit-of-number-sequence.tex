@@ -48,20 +48,38 @@
 \label{sec:some-examples-about-limit-of-number-sequence}
 
 \begin{example}
+  \label{example:limit-of-1-devide-by-n-power-p}
   前面在提炼极限定义时用了$\dfrac{1}{n}$在$n$无限增大时的情形，现在利用极限定义来证明这个极限:
   \[ \lim_{n \to \infty} \frac{1}{n} = 0 \]
   对于任意小的正实数$\varepsilon$，要使$\dfrac{1}{n}<\varepsilon$，只要$n>\dfrac{1}{\varepsilon}$就可以了，于是可以取$N=1+\left[ \dfrac{1}{\varepsilon} \right]$就可以了，这就证明了它的极限是零，实际上这里的$N$，只要比$\dfrac{1}{\varepsilon}$大就都可以了，以后我们就不专门作取整处理了。
+
+  仿此还可以得到，当$p$是正有理数时，有
+  \[ \lim_{n \to \infty} \frac{1}{n^p} = 0 \]
 \end{example}
 
 \begin{example}
+  \label{example:limit-of-1-devide-by-a-power-n}
   设实数$a>1$，则
   \[ \lim_{n \to \infty} \frac{1}{a^n} = 0 \]
 
   对于无论多么小的正实数$\varepsilon$，为了找到极限定义中所要求的$N$，考虑不等式
   \[ \frac{1}{a^n} < \varepsilon \]
-  也就是$a^n>1/\varepsilon$，设$a=1+\lambda$，则$\lambda>0$，按二项式定理有\footnote{我们这里并没有从$a^n>1/\varepsilon$中直接使用对数来得出$n>\log_a{(1/\varepsilon)}$，这是因为尽管中学数学中已经学过对数概念，但那时还没有给出无理指数幂的定义，所以指数的定义是不完整的，因此我们无法确认，对于底数$a$，正实数$1/\varepsilon$的对数是否存在，以后我们将在\autoref{sec:the-power-of-real-with-rational-exponent}中专门讨论指数的定义和值域问题。}
+  也就是$a^n>1/\varepsilon$，设$a=1+\lambda$，则$\lambda>0$，按二项式定理有\footnote{我们这里并没有从$a^n>1/\varepsilon$中直接使用对数来得出$n>\log_a{(1/\varepsilon)}$，这是因为尽管中学数学中已经学过对数概念，但那时还没有给出无理指数幂的定义，所以指数的定义是不完整的，因此我们无法确认，对于底数$a$，正实数$1/\varepsilon$的对数是否存在，以后我们将在\autoref{sec:irrational-power}中专门讨论指数的定义和值域问题。}
   \[ a^n = (1+\lambda)^n = 1 + n\lambda + \frac{n(n-1)}{2!}\lambda^2+\cdots+\lambda^n > 1+n \lambda \]
   所以只要$1+n\lambda>1/\varepsilon$，便能保证$a^n>1/\varepsilon$成立，也就是只需要$n > (1/\varepsilon-1) / (a-1)$就行了，所以只要选择$N>(1/\varepsilon-1)/(a-1)$就行了，这就证得了此极限。
+\end{example}
+
+\begin{example}
+  \label{example:limit-of-n-devide-by-a-power-n}
+  我们来建立一个基本的极限，对于大于1的正实数$a$，有
+  \[ \lim_{n \to \infty} \frac{n}{a^n} = 0 \]
+  事实上，仍同\autoref{example:limit-of-1-devide-by-a-power-n}一样，记$a=1+\lambda(\lambda>0)$，则
+  \[ a^n=(1+\lambda)^n=\sum_{i=0}^nC_n^i\lambda^i > C_n^2 \lambda^2 \]
+  因此有
+  \[ \frac{n}{a^n} < \frac{n}{C_n^2 \lambda^2} = \frac{2}{(n-1)\lambda^2} \]
+  在$n>2$时，又有$n-1>\dfrac{n}{2}$，所以此时更有
+  \[ \frac{n}{a^n} < \frac{4}{n\lambda^2} \]
+  所以对于任意小的正实数$\varepsilon$，只要$n>\max\{2,\dfrac{4}{\lambda^2\varepsilon}\}$，便有$\dfrac{n}{a^n} < \varepsilon$，这就证得所要的极限。
 \end{example}
 
 \begin{example}
@@ -173,12 +191,30 @@
   对于任意正实数$\epsilon>0$，上式的分子能从某一个下标$N$开始恒小于$\epsilon$，同时再取另外一个正实数$|y|/2$，数列能从某项起恒有$|y_n|>|y|/2$，于是从某个下标开始，上式就能恒小于$2\epsilon / y^2$，所以数列$1/y_n$收敛到$1/y$，再将$x_n/y_n$视为$x_n$乘以$1/y_n$并利用乘积的结果，便得商的情形。
 \end{proof}
 
+\begin{inference}
+  \label{inference:limit-of-power-of-number-sequence}
+  若数列$a_n$收敛到实数$A$，则对于固定的整数$m$，数列$a_n^m$收敛到实数$A^m$.
+\end{inference}
+
 \begin{example}
   \label{example:limit-of-n-sqrt-a}
   设实数$a>0$且$a \neq 1$，证明极限$\lim_{n \to \infty} \sqrt[n]{a} = 1$.
 
   我们在 \autoref{example:limit-of-n-sqrt-a-when-a-greater-than-1}中已经证明了$a>1$时的情形，现在假设$0<a<1$，则有
   \[ \lim_{n \to \infty} \sqrt[n]{a} = \lim_{n \to \infty} \frac{1}{\sqrt[n]{\frac{1}{a}}} = 1 \]
+\end{example}
+
+\begin{example}
+  \label{example:limit-of-n-power-m-devide-by-a-power-n}
+  在\autoref{example:limit-of-n-devide-by-a-power-n}中，我们已经证明了下面的极限
+  \[ \lim_{n \to \infty} \frac{n}{a^n} = 0 \]
+  其中$a>1$，现在我们将它推广，设$m$是一个正整数，则
+  \[ \lim_{n \to \infty} \frac{n^m}{a^n} = 0 \]
+  这是因为，由于$\sqrt[m]{a}>1$，根据\autoref{example:limit-of-n-devide-by-a-power-n}中的结论，有
+  \[ \lim_{n \to \infty} \frac{n}{(\sqrt[m]{a})^n} = 0 \]
+ 再由\autoref{inference:limit-of-power-of-number-sequence}，便得出
+  \[ \lim_{n \to \infty} \frac{n^m}{a^n} = 0 \]
+  这表明在$n$趋于无限大时，多项式与指数相比，它将变得微不足道，也就是说，指数是比多项式更高阶的无穷大。
 \end{example}
 
 关于无穷小，还有如此结论
