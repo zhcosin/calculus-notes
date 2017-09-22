@@ -409,6 +409,27 @@
 \end{proof}
 
 
+\begin{example}[调和级数的发散性]
+  \label{example:non-convergency-of-harmonic-series-proof-by-monotone}
+  在这个例子中，我们来考虑\emph{调和级数}
+  \[ \sum_{n=1}^{\infty} = 1+\frac{1}{2} + \frac{1}{3} + \cdots  \]
+  的收敛性，它的部分和
+  \[ H_n = 1 + \frac{1}{2} + \cdots + \frac{1}{n} \]
+  虽然$H_n$随着$n$的增大，它的增量逐渐减小，但可以证明它可以大于任意正实数，因为我们有
+  \begin{eqnarray*}
+    \frac{1}{3} + \frac{1}{4} & > & 2 \times \frac{1}{4} = \frac{1}{2} \\
+    \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} > 4 \times \frac{1}{8} = \frac{1}{2} \\
+    ......
+    \frac{1}{2^m+1} + \frac{1}{2^m+2} + \cdots \frac{1}{2^{m+1}} > 2^m \times \frac{1}{2^{m+1}} = \frac{1}{2}
+  \end{eqnarray*}
+  因此
+  \begin{eqnarray*}
+    H_{2^m} & = & 1+ \frac{1}{2} + \sum_{i=1}^m \left( \frac{1}{2^i+1} + \frac{1}{2^i+2} + \cdots \frac{1}{2^{i+1}} \right) \\
+    & > & 1 + \frac{1}{2} + \frac{1}{2}m
+  \end{eqnarray*}
+  这就表明$H_{2^m}$是一个无穷大，再由$H_n$的单调性，可知它是一个正无穷大，也就是说调和级数是发散的。
+\end{example}
+
 \subsection{数$e$}
 \label{sec:a-import-sequence-limit}
 
@@ -512,10 +533,14 @@
 \end{example}
 
 \begin{example}[调和级数的发散性]
-  在这个例子中，我们来考虑\emph{调和级数}
-  \[ \sum_{i=1}^{\infty} = 1+\frac{1}{2} + \frac{1}{3} + \cdots  \]
-  的收敛性，它的部分和
-  \[ H_n = 1 + \frac{1}{2} + \cdots + \frac{1}{n} \]
+  \label{example:non-convergency-of-harmonic-series-proof-by-cauchy}
+  在\autoref{example:non-convergency-of-harmonic-series-proof-by-monotone}中，我们已经证明了调和级数
+  \[ \sum_{n=1}^{\infty} \frac{1}{n} = 1+\frac{1}{2} + \frac{1}{3} + \cdots  \]
+  的发散性，现在我们可以用柯西收敛准则来说明，但是所用的放缩仍然与那里是一致的，根据柯西准则，为了说明它的发散性，只要证明对于存在某个正实数$r$，无论对于多大的正整数$N$，总存在两个正整数$n_1$与$n_2$，使得$|H_{n_1}-H_{n_2}|\geqslant r$就可以了。
+
+  仍然由
+  \[ \frac{1}{2^m+1} + \frac{1}{2^m+2} + \cdots + \frac{1}{2^{m+1}} > 2^m \cdots \frac{1}{2^{m+1}} = \frac{1}{2} \]
+可知，对于任意正整数$N$，只要取一个$n_1=2^{m_1}>N$，再取$n_2=2^{m_1+1}$，就有$|H_{n_1}-H_{n_2}|>\dfrac{1}{2}$，于是部分和数列$H_n$发散，即调和级数发散。
 \end{example}
 
 \subsection{聚点定理}
