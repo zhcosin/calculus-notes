@@ -209,6 +209,26 @@
   对于任意正实数$\varepsilon>0$，上式的分子能从某一个下标$N$开始恒小于$\varepsilon$，同时再取另外一个正实数$|y|/2$，数列能从某项起恒有$|y_n|>|y|/2$，于是从某个下标开始，上式就能恒小于$2\varepsilon / y^2$，所以数列$1/y_n$收敛到$1/y$，再将$x_n/y_n$视为$x_n$乘以$1/y_n$并利用乘积的结果，便得商的情形。
 \end{proof}
 
+
+\begin{example}
+  给定数列$x_n$的前两项$x_1$与$x_2$，以后的项由公式
+  \[ x_{n+1}=\frac{1}{2}(x_n+x_{n-1}) \]
+  确定，我们来讨论一下它的收敛情况。
+
+  递推公式可以改写成
+  \[ x_{n+1}-x_n = -\frac{1}{2}(x_n-x_{n-1}) \]
+  因此，递推下去有
+  \[ x_{n+1}-x_n = \left( -\frac{1}{2} \right)^{n-1}(x_2-x_1) \]
+  于是
+  \begin{eqnarray*}
+    x_n & = & x_1 + \sum_{k=2}^n(x_k-x_{k-1})  \\
+        & = & x_1 + (x_2-x_1)\sum_{k=2}^n \left( -\frac{1}{2} \right)^{k-2} \\
+    & = & x_1 + (x_2-x_1) \cdot \frac{2}{3}\left( 1- \left( - \frac{1}{2} \right)^{n-1} \right)
+  \end{eqnarray*}
+  于是有
+  \[ \lim_{n \to \infty} x_n = x_1 + \frac{2}{3}(x_2-x_1) = \frac{x_1+2x_2}{3} \]
+\end{example}
+
 \begin{inference}
   \label{inference:limit-of-power-of-number-sequence}
   若数列$a_n$收敛到实数$A$，则对于固定的整数$m$，数列$a_n^m$收敛到实数$A^m$.
