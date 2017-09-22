@@ -144,6 +144,18 @@
   这便说明$\lim\limits_{n \to \infty}M_n = A$，需要提醒的是这里出现的$2\varepsilon$似乎与极限定义不一致，但实际上，只要在这整个过程将$\varepsilon$替换为$\dfrac{1}{2}\varepsilon$，就可以与极限定义完全一致，而且从另一个角度来说，极限定义中只是说$\varepsilon$是任意正实数，那么如果$\varepsilon$是任意正实数，$2\varepsilon$照样可以取遍任意正实数，所以这并没有本质上的不同，关于这一点以后将不再说明了。
 \end{example}
 
+\begin{example}[无穷级数的和]
+  对于数列$a_n$，我们可以作出它的前$n$项的和
+  \[ S_n = \sum_{i=1}^n a_i = a_1 + a_2 + \cdots + a_n \]
+  依赖于$n$的取值，这些和将构成一个新的数列$S_1,S_2,\ldots$，现在我们把加法推广到无穷个数相加的情形，称无穷个数相加的表达式
+  \[ \sum_{n=1}^{\infty} a_n = a_1 + a_2 + \cdots  \]
+  为\emph{无穷级数}，而$S_n$称为它的第$n$个\emph{部分和}，如果$S_n$有(有限的)极限，即
+  \[ \lim\limits_{n \to \infty} = S \]
+  则称无穷级数$\sum\limits_{n=1}^{\infty} a_n$ \emph{收敛}，这个极限$S$称为级数的\emph{和}，记作
+  \[ \sum_{n=1}^{\infty} a_n = S \]
+  如果部分和数列$S_n$没有极限，则称无穷级数是\emph{发散}的。
+\end{example}
+
 \subsection{极限的性质与运算}
 \label{sec:properties-and-operation-of-limit}
 
@@ -227,6 +239,17 @@
   \end{eqnarray*}
   于是有
   \[ \lim_{n \to \infty} x_n = x_1 + \frac{2}{3}(x_2-x_1) = \frac{x_1+2x_2}{3} \]
+\end{example}
+
+\begin{example}[几何级数]
+  设实数$q$满足$|q|<1$，称级数
+  \[ \sum_{n=0}^{\infty} q^n = 1+q+q^2+\cdots  \]
+  为\emph{几何级数}，它的部分和
+  \[ S_n = \sum_{i=0}^n q^i = \frac{1-q^{n+1}}{1-q} \]
+  因为$|q|<1$，所以可以得出
+  \[ \lim_{n \to \infty} S_n = \frac{1}{1-q} \]
+  也就是说，几何级数的和是
+  \[ \sum_{n=0}^{\infty} q^n = \frac{1}{1-q} \]
 \end{example}
 
 \begin{inference}
@@ -434,6 +457,20 @@
 \subsection{闭区间套定理}
 \label{sec:theorem-of-closed-interval-sequence}
 
+\begin{theorem}[闭区间套定理]
+  \label{closed-interval-sequence-theorem}
+  设闭区间序列$[a_n,b_n](n=1,2,\ldots)$ 满足:
+  \begin{enumerate}
+  \item $[a_1,b_1] \supseteq [a_2,b_2] \supseteq \cdots [a_n,b_n] \supseteq [a_{n+1},b_{n+1}] \supseteq \cdots$
+  \item $\lim\limits_{n \to \infty} (b_n-a_n) = 0$
+  \end{enumerate}
+    则存在唯一实数$x$，使得$x \in [a_n,b_n](n=1,2,\ldots)$.
+\end{theorem}
+
+\begin{proof}[证明]
+  显然$a_n$是一个单调增加有上界的序列，所有的$b_m$都是它的上界，同样，$b_n$是单调减少有下界的数列，所有的$a_m$都是它的下界，因此两个数列均有极限，分别记为$A$和$B$，由$a_n < b_n$恒成立知$A \leqslant B$，又如果$A<B$，那么有$a_n\leqslant A < B \leqslant b_n$，这表明$b_n-a_n>B-A$，这与区间长度趋于零相矛盾，所以只能$A=B$，并且它同时位于所有的闭区间上，如果还有另一个与之不同的点也能同处于所有的闭区间上，则显然与区间长度趋于零相矛盾，所以这个共同极限是唯一同时位于所有区间上的数。
+\end{proof}
+
 \subsection{柯西收敛准则}
 \label{sec:cauchy-convergence-rule}
 
@@ -442,9 +479,9 @@
 \end{theorem}
 
 \begin{proof}[证明]
-  先证必要性.
+  先证必要性. 如果数列$x_n$收敛到$x$，那么对于任意正实数$\varepsilon$，都有正整数$N$，使得$n>N$时恒有$|x_n-x|<\varepsilon / 2$，于是对于任意$n_1>N$及$n_2>N$，便有$|x_{n_1}-x_{n_2}|=|(x_{n_1}-x)- (x_{n_2}-x)|\leqslant |x_{n_1}-x|+|x_{n_2}-x|<\varepsilon / 2+\varepsilon / 2 = \varepsilon$。必要性得证。
 
-  如果数列$x_n$收敛到$x$，那么对于任意正实数$\varepsilon$，都有正整数$N$，使得$n>N$时恒有$|x_n-x|<\varepsilon / 2$，于是对于任意$n_1>N$及$n_2>N$，便有$|x_{n_1}-x_{n_2}|=|(x_{n_1}-x)- (x_{n_2}-x)|\leqslant |x_{n_1}-x|+|x_{n_2}-x|<\varepsilon / 2+\varepsilon / 2 = \varepsilon$。必要性得证。
+  再证充分性，先任取一个正实数$\varepsilon_1$，数列中的项能够从某一项开始全部落在一个宽度为$2\varepsilon_1$的闭区间$I_1$，再取$\varepsilon_2 = \dfrac{1}{2}\varepsilon_1$，则数列又能够从另一项（一般来说需要向后推移若干个下标）开始尽数落在一个宽度为$2\varepsilon_2$的闭区间$I_2$上，且$I_1 \supseteq I_2$，依次类推，得出一个闭区间序列$I_1,I_2,\ldots$，其中每一个闭区间都能包含数列从某一项开始之后的全部项，且这些闭区间的长度趋于零，因此按闭区间套定理，存在唯一实数$M$同时处于所有的闭区间上，它将是这数列的极限，这是因为，对于任意正实数$\varepsilon$，显然存在某个闭区间$I_m$，使得$I_m \subset (M-\varepsilon,M+\varepsilon)$，而数列能够从某一项开始全部落在闭区间$I_m$上，也就从这一项开始全部落在$M$的$\varepsilon$邻域内，所以$M$就是这数列的极限。
 \end{proof}
 
 \begin{example}
@@ -472,6 +509,13 @@
   \end{eqnarray*}
   可见它也满足柯西收敛条件，所以这个数列也有极限，它的极限便是自然对数的底数$e$:
   \[ \lim_{n \to \infty} \sum_{i=1}^n \frac{1}{i!} = e \]
+\end{example}
+
+\begin{example}[调和级数的发散性]
+  在这个例子中，我们来考虑\emph{调和级数}
+  \[ \sum_{i=1}^{\infty} = 1+\frac{1}{2} + \frac{1}{3} + \cdots  \]
+  的收敛性，它的部分和
+  \[ H_n = 1 + \frac{1}{2} + \cdots + \frac{1}{n} \]
 \end{example}
 
 \subsection{聚点定理}
