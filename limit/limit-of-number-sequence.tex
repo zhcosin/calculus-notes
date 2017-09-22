@@ -124,27 +124,6 @@
   这便说明$\lim\limits_{n \to \infty}M_n = A$，需要提醒的是这里出现的$2\varepsilon$似乎与极限定义不一致，但实际上，只要在这整个过程将$\varepsilon$替换为$\dfrac{1}{2}\varepsilon$，就可以与极限定义完全一致，而且从另一个角度来说，极限定义中只是说$\varepsilon$是任意正实数，那么如果$\varepsilon$是任意正实数，$2\varepsilon$照样可以取遍任意正实数，所以这并没有本质上的不同，关于这一点以后将不再说明了。
 \end{example}
 
-\subsection{无穷小与无穷大}
-\label{sec:infinite-small-and-great}
-
-\begin{definition}
-  如果数列收敛到零，则称它在$n$无限增大时是一个\emph{无穷小}.
-\end{definition}
-
-\begin{definition}
-  如果数列$a_n$满足: 对任意大的正实数$M$，总存在正整数$N$，使得当$n>N$时恒有$|a_n|\geqslant M$，则称这数列在$n$无限增大时是一个\emph{无穷大}.
-\end{definition}
-
-例如$\dfrac{1}{n}$便是无穷小的例子，而$n^2$则是一个无穷大的例子。
-
-\begin{definition}
-   设数列$a_n$与$b_n$都是无穷小，即在$n$无限增大时都收敛到零，\\
-  (1). 若$\lim\limits_{n \to \infty} \dfrac{a_n}{b_n} = 0$，则称$a_n$是$b_n$的\emph{高阶无穷小}，记作$a_n=o(b_n)$. \\
-  (2). 若$\lim\limits_{n \to \infty} \dfrac{a_n}{b_n} = K(\neq 0)$，则称$a_n$与$b_n$是\emph{同阶无穷小}，特别的，如果$K=1$，则称它俩是\emph{等价无穷小}，记作$a_n \sim b_n$.
-\end{definition}
-
-例如，$\dfrac{1}{n^2}$是$\dfrac{1}{n}$的高阶无穷小，这个概念体现了无穷小之间的比较，需要说明的是，两个无穷小之间并不必然有阶的高低之分，因为它俩之比可以不收敛。
-
 \subsection{极限的性质与运算}
 \label{sec:properties-and-operation-of-limit}
 
@@ -164,10 +143,29 @@
   只要在极限的定义中取 $\epsilon < a-x$即可得前半部分结论，同样再取$\epsilon < y-a$即得后半部分结论。
 \end{proof}
 
-\begin{inference}[极限的保号性]
+\begin{inference}[保号性]
   如果数列收敛到一个正的实数，则数列必从某项起恒保持正号，同样，若收敛到一个负的实数，则必从某项起恒保持负号。
 \end{inference}
 
+\begin{theorem}[保不等式性]
+  设数列$a_n$与数列$b_n$分别收敛到$A$与$B$，且当$n$充分大时恒有$a_n<b_n$，则必有$A \leqslant B$.
+\end{theorem}
+
+\begin{proof}[证明]
+  反证法，若$A<B$，则取$\varepsilon=\dfrac{1}{2}(B-A)$，在$n$充分大时必同时有$a_n<A+\varepsilon=\dfrac{1}{2}(A+B)$以及$b_n>B-\varepsilon=\dfrac{1}{2}(A+B)$成立，这时显然有$a_n<b_n$，与定理条件矛盾，所以$A \leqslant B$.
+\end{proof}
+
+要注意的是由定理中的条件并不能得出$A<B$的结论来，例如$a_n=\dfrac{1}{n^2}$与$b_n=\dfrac{1}{n}$.
+
+\begin{theorem}[夹逼准则，迫敛性]
+ 若三个数列$a_n$、$b_n$、$c_n$在$n$充分大时恒有$a_n \leqslant b_n \leqslant c_n$，并且$a_n$与$c_n$都收敛到同一极限$M$，则$b_n$亦必收敛到此极限值. 
+\end{theorem}
+
+\begin{proof}[证明]
+  对任意小的正实数$\varepsilon$，显然当$n$充分大时有
+  \[ M-\varepsilon < a_n < b_n < c_n < M+\varepsilon \]
+  由此即得定理.
+\end{proof}
 
 \begin{theorem}
   如果数列$x_n$和$y_n$分别收敛到$x$和$y$，则数列$x_n+y_n$、$x_n-y_n$、$x_ny_n$、$x_n/y_n$都收敛，而且极限分别是$x+y$、$x-y$、$xy$、$x/y$，在商的情况要求$y \neq 0$。
@@ -217,6 +215,31 @@
   这表明在$n$趋于无限大时，多项式与指数相比，它将变得微不足道，也就是说，指数是比多项式更高阶的无穷大。
 \end{example}
 
+
+\subsection{无穷小与无穷大}
+\label{sec:infinite-small-and-great}
+
+\begin{definition}
+  如果数列收敛到零，则称它在$n$无限增大时是一个\emph{无穷小}.
+\end{definition}
+
+\begin{definition}
+  如果数列$a_n$满足: 对任意大的正实数$M$，总存在正整数$N$，使得当$n>N$时恒有$|a_n|\geqslant M$，则称这数列在$n$无限增大时是一个\emph{无穷大}.
+\end{definition}
+
+显然，当$a_n$是非零的无穷小时，$\dfrac{1}{a_n}$是无穷大，反之也对。
+
+例如$\dfrac{1}{n}$便是无穷小的例子，而$n^2$则是一个无穷大的例子。
+
+\begin{definition}
+   设数列$a_n$与$b_n$都是无穷小，即在$n$无限增大时都收敛到零，\\
+  (1). 若$\lim\limits_{n \to \infty} \dfrac{a_n}{b_n} = 0$，则称$a_n$是$b_n$的\emph{高阶无穷小}，记作$a_n=o(b_n)$. \\
+  (2). 若$\lim\limits_{n \to \infty} \dfrac{a_n}{b_n} = K(\neq 0)$，则称$a_n$与$b_n$是\emph{同阶无穷小}，特别的，如果$K=1$，则称它俩是\emph{等价无穷小}，记作$a_n \sim b_n$.
+\end{definition}
+
+例如，$\dfrac{1}{n^2}$是$\dfrac{1}{n}$的高阶无穷小，这个概念体现了无穷小之间的比较，需要说明的是，两个无穷小之间并不必然有阶的高低之分，因为它俩之比可以不收敛。
+
+
 关于无穷小，还有如此结论
 \begin{theorem}
   如果数列$a_n$是无穷小，数列$b_n$有界，则数列$a_nb_n$是无穷小。
@@ -225,6 +248,14 @@
 \begin{proof}[证明]
   由条件，存在正实数$M$，使得$b_n$中的所有项都满足$|b_n|\leqslant M$，所以$|a_nb_n| \leqslant M |a_n|$总是成立的，而$a_n$为无穷小，所以对于无论多么小的正实数$\varepsilon$，数列$a_n$总能从某项起恒满足$|a_n|<\varepsilon/M$，从而$|a_nb_n|<\varepsilon$，于是结论成立。
 \end{proof}
+
+由此知道，数列$\dfrac{\sin{n}}{n}$是无穷小.
+
+\begin{theorem}
+  有限个无穷小之和仍是无穷小.
+\end{theorem}
+
+利用极限定义即可简单证明，略去。
 
 关于同阶无穷小，则有如下结论
 \begin{theorem}
@@ -309,7 +340,7 @@
 \end{proof}
 
 
-\subsection{一个重要的数列极限}
+\subsection{数$e$}
 \label{sec:a-import-sequence-limit}
 
 这一小节我们来证明下面这个数列有极限:
@@ -354,8 +385,8 @@
 
 
 
-\subsection{闭区间套定理与聚点定理}
-\label{sec:theorem-of-closed-interval-sequence-and-accumulate-point}
+\subsection{闭区间套定理}
+\label{sec:theorem-of-closed-interval-sequence}
 
 \subsection{柯西收敛准则}
 \label{sec:cauchy-convergence-rule}
@@ -396,6 +427,13 @@
   可见它也满足柯西收敛条件，所以这个数列也有极限，它的极限便是自然对数的底数$e$:
   \[ \lim_{n \to \infty} \sum_{i=1}^n \frac{1}{i!} = e \]
 \end{example}
+
+\subsection{聚点定理}
+\label{sec:accumulate-point-theorem}
+
+\subsection{上极限与下极限}
+\label{sec:upper-limit-and-lower-limit}
+
 
 
 \subsection{无穷级数}
