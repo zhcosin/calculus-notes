@@ -58,10 +58,18 @@
 \end{example}
 
 \begin{example}
+  \label{example:limit-of-q-power-n}
+  设实数$q$满足$|q|<1$，则
+  \[ \lim_{n \to \infty} q^n = 0 \]
+  对于任意小的正实数$\varepsilon$，要使不等式$|q^n - 0| < \varepsilon$，只要$n>\dfrac{\ln{\varepsilon}}{\ln{q}}$就行了，这就证明得了结论。
+\end{example}
+
+\begin{example}
   \label{example:limit-of-1-devide-by-a-power-n}
   设实数$a>1$，则
   \[ \lim_{n \to \infty} \frac{1}{a^n} = 0 \]
-
+  这实际上是\autoref{example:limit-of-q-power-n}的特例，但这里换一种方法来证明它.
+  
   对于无论多么小的正实数$\varepsilon$，为了找到极限定义中所要求的$N$，考虑不等式
   \[ \frac{1}{a^n} < \varepsilon \]
   也就是$a^n>1/\varepsilon$，设$a=1+\lambda$，则$\lambda>0$，按二项式定理有\footnote{我们这里并没有从$a^n>1/\varepsilon$中直接使用对数来得出$n>\log_a{(1/\varepsilon)}$，这是因为尽管中学数学中已经学过对数概念，但那时还没有给出无理指数幂的定义，所以指数的定义是不完整的，因此我们无法确认，对于底数$a$，正实数$1/\varepsilon$的对数是否存在，以后我们将在\autoref{sec:irrational-power}中专门讨论指数的定义和值域问题。}
@@ -83,6 +91,13 @@
 \end{example}
 
 \begin{example}
+  \label{example:limit-of-lnn-devide-by-n}
+  在\autoref{example:limit-of-n-devide-by-a-power-n}的基础上，还可以建立下面的极限
+  \[ \lim_{n \to \infty} \frac{\ln{n}}{n} = 0 \]
+  对于任意小的正实数$\varepsilon$，为了使得$n$充分大时$\dfrac{\ln{n}}{n} < \varepsilon$，只要使$n<(e^{\varepsilon})^n$就可以了，而根据\autoref{example:limit-of-n-devide-by-a-power-n}中所建立起的极限，这是可以在$n$充分大时恒成立的，故此就建立了此处的极限。
+\end{example}
+
+\begin{example}
   \label{example:limit-of-n-sqrt-a-when-a-greater-than-1}
   设实数$a>1$且$a \neq 1$，则 $\lim_{n \to \infty} \sqrt[n]{a} = 1$
 
@@ -99,6 +114,11 @@
     \[ 0<z_n<\frac{1}{n}(a-1) \]
     下同证明一.
   \end{proof}
+\end{example}
+
+\begin{example}
+  运用与\autoref{example:limit-of-n-sqrt-a-when-a-greater-than-1}完全一样的手法，还可以得出下面的极限
+  \[ \lim_{n \to \infty} \sqrt[n]{n} = 1 \]
 \end{example}
 
 \begin{example}
@@ -396,7 +416,7 @@
 \end{theorem}
 
 \begin{proof}[证明]
-  只证明必要性，充分性的证明放在实数完备性那一节。
+  先证必要性.
 
   如果数列$x_n$收敛到$x$，那么对于任意正实数$\varepsilon$，都有正整数$N$，使得$n>N$时恒有$|x_n-x|<\varepsilon / 2$，于是对于任意$n_1>N$及$n_2>N$，便有$|x_{n_1}-x_{n_2}|=|(x_{n_1}-x)- (x_{n_2}-x)|\leqslant |x_{n_1}-x|+|x_{n_2}-x|<\varepsilon / 2+\varepsilon / 2 = \varepsilon$。必要性得证。
 \end{proof}
