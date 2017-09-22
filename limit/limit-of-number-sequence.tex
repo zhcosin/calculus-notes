@@ -132,7 +132,7 @@
 \end{theorem}
 
 \begin{proof}[证明]
-  反证法，假若有两个数$a1$和$a2$都是数列的极限，假定$a_1<a_2$，则对于任意正数$\epsilon > 0$，数列都能从某项起同时成立着 $|x_n-a_1| < \epsilon$ 和 $|x_n-a_2| < \epsilon$，于是取$\epsilon < (a_2-a_1)/2$，则前述两个不等式因为无交集而产生矛盾。
+  反证法，假若有两个数$a1$和$a2$都是数列的极限，假定$a_1<a_2$，则对于任意正数$\varepsilon > 0$，数列都能从某项起同时成立着 $|x_n-a_1| < \varepsilon$ 和 $|x_n-a_2| < \varepsilon$，于是取$\varepsilon < (a_2-a_1)/2$，则前述两个不等式因为无交集而产生矛盾。
 \end{proof}
 
 \begin{theorem}
@@ -140,7 +140,7 @@
 \end{theorem}
 
 \begin{proof}[证明]
-  只要在极限的定义中取 $\epsilon < a-x$即可得前半部分结论，同样再取$\epsilon < y-a$即得后半部分结论。
+  只要在极限的定义中取 $\varepsilon < a-x$即可得前半部分结论，同样再取$\varepsilon < y-a$即得后半部分结论。
 \end{proof}
 
 \begin{inference}[保号性]
@@ -180,13 +180,13 @@
   \begin{equation*}
     |x_ny_n-xy| = |(x_ny_n-xy_n) + (xy_n-xy)| \leqslant |y_n||x_n-x| + |x| |y_n-y|
   \end{equation*}
-  任取$\epsilon > 0$，则存在$N>0$，使得$n>N$时同时恒有$|x_n-x|<\epsilon$和$|y_n-y|<\epsilon$\footnote{本来对同一个$\epsilon$，两个数列的$N$是不同的，但是可以取比这两个$N$都大的$N$，这时就同时有那两个不等式。}，另外再由收敛数列的有界性，存在$M>0$，使得$ |y_n| < M$，于是就有 $|x_ny_n-xy| < (M+|x|)\epsilon$，所以$x_ny_n$收敛到$xy.$
+  任取$\varepsilon > 0$，则存在$N>0$，使得$n>N$时同时恒有$|x_n-x|<\varepsilon$和$|y_n-y|<\varepsilon$\footnote{本来对同一个$\varepsilon$，两个数列的$N$是不同的，但是可以取比这两个$N$都大的$N$，这时就同时有那两个不等式。}，另外再由收敛数列的有界性，存在$M>0$，使得$ |y_n| < M$，于是就有 $|x_ny_n-xy| < (M+|x|)\varepsilon$，所以$x_ny_n$收敛到$xy.$
 
   再来证明商的情况，先证明一个结论，如果数列$y_n$收敛到一个非零实数$y$，那么数列$1/y_n$必收敛，且收敛到$1/y$，这是因为
   \begin{equation*}
     \left| \frac{1}{y_n} - \frac{1}{y} \right| = \left| \frac{y_n-y}{yy_n} \right|
   \end{equation*}
-  对于任意正实数$\epsilon>0$，上式的分子能从某一个下标$N$开始恒小于$\epsilon$，同时再取另外一个正实数$|y|/2$，数列能从某项起恒有$|y_n|>|y|/2$，于是从某个下标开始，上式就能恒小于$2\epsilon / y^2$，所以数列$1/y_n$收敛到$1/y$，再将$x_n/y_n$视为$x_n$乘以$1/y_n$并利用乘积的结果，便得商的情形。
+  对于任意正实数$\varepsilon>0$，上式的分子能从某一个下标$N$开始恒小于$\varepsilon$，同时再取另外一个正实数$|y|/2$，数列能从某项起恒有$|y_n|>|y|/2$，于是从某个下标开始，上式就能恒小于$2\varepsilon / y^2$，所以数列$1/y_n$收敛到$1/y$，再将$x_n/y_n$视为$x_n$乘以$1/y_n$并利用乘积的结果，便得商的情形。
 \end{proof}
 
 \begin{inference}
@@ -302,7 +302,7 @@
 \end{theorem}
 
 \begin{proof}[证明]
-  这其实从定义就可以得出了，随便取一个$\epsilon>0$，即知数列从某项起全部落在区间$(a-\epsilon, a+\epsilon)$内，这里$a$是数列极限，再扩大此区间把前面的那些项(有限个)包含进来，于是数列便有界。
+  这其实从定义就可以得出了，随便取一个$\varepsilon>0$，即知数列从某项起全部落在区间$(a-\varepsilon, a+\varepsilon)$内，这里$a$是数列极限，再扩大此区间把前面的那些项(有限个)包含进来，于是数列便有界。
 \end{proof}
 
 \begin{example}
@@ -336,7 +336,7 @@
 \end{theorem}
 
 \begin{proof}[证明]
-  只证明单调递增有上界的情况，假如数列$x_n$就是这样的数列，它的上确界是$M$，则数列中的全部项都满足$x_n \leqslant M$，另外，对于任意小的正实数$\epsilon$，由上确界定义，总存在某个$x_N$满足$x_N>M-\epsilon$，再由单调性即知对于$n>N$恒有$M-\epsilon < x_n \leqslant M < M+\epsilon$，所以$M$就是这数列的极限。
+  只证明单调递增有上界的情况，假如数列$x_n$就是这样的数列，它的上确界是$M$，则数列中的全部项都满足$x_n \leqslant M$，另外，对于任意小的正实数$\varepsilon$，由上确界定义，总存在某个$x_N$满足$x_N>M-\varepsilon$，再由单调性即知对于$n>N$恒有$M-\varepsilon < x_n \leqslant M < M+\varepsilon$，所以$M$就是这数列的极限。
 \end{proof}
 
 
@@ -392,13 +392,13 @@
 \label{sec:cauchy-convergence-rule}
 
 \begin{theorem}[柯西收敛准则]
-  数列$x_n$收敛的充分必要条件是，对于任意正实数$\epsilon$，总存在正整数$N>0$，使得任意$n_1>N$和任意$n_2>N$及任意恒有$|x_{n_1}-x_{n_2}| < \epsilon$。
+  数列$x_n$收敛的充分必要条件是，对于任意正实数$\varepsilon$，总存在正整数$N>0$，使得任意$n_1>N$和任意$n_2>N$及任意恒有$|x_{n_1}-x_{n_2}| < \varepsilon$。
 \end{theorem}
 
 \begin{proof}[证明]
   只证明必要性，充分性的证明放在实数完备性那一节。
 
-  如果数列$x_n$收敛到$x$，那么对于任意正实数$\epsilon$，都有正整数$N$，使得$n>N$时恒有$|x_n-x|<\epsilon / 2$，于是对于任意$n_1>N$及$n_2>N$，便有$|x_{n_1}-x_{n_2}|=|(x_{n_1}-x)- (x_{n_2}-x)|\leqslant |x_{n_1}-x|+|x_{n_2}-x|<\epsilon / 2+\epsilon / 2 = \epsilon$。必要性得证。
+  如果数列$x_n$收敛到$x$，那么对于任意正实数$\varepsilon$，都有正整数$N$，使得$n>N$时恒有$|x_n-x|<\varepsilon / 2$，于是对于任意$n_1>N$及$n_2>N$，便有$|x_{n_1}-x_{n_2}|=|(x_{n_1}-x)- (x_{n_2}-x)|\leqslant |x_{n_1}-x|+|x_{n_2}-x|<\varepsilon / 2+\varepsilon / 2 = \varepsilon$。必要性得证。
 \end{proof}
 
 \begin{example}
