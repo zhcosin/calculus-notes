@@ -412,7 +412,7 @@
 \begin{example}[调和级数的发散性]
   \label{example:non-convergency-of-harmonic-series-proof-by-monotone}
   在这个例子中，我们来考虑\emph{调和级数}
-  \[ \sum_{n=1}^{\infty} = 1+\frac{1}{2} + \frac{1}{3} + \cdots  \]
+  \[ \sum_{n=1}^{\infty} \frac{1}{n} = 1+\frac{1}{2} + \frac{1}{3} + \cdots  \]
   的收敛性，它的部分和
   \[ H_n = 1 + \frac{1}{2} + \cdots + \frac{1}{n} \]
   虽然$H_n$随着$n$的增大，它的增量逐渐减小，但可以证明它可以大于任意正实数，因为我们有
@@ -505,6 +505,8 @@
   再证充分性，先任取一个正实数$\varepsilon_1$，数列中的项能够从某一项开始全部落在一个宽度为$2\varepsilon_1$的闭区间$I_1$，再取$\varepsilon_2 = \dfrac{1}{2}\varepsilon_1$，则数列又能够从另一项（一般来说需要向后推移若干个下标）开始尽数落在一个宽度为$2\varepsilon_2$的闭区间$I_2$上，且$I_1 \supseteq I_2$，依次类推，得出一个闭区间序列$I_1,I_2,\ldots$，其中每一个闭区间都能包含数列从某一项开始之后的全部项，且这些闭区间的长度趋于零，因此按闭区间套定理，存在唯一实数$M$同时处于所有的闭区间上，它将是这数列的极限，这是因为，对于任意正实数$\varepsilon$，显然存在某个闭区间$I_m$，使得$I_m \subset (M-\varepsilon,M+\varepsilon)$，而数列能够从某一项开始全部落在闭区间$I_m$上，也就从这一项开始全部落在$M$的$\varepsilon$邻域内，所以$M$就是这数列的极限。
 \end{proof}
 
+我们还可以得出柯西收敛准则的否定叙述：数列$a_n$发散的充分必要条件是，存在正实数$r$，使得无论对于多大的正整数$N$，总是存在两个正整数$n_1$和$n_2$，使得$|a_{n_1}-a_{n_2}| \geqslant r$.
+
 \begin{example}
   前$n$个正整数的平方倒数和
   \[ S_n = 1 + \frac{1}{2^2} + \cdots + \frac{1}{n^2} \]
@@ -532,6 +534,12 @@
   \[ \lim_{n \to \infty} \sum_{i=1}^n \frac{1}{i!} = e \]
 \end{example}
 
+\begin{example}[级数收敛的柯西准则]
+  因为级数收敛等同于它的部分和数列收敛，据此可以得出级数收敛的柯西准则：级数$\sum_{n=1}^{\infty} a_n$收敛的充分必要条件是，对于任意小的正实数$\varepsilon$，总存在正整数$n$和正整数$p$，使得$|a_{n+1}+a_{n+2} + \cdots + a_{n+p}|<\varepsilon$。
+
+  同样可以得出它的反而叙述：级数$\sum_{n=1}^{\infty} a_n$发散的充分必要条件是，存在一个正实数$r$，使得无论对于多大的$N$，总存在该下标之后的某一片段和满足$|a_{n+1}+a_{n+2}+\cdots+a_{n+p}| \geqslant r$.
+\end{example}
+
 \begin{example}[调和级数的发散性]
   \label{example:non-convergency-of-harmonic-series-proof-by-cauchy}
   在\autoref{example:non-convergency-of-harmonic-series-proof-by-monotone}中，我们已经证明了调和级数
@@ -541,6 +549,14 @@
   仍然由
   \[ \frac{1}{2^m+1} + \frac{1}{2^m+2} + \cdots + \frac{1}{2^{m+1}} > 2^m \cdots \frac{1}{2^{m+1}} = \frac{1}{2} \]
 可知，对于任意正整数$N$，只要取一个$n_1=2^{m_1}>N$，再取$n_2=2^{m_1+1}$，就有$|H_{n_1}-H_{n_2}|>\dfrac{1}{2}$，于是部分和数列$H_n$发散，即调和级数发散。
+
+要说明的是，这里的放缩方式不是唯一的，比如说从级数中的任一项开始，作片段和
+\[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{n+m} > \frac{m}{n+m} \]
+为了让右端能够大于某个正整数，取$m=n$，即片段的长度要依赖于片段中首项的下标，下标越大，片段越长，这里有
+\[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n} > \frac{1}{2} \]
+于是我们将调和级数按下标划分片段，1和2分别为单独的片段，从3到4为一段，从5到8为一段，9到16为一段，这样划分之后，每一段上的和都大于$\dfrac{1}{2}$，但是这样的划分与前面的放缩其实是一致的，但是我们可以改为这里的$m$，以得出不同的划分，例如取$m=2n$，就得
+\[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{3n} > \frac{2}{3} \]
+于是片段的划分方式是，1是单独的片段，从2到3为一段，从4到9为一段，从10到27为一段，依次类推，每个片段上的倒数和都大于$\dfrac{2}{3}$，于是级数发散。
 \end{example}
 
 \subsection{聚点定理}
