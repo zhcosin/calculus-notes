@@ -117,8 +117,13 @@
 \end{example}
 
 \begin{example}
-  运用与\autoref{example:limit-of-n-sqrt-a-when-a-greater-than-1}完全一样的手法，还可以得出下面的极限
+  我们来证明下面这个极限
   \[ \lim_{n \to \infty} \sqrt[n]{n} = 1 \]
+  显然在$n>1$时有$\sqrt[n]{n}>1$，只要证明当$n$大于某一正整数时恒有
+  \[ \sqrt[n]{n}<1+\varepsilon \]
+  就可以了，这里$\varepsilon$是一个任意小的正实数，而这只需要
+  \[ n < (1+\varepsilon)^n \]
+  就行了，根据\autoref{example:limit-of-n-devide-by-a-power-n}中所得到的极限，这显然是可以办到的。
 \end{example}
 
 \begin{example}
