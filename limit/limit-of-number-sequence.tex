@@ -292,7 +292,7 @@
 \end{definition}
 
 \begin{definition}
-  如果数列$a_n$满足: 对任意大的正实数$M$，总存在正整数$N$，使得当$n>N$时恒有$|a_n|\geqslant M$，则称这数列在$n$无限增大时是一个\emph{无穷大}.
+  如果数列$a_n$满足: 对任意大的正实数$M$，总存在正整数$N$，使得当$n>N$时恒有$|a_n|\geqslant M$，则称这数列在$n$无限增大时是一个\emph{无穷大}，如果$a_n$在$n$充分大时还保持着一定的符号，则称之为\emph{正无穷大}或者\emph{负无穷大}，此时也称数列收敛到正无穷或者收敛到负无穷，记作$\lim\limits_{n \to \infty} a_n = + \infty$或者$\lim\limits_{n \to \infty} a_n = -\infty$.
 \end{definition}
 
 显然，当$a_n$是非零的无穷小时，$\dfrac{1}{a_n}$是无穷大，反之也对。
@@ -302,10 +302,10 @@
 \begin{definition}
    设数列$a_n$与$b_n$都是无穷小，即在$n$无限增大时都收敛到零，\\
   (1). 若$\lim\limits_{n \to \infty} \dfrac{a_n}{b_n} = 0$，则称$a_n$是$b_n$的\emph{高阶无穷小}，记作$a_n=o(b_n)$. \\
-  (2). 若$\lim\limits_{n \to \infty} \dfrac{a_n}{b_n} = K(\neq 0)$，则称$a_n$与$b_n$是\emph{同阶无穷小}，特别的，如果$K=1$，则称它俩是\emph{等价无穷小}，记作$a_n \sim b_n$.
+  (2). 若存在正实数$U$和$V$，使得当$n$充分大时有$U\leqslant \left| \dfrac{a_n}{b_n} \right| \leqslant V$，则称$a_n$与$b_n$是\emph{同阶无穷小}，特别的，如果$\lim\limits_{n \to \infty} \dfrac{a_n}{b_n} = 1$，则称它俩是\emph{等价无穷小}，记作$a_n \sim b_n$.
 \end{definition}
 
-例如，$\dfrac{1}{n^2}$是$\dfrac{1}{n}$的高阶无穷小，这个概念体现了无穷小之间的比较，需要说明的是，两个无穷小之间并不必然有阶的高低之分，因为它俩之比可以不收敛。
+例如，$\dfrac{1}{n^2}$是$\dfrac{1}{n}$的高阶无穷小，而$\dfrac{1}{n}$与$\dfrac{1+\sin{n}}{n}$则是同阶无穷小，这个概念体现了无穷小之间的比较，需要说明的是，两个无穷小之间并不必然有阶的高低之分，因为它俩之比可以不收敛。
 
 
 关于无穷小，还有如此结论
@@ -329,6 +329,8 @@
 \begin{theorem}
   若$a_n$与$b_n$是同阶无穷小，$c_n$是任一数列，则数列$a_nc_n$与$b_nc_n$的收敛性情况相同，即要么都收敛要么都发散，并且在收敛的情况下，如果又是等价无穷小，则还具有相同的极限值.
 \end{theorem}
+
+这定理关于等价无穷小的结论是非常有用的，它表明在计算极限的过程中，可以将一个无穷因子替换为与它等价的无穷小。
 
 \subsection{Stolz 定理}
 \label{sec:stolz-theorem}
@@ -375,6 +377,16 @@
   根据Stolz定理，便得原式亦有相同极限。
 
   在初等数学中，我们已经知道自然数的幂和$S(n,m)=\sum\limits_{i=1}^ni^m$是一个关于$n$的$m+1$次多项式，并且它的最高次项系数就是$\dfrac{1}{m+1}$，所以这里的极限是毫不意外的。
+\end{example}
+
+\begin{example}
+  我们证明一个关于调和级数与对数之间关系的一个重要极限:
+  \[ \lim_{n \to \infty} \frac{1+\frac{1}{2}+\cdots+\frac{1}{n}}{\ln{n}} = 1 \]
+  取$a_n=1+\dfrac{1}{2}+\cdots+\dfrac{1}{n}$，$b_n=\ln{n}$，则
+  \[ \lim_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} = \lim_{n \to \infty} \frac{1}{(n+1)\ln{\left( 1+ \frac{1}{n} \right)}} = 1 \]
+  显然$b_n$是单调增加到正无穷的，因此由Stolz定理即得所要证的极限。
+
+  这个例子的意义在于，它揭示了调和级数的增长速度，与对数是同一级别的，以后我们还将看到，它俩不但增长速度接近，事实上它俩之差会趋于一个固定值(欧拉常数$c=0.577\cdots$).
 \end{example}
 
 
@@ -470,7 +482,7 @@
   这就表明$H_{2^m}$是一个无穷大，再由$H_n$的单调性，可知它是一个正无穷大，也就是说调和级数是发散的。
 \end{example}
 
-\subsection{数$e$}
+\subsection{数$\mathrm{e}$}
 \label{sec:a-import-sequence-limit}
 
 这一小节我们来证明下面这个数列有极限:
@@ -513,7 +525,8 @@
   所以数列单调递增有上界，故此有极限.
 \end{proof}
 
-
+我们用字母$\mathrm{e}$来表示这个数列的极限，它的值是
+\[ \lim_{n \to \infty} \left( 1+\frac{1}{n} \right)^n = \mathrm{e}= 2.718281828459045\cdots \]
 
 \subsection{闭区间套定理}
 \label{sec:theorem-of-closed-interval-sequence}
@@ -619,7 +632,7 @@
 \end{proof}
 
 从数列中剔除掉一些项，剩下的项按照原来的顺序排列而成的新数列，称为原数列的一个\emph{子数列}.
-\begin{inference}
+\begin{inference}[博雷尔-魏尔斯特拉斯引理]
   任何有界数列，必存在收敛的子数列。
 \end{inference}
 
