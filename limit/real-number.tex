@@ -122,9 +122,15 @@
 
 规定，两个复数相等当且仅当它们的实部和虚部分别相等.此外，复数集上没有大小关系。
 
+称复数$a-bi$是复数$z=a+bi$的\emph{共轭复数}，记作$\overline{z}$，即共轭的两个复数实部相等而虚部互为相反数，显然
+\[ z+\overline{z}=2Re(z), \  z-\overline{z}=2iIm(z), \  z\overline{z}=|z|^2 \]
+
 再定义减法为加法的逆运算，那么按照实数的运算定律，有
 \[ (a_1+b_1i) \pm (a_2+b_2i) = (a_1 \pm a_2) + (b_1 \pm b_2)i \]
 这显然也可以推广到任意有限个复数相加的情形，显然，复数的加减法对应着数对的加减法，也就对应着向量的加减法。
+
+不难验证，关于共轭复数有
+\[ \overline{z_1+z_2}=\overline{z_1}+\overline{z_2} \]
 
 关于乘法，有
 \begin{eqnarray*}
@@ -137,6 +143,9 @@
   \frac{a_1+b_1i}{a_2+b_2i} & = & \frac{(a_1+b_1i)(a_2-b_2i)}{(a_2+b_2i)(a_2-b_2i)} \\
   & = & \frac{(a_1a_2+b_1b_2)+(b_1a_2-a_1b_2)i}{a_2^2+b_2^2}
 \end{eqnarray*}
+
+同样可以验证
+\[ \overline{z_1z_2} = \overline{z_1} \cdot \overline{z_2}, \  \overline{\left( \frac{z_1}{z_2} \right)} = \frac{\overline{z_1}}{\overline{z_2}} \]
 
 利用变换$x=r\cos{\theta}$，$y=r\sin{\theta}$，复数$z=a+bi$可以改写为
 \[ z=r(\cos{\theta}+i\sin{\theta}) \]
