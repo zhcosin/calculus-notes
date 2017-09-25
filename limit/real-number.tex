@@ -97,6 +97,29 @@
 现在证明，数$K$是集合$A$的上确界，先证明它是上界，反证法，若它不是上界，则$A$中存在比它更大的数$x_0$，那么按实数大小关系定义，在比较$x_0$与$K$时，从左边开始往右比较，第一个不相同的数位上，$x_0$在该数位上的数大于$K$在该数位上的数，但这与$K$在这一数位上的数值的确定方法相矛盾，所以$K$是上界。其次需要证明，$K$是最小的上界，设$L$是一个小于$K$的实数，那么它与$K$相比，从左边开始第一个不相同的数位上，它对应的数较小，假定这数位就是$10^{-n}$，并设$K$和$L$在舍去这一数位以后的全部数位后所得的数分别是$K_n$和$L_n$，那么$K_n>L_n$，但根据$K$的确定过程可知，对于任何正整数$n$，$A$中都存在不小于$K_n$的数，自然这数也就大于$L_n$，因此$K$是最小的上界，即为上确界。
 \end{proof}
 
+\subsection{伯努利不等式}
+\label{sec:bernoulli-inequality}
+
+\begin{theorem}[伯努利(Bernoulli)不等式]
+  \label{theorem:bernoulli-inequality}
+  设实数$x \geqslant -1$，则对任意正整数$n$成立不等式
+  \begin{equation}
+    \label{eq:bernoulli-inequality}
+   (1+x)^n \geqslant 1+nx 
+ \end{equation}
+ 等号成立的充分必要条件是$x=0$或者$x=-1,n=1$.
+\end{theorem}
+
+\begin{proof}[证明]
+  在$x \geqslant 0$时，左边按二项式定理展开可以看到它是成立的，所以关键是如何证明$x<0$的情形。
+
+  在等式(它可以经由数学归纳法得出)
+  \[ a^n-b^n = (a-b)(a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1}) \]
+  在式中令$a=1+x$，$b=1$便得
+  \[ (1+x)^n-1=x \left[ (1+x)^{n-1}+(1+x)^{n-2}+\cdots+(1+x)+1 \right] \]
+  如果$x>0$，则右边中括号内的部分显然大于$n$，于是要证的不等式成立，而如果$-1<x<0$，则中括号内的部分小于$n$，再与负数$x$相乘，不等式反向即证出伯努利不等式。
+\end{proof}
+
 \subsection{复数}
 \label{sec:complex-number}
 
