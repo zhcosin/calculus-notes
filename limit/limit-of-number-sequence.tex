@@ -408,6 +408,31 @@
   只证明单调递增有上界的情况，假如数列$x_n$就是这样的数列，它的上确界是$M$，则数列中的全部项都满足$x_n \leqslant M$，另外，对于任意小的正实数$\varepsilon$，由上确界定义，总存在某个$x_N$满足$x_N>M-\varepsilon$，再由单调性即知对于$n>N$恒有$M-\varepsilon < x_n \leqslant M < M+\varepsilon$，所以$M$就是这数列的极限。
 \end{proof}
 
+\begin{example}[等差-等比中项]
+  \label{example:arithmetic-gemotry-mid-term}
+  考虑两个数列$a_n$和$b_n$，任取$a_1=a>0$，$b_1=b>0$，以后的项由下式确定
+  \[ a_{n+1} = \sqrt{a_nb_n}, \  b_{n+1}=\frac{a_n+b_n}{2} \]
+  现考察一下这两个数列的极限情况。
+
+  显然，两个数列的所有项都是正的，而且无论两个数列的第一项如何取值，从第二项起便恒有$a_n \leqslant b_n$，因此
+  \[ a_{n+1} = \sqrt{a_nb_n} \geqslant a_n \]
+  即$a_n$从第二项开始单调增加(不减)，同时有
+  \[ b_{n+1} = \frac{a_n+b_n}{2} \leqslant b_n \]
+  即$b_n$从第二项开始单调减少(不增)，另一方面，容易发现两个数列都是有界的:
+  \[ a_2 \leqslant a_3 \leqslant \cdots \leqslant a_n \leqslant \cdots \leqslant b_n \leqslant \cdots \leqslant b_3 \leqslant b_2  \]
+  即$a_n$是单调增加有上界，而$b_n$是单调减少有下界，因此它俩都有极限，再在$a_n$的递推式两端取极限便知它们有着共同的极限值，毫无疑问，这个极限值是由两个数列的首项$a$和$b$所唯一确定的，它称为$a$和$b$的\emph{等差-等比中项}，但要想在这里求出它的具体表达式，却是不可能的，它不可能用目前我们已知的任何表达式写出来，以后将会看到，它可以利用椭圆积分表出。
+\end{example}
+
+\begin{example}[调和-算术中项]
+  \label{example:harmonic-arithmetic-mid-term}
+  与\autoref{example:arithmetic-gemotry-mid-term}相仿，不过现在我们将两个平均数分别替换为调和平均与算术平均:
+  \[ a_{n+1} = \frac{2}{\frac{1}{a_n}+\frac{1}{b_n}}, \  b_{n+1} = \frac{a_n+b_n}{2} \]
+  类似的可得出
+  \[ a_2 \leqslant a_3 \leqslant \cdots \leqslant a_n \leqslant \cdots \leqslant b_n \leqslant \cdots \leqslant b_3 \leqslant b_2  \]
+  因此这两个数列仍有极限，这极限称为数$a$与$b$的\emph{调和-算术平均}，与算术-几何平均不同的是，调和-算术平均有简单表达式，因为恒有关系
+  \[ a_{n+1}b_{n+1} = \frac{2a_nb_n}{a_n+b_n} \cdot \frac{a_n+b_n}{2} = a_nb_n \]
+  因此恒有$a_nb_n=a_1b_1=ab$，所以这个极限是$\sqrt{ab}$，即两个数的调和-算术平均，就是两者的几何平均。
+\end{example}
 
 \begin{example}[调和级数的发散性]
   \label{example:non-convergency-of-harmonic-series-proof-by-monotone}
@@ -418,9 +443,9 @@
   虽然$H_n$随着$n$的增大，它的增量逐渐减小，但可以证明它可以大于任意正实数，因为我们有
   \begin{eqnarray*}
     \frac{1}{3} + \frac{1}{4} & > & 2 \times \frac{1}{4} = \frac{1}{2} \\
-    \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} > 4 \times \frac{1}{8} = \frac{1}{2} \\
-    ......
-    \frac{1}{2^m+1} + \frac{1}{2^m+2} + \cdots \frac{1}{2^{m+1}} > 2^m \times \frac{1}{2^{m+1}} = \frac{1}{2}
+    \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} & > & 4 \times \frac{1}{8} = \frac{1}{2} \\
+    ...... && \\
+    \frac{1}{2^m+1} + \frac{1}{2^m+2} + \cdots \frac{1}{2^{m+1}} & > & 2^m \times \frac{1}{2^{m+1}} = \frac{1}{2}
   \end{eqnarray*}
   因此
   \begin{eqnarray*}
@@ -605,6 +630,23 @@
 
 以后我们会称数列的聚点，它是指由数列所有项的数值所组成的数集的聚点，以后不再特别说明。
 
+\begin{definition}
+  数列$a_n$的最大聚点称为数列的\emph{上极限}，记作$\varlimsup\limits_{n \to \infty}a_n$，而最小的聚点称为它的\emph{下极限}，记作$\varliminf\limits_{n \to \infty} a_n$.
+\end{definition}
+
+显然，有界数列必同时存在上极限与下极限。
+
+\begin{theorem}
+有界数列存在极限的充分必要条件是，它的上极限与下极限相等。  
+\end{theorem}
+
+\begin{proof}[证明]
+  必要性，如果数列$a_n$收敛到$A$，显然$A$是它的唯一聚点，上极限与下极限都是它。
+
+  充分性，设上极限与下极限都是$A$，显然$A$的任意邻域内含有数列中的无限多项，而在此邻域外只能含有数列中的有限多项，否则在此邻域外还有别的聚点存在，所以数列只能收敛到此值。
+\end{proof}
+
+要注意的是结论对无界数列不成立。
 
 \subsection{无穷级数}
 \label{sec:infinite-series}
