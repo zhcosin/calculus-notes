@@ -362,6 +362,16 @@
   只要在 Stolz 定理中取$a_n=x_1+x_2+\cdots+x_n$，$b_n=n$便得此结论。
 \end{proof}
 
+\begin{example}
+  我们证明，对任意确定的正整数$m$，有
+  \[ \lim_{n \to \infty} \frac{1^m+2^m+\cdots+n^m}{n^{m+1}} = \frac{1}{m+1} \]
+  只要取$a_n=1^m+2^m+\cdots+n^m$与$b_n=n^{m+1}$，有
+  \[ \lim_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} = \lim_{n \to \infty} \frac{(1+n)^m}{(1+n)^{m+1}-n^{m+1}} = \lim_{n \to \infty} \frac{n^m+\cdots}{(m+1)n^m+\cdots} = \frac{1}{m+1} \]
+  根据Stolz定理，便得原式亦有相同极限。
+
+  在初等数学中，我们已经知道自然数的幂和$S(n,m)=\sum\limits_{i=1}^ni^m$是一个关于$n$的$m+1$次多项式，并且它的最高次项系数就是$\dfrac{1}{m+1}$，所以这里的极限是毫不意外的。
+\end{example}
+
 
 \subsection{单调有界定理}
 \label{sec:theorem-of-monotone-bounded}
