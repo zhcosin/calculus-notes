@@ -2,7 +2,7 @@
 #+AUTHOR: zhcosin
 #+DATE: 2017-05-25
 
-这是我学习微积分的个人笔记，使用 =LaTeX= 进行排版， =pdf= 文档可在[[https://github.com/zhcosin/math-notes-publish]] 页面下载。
+这是我学习微积分的个人笔记，使用 =LaTeX= 进行排版， =pdf= 文档可在[[https://coding.net/u/zhcosin/p/math-notes-publish/git/blob/master/calculus-note.pdf]] 页面下载。
 
 微积分是近代建立起来的数学理论，历经数代数学家不断添砖加瓦，构成了今天我们所看到的一部宏伟而严丝合缝的理论，它是高等数学的开端，使人类的数学思维和手段经历了一次质的飞跃。
 
