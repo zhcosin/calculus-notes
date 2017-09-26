@@ -204,6 +204,17 @@
 
 可见两个复数相乘除，就是将两个复数的模相乘除得到乘积或商的模，两个复数的辐角相加减得到乘积或商的辐角，这与向量的乘法(无论内积还是外积)不再一致，复数乘法在三角形式下变得相当简单，而且这显然可以推广到任意有限个复数相乘的情形。
 
+\begin{example}[利用共轭复数证明余弦定理]
+  取复数$z_1=r_1(\cos{\theta_1}+i\sin{\theta_1})$，$z_2=r_2(\cos{\theta_2}+i\sin{\theta_2})$，则有
+  \[ z_1\overline{z_2} = r_1r_2(\cos{(\theta_1-\theta_2)+i\sin{(\theta_1-\theta_2)}}) \]
+  因此，$z_1\overline{z_2}$的实数部分就是$z_1$与$z_2$两个复数对应的两个向量的内积，同理$\overline{z_1}z_2$的实数部分也是这内积，所以这内积等于
+  \[ \frac{1}{2}(z_1\overline{z_2}+\overline{z_1}z_2) \]
+  由恒等式
+  \[ (z_1-z_2)(\overline{z_1}-\overline{z_2})= z_1\overline{z_1} + z_2\overline{z_2} -(z_1\overline{z_2}+\overline{z_1}z_2) \]
+  左边就是$|z_1-z_2|^2$，右边前两项分别是$|z_1|^2$和$|z_2|^2$，最后的两项就是$z_1$与$z_2$对应两个向量的内积的2倍，于是便得出余弦定理
+  \[ |z_1-z_2|^2 = |z_1|^2+|z_2|^2-2|z_1||z_2|\cos{(\theta_1-\theta_2)} \]
+\end{example}
+
 更特别的是复数的乘幂，容易知道
 \begin{equation}
   \label{eq:de-moivre-formula}
