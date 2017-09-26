@@ -155,7 +155,7 @@
   依赖于$n$的取值，这些和将构成一个新的数列$S_1,S_2,\ldots$，现在我们把加法推广到无穷个数相加的情形，称无穷个数相加的表达式
   \[ \sum_{n=1}^{\infty} a_n = a_1 + a_2 + \cdots  \]
   为\emph{无穷级数}，而$S_n$称为它的第$n$个\emph{部分和}，如果$S_n$有(有限的)极限，即
-  \[ \lim\limits_{n \to \infty} = S \]
+  \[ \lim\limits_{n \to \infty} S_n = S \]
   则称无穷级数$\sum\limits_{n=1}^{\infty} a_n$ \emph{收敛}，这个极限$S$称为级数的\emph{和}，记作
   \[ \sum_{n=1}^{\infty} a_n = S \]
   如果部分和数列$S_n$没有极限，则称无穷级数是\emph{发散}的。
@@ -527,6 +527,23 @@
 
 我们用字母$\mathrm{e}$来表示这个数列的极限，它的值是
 \[ \lim_{n \to \infty} \left( 1+\frac{1}{n} \right)^n = \mathrm{e}= 2.718281828459045\cdots \]
+
+在前述证明二中我们已经证得
+\[ x_n < 1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!} = y_n \]
+并且证明二就是利用了$y_n$有上界而得出$x_n$有上界的，显然$y_n$也是单调增加的，所以$y_n$也有极限，其实它也收敛到$\mathrm{e}$，在此证明这一点。
+
+在证明二的过程中已经得到
+\[ x_n = 1 + \sum_{i=1}^n \frac{1}{i!}\left( 1-\frac{1}{n} \right) \left( 1-\frac{2}{n} \right) \cdots \left( 1-\frac{i-1}{n} \right) \]
+任选整数$k$满足$0<k<n$，并在上式右端的求和中舍弃$i>k$的加项，得(注意求和的上限)
+\[ x_n > 1 + \sum_{i=1}^k \frac{1}{i!}\left( 1-\frac{1}{n} \right) \left( 1-\frac{2}{n} \right) \cdots \left( 1-\frac{i-1}{n} \right) \]
+固定整数$k$不变，则右端是有限个数之和，让$n$无限增大两端取极限，得
+\[ \mathrm{e} \geqslant 1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{k!} = y_k \]
+于是得出
+\[ x_n < y_n \leqslant \mathrm{e} \]
+由夹逼准则，就得出
+\[ \lim_{n \to \infty} \left( 1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!} \right) = \mathrm{e} \]
+或者说，有下面的级数
+\[ \sum_{n=0}^{\infty} \frac{1}{n!} = \mathrm{e} \]
 
 \subsection{闭区间套定理}
 \label{sec:theorem-of-closed-interval-sequence}
