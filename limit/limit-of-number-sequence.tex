@@ -299,6 +299,32 @@
 
 例如$\dfrac{1}{n}$便是无穷小的例子，而$n^2$则是一个无穷大的例子。
 
+\begin{example}
+  今来考虑关于$n$的多项式
+  \[ a_mn^m+a_{m-1}n^{m-1} + \cdots a_1n+a_0 \]
+  在$n \to \infty$时的极限情况。
+
+  将最高次幂提出来，多项式写成下面的形状
+  \[ n^m \left( a_m+\frac{a_{m-1}}{n}+\frac{a_{m-2}}{n^2} + \cdots + \frac{a_0}{n^m} \right) \]
+  在$n \to \infty$时，显然括号中的部分将趋于极限值$a_m$，但外面有一个无穷大因子$n^m$，所以我们得到结论，如果最高次项系数为正，则多项式将趋于正无穷，如果这系数为负，则它将趋于负无穷。
+\end{example}
+
+\begin{example}
+  再来考察关于$n$的有理式子的极限，即关于$n$的两个多项式之比的极限:
+  \[ \frac{a_mn^m+a_{m-1}n^{m-1} + \cdots a_1n+a_0}{b_ln^l+b_{l-1}n^{l-1} + \cdots b_1n+b_0} \]
+  这里$a_m \neq 0$，$b_l \neq 0$.
+
+  如果$m=l$，则分子分母同时除以最高次幂变形为
+  \[ \frac{a_m+\frac{a_{m-1}}{n}+\cdots+\frac{a_0}{n^m}}{b_m+\frac{b_{m-1}}{n}+\cdots+\frac{b_0}{n^m}} \]
+  显然它的极限是$\dfrac{a_m}{b_m}$，即最高次项系数之比。
+
+  如果$m<l$，则分子分母同时除以$n^l$后，原式成为
+  \[ \frac{\frac{a_m}{n^{l-m}}+\cdots+\frac{a_0}{n^l}}{b_m+\frac{b_{m-1}}{n}+\cdots+\frac{b_0}{n^l}} \]
+  分子趋于$0$，而分母趋于$b_m$，因此此时极限为零。
+
+  同理，当$m>l$时，分子分母同时除以$n^l$后，分母趋于有限的极限$b_m$，但分母却是无穷大，所以此时它的极限是无穷大，其符号由分子分母的最高次项系数共同决定，相同时为正无穷，相反时为负无穷。
+\end{example}
+
 \begin{definition}
    设数列$a_n$与$b_n$都是无穷小，即在$n$无限增大时都收敛到零，\\
   (1). 若$\lim\limits_{n \to \infty} \dfrac{a_n}{b_n} = 0$，则称$a_n$是$b_n$的\emph{高阶无穷小}，记作$a_n=o(b_n)$. \\
@@ -544,6 +570,11 @@
 \[ \lim_{n \to \infty} \left( 1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!} \right) = \mathrm{e} \]
 或者说，有下面的级数
 \[ \sum_{n=0}^{\infty} \frac{1}{n!} = \mathrm{e} \]
+
+\subsection{圆周率$\pi$}
+\label{sec:pi}
+
+
 
 \subsection{闭区间套定理}
 \label{sec:theorem-of-closed-interval-sequence}
