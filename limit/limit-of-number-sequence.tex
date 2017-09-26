@@ -98,6 +98,20 @@
 \end{example}
 
 \begin{example}
+  设实数$a>1$，则
+  \[ \lim_{n \to \infty} \frac{a^n}{n!} = 0 \]
+  将原式写成
+  \[ a \cdot \frac{a}{2} \cdots \frac{a}{n} \]
+  任取正整数$M$满足$M>a$，根据上式因式中分母与$M$的大小分成两部分(限定$n>M$)
+  \[ \left( a \cdot \frac{a}{2} \cdots \frac{a}{M} \right) \left( \frac{a}{M+1} \cdot \frac{a}{M+2} \cdots \frac{a}{n} \right) \]
+  将后一个括号中的因式全部放大为$\dfrac{a}{M}$，成为
+  \[ \left( a \cdot \frac{a}{2} \cdots \frac{a}{M} \right) \left( \frac{a}{M} \right)^{n-M} \]
+  它具有形式
+  \[ c q^n \]
+  其中$q=\dfrac{a}{M}$满足$|q|<1$，而$c$是一个正常数，所以此式极限是零，而原式也就以零为极限。
+\end{example}
+
+\begin{example}
   \label{example:limit-of-n-sqrt-a-when-a-greater-than-1}
   设实数$a>1$且$a \neq 1$，则 $\lim_{n \to \infty} \sqrt[n]{a} = 1$
 
@@ -124,6 +138,20 @@
   就可以了，这里$\varepsilon$是一个任意小的正实数，而这只需要
   \[ n < (1+\varepsilon)^n \]
   就行了，根据\autoref{example:limit-of-n-devide-by-a-power-n}中所得到的极限，这显然是可以办到的。
+\end{example}
+
+\begin{example}
+  现在证明
+  \[ \lim_{n \to \infty} \frac{1}{\sqrt[n]{n!}} \]
+  任意固定一个正整数$M$，在$n>M$时显然有
+  \[ n!>M!M^{n-M} \]
+  即
+  \[ \frac{1}{\sqrt[n]{n!}} < \frac{1}{M \sqrt[n]{\frac{M!}{M^M}}} \]
+  而$\dfrac{M!}{M^M}<1$，根据\autoref{example:limit-of-n-sqrt-a-when-a-greater-than-1}的结论，当$n$充分大时，将有
+  \[ \sqrt[n]{\frac{M!}{M^M}} > \frac{1}{2} \]
+  从而此时有
+  \[ \frac{1}{\sqrt[n]{n!}} < \frac{2}{M} \]
+  即对于任何确定的$M$，当$n$充分大时都有上式成立，所以对于任意小的正实数$\varepsilon$，只要让$\dfrac{2}{M}<\varepsilon$就可以了，这就证明了结论。
 \end{example}
 
 \begin{example}
