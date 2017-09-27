@@ -219,6 +219,15 @@
   如果数列收敛到一个正的实数，则数列必从某项起恒保持正号，同样，若收敛到一个负的实数，则必从某项起恒保持负号。
 \end{inference}
 
+
+\begin{theorem}[收敛数列的有界性]
+  收敛数列必有界。
+\end{theorem}
+
+\begin{proof}[证明]
+  这其实从定义就可以得出了，随便取一个$\varepsilon>0$，即知数列从某项起全部落在区间$(a-\varepsilon, a+\varepsilon)$内，这里$a$是数列极限，再扩大此区间把前面的那些项(有限个)包含进来，于是数列便有界。
+\end{proof}
+
 \begin{theorem}[保不等式性]
   设数列$a_n$与数列$b_n$分别收敛到$A$与$B$，且当$n$充分大时恒有$a_n<b_n$，则必有$A \leqslant B$.
 \end{theorem}
@@ -459,40 +468,6 @@
 \subsection{单调有界定理}
 \label{sec:theorem-of-monotone-bounded}
 
-\begin{theorem}[收敛数列的有界性]
-  收敛数列必有界。
-\end{theorem}
-
-\begin{proof}[证明]
-  这其实从定义就可以得出了，随便取一个$\varepsilon>0$，即知数列从某项起全部落在区间$(a-\varepsilon, a+\varepsilon)$内，这里$a$是数列极限，再扩大此区间把前面的那些项(有限个)包含进来，于是数列便有界。
-\end{proof}
-
-\begin{example}
-  我们来研究一个利用确界得出极限的例子：已知非负实数数列$\{a_n\}$对任意两个正整数$n$和$m$都满足$a_{n+m} \leqslant a_n+a_m$，求证:数列$\{\frac{a_n}{n}\}$收敛。
-
-这道题目跟1997年的一道CMO试题的条件一模一样，只是结论不同，题目如下: 已知非负实数数列$\{a_n\}$对任意两个正整数$n$和$m$都满足$a_{n+m} \leqslant a_n+a_m$，求证:对任意$n \geqslant m$都有$a_n \leqslant ma_1+\left( \frac{n}{m}-1\right)a_m$。
-
-由于这个关联性，所以原题目的解答过程参考了后者的思路\footnote{见参考文献\cite{olympic-math}.}.
-
-\begin{proof}[证明]
-设$n>m$，有
-\begin{align*}
-\frac{a_n}{n} - \frac{a_m}{m} < & \frac{a_{n-m}+a_m}{n} - \frac{a_m}{m} \\
- = & \frac{n-m}{n} \left( \frac{a_{n-m}}{n-m} - \frac{a_m}{m} \right)
-\end{align*}
-这有点类似于辗转相除法，如果还有$n-m>m$，则继续上述步骤，经过有限步之后，必然得出
-\[ \frac{a_n}{n} - \frac{a_m}{m} \leqslant \frac{s}{n} \left( \frac{a_s}{s} - \frac{a_m}{m} \right) \]
-其中正整数$s$满足$1 \leqslant s \leqslant m$，但是这个$s$，一般的说是依赖于$n$的，但是它的取值集合却是有限个，所以右端除去因子$\frac{1}{n}$以外的部分是有界的,所以我们在上式中令$n \to \infty$，便能得出右端在$n \to \infty$时趋于零，这就说明: 对于每一个固定的$m$和任意小的正实数$\delta$，当$n$充分大时恒有
-\[ \frac{a_n}{n} \leqslant \frac{a_m}{m} + \delta \]
-这便是我们解答问题的关键所在，因为显然还能得出$a_n \leqslant a_{n-1}+a_1 \leqslant (a_{n-2}+a_1)+a_1 \leqslant \cdots \leqslant na_1$，从而$0 \leqslant \frac{a_n}{n} \leqslant a_1$说明数列$\{\frac{a_n}{n}\}$是有上下界的，因此我们只要证明如下这个引理就可以了：
-
-引理: 如果数列$\{ x_n \}$有界，并且对于数列中的每一项$x_m$和任意小的正实数$\delta$，当$n$充分大时恒有$x_n \leqslant x_m+\delta$，那么数列收敛。
-
-证明是很容易的，既然数列有下界，便有下确界，我们将证明这下确界便是其极限，设其下确界为$M$，那么对于无论多么小的正实数$\varepsilon$，存在数列中的某一项$x_m$满足$M \leqslant x_m  < M+\varepsilon$，然而由条件，当$n$充分大时恒有$x_n \leqslant x_m+\delta$，我们让这个$\delta<M+\varepsilon-x_m$，从而这时就有$M \leqslant x_n  < M+\varepsilon$，按极限定义，这下确界$M$便是其极限。
-\end{proof}
-\end{example}
-
-
 \begin{theorem}
   单调递增有上界的数列必定收敛，而且收敛到它的上确界。单调递减有下界的数列也类似。
 \end{theorem}
@@ -500,6 +475,41 @@
 \begin{proof}[证明]
   只证明单调递增有上界的情况，假如数列$x_n$就是这样的数列，它的上确界是$M$，则数列中的全部项都满足$x_n \leqslant M$，另外，对于任意小的正实数$\varepsilon$，由上确界定义，总存在某个$x_N$满足$x_N>M-\varepsilon$，再由单调性即知对于$n>N$恒有$M-\varepsilon < x_n \leqslant M < M+\varepsilon$，所以$M$就是这数列的极限。
 \end{proof}
+
+\begin{example}
+  考虑下面的具有$n$重根号的式子
+  \[ \sqrt{2+\sqrt{2+\cdots+\sqrt{2}}} \]
+  为求其无限个根号时的极限，用数列来归纳的定义它,$x_1=\sqrt{2}$，$x_{n+1}=\sqrt{2+x_n}$.
+
+  显然这是一个正项数列，由$x_n<2$可得到$x_{n+1}=\sqrt{2+x_n}<\sqrt{2+2}=2$，又$x_1<2$，因此数列有上界，又
+  \[ x_{n+1}^2-x_n^2=2+x_n-x_n^2=(2-x_n)(1+x_n)>0 \]
+  所以数列单调增加，于是这数列有极限，设其极限为$x$，则在递推式两边取极限得$\sqrt{2+x}=x$，解之得$x=2$，即它收敛到2.
+
+  可以看到，如果$x_1$的取值大于2，则这数列将单调减少并恒大于2，但会收敛到2.
+
+  类似的，对于递推数列$x_{n+1}=\sqrt{c+x_n}$，这里$c>0$为常数，如果数列收敛，设极限为$x$，显然$x=\sqrt{c+x}$，即$x=\dfrac{1+\sqrt{1+4c}}{2}$，又如果$x_n<x$，则显然$x_{n+1}<x$，如果$x_n>x$，则$x_{n+1}>x$，也就是说，只要首项$x_1$在$x$的某一边，则数列的全部项都在同一侧，而
+  \[ x_{n+1}^2-x_n^2=c+x_n-x_n^2=\left( x_n - \frac{1+\sqrt{1+4c}}{2} \right)\left( \frac{1-\sqrt{1+4c}}{2}-x_n \right) \]
+  所以如果$x_1<x=\dfrac{1+\sqrt{1+4c}}{2}$，则$x_n$单调增加有上界，如果$x_1>x$，则数列单调减少有下界，无论哪种情况，都会收敛到$\dfrac{1+\sqrt{1+4c}}{2}$.
+\end{example}
+
+\begin{example}
+  序列
+  \[ 1+\frac{1}{2^2}+\cdots+\frac{1}{n^2} \]
+  显然是单调增加的，又
+  \begin{eqnarray*}
+    && 1+\frac{1}{2^2}+\cdots+\frac{1}{n^2} \\
+    & < & 1 + \frac{1}{1\times 2}+\cdots+\frac{1}{(n-1)n} \\
+    & = & 1+\left( 1-\frac{1}{2} \right)+\cdots+\left( \frac{1}{n-1}-\frac{1}{n} \right) \\
+    & = & 2-\frac{1}{m} < 2
+  \end{eqnarray*}
+  因此它有上界，于是收敛，也就是说，级数$\lim\limits_{n=1}^{\infty}\dfrac{1}{n^2}$收敛，以后会看到，这个和是$\dfrac{\pi^2}{6}$.
+\end{example}
+
+\begin{example}
+  序列
+  \[ 1+\frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!} \]
+  它显然是单调增加的，而关于它上有界，则有两种放缩方式可以证明，其一是利用$\dfrac{1}{n!}<\dfrac{1}{2^{n-1}}(n \geqslant 2)$，其二是利用$\dfrac{1}{n!}<\dfrac{1}{(n-1)n}=\dfrac{1}{n-1}-\dfrac{1}{n}$，因此它也有上界，从而有极限，这就是说: 级数$\sum\limits_{n=0}^{\infty} \dfrac{1}{n!}$收敛，以后将看到，它会收敛到$\mathrm{e}$，自然对数的底数。
+\end{example}
 
 \begin{example}[等差-等比中项]
   \label{example:arithmetic-gemotry-mid-term}
@@ -779,6 +789,37 @@
 
 \subsection{复数数列的极限}
 \label{sec:limit-of-complex-number-sequence}
+
+\subsection{题选}
+\label{sec:exercises-for-number-sequence-limit}
+
+
+\begin{example}
+  我们来研究一个利用确界得出极限的例子：已知非负实数数列$\{a_n\}$对任意两个正整数$n$和$m$都满足$a_{n+m} \leqslant a_n+a_m$，求证:数列$\{\frac{a_n}{n}\}$收敛。
+
+这道题目跟1997年的一道CMO试题的条件一模一样，只是结论不同，题目如下: 已知非负实数数列$\{a_n\}$对任意两个正整数$n$和$m$都满足$a_{n+m} \leqslant a_n+a_m$，求证:对任意$n \geqslant m$都有$a_n \leqslant ma_1+\left( \frac{n}{m}-1\right)a_m$。
+
+由于这个关联性，所以原题目的解答过程参考了后者的思路\footnote{见参考文献\cite{olympic-math}.}.
+
+\begin{proof}[证明]
+设$n>m$，有
+\begin{align*}
+\frac{a_n}{n} - \frac{a_m}{m} < & \frac{a_{n-m}+a_m}{n} - \frac{a_m}{m} \\
+ = & \frac{n-m}{n} \left( \frac{a_{n-m}}{n-m} - \frac{a_m}{m} \right)
+\end{align*}
+这有点类似于辗转相除法，如果还有$n-m>m$，则继续上述步骤，经过有限步之后，必然得出
+\[ \frac{a_n}{n} - \frac{a_m}{m} \leqslant \frac{s}{n} \left( \frac{a_s}{s} - \frac{a_m}{m} \right) \]
+其中正整数$s$满足$1 \leqslant s \leqslant m$，但是这个$s$，一般的说是依赖于$n$的，但是它的取值集合却是有限个，所以右端除去因子$\frac{1}{n}$以外的部分是有界的,所以我们在上式中令$n \to \infty$，便能得出右端在$n \to \infty$时趋于零，这就说明: 对于每一个固定的$m$和任意小的正实数$\delta$，当$n$充分大时恒有
+\[ \frac{a_n}{n} \leqslant \frac{a_m}{m} + \delta \]
+这便是我们解答问题的关键所在，因为显然还能得出$a_n \leqslant a_{n-1}+a_1 \leqslant (a_{n-2}+a_1)+a_1 \leqslant \cdots \leqslant na_1$，从而$0 \leqslant \frac{a_n}{n} \leqslant a_1$说明数列$\{\frac{a_n}{n}\}$是有上下界的，因此我们只要证明如下这个引理就可以了：
+
+引理: 如果数列$\{ x_n \}$有界，并且对于数列中的每一项$x_m$和任意小的正实数$\delta$，当$n$充分大时恒有$x_n \leqslant x_m+\delta$，那么数列收敛。
+
+证明是很容易的，既然数列有下界，便有下确界，我们将证明这下确界便是其极限，设其下确界为$M$，那么对于无论多么小的正实数$\varepsilon$，存在数列中的某一项$x_m$满足$M \leqslant x_m  < M+\varepsilon$，然而由条件，当$n$充分大时恒有$x_n \leqslant x_m+\delta$，我们让这个$\delta<M+\varepsilon-x_m$，从而这时就有$M \leqslant x_n  < M+\varepsilon$，按极限定义，这下确界$M$便是其极限。
+\end{proof}
+\end{example}
+
+
 
 
 
