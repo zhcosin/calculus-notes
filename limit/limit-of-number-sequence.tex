@@ -601,6 +601,25 @@
   所以数列单调递增有上界，故此有极限.
 \end{proof}
 
+\begin{proof}[证明三]\footnote{这个证明来自参考文献\cite{math-analysis}.}
+  设实数$a>b>0$，有
+  \[ a^{n+1}-b^{n+1}=(a-b)(a^n+a^{n-1}b+\cdots+ab^{n-1}+b^n) < (n+1)a^n(a-b) \]
+  即
+  \begin{equation}
+    \label{eq:example-equation-a-n-b-n}
+   b^{n+1}>a^n(a-(n+1)(a-b))=a^n((n+1)b-na) 
+  \end{equation}
+  在此式中取$a=1+\dfrac{1}{n}$, $b=1+\dfrac{1}{n+1}$，由于$(n+1)b-na=1$，故得
+  \[ \left( 1+\frac{1}{n+1} \right)^{n+1} < \left( 1+\frac{1}{n} \right)^n \]
+  即数列$x_n$单调增加，再在前式中取$a=1+\dfrac{1}{2n}$,$b=1$，则$(n+1)b-na=\dfrac{1}{2}$，则得
+  \[ \frac{1}{2} \left( 1 + \frac{1}{2n} \right)^n < 1 \]
+  即
+  \[ \left( 1 + \frac{1}{2n} \right)^{2n} < 4 \]
+  因为$x_n$是递增的，又对于任意正整数$n$，都存在大于它的偶数，所以得到
+  \[ \left( 1 + \frac{1}{n} \right)^n < 4 \]
+  故数列有界，从而存在极限。
+\end{proof}
+
 我们用字母$\mathrm{e}$来表示这个数列的极限，它的值是
 \[ \lim_{n \to \infty} \left( 1+\frac{1}{n} \right)^n = \mathrm{e}= 2.718281828459045\cdots \]
 
