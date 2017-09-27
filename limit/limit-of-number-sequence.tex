@@ -640,6 +640,14 @@
 或者说，有下面的级数
 \[ \sum_{n=0}^{\infty} \frac{1}{n!} = \mathrm{e} \]
 
+现在考虑一个问题，我们是由$x_n<y_n \leqslant \mathrm{e}$ 以及$\lim\limits_{n \to \infty} = \mathrm{e}$得出$\lim\limits_{n \to \infty}=\mathrm{e}$的，但如果我们根据$y_n$单调增加并有上界从而定义$\mathrm{e}$为它的极限，那又如何说明$x_n$也收敛到$\mathrm{e}$呢，此时由$x_n<y_n\leqslant \mathrm{e}$以及$y_n$收敛到$\mathrm{e}$显然是无法得出$x_n$的极限的。
+
+为此再考虑另一个数列
+\[ z_n = \left( 1 + \frac{1}{n} \right)^{n+1} \]
+我们将证明它是单调递减的，然后显然它大于$x_n$，于是有下界，从而收敛，而$x_n$也收敛，由
+\[ z_n=\left( 1+\frac{1}{n} \right)x_n \]
+知它与$x_n$有共同的极限。
+
 \subsection{圆周率$\pi$}
 \label{sec:pi}
 
