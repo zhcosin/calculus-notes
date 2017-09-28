@@ -599,8 +599,8 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 \begin{proof}[证明二]\footnote{这个证明来自于参考文献\cite{math-analysis}.}
   把$x_n$按二项式定理展开得
   \begin{eqnarray*}
-    x_n & = & \sum_{i=0}^n C_n^i \frac{1}{n^i} \\
-    & = & \sum_{i=0}^n \frac{1}{i!}\left( 1-\frac{1}{n} \right) \left( 1-\frac{2}{n} \right)\cdots \left( 1-\frac{i-1}{n} \right)
+    x_n & = & 1+\sum_{i=1}^n C_n^i \frac{1}{n^i} \\
+    & = & 1+ \sum_{i=1}^n \frac{1}{i!}\left( 1-\frac{1}{n} \right) \left( 1-\frac{2}{n} \right)\cdots \left( 1-\frac{i-1}{n} \right)
   \end{eqnarray*}
   易见对于$x_{n+1}$而言，在上式的基础上会多出$i=n+1$的一个正项，并且其它项是把上式中每一个项中的每一个因子$1-\frac{i}{n}$更换为更大的因子$1-\frac{i}{n+1}$，所以$x_{n+1}>x_n$，这是一个递增的数列.
 
@@ -681,6 +681,44 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 知它与$x_n$有共同的极限
 \[ \lim_{n \to \infty} \left( 1 + \frac{1}{n} \right)^{n+1} = \mathrm{e} \]
 事实上，$x_n$与$z_n$构成一个闭区间套序列，而由这区间套确定的实数就是$\mathrm{e}$。
+
+关于$x_n$趋于极限的速度，我们有
+\[ 0 < e-\left( 1 + \frac{1}{n} \right)^n < \frac{3}{n} \]
+\begin{proof}[证明一]
+  根据前面的结论，数列
+  \[ \left( 1+\frac{1}{n} \right)^{n+1} \]
+  单调减少并收敛到$\mathrm{e}$，因此
+  \[ 0 < \mathrm{e} - \left( 1+\frac{1}{n} \right)^n < \left( 1+\frac{1}{n} \right)^{n+1} - \left( 1+\frac{1}{n} \right)^{n} = \frac{1}{n} \left( 1+\frac{1}{n} \right)^{n} < \frac{3}{n} \]
+  即得结论.
+\end{proof}
+
+\begin{proof}[证明二]
+  我们只要证明数列
+  \[ \left( 1 + \frac{1}{n} \right)^n + \frac{3}{n} \]
+  单调减少并收敛到$\mathrm{e}$就可以了。
+
+  为了证明单调减少，只要证明
+  \[ \left( 1 + \frac{1}{n} \right)^n + \frac{3}{n} > \left( 1 + \frac{1}{n+1} \right)^{n+1} + \frac{3}{n+1} \]
+  即要证
+  \[ \left( 1 + \frac{1}{n+1} \right)^{n+1} - \left( 1 + \frac{1}{n} \right)^n < \frac{3}{n(n+1)} \]
+  设$a>b>0$，则
+  \[ a^n-b^n=(a-b)(a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1})>nb^{n-1}(a-b) \]
+  取$a=1+\dfrac{1}{n}$，$b=1+\dfrac{1}{n+1}$，有
+  \[ \left( 1 + \frac{1}{n} \right)^{n} - \left( 1 + \frac{1}{n+1} \right)^{n} >\frac{1}{n+1}\left( 1+\frac{1}{n+1} \right)^{n-1} \]
+  所以
+  \begin{eqnarray*}
+    && \left( 1 + \frac{1}{n+1} \right)^{n+1} - \left( 1 + \frac{1}{n} \right)^n \\
+    & = & \left( 1 + \frac{1}{n+1} \right)\left( 1 + \frac{1}{n+1} \right)^{n} - \left( 1 + \frac{1}{n} \right)^n \\
+    & = & \left( 1 + \frac{1}{n+1} \right)^{n} - \left( 1 + \frac{1}{n} \right)^n + \frac{1}{n+1} \left( 1 + \frac{1}{n+1} \right)^{n} \\
+    & < & -\frac{1}{n+1}\left( 1+\frac{1}{n+1} \right)^{n-1} + \frac{1}{n+1} \left( 1 + \frac{1}{n+1} \right)^{n} \\
+    & = & \frac{1}{(n+1)^2}\left( 1+\frac{1}{n+1} \right)^{n-1} \\
+    & < & \frac{3}{(n+1)^2} < \frac{3}{n(n+1)}
+  \end{eqnarray*}
+  于是就证明了它是单调减少的，显然它有下界（比如零是它的一个下界），所以它有极限，而
+  \[ \lim_{n \to \infty} \left( \left(1+\frac{1}{n} \right)^n + \frac{3}{n} \right) = \lim_{n \to \infty}\left( 1+\frac{1}{n} \right)^n + \lim_{n \to \infty} \frac{3}{n} = \mathrm{e} + 0 = \mathrm{e} \]
+    于是便得结论
+\[ 0 < e-\left( 1 + \frac{1}{n} \right)^n < \frac{3}{n} \]
+\end{proof}
 
 \subsection{圆周率$\pi$}
 \label{sec:pi}
