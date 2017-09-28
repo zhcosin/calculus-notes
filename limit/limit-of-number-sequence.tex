@@ -630,7 +630,9 @@
 在证明二的过程中已经得到
 \[ x_n = 1 + \sum_{i=1}^n \frac{1}{i!}\left( 1-\frac{1}{n} \right) \left( 1-\frac{2}{n} \right) \cdots \left( 1-\frac{i-1}{n} \right) \]
 任选整数$k$满足$0<k<n$，并在上式右端的求和中舍弃$i>k$的加项，得(注意求和的上限)
-\[ x_n > 1 + \sum_{i=1}^k \frac{1}{i!}\left( 1-\frac{1}{n} \right) \left( 1-\frac{2}{n} \right) \cdots \left( 1-\frac{i-1}{n} \right) \]
+\begin{equation}\label{eq:e-xn-yk}
+ x_n > 1 + \sum_{i=1}^k \frac{1}{i!}\left( 1-\frac{1}{n} \right) \left( 1-\frac{2}{n} \right) \cdots \left( 1-\frac{i-1}{n} \right) 
+\end{equation}
 固定整数$k$不变，则右端是有限个数之和，让$n$无限增大两端取极限，得
 \[ \mathrm{e} \geqslant 1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{k!} = y_k \]
 于是得出
@@ -638,15 +640,31 @@
 由夹逼准则，就得出
 \[ \lim_{n \to \infty} \left( 1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!} \right) = \mathrm{e} \]
 或者说，有下面的级数
-\[ \sum_{n=0}^{\infty} \frac{1}{n!} = \mathrm{e} \]
+\begin{equation}
+  \label{eq:series-1-devide-by-n-fractor-is-e}
+ \sum_{n=0}^{\infty} \frac{1}{n!} = \mathrm{e} 
+\end{equation}
 
-现在考虑一个问题，我们是由$x_n<y_n \leqslant \mathrm{e}$ 以及$\lim\limits_{n \to \infty} = \mathrm{e}$得出$\lim\limits_{n \to \infty}=\mathrm{e}$的，但如果我们根据$y_n$单调增加并有上界从而定义$\mathrm{e}$为它的极限，那又如何说明$x_n$也收敛到$\mathrm{e}$呢，此时由$x_n<y_n\leqslant \mathrm{e}$以及$y_n$收敛到$\mathrm{e}$显然是无法得出$x_n$的极限的。
+现在考虑一个问题，我们是由$x_n<y_n \leqslant \mathrm{e}$ 以及$\lim\limits_{n \to \infty} x_n = \mathrm{e}$得出$\lim\limits_{n \to \infty} y_{n}=\mathrm{e}$的，但如果我们根据$y_n$单调增加并有上界从而定义$\mathrm{e}$为它的极限，那又如何说明$x_n$也收敛到$\mathrm{e}$呢，此时由$x_n<y_n\leqslant \mathrm{e}$以及$y_n$收敛到$\mathrm{e}$显然是无法得出$x_n$的极限的。
 
-为此再考虑另一个数列
+这点也不难，此时在\autoref{eq:e-xn-yk}中固定$k$并令$n\to\infty$有$\lim\limits_{n \to \infty} x_n > y_k$，又$x_n<y_n$，故得
+\[ x_n < y_n < \lim_{n \to \infty} x_n \]
+由于$x_n$与$y_n$都收敛，对上式取极限就得
+\[ \lim_{n \to \infty} x_n \leqslant \lim_{n \to \infty}y_n \leqslant \lim_{n \to \infty} x_n \]
+于是就有
+\[ \lim_{n \to \infty} x_n = \lim_{n \to \infty} y_n = \mathrm{e} \]
+
+现在再考虑另一个数列
 \[ z_n = \left( 1 + \frac{1}{n} \right)^{n+1} \]
-我们将证明它是单调递减的，然后显然它大于$x_n$，于是有下界，从而收敛，而$x_n$也收敛，由
+显然它有下界，我们再证明它是单调递减的，由伯努利不等式(\autoref{theorem:bernoulli-inequality})有
+\[ \left( \frac{n^2}{n^2-1} \right)^n = \left( 1 + \frac{1}{n^2-1} \right)^n > 1 + \frac{n}{n^2-1} > 1 + \frac{1}{n} \]
+整理即得
+\[ \left( 1 + \frac{1}{n-1} \right)^n > \left( 1+ \frac{1}{n} \right)^{n+1} \]
+即$z_n>z_{n+1}$，于是它单调减少，从而收敛，又根据
 \[ z_n=\left( 1+\frac{1}{n} \right)x_n \]
-知它与$x_n$有共同的极限。
+知它与$x_n$有共同的极限
+\[ \lim_{n \to \infty} \left( 1 + \frac{1}{n} \right)^{n+1} = \mathrm{e} \]
+事实上，$x_n$与$z_n$构成一个闭区间套序列，而由这区间套确定的实数就是$\mathrm{e}$。
 
 \subsection{圆周率$\pi$}
 \label{sec:pi}
