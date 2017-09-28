@@ -105,6 +105,7 @@
 \end{example}
 
 \begin{example}
+  \label{example:limit-of-a-power-n-devide-by-n-fraction}
   设实数$a>1$，则
   \[ \lim_{n \to \infty} \frac{a^n}{n!} = 0 \]
   将原式写成
@@ -406,6 +407,21 @@
 \end{theorem}
 
 这定理关于等价无穷小的结论是非常有用的，它表明在计算极限的过程中，可以将一个无穷因子替换为与它等价的无穷小。
+
+与无穷小类似，我们可以定义高阶无穷大的概念。
+
+\begin{definition}
+  设数列$x_n$和$y_n$在$n\to\infty$时都是无穷大，如果$\lim\limits_{n \to \infty} \left| \dfrac{x_n}{y_n} \right| = +\infty$，则称$x_n$是$y_n$的\emph{高阶无穷大}.
+\end{definition}
+
+$x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大小与$x_n$相比完全可以忽略不计，尽管$y_n$自身也是无穷大。
+
+\begin{example}
+  \label{example:infinite-large-compare}
+  根据\autoref{example:limit-of-lnn-devide-by-n}、\autoref{example:limit-of-a-power-n-devide-by-n-fraction}、\autoref{example:limit-of-n-power-m-devide-by-a-power-n}的结果，我们可以知道，在对数、多项式、指数、阶乘这些无穷大中，后面的无穷大，都是前面的无穷大的高阶无穷大，如果我们用$x_n \prec y_n$来表示$y_n$是$x_n$的高阶无穷大，那么有
+  \[ \ln{n} \prec n \prec n^2 \prec \cdots \prec n^m \prec a^n \prec n! \]
+  式中$m>2$是正整数，$a>1$为一个实数。
+\end{example}
 
 \subsection{Stolz 定理}
 \label{sec:stolz-theorem}
