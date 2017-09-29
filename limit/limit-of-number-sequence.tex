@@ -726,6 +726,30 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 \[ 0 < e-\left( 1 + \frac{1}{n} \right)^n < \frac{3}{n} \]
 \end{proof}
 
+利用\autoref{eq:series-1-devide-by-n-fractor-is-e}，我们可以用不多的几项就得出$\mathrm{e}$精确度较高的近似值，这是因为阶乘的增长速度相当快，比指数还快，因此这个级数收敛到它的和的速度也是相当快。为此考虑用它的第$n$个部分和去近似$\mathrm{e}$时的误差限，我们有
+\begin{eqnarray*}
+  y_{n+m}-y_n & = & \frac{1}{(n+1)!}+\frac{1}{(n+2)!}+\cdots+\frac{1}{(n+m)!} \\
+              & = & \frac{1}{n!} \left( \frac{1}{n+1}+\frac{1}{(n+1)(n+2)}+\cdots+\frac{1}{(n+1)(n+2)\cdots(n+m)} \right) \\
+              & < & \frac{1}{n!} \left( \frac{1}{n+1}+\frac{1}{(n+1)^2}+\cdots+\frac{1}{(n+1)^m} \right) \\
+              & = & \frac{1}{n!} \cdot \frac{1}{n} \left(1-\frac{1}{(n+1)^m} \right)
+\end{eqnarray*}
+固定$n$，令$m \to \infty$，就得到(下式本来应该是小于等于，但只要在上面取更强的放缩，比如是提$\dfrac{1}{(n+1)!}$而不是$\dfrac{1}{n!}$，取极限之后就可以得到一个小于等于$\dfrac{1}{nn!}$的量)
+\[ \mathrm{e}-y_n < \frac{1}{nn!} \]
+于是对于任意正整数$n$，存在实数$\theta_n \in (0,1)$，使得
+\begin{equation}
+  \label{eq:e-n-fractor}
+ \mathrm{e} = 1+\frac{1}{1!}+\frac{1}{2!}+\cdots+\frac{1}{n!}+\frac{\theta_n}{nn!} 
+\end{equation}
+
+利用\autoref{eq:e-n-fractor}，我们可以证明$\mathrm{e}$是无理数，因为如果它是有理数，则有
+ \[ \frac{m}{n} = 1+\frac{1}{1!}+\frac{1}{2!}+\cdots+\frac{1}{n!}+\frac{\theta_n}{nn!} \]
+注意这里是先用有理数$\dfrac{p}{q}$表示$\mathrm{e}$，再将右端展开到对应的$n=q$的，然后只要在此式的两端同时乘以$n!$，左端得出一个整数，但是右端却是一个整数加上一个真分数$\dfrac{\theta_n}{n}$，矛盾，所以$\mathrm{e}$是无理数，如此也可以说明\autoref{eq:e-n-fractor}中的$\theta_n$不可能取1.
+
+现在利用\autoref{eq:e-n-fractor}估算一下，只要取$n=20$，就有
+\[ \frac{1}{20\times 20!}=\frac{1}{48658040163532800000}= 2.0551\ldots \times 10^{-20} < 3 \times 10^{-20} \]
+再考虑前面前面20项的舍入误差，每一项都保留20位小数，此时的舍入误差$<20\times 10^{-20}$，因此用前20项的和去逼近$\mathrm{e}$的误差不超过$23 \times 10^{-20}$，因此至少具有17位精确小数。
+
+
 \subsection{圆周率$\pi$}
 \label{sec:pi}
 
