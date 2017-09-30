@@ -247,6 +247,30 @@
   关于切比雪夫多项式的更多讨论参见\cite{elementary-math-notes}.
 \end{example}
 
+\begin{example}
+  现在来求和下面两个表达式
+  \begin{eqnarray*}
+    A_n & = & 1 + r\cos{\theta} + r^2\cos{2\theta}+\cdots+r^n\cos{n\theta} \\
+    B_n & = & r\sin{\theta} + r^2\sin{2\theta} + \cdots + r^n\sin{n\theta}
+  \end{eqnarray*}
+  令$z=r(\cos{\theta}+i\sin{\theta})$，则
+  \begin{eqnarray*}
+   && A_n+iB_n \\ 
+   & = & 1 + r(\cos{\theta}+i\sin{\theta})+r^2(\cos{2\theta}+i\sin{2\theta})+\cdots+r^n(\cos{n\theta}+i\sin{n\theta}) \\
+   & = & 1+ z + z^2 + \cdots + z^n \\
+   & = & \frac{1-z^{n+1}}{1-z} \\
+    & = & \frac{1-r^{n+1}(\cos{(n+1)\theta}+i\sin{(n+1)\theta})}{1-r(\cos{\theta}+i\sin{\theta})} \\
+       & = & \frac{1-r^{n+1}(\cos{(n+1)\theta}+i\sin{(n+1)\theta})}{1-r(\cos{\theta}+i\sin{\theta})} \cdot \frac{1-r\cos{\theta}+ir\sin{\theta}}{1-r\cos{\theta}+ir\sin{\theta}} \\
+   & = & \frac{1-r\cos{\theta}+r^{n+2}\cos{n\theta}-r^{n+1}\cos{(n+1)\theta}}{1-2r\cos{\theta}+r^2} + \\
+    && i \frac{r\sin{\theta}+r^{n+2}\sin{n\theta}-r^{n+1}\sin{(n+1)\theta}}{1-2r\cos{\theta}+r^2}
+  \end{eqnarray*}
+  于是比较实部和虚部可得
+  \begin{eqnarray*}
+    A_n & = & \frac{1-r\cos{\theta}+r^{n+2}\cos{n\theta}-r^{n+1}\cos{(n+1)\theta}}{1-2r\cos{\theta}+r^2} \\
+    B_n & = & \frac{r\sin{\theta}+r^{n+2}\sin{n\theta}-r^{n+1}\sin{(n+1)\theta}}{1-2r\cos{\theta}+r^2}
+  \end{eqnarray*}
+\end{example}
+
 有了棣莫弗公式，我们来讨论一下复数的开方。
 
 记$z=r(\cos{\theta}+i\sin{\theta})$，现在来求它的$n$次方根，设$z'=r'(cos{\theta'+i\sin{\theta'}})$是它的一个$n$次方根，按棣莫弗公式，应有
