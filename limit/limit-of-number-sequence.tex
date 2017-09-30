@@ -971,8 +971,9 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 \label{sec:exercises-for-number-sequence-limit}
 
 
-\begin{example}
-  我们来研究一个利用确界得出极限的例子：已知非负实数数列$\{a_n\}$对任意两个正整数$n$和$m$都满足$a_{n+m} \leqslant a_n+a_m$，求证:数列$\{\frac{a_n}{n}\}$收敛。
+\begin{exercise}
+  已知非负实数数列$\{a_n\}$对任意两个正整数$n$和$m$都满足$a_{n+m} \leqslant a_n+a_m$，求证:数列$\{\frac{a_n}{n}\}$收敛。
+\end{exercise}
 
 这道题目跟1997年的一道CMO试题的条件一模一样，只是结论不同，题目如下: 已知非负实数数列$\{a_n\}$对任意两个正整数$n$和$m$都满足$a_{n+m} \leqslant a_n+a_m$，求证:对任意$n \geqslant m$都有$a_n \leqslant ma_1+\left( \frac{n}{m}-1\right)a_m$。
 
@@ -994,10 +995,25 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 
 证明是很容易的，既然数列有下界，便有下确界，我们将证明这下确界便是其极限，设其下确界为$M$，那么对于无论多么小的正实数$\varepsilon$，存在数列中的某一项$x_m$满足$M \leqslant x_m  < M+\varepsilon$，然而由条件，当$n$充分大时恒有$x_n \leqslant x_m+\delta$，我们让这个$\delta<M+\varepsilon-x_m$，从而这时就有$M \leqslant x_n  < M+\varepsilon$，按极限定义，这下确界$M$便是其极限。
 \end{proof}
-\end{example}
 
+\begin{exercise}
+  已知$m+1$个实数$a_i(i=0,1,\ldots,m)$满足
+  \[ a_0+a_1+\cdots+a_m=0 \]
+  求证
+  \[ \lim_{n \to \infty} (a_0 \sqrt{n}+a_1 \sqrt{n+1}+\cdots a_m \sqrt{n+m}) = 0 \]
+\end{exercise}
 
-
+\begin{proof}[证明]
+  由条件有
+  \[ a_m = -(a_0+a_1+\cdots+a_{m-1}) \]
+  所以
+  \begin{eqnarray*}
+    && \sum_{i=0}^m a_i \sqrt{n+i}  \\
+    & = & \sum_{i=0}^{m-1} a_i (\sqrt{n+i}-\sqrt{n+m}) \\
+    & = & - \sum_{i=0}^{m-1} \frac{(m-i)a_i}{\sqrt{n+i}+\sqrt{n+m}}
+  \end{eqnarray*}
+  上式每一个项的极限都是零，且项数$m$不随$n$变化，故原式极限为零。
+\end{proof}
 
 
 %%% Local Variables:
