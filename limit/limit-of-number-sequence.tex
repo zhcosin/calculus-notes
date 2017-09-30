@@ -471,6 +471,25 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 \end{example}
 
 \begin{example}
+  现在把上一例的结果进行加强，上例中求出了
+  \[ \lim_{n \to \infty} \frac{1^m+2^m+\cdots+n^m}{n^{m+1}} = \frac{1}{m+1} \]
+  那么左端的数列减去极限值便是一个无穷小，这个无穷小的阶是如何的呢，现在我们拿它与$\dfrac{1}{n}$进行比较，即要求极限
+  \[ \lim_{n \to \infty} n \left( \frac{1^m+2^m+\cdots+n^m}{n^{m+1}} - \frac{1}{m+1} \right) \]
+  将原式通分变形为
+  \[ \frac{(m+1)(1^m+2^m+\cdots+n^m)-n^{m+1}}{(m+1)n^m} \]
+  将分子作为数列$x_n$，分母作为数列$y_n$，显然$y_n$是单调增加到正无穷的，而
+  \begin{eqnarray*}
+    \frac{x_{n+1}-x_n}{y_{n+1}-y_n} & = & \frac{(m+1)(n+1)^m-((n+1)^{m+1}-n^{m+1})}{(m+1)((n+1)^m-n^m)} \\
+    & = & \frac{(m+1)\sum_{i=0}^mC_m^in^i-\sum_{i=0}^mC_{m+1}^in^i}{(m+1)\sum_{i=0}^mC_m^in^i}
+  \end{eqnarray*}
+  可以发现，分子分母都是关于$n$的$m-1$次多项式，因此极限应对应的最高次项系数之比，即
+  \[ \frac{(m+1)C_m^{m-1}-C_{m+1}^{m-1}}{(m+1)C_m^{m-1}} = \frac{1}{2} \]
+  于是根据Stolz定理，就有
+  \[ \lim_{n \to \infty} n \left( \frac{1^m+2^m+\cdots+n^m}{n^{m+1}} - \frac{1}{m+1} \right) = \frac{1}{2} \]
+  这就是说，上例中的数列与极限作差的无穷小，与$\dfrac{2}{n}$是等价无穷小.
+\end{example}
+
+\begin{example}
   我们证明一个关于调和级数与对数之间关系的一个重要极限:
   \[ \lim_{n \to \infty} \frac{1+\frac{1}{2}+\cdots+\frac{1}{n}}{\ln{n}} = 1 \]
   取$a_n=1+\dfrac{1}{2}+\cdots+\dfrac{1}{n}$，$b_n=\ln{n}$，则
