@@ -580,6 +580,14 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
   这就表明$H_{2^m}$是一个无穷大，再由$H_n$的单调性，可知它是一个正无穷大，也就是说调和级数是发散的。
 \end{example}
 
+\begin{example}
+  数列
+  \[ \frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n} \]
+  它共有$n$个加数，且依次减小，把所有加数都放大为第一个，则得出它小于$\dfrac{n}{n+1}<1$，这表明它有上界，再看单调性，当$n$变为$n+1$时，末尾会增加两项$\dfrac{1}{2n+1}$和$\dfrac{1}{2n+2}$，但前面会少一项$\dfrac{1}{n+1}$，因此其增量为
+  \[ \frac{1}{2n+1}+\frac{1}{2n+2}-\frac{1}{n+1} > 2 \cdot \frac{1}{2n+2} - \frac{1}{n+1} = 0 \]
+  故它又是递增的，因此有极限，且极限不超过1，以后将看到(\autoref{example:limit-of-sum-of-i/n+1-i-in-(1-n)})，它的极限是$\ln{2}$.
+\end{example}
+
 \subsection{数$\mathrm{e}$}
 \label{sec:a-import-sequence-limit}
 
@@ -779,6 +787,7 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 与$\ln{n}$是等价无穷大，而这里的结果显示，不仅如此，这两者的差值将趋于常数，这表明用对数来逼近调和级数时的误差始终是一个常数，而相对误差则渐趋于零。
 
 \begin{example}
+  \label{example:limit-of-sum-of-i/n+1-i-in-(1-n)}
   利用欧拉常数，可以求下式的极限
   \[ \frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n} \]
   因为
