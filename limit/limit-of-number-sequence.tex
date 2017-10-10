@@ -788,8 +788,11 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 而
 \[ \ln{\left( 1+\frac{1}{n} \right)} = \ln{(n+1)}-\ln{n} \]
 所以
-\[ \ln{(n+1)}-\ln{n} < \frac{1}{n} < \ln{n}-\ln{(n-1)} \]
-取$n=1,2,\ldots$进行累加(右端要从2开始)，可得
+\begin{equation}
+  \label{eq:1-devided-by-n-ln-n-approximation}
+ \ln{(n+1)}-\ln{n} < \frac{1}{n} < \ln{n}-\ln{(n-1)} 
+\end{equation}
+这是关于对数与自然数倒数的一个重要不等式，以后还会用到它，在式中取$n=1,2,\ldots$进行累加(右端要从2开始)，可得
 \[ \ln{(n+1)} < 1 + \frac{1}{2} + \cdots + \frac{1}{n} < 1+\ln{n} \]
 于是得
 \[ \ln{(n+1)}-\ln{n} < 1 + \frac{1}{2} + \cdots + \frac{1}{n} - \ln{n} < 1 \]
@@ -815,6 +818,12 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
   \[ \frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n} = \ln{2n}-\ln{n}+\gamma_{2n}-\gamma_n \]
   两边取极限便得
   \[ \lim_{n \to \infty} \left( \frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n} \right) = \ln{2} \]
+
+  利用\autoref{eq:1-devided-by-n-ln-n-approximation}也可以证明这个极限，因为可以得到
+  \[ \ln{(2n+1)}-\ln{(n+1)} < \frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n} < \ln{2n}-\ln{n} \]
+  即
+  \[ \ln{\frac{2n+1}{n+1}} < \frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n} < \ln{2} \]
+  对不等式取极限便得结论。
 \end{example}
 
 \subsection{圆周率$\pi$}
