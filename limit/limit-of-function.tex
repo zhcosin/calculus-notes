@@ -76,7 +76,6 @@
 \subsection{复合函数的极限}
 \label{sec:limit-of-composite-function}
 
-
 关于复合函数的极限，有如下结论
 \begin{theorem}
   \label{theorem:limit-of-combine-function}
@@ -90,7 +89,23 @@
   因为当$u \to u_0$时，$f(u) \to y_0$，所以对于无论多么小的正实数$\varepsilon$，总存在另一正实数$\delta$，使得当$|u-u_0|<\delta$时恒有$|f(u)-y_0|<\varepsilon$，而又由于当$x \to x_0$时$g(x) \to u_0$，所以对于前面提到的$\delta$，存在另一正实数$r$，使得当$|x-x_0|<r$时恒有$|g(x)-u_0|<\delta$，从而有$|f(g(x))-y_0|<\varepsilon$，所以最终得到的结论就是：对于无论多么小的正实数$\varepsilon$，总存在另一正实数$r$，使得当$|x-x_0|<r$时，恒有$|f(g(x))-y_0|<\varepsilon$，这就证得结论。
 \end{proof}
 
-
+要说明的是，这个定理中的条件是充分条件，但不是必要条件，考察下面这个例子就知道了:
+\[ f(x) =
+  \begin{cases}
+    x+1 & x \neq 0,1 \\
+    2 & x=0 \\
+    1 & x=1
+  \end{cases}
+\]
+与
+\[ g(x) =
+  \begin{cases}
+    x-1 & x \neq 1,2 \\
+    1 & x=1 \\
+    0 & x= 2
+  \end{cases}
+\]
+显然有$f(g(x))=x$在$x=1,2$处都连续，但显然不满足定理条件。
 
 \subsection{与数列极限的关系}
 \label{sec:relation-between-limit-of-function-and-number-sequence}
