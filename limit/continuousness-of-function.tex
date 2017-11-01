@@ -106,9 +106,41 @@
 \subsection{反函数的连续性}
 \label{sec:continuousness-of-reverse-function}
 
+关于反函数的连续性，有如下结论:
+\begin{theorem}
+  如果函数$f(x)$在闭区间$[a,b]$上严格单调并连续，则其函数$x=f^{-1}(y)$在其定义域$[f(a),f(b)]$或者$[f(b),f(a)]$上也连续。
+\end{theorem}
+
 \subsection{一致连续}
 \label{sec:uniform-continuity}
 
+\begin{definition}
+  设函数$f(x)$在某个区间上连续，如果对于任意小的正实数$\varepsilon>0$，都存在某个$\delta>0$，使得区间上任意满足$|x_1-x_2|<\delta$的$x_1,x_2$，都有$|f(x_1)-f(x_2)|<\varepsilon$成立，则称函数在此区间上\emph{一致连续}。
+\end{definition}
+
+注意一致连续与在某点处连续是有区别的，函数在某点$x_0$处连续，那么对于一个$\varepsilon$，定义中的$\delta$，一般而言是与$x_0$有关的，即$\delta=\delta(x_0)$，例如反比例函数$f(x)=\frac{1}{x}$，如果$x_0$越靠近0，则$\delta$就要越小，而一致连续则表明，存在对区间上所有点都适用的$\delta$，反比例函数显然无法满足这一点，所以反比例函数在定义域的两个区间上虽然连续，但不是一致连续。
+
+\begin{example}[利普希茨连续]
+  设$f(x)$是定义在某个区间上的函数，利普希茨条件是指，存在一个常数$L>0$，使得对区间上任意两个实数$x_1,x_2$，都有$|f(x_1)-f(x_2)| \leqslant |x_1-x_2|$. 显然满足利普希茨条件的函数一定连续，并且一致连续。
+\end{example}
+
+\begin{theorem}
+  如果函数在某个有限区间上一致连续，则在此区间上必定有界。
+\end{theorem}
+
+\begin{proof}[证明]
+  固定一个正实数$\varepsilon>0$，则按一致连续能够确定出一个正实数$\delta>0$，使得当$|x_1-x_2|<\delta$时有$|f(x_1)-f(x_2)|<\varepsilon$，于是将区间划分成若干个闭区间的并集，其中每个闭区间的长度都小于$\delta$但大于$\frac{\delta}{2}$，则显然在每个闭区间上都有界，而原来区间的长度是有限的，所以这样的闭区间只能是有限个，因而函数在整个区间上也就有界。
+\end{proof}
+
+\begin{theorem}
+  闭区间上的连续函数在此闭区间上必定一致连续。
+\end{theorem}
+
+\begin{proof}[证明]
+  因为函数在闭区间上连续，所以对于任意一个确定的正实数$\varepsilon>0$，在每个$x_0$处都存在一个相应的$\delta=\delta(x_0)$，使得函数在区间$(x_0-\delta,x_0+\delta)$上的函数值都落在区间$(f(x_0)-\frac{\varepsilon}{2},f(x_0)+\frac{\varepsilon}{2})$中，所有这些开区间$(x_0-\delta,x_0+\delta)$显然覆盖了闭区间，依有限覆盖定理，存在其中有限个开区间$(x_i-\delta_i,x_i+\delta_i)(i=1,2,\ldots,n)$，它们的并集就覆盖了此闭区间，取这有限个开区间的诸$\delta_i$中的最小者的一半记为$\delta_m$，再取这有限个开区间中的诸重叠部分的最小长度为$\delta_w$，记$\delta'=\min\{\delta_m,\delta_w\}$，则在闭区间上任意取两个实数$r_1,r_2$并满足$|r_1-r_2|<\delta'$，则两数必然能够位于前述有限个开区间中的同一个$(x_k-\delta_k,x_k+\delta_k)$上，则显然有$|r_1-r_2|<\delta'\leqslant \frac{\delta_k}{2}$，从而
+  \[ |f(r_1)-f(r_2)| \leqslant |f(r_1)-f(x_k)|+|f(r_2)-f(x_k)|< \frac{\varepsilon}{2}+\frac{\varepsilon}{2} = \varepsilon \]
+  这便表明函数在闭区间上是一致连续的。
+\end{proof}
 
 \subsection{无理指数幂}
 \label{sec:irrational-power}
