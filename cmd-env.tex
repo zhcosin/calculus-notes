@@ -1,4 +1,18 @@
 
+%修改 proof 证明环境
+\makeatletter
+\renewcommand\proofname{证明}
+\renewenvironment{proof}[1][\proofname]{\par
+\pushQED{\qed}%
+\normalfont \topsep6\p@\@plus6\p@ \labelsep1em\relax
+\trivlist
+\item[\hskip\labelsep\indent
+\bfseries #1]\ignorespaces
+}{%
+\popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
 % 例题环境
 \newcounter{example}[section]
 \renewcommand{\theexample}{\thesection.\arabic{example}}
@@ -10,6 +24,10 @@
 \renewcommand{\theexercise}{\thesection.\arabic{exercise}}
 
 \newenvironment{exercise}[1][]{\refstepcounter{exercise} \textbf{题 \theexercise  \ #1} \hspace{0.5em}}{\hspace{\stretch{1}} \rule{1ex}{1ex}}
+
+\newcommand{\exerciseFrom}[1][]{\textbf{题目出处}\hspace{1em}#1}
+\newcommand{\exerciseSolvedDate}[1][]{\textbf{解答日期}\hspace{1em}#1}
+\newenvironment{exerciseAdditional}{\textbf{补充说明}\hspace{1em}}{}
 
 
 \newtheorem{definition}{定义}[section]
@@ -52,5 +70,5 @@
 
 %%% Local Variables:
 %%% mode: latex
-%%% TeX-master: "book"
+%%% TeX-master: "elementary-math-note"
 %%% End:
