@@ -20,6 +20,35 @@
   如果函数在某个区间上处处连续，则称函数在这区间上连续，或者说它是这区间上的连续函数。
 \end{definition}
 
+\begin{example}
+  \label{example:continous-of-x-power-integer}
+  这里证明正整数幂函数$f(x)=x^n(n \in \mathbb{Z})$是$\mathbb{R}$上的连续函数，这只要证明它在$\mathbb{R}$上任一点$x_0$处都连续就可以了。
+
+  由
+  \[ x^n-x_0^n = (x-x_0)(x^{n-1}+x^{n-2}x_0+\cdots+xx_0^{n-2}+x_0^{n-1}) \]
+  限定$x \in (x_0-\delta,x_0+\delta)$，令$M=\max\{|x_0-\delta|,|x_0+\delta|\}$，则
+  \[ |x^n-x_0^n| < nM^{n-1}|x-x_0| \]
+  注意这里的$nM^{n-1}$是常数，以$P$表之，则对于任意小的正实数$\varepsilon$，只要取$\delta=\dfrac{\varepsilon}{P}$，就能保证$|f(x)-f(x_0)|<\varepsilon$对任意$x \in (x_0-\delta,x_0+\delta)$恒成立，于是$f(x)$在$x=x_0$处连续，再由$x_0$的任意性，知$f(x)$在$\mathbb{R}$上连续。
+\end{example}
+
+\begin{example}
+  对于正弦函数，由
+  \[ |\sin{x}-\sin{x_0}| = 2 \left|\cos{\frac{x+x_0}{2}}\sin{\frac{x-x_0}{2}}\right| \leqslant 2 \left| \sin{\frac{x-x_0}{2}} \right| \leqslant |x-x_0| \]
+  即知正弦函数在任意$x \in \mathbb{R}$处都连续，上式最后一个小于号是因为在函数极限那一节中我们已经证明了当$x \in (0,\frac{\pi}{2})$时，有不等式$\sin{x}<x$成立，于是在$x \in (-\frac{\pi}{2}, 0)$时，有$\sin{x}>x$成立，于是在$x \in (-\frac{\pi}{2}, \frac{\pi}{2})$时，总有$|\sin{x}| \leqslant |x|$，所以在上式中我们只要限定$|x-x_0| < \pi$就可以了。
+
+  对于余弦函数，同样当$|x-x_0|<\delta<\pi$时，由
+  \[ |\cos{x}-\cos{x_0}| = 2 \left| \sin{\frac{x+x_0}{2}}\sin{\frac{x-x_0}{2}} \right| \leqslant 2 \left| \sin{\frac{x-x_0}{2}} \right| \leqslant |x-x_0| \]
+  同样可以得出它在$\mathbb{R}$上的连续性。
+\end{example}
+
+\begin{example}
+  \label{example:continous-of-a-power-integer-with-a-greater-1}
+  再来看指数函数$f(x)=a^x(a>0,a\neq 1)$，这里只考虑$a>1$的情况，此时
+  \[ a^x-a^{x_0} = a^{x_0}(a^{x-x_0}-1) \]
+  我们已经知道$\lim\limits_{t \to 0} a^t = 1$，所以对于任意的正实数$\varepsilon$，存在$\delta>0$，使得当$|x-x_0|<\delta$时，有
+  \[ |a^{x-x_0}-1| < \frac{\varepsilon}{a^{x_0}} \]
+  因而得出$|a^x-a^{x_0}|<\varepsilon$，于是指数函数在任意$x_0 \in \mathbb{R}$处连续，即在$\mathbb{R}$上连续。
+\end{example}
 
 \subsection{间断点及其分类}
 \label{sec:discontinuity-point-and-its-category}
@@ -46,6 +75,13 @@
 \begin{theorem}
   如果函数$f(x)$和$g(x)$都在$x_0$处连续，则它们的和、差、积、商所作成的函数在该点也连续，在商的情形，要求$g(x_0) \neq 0$。
 \end{theorem}
+
+\begin{example}
+  \label{example:continous-of-power-function}
+  在\autoref{example:continous-of-a-power-integer-with-a-greater-1} 中已经证明了指数函数$f(x)=a^x(a>1)$在$\mathbb{R}$上连续，这里来证明$0<a<1$的情况下，指数函数同样是$\mathbb{R}$上的连续函数，这是因为，在$0<a<1$时，有
+  \[ a^x = \frac{1}{\left( \frac{1}{a} \right)^x} \]
+  显然，分子分母均是$\mathbb{R}$上的连续函数，从这一节的结果就证明了结论。
+\end{example}
 
 \subsection{复合函数的连续性}
 \label{sec:continuousness-of-composite-function}
