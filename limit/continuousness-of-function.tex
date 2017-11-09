@@ -2,6 +2,8 @@
 \section{函数的连续性}
 \label{sec:continuousness-of-function}
 
+在初等数学中，我们接触到了很多函数，例如幂函数$y=x^n(n \in \mathbb{Z})$，三角函数与反三角函数、指数函数与对数函数。它们的图象都是一段连续的曲线，或者是由若干段连续的曲线所构成，在这一节，我们将对“连续”这个概念作一个精确的定义，并进而讨论连续函数的性质。
+
 \subsection{连续与单侧连续}
 \label{sec:continuousness-and-single-continuousness}
 
@@ -48,6 +50,18 @@
   我们已经知道$\lim\limits_{t \to 0} a^t = 1$，所以对于任意的正实数$\varepsilon$，存在$\delta>0$，使得当$|x-x_0|<\delta$时，有
   \[ |a^{x-x_0}-1| < \frac{\varepsilon}{a^{x_0}} \]
   因而得出$|a^x-a^{x_0}|<\varepsilon$，于是指数函数在任意$x_0 \in \mathbb{R}$处连续，即在$\mathbb{R}$上连续。
+\end{example}
+
+\begin{example}
+  我们举一个定义在$\mathbb{R}$上但处处不连续的函数的例子，狄利克雷(Dirichlet，德国数学家)函数$D(x)$，这是一个指示一个实数是有理数还是无理数的标志函数，它定义在全体实数上，当$x$是有理数时，$D(x)=1$，当$x$是无理数时，$D(x)=0$，即
+  \[
+    D(x) =
+    \begin{cases}
+      1 & x \in \mathbb{Q} \\
+      0 & x \in \mathbb{R}-\mathbb{Q}
+    \end{cases}
+  \]
+  现在来证明它在$R$上处处不连续，即在任意$x_0 \in R$处都不连续，这是因为，当$x$取有理数并趋于$x_0$时，函数值趋于1，但当$x$取无理数趋于$x_0$时，函数值趋于零，因而函数在$x_0$处没有极限，从而也不连续。
 \end{example}
 
 \subsection{间断点及其分类}
