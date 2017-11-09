@@ -192,6 +192,32 @@
 
 函数$f(x)=\sin{x}/x$在$x=0$附近的图象如\autoref{fig:limit-of-sinx-over-x-at-0}所示，它的图象反得在函数$y=1/x$和$y=-1/x$之间振荡，在$x=0$附近，函数值趋于1，但它在$x=0$处并无定义。
 
+\begin{example}
+  我们来证明正弦函数$f(x)=\sin{x}$在任意$x_0 \in \mathbb{R}$处的极限是$\sin{x_0}$，即
+  \[ \lim_{x \to x_0} \sin{x} = \sin{x_0} \]
+  因为
+  \[ |\sin{x}-\sin{x_0}| = 2 \left| \cos{\frac{x+x_0}{2}} \sin{\frac{x-x_0}{2}} \right| \leqslant 2 \left| \sin{\frac{x-x_0}{2}} \right| \]
+  根据我们已经知道的不等式，$\forall x \in \left(- \dfrac{\pi}{2}, \dfrac{\pi}{2} \right)$有$|\sin{x}| \leqslant |x|$，所以只要限定$|x-x_0|<\dfrac{\pi}{2}$，就有
+  \[ |\sin{x}-\sin{x_0}| \leqslant |x-x_0| \]
+  于是对任意正实数$\varepsilon>0$，只要取$0<\delta<\min\{\varepsilon, \dfrac{\pi}{2}\}$，就能保证$\forall x \in ( x_0+\delta,x_0+\delta )$都有
+  \[ |\sin{x}-\sin{x_0}| < \varepsilon \]
+  成立，即证明了结论。
+
+  类似的，对于余弦函数，也可以证明
+  \[ \lim_{x \to x_0} \cos{x} = \cos{x_0} \]
+\end{example}
+
+\begin{example}
+  我们来证明下面的两个极限，这个极限在后面学习导数的时候将会用到
+  \[ \lim_{x \to x_0} \frac{\sin{x}-\sin{x_0}}{x-x_0} = \cos{x_0} \]
+  以及
+  \[ \lim_{x \to x_0} \frac{\cos{x}-\cos{x_0}}{x-x_0} = -\sin{x_0} \]
+  只证明第一个，第二个也是类似的，固定$x_0$，
+  有
+  \[ \frac{\sin{x}-\sin{x_0}}{x-x_0} = 2\cos{\frac{x+x_0}{2}} \cdot \frac{\sin{\frac{x-x_0}{2}}}{x-x_0} \]
+  显然当$x \to x_0$时，后一个因式趋于$\dfrac{1}{2}$，而第一个因式我们已经证明了它趋于$\cos{x_0}$，因而便得结论。
+\end{example}
+
 我们在数列极限的部分曾经证明过下面这个数列存在极限
 \[ x_n = \left( 1+\frac{1}{n} \right)^n \]
 并把它的极限记作$e$，今来把它推广成函数的极限，这就是以下的定理:
