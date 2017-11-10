@@ -19,7 +19,7 @@
 
 当自变量趋于某点的极限定义如下:
 \begin{definition}
-  设函数$f(x)$在$x_0$的某空心邻域内有定义，$A$是一个实数，如果对于任意小的正实数$\varepsilon>0$，总存在另一正实数$\delta>0$，使得定义域中满足$|x-x_0|<\delta$的数$x$恒有$|f(x)-A|<\varepsilon$，则称$A$是函数$f(x)$当自变量趋于$x_0$时的极限，记作
+  设函数$f(x)$在$x_0$的某空心邻域内有定义，$A$是一个实数，如果对于任意小的正实数$\varepsilon>0$，总存在另一正实数$\delta>0$，使得定义域中满足$0<|x-x_0|<\delta$的数$x$恒有$|f(x)-A|<\varepsilon$，则称$A$是函数$f(x)$当自变量趋于$x_0$时的极限，记作
   \[ \lim_{x\to x_0} f(x) = A \]
 \end{definition}
 要指出的是，函数$f(x)$在自变量趋于$x_0$时即使收敛，其极限值也并不一定等于$f(x_0)$，实际上函数在$x_0$也并不一定有定义。
@@ -90,12 +90,12 @@
   \label{theorem:limit-of-combine-function}
   设有如下函数极限
   \[ \lim_{x \to x_0}g(x) = u_0, \  \lim_{u \to u_0}f(u) = y_0 \]
-  则有
+  且$g(x)$在$x_0$的某空心邻域上恒有$g(x) \neq u_0$，则有
   \[ \lim_{x \to x_0} f(g(x))=y_0 \]
 \end{theorem}
 
 \begin{proof}[证明]
-  因为当$u \to u_0$时，$f(u) \to y_0$，所以对于无论多么小的正实数$\varepsilon$，总存在另一正实数$\delta$，使得当$|u-u_0|<\delta$时恒有$|f(u)-y_0|<\varepsilon$，而又由于当$x \to x_0$时$g(x) \to u_0$，所以对于前面提到的$\delta$，存在另一正实数$r$，使得当$|x-x_0|<r$时恒有$|g(x)-u_0|<\delta$，从而有$|f(g(x))-y_0|<\varepsilon$，所以最终得到的结论就是：对于无论多么小的正实数$\varepsilon$，总存在另一正实数$r$，使得当$|x-x_0|<r$时，恒有$|f(g(x))-y_0|<\varepsilon$，这就证得结论。
+  因为当$u \to u_0$时，$f(u) \to y_0$，所以对于无论多么小的正实数$\varepsilon$，总存在另一正实数$\delta$，使得当$0<|u-u_0|<\delta$时恒有$|f(u)-y_0|<\varepsilon$，而又由于当$x \to x_0$时$g(x) \to u_0$，所以对于前面提到的$\delta$，存在另一正实数$r$，使得当$0<|x-x_0|<r$时恒有$|g(x)-u_0|<\delta$，而$g(x)$又在$x_0$的某个半径为$r'$的空心邻域上函数值恒不为$u_0$，于是$\forall x,0<|x-x_0|<\min\{r,r'\}$，有$0<|g(x)-u_0|<\delta$，从而$|f(g(x))-y_0|<\varepsilon$，所以最终得到的结论就是：对于无论多么小的正实数$\varepsilon$，总存在另一正实数$r_1=\min\{r,r'\}$，使得当$0<|x-x_0|<r_1$时，恒有$|f(g(x))-y_0|<\varepsilon$，这就证得结论。
 \end{proof}
 
 要说明的是，这个定理中的条件是充分条件，但不是必要条件，考察下面这个例子就知道了:
@@ -115,6 +115,22 @@
   \end{cases}
 \]
 显然有$f(g(x))=x$在$x=1,2$处都连续，但显然不满足定理条件。
+
+另外一点是，定理中$g(x)$在$x_0$的某个空心邻域内的函数值恒不取$u_0$这个条件是不能缺少的，考察下面这个例子
+\[ g(x)=
+  \begin{cases}
+    \frac{1}{q} & x = \frac{p}{q}, p,q \in \mathbb{Z}, q>0 \\
+    0 & x \in \mathbb{R}-\mathbb{Q}
+  \end{cases}
+\]
+及
+\[ f(x) =
+  \begin{cases}
+    0 & x \neq 0 \\
+    1 & x = 0
+  \end{cases}
+\]
+在$x=0$处的情况，$g(x)$即黎曼函数，我们已经知道它在任意无理点处的极限为零，在任意有理点处不存在极限。
 
 \subsection{与数列极限的关系}
 \label{sec:relation-between-limit-of-function-and-number-sequence}
