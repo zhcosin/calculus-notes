@@ -22,7 +22,7 @@
   设函数$f(x)$在$x_0$的某空心邻域内有定义，$A$是一个实数，如果对于任意小的正实数$\varepsilon>0$，总存在另一正实数$\delta>0$，使得定义域中满足$0<|x-x_0|<\delta$的数$x$恒有$|f(x)-A|<\varepsilon$，则称$A$是函数$f(x)$当自变量趋于$x_0$时的极限，记作
   \[ \lim_{x\to x_0} f(x) = A \]
 \end{definition}
-要指出的是，函数$f(x)$在自变量趋于$x_0$时即使收敛，其极限值也并不一定等于$f(x_0)$，实际上函数在$x_0$也并不一定有定义。
+要指出的是，1. 定义中限定了$x\neq x_0$是因为函数在该点处的情况与该点处是否存在极限无任何关系. 2. 函数$f(x)$在自变量趋于$x_0$时即使收敛，其极限值也并不一定等于$f(x_0)$，实际上函数在$x_0$也并不一定有定义。
 
 考虑到$x$趋于$x_0$的方式，它可以从小于$x_0$的一侧去靠近它，也可以从大于$x_0$的一侧去靠近它，也可以时而在大于$x_0$的一侧，时而位于小于$x_0$的一侧的方式去接近它，所以在这里我们给出 \emph{单侧极限} 的概念。
 
@@ -34,6 +34,31 @@
   \[ \lim_{x \to x_0^-} f(x) = A \]
 
   显然，$\lim_{x \to x_0} f(x) = A$的充分必要条件是 $\lim_{x \to x_0^+} f(x) = \lim_{x \to x_0^-} f(x) = A$.
+ 
+\begin{example}
+  \label{example:limit-of-x-power-integer}
+  设$n \in \mathbb{Z}$，我们来证明
+  \[ \lim_{x \to x_0} x^n = x_0^n \]
+
+  由
+  \[ x^n-x_0^n = (x-x_0)(x^{n-1}+x^{n-2}x_0+\cdots+xx_0^{n-2}+x_0^{n-1}) \]
+  限定$x \in (x_0-\delta,x_0+\delta)$，令$M=\max\{|x_0-\delta|,|x_0+\delta|\}$，则
+  \[ |x^n-x_0^n| < nM^{n-1}|x-x_0| \]
+  注意这里的$nM^{n-1}$是常数，以$P$表之，则对于任意小的正实数$\varepsilon$，只要取$\delta=\dfrac{\varepsilon}{P}$，就能保证$|f(x)-f(x_0)|<\varepsilon$对任意$x \in (x_0-\delta,x_0)\cup(x_0,x_0+\delta)$恒成立，即得结论.
+\end{example}
+
+\begin{example}
+  \label{example:limit-of-dirichlet-function}
+  狄利克雷(Dirichlet，德国数学家)函数$D(x)$是一个指示一个实数是有理数还是无理数的标志函数，它定义在全体实数上，当$x$是有理数时，$D(x)=1$，当$x$是无理数时，$D(x)=0$，即
+  \[
+    D(x) =
+    \begin{cases}
+      1 & x \in \mathbb{Q} \\
+      0 & x \in \mathbb{R}-\mathbb{Q}
+    \end{cases}
+  \]
+  现在来证明它在任意$x_0 \in \mathbb{R}$处的极限情况，当$x$取有理数并趋于$x_0$时，函数值趋于1，但当$x$取无理数趋于$x_0$时，函数值趋于零，因而函数在$x_0$处没有极限，即在任意点处都不存在极限。
+\end{example}
 
   \begin{example}
     \label{example:single-limits-of-gausse-function}
@@ -44,6 +69,23 @@
     但是$\lim\limits_{x \to x_0}[x]$不存在. 
 \end{example}
 
+\begin{example}
+  \label{example:limit-of-riemann-function}
+  黎曼(Riemann，德国数学家)函数$R(x)$是一个有趣的例子，它定义在区间$[0,1]$上，具体定义如下，
+  \[ R(x) =
+    \begin{cases}
+      \frac{1}{q} & x=\frac{p}{q} \in [0,1], p,q \in \mathbb{Z}, q >0, (p,q)=1 \\
+      0 & x \in [0,1]-\mathbb{Q}
+    \end{cases}
+  \]
+  简单来说，当$x$是有理数$\dfrac{p}{q}$时，$R(x)=\dfrac{1}{q}$，注意这里$p$、$q$是一对既约整数（即最大公因数为1），且$q$是正的。而当$x$是无理数时，$R(x)=0$.
+
+  黎曼函数可以看成是狄利克雷函数的一个改进，我们现在来证明，黎曼函数在任意点处都有极限为零。
+
+  任取数$x_0 \in [0,1]$，只需要证明$\lim\limits_{x \to x_0} R(x)=0$就可以了，对于任意小的正实数$\varepsilon>0$，我们要找一个$\delta>0$，使得$\forall x \in (x_0-\delta,x_0)\cup(x_0,x_0+\delta)$都有$|R(x)|<\varepsilon$成立，显然无理数是无关紧要的，这个$\delta$只需要由有理数来决定，当$x$是有理数$\dfrac{p}{q}(q>0)$时，我们就是要使
+  \[ \frac{1}{q} < \varepsilon \]
+  成立，这就需要让$(x_0-\delta,x_0)\cup(x_0,x_0+\delta)$上的一切有理数$\dfrac{p}{q}$都满足$q > \dfrac{1}{\varepsilon}$，这能否做到呢？是可以的，因为不满足这个条件的有理数是有限的（小于$\dfrac{1}{\varepsilon}$的正整数$q$是有限的，而小于这些$q$的非负整数$p$也是有限的），从而把这些有理数记为$x_1,x_2,\ldots,x_m$(注意这里的$m$跟$\varepsilon$有关)，则只要让$\delta$同时满足$\delta < |x_i-x_0|(i=1,2,\ldots,m)$，则这些有理数都不会落在范围$(x_0-\delta,x_0)\cup(x_0,x_0+\delta)$内，从而对于该范围内的一切有理数，前面所需要的条件就成立了，于是函数在$x_0$处有极限为零。
+\end{example}
 \subsection{函数极限的性质}
 \label{sec:properties-of-function-limit}
 
@@ -80,7 +122,6 @@
   \lim_{x \to x_0} f(x)g(x) & = & \lim_{x \to x_0} f(x) \cdot \lim_{x \to x_0} g(x)  \\
   \lim_{x \to x_0} \frac{f(x)}{g(x)} & = & \frac{\lim_{x \to x_0} f(x)}{\lim_{x \to x_0} g(x)}  
 \end{eqnarray*}
-
 
 \subsection{复合函数的极限}
 \label{sec:limit-of-composite-function}
@@ -209,6 +250,7 @@
 函数$f(x)=\sin{x}/x$在$x=0$附近的图象如\autoref{fig:limit-of-sinx-over-x-at-0}所示，它的图象反得在函数$y=1/x$和$y=-1/x$之间振荡，在$x=0$附近，函数值趋于1，但它在$x=0$处并无定义。
 
 \begin{example}
+  \label{example:limit-of-sin-cos-function}
   我们来证明正弦函数$f(x)=\sin{x}$在任意$x_0 \in \mathbb{R}$处的极限是$\sin{x_0}$，即
   \[ \lim_{x \to x_0} \sin{x} = \sin{x_0} \]
   因为
