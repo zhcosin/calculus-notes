@@ -123,6 +123,22 @@
   \lim_{x \to x_0} \frac{f(x)}{g(x)} & = & \frac{\lim_{x \to x_0} f(x)}{\lim_{x \to x_0} g(x)}  
 \end{eqnarray*}
 
+\begin{example}
+  \label{example:limit-of-polynome-when-x-to-infty}
+  设多项式
+  \[ f(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0 (a_n \neq 0) \]
+  现在考虑当$x \to \infty$、$x \to +\infty$、$x \to -\infty$时的极限，无论是哪一种趋限，都有$|x| \to \infty$，为此将多项式改写为
+  \[ f(x) = x^n \left( a_n+\frac{a_{n-1}}{x}+\cdots+\frac{a_1}{x^{n-1}}+\frac{a_0}{x^n} \right) \]
+  显然，当$|x| \to \infty$时，括号中带分式的项全部趋于零，因而此时的极限全部取决于$a_nx^n$，因此结论是，当$|x| \to \infty$时，$f(x)$为无穷大，如果指定$x$趋于正无穷或者负无穷，则相应的极限也是带符号的无穷大，其符号由$a_n$的符号决定。
+\end{example}
+
+\begin{example}
+  \label{example:limit-of-fraction-function}
+  再考虑一般的有理函数
+  \[ f(x) = \frac{a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0}{b_mx^m+b_{m-1}x^{m-1}+\cdots+b_1x+b_0} \]
+考虑它在无穷远处的极限，通过与上例类似的方法，可以得到，如果$m=n$，则极限为$\dfrac{a_n}{b_n}$，若$m>n$，则极限为零，若$m<n$，则极限为无穷大.
+\end{example}
+
 \subsection{复合函数的极限}
 \label{sec:limit-of-composite-function}
 
