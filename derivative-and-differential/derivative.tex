@@ -70,6 +70,57 @@
 \subsection{求导法则}
 \label{sec:rule-of-derivative}
 
+\begin{theorem}
+  设函数$f(x)$和$g(x)$在$x_0$的某个邻域内有定义且在$x_0$处可导，则函数$u(x)=f(x)+g(x)$和$v(x)=f(x)-g(x)$在$x_0$处也可导，并且
+  \[ u'(x_0)=f'(x_0)+g'(x_0), \  v'(x)=f'(x_0)-g'(x_0) \]
+\end{theorem}
+
+只要注意到$\Delta u=\Delta f+\Delta g$以及$\Delta v=\Delta f+ \Delta g$即可得知结论成立。
+
+\begin{theorem}
+  设函数$f(x)$和$g(x)$在$x_0$的某个邻域内有定义并且在$x_0$处可导，则函数$u(x)=f(x)g(x)$在$x_0$处也可导，并且
+  \[ u'(x_0)=f'(x_0)g(x_0)+f(x_0)g'(x_0) \]
+\end{theorem}
+
+\begin{proof}[证明]
+  因为
+  \begin{eqnarray*}
+    u(x)-u(x_0) & = & f(x)g(x)-f(x_0)g(x_0) \\
+                & = & [f(x)-f(x_0)]g(x)+f(x_0)[g(x)-g(x_0)]
+  \end{eqnarray*}
+  于是
+  \[ \frac{u(x)-u(x_0)}{x-x_0} = \frac{f(x)-f(x_0)}{x-x_0}g(x)+f(x_0)\frac{g(x)-g(x_0)}{x-x_0} \]
+  两边令$x \to x_0$便得结论.
+\end{proof}
+
+利用数学归纳法，可以把这结论推广到多个函数相乘的情况:
+\begin{theorem}
+  设有若干个函数$f_i(x)(i=1,2,\ldots,n)$都在$x_0$的某个邻域内有定义，又若它们都在$x_0$处可导，则函数$P(x)=\prod\limits_{i=1}^nf_i(x)$在$x_0$处也可导，并且
+  \[ P'(x_0) = \prod_{i=1}^nf_i(x_0) \cdot \sum_{i=1}^n \frac{f_i'(x_0)}{f_i(x_0)} \]
+\end{theorem}
+
+\begin{theorem}
+  设函数$f(x)$在$x_0$的某邻域内有定义且$f(x) \neq 0$，并且在$x_0$处可导，则函数$u(x)=\dfrac{1}{f(x)}$在$x_0$处也可导，且有
+  \[ u'(x) = -\frac{f'(x_0)}{f^2(x_0)} \]
+\end{theorem}
+
+\begin{proof}[证明]
+  因为
+  \begin{eqnarray*}
+    \frac{u(x)-u(x_0)}{x-x_0} & = & \frac{\frac{1}{f(x)}-\frac{1}{f(x_0)}}{x-x_0} \\
+    & = & - \frac{1}{f(x)f(x_0)} \cdot \frac{f(x)-f(x_0)}{x-x_0}
+  \end{eqnarray*}
+  令$x \to x_0$取极限即得结论.
+\end{proof}
+
+由以上两个定理，只要把两个函数的商函数$\dfrac{f(x)}{g(x)}$写成$f(x)\cdot \dfrac{1}{g(x)}$，就得到
+\begin{theorem}
+  设函数$f(x)$和$g(x)$都在$x_0$的某个邻域内有定义且$g(x)\neq 0$，如果两者都在$x_0$处可导，则$u(x)=\dfrac{f(x)}{g(x)}$在$x_0$处可导，并且有
+  \[ u'(x_0) = \frac{f'(x_0)g(x_0)-f(x_0)g'(x_0)}{g^2(x_0)} \]
+\end{theorem}
+
+
+
 \subsection{反函数的导数}
 \label{sec:derivative-of-revert-function}
 
