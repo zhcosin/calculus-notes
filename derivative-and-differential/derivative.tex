@@ -2,7 +2,66 @@
 \section{导数}
 \label{sec:derivative}
 
+\subsection{概念与几何意义}
+\label{sec:concept-of-derivative}
 
+\begin{definition}
+  设函数$f(x)$在$x_0$的某邻域内有定义，如果极限
+  \[ \lim_{x \to x_0} \frac{f(x)-f(x_0)}{x-x_0} \]
+  存在，则称函数$f(x)$在$x_0$处\emph{可导}，此极限值称为$f(x)$在$x_0$处的\emph{导数}，并记为$f'(x_0)$，即
+  \[ f'(x_0) = \lim_{x \to x_0} \frac{f(x)-f(x_0)}{x-x_0} \]
+  如果前述极限不存在，则称函数在该点处不可导. 类似的，把极限过程分别替换为左极限和右极限，就得出\emph{左导数}$f_-'(x_0)$和\emph{右导数}$f_+'(x_0)$的概念，即
+  \[ f_-'(x_0) = \lim_{x \to x_0^-} \frac{f(x)-f(x_0)}{x-x_0}, \ f_+'(x_0) = \lim_{x \to x_0} \frac{f(x)-f(x_0)}{x-x_0} \]
+\end{definition}
+
+显然，函数在某点处可导的充分必要条件是，该点既左可导又右可导，且左右导数相等。
+
+容易看出，如果在某点可导，则必在该点处连续。
+
+\begin{example}
+  设$n \in \mathbb{Z}$，我们来求幂函数$f(x)=x^n$在$x_0$处的导数，因为
+  \[ \frac{x^n-x_0^n}{x-x_0} = x^{n-1}+x^{n-2}x_0+\cdots+xx_0^{n-2}+x_0^{n-1} \]
+  上式右端在$x \to x_0$时显然以$nx_0^{n-1}$为极限.
+\end{example}
+
+\begin{example}
+ 我们在 \autoref{example:limit-of-sinx-sinx0-over-x-x0} 中已经证明了下面两个极限:
+  \[ \lim_{x \to x_0} \frac{\sin{x}-\sin{x_0}}{x-x_0} = \cos{x_0}, \  
+   \lim_{x \to x_0} \frac{\cos{x}-\cos{x_0}}{x-x_0} = -\sin{x_0} \]
+ 这表明正弦函数和余弦函数在任意点处都是可导的。
+\end{example}
+
+\begin{example}
+  我们在\autoref{example:function-with-continuous-at-single-point}中利用狄利克雷函数构造了仅在一个点处连续的函数例子:$f(x)=xD(x)$，我们指出，这个函数虽然在$x=0$处连续，但在此处却不可导，因为当$x$分别取有理数值和无理数值并趋于零时，变化率
+  \[ \frac{f(x)-f(0)}{x-0} = \frac{f(x)}{x} = D(x) \]
+  分别趋于两个不同的极限值，所以不可导，但是如果我们把函数中的无穷小因子升次，变成
+  \[ f(x)=x^2D(x) \]
+  此时有
+  \[ \lim_{x \to 0} \frac{f(x)-f(0)}{x-0} = \lim_{x \to 0} xD(x) = 0 \]
+  这表明这个新构造的函数在$x=0$处可导，且导数为零，然而它在除$x=0$之外的其它点处均不连续，所以也就不可导，于是它成为了仅在一个点处连续且可导的函数例子。
+\end{example}
+
+如果函数$f(x)$在$x_0$处可导，则在此处有
+\[ \frac{\Delta y}{\Delta x} = f'(x_0)+\alpha \]
+其中$\alpha$是一个无穷小，于是有
+\[ \Delta y = f'(x_0)\Delta x + o(\Delta x) \]
+即由一个$\Delta x$的一个线性式子加上一个$\Delta x$的高阶无穷小.这公式可以用于对函数进行估值，只要给定了$x_0$处的函数值以及该点处的导数，就可以近似的估计该点附近的函数值。
+
+下面给出导函数的定义
+\begin{definition}
+  如果函数$f(x)$在某个区间上有定义，并且在该区间上处处可导（闭区间上的端点处只要单侧可导），则称函数在该区间上可导，而由自变量映射导数值构成一个新的函数$f'(x)$，称为函数$f(x)$的\emph{导函数}.
+\end{definition}
+
+\begin{example}
+  我们在前面的例子中实际上已经求得了幂函数$f(x)=x^n(n \in \mathbb{Z})$的导函数是$f'(x)=nx^{n-1}$，以及三角函数的导函数:
+  \[ (\sin{x})'=\cos{x}, \  (\cos{x})'=-\sin{x} \]
+\end{example}
+
+函数在某点处可导，其函数值增量与自变量增量之比是
+\[ \frac{f(x)-f(x_0)}{x-x_0} \]
+这是函数图象上的点$(x_0,f(x_0))$与其邻近点$(x,f(x))$连线的斜率，即割线的斜率，在$x \to x_0$时，割线将无限的与函数图象在$x_0$处的切线靠近，其极限位置就是该点处的切线，因此，上式的极限便是函数在$x_0$处的切线的斜率，所以如果函数在$x_0$处有导数为$f'(x_0)$，则函数图象在$(x_0,f(x_0))$处的切线方程是(下式中$y_0=f(x_0)$)
+\[ y-y_0 = f'(x_0)(x-x_0) \]
+这就是导数的几何意义.
 
 %%% Local Variables:
 %%% mode: latex
