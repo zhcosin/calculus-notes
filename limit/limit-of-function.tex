@@ -48,6 +48,12 @@
 \end{example}
 
 \begin{example}
+  \label{example:limit-of-sin-1-over-x-at-0}
+  考虑函数$f(x)=\sin{\dfrac{1}{x}}$在$x \to 0$时的极限情况，此时函数在-1与1之间完成无穷次振动，它的函数值不可能无限靠近任意一个实数，所以它在$x=0$处不存在极限.但若将它稍加改造，考虑函数$f(x)=x\sin{\dfrac{1}{x}}$，则此时它的图象将被限定在$y=x$和$y=-x$之间并且在靠近零时，无限的在两个函数之间振动，此时显然有$|x\sin{\dfrac{1}{x}}|\leqslant |x|$，所以显然就有
+  \[ \lim_{x \to 0} x \sin{\frac{1}{x}} = 0 \]
+\end{example}
+
+\begin{example}
   \label{example:limit-of-dirichlet-function}
   狄利克雷(Dirichlet，德国数学家)函数$D(x)$是一个指示一个实数是有理数还是无理数的标志函数，它定义在全体实数上，当$x$是有理数时，$D(x)=1$，当$x$是无理数时，$D(x)=0$，即
   \[
