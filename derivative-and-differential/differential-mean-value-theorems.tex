@@ -1,0 +1,21 @@
+
+\section{微分中值定理}
+\label{sec:differential-mean-value-theorems}
+
+\subsection{费马极值定理}
+\label{sec:fermat-limit-value-theorem}
+
+\begin{theorem}
+  设函数$f(x)$在$x_0$的某邻域内有定义，如果它在$x_0$处取得极值(极大或者极小均可)且在$x_0$处可导，则必有$f'(x_0)=0$.
+\end{theorem}
+
+\begin{proof}[证明]
+  假如函数在$x_0$处取的是极大值，用反证法证明该点处如果可导，则导数只能是零，这是因为，假设$f'(x_0)>0$，则必定存在$x_0$的某个充分小的邻域，在此邻域上恒有
+  \[ \frac{f(x)-f(x_0)}{x-x_0} > 0 \]
+  于是在这个充分小的邻域的右侧部分，就有$f(x)>f(x_0)$，这与函数在$x_0$处达到极大值相矛盾. 同理，如果$f'(x_0)<0$，则在$x_0$的某个充分小的左邻域上，亦必有$f(x)>f(x_0)$，同样导致矛盾，因此，如果$f'(x_0)$存在，则只能是零。
+\end{proof}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../calculus-note"
+%%% End:
