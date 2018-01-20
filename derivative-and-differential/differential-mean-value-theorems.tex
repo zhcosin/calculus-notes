@@ -15,6 +15,58 @@
   于是在这个充分小的邻域的右侧部分，就有$f(x)>f(x_0)$，这与函数在$x_0$处达到极大值相矛盾. 同理，如果$f'(x_0)<0$，则在$x_0$的某个充分小的左邻域上，亦必有$f(x)>f(x_0)$，同样导致矛盾，因此，如果$f'(x_0)$存在，则只能是零。
 \end{proof}
 
+\subsection{导函数介值定理}
+\label{sec:derivative-full-value-theorem}
+
+\begin{theorem}[导函数介值定理]
+  设函数$f(x)$在闭区间$[a,b]$内可导，且$f'_+(a) \neq f'_-(b)$，则对于介于$f'_+(a)$与$f'_-(b)$之间的任意实数$k$，都存在$x_0 \in (a,b)$，使得$ f'(x_0) = k $.
+\end{theorem}
+
+\subsection{罗尔定理}
+\label{sec:rolle-theorem}
+
+\begin{theorem}[罗尔(Rolle)定理]
+  设函数$f(x)$在闭区间$[a,b]$内连续，在开区间$(a,b)$内可导，且有$f(a)=f(b)$，则开区间$(a,b)$上至少存在一个点$x_0$，使得$f'(x_0)=0$.
+\end{theorem}
+
+\begin{proof}[证明]
+  因为闭区间上的连续函数必定同时存在着最大值和最小值，如果两个最值相等，则函数值恒为常数，此时结论自然是成立的，如果最大值和最小值不相等，则两个最值必然有一个与两个端点处的函数值不同，从而只能在开区间内取得，于是按费马极值定理，该点处的导数便是零。
+\end{proof}
+
+\subsection{拉格朗日中值定理}
+\label{sec:lagrange-middle-value-theorem}
+
+\begin{theorem}[拉格朗日(Lagrange)中值定理]
+  设函数$f(x)$在闭区间$[a,b]$上连续，在开区间$(a,b)$内可导，则存在$x_0 \in (a,b)$，使得
+  \[ f'(x_0) = \frac{f(b)-f(a)}{b-a} \]
+\end{theorem}
+
+这定理的几何意义是，闭区间上的连续函数的图象上，存在某个点处的切线平行于两个端点的连线。
+
+\begin{proof}[证明]
+  两个端点相连直线对应的线性函数是
+  \[ g(x) = f(a) + \frac{f(b)-f(a)}{b-a}(x-a) \]
+  构造函数
+  \[ L(x) = f(x)-g(x) \]
+  容易验证，函数$L(x)$满足罗尔定理的条件，由罗尔定理即得结论。
+\end{proof}
+
+\subsection{柯西中值定理}
+\label{sec:cauchy-middle-value-theorem}
+
+\begin{theorem}[柯西(Cauchy)中值定理]
+  设函数$f(x)$和$g(x)$都在闭区间$[a,b]$上连续且在开区间$(a,b)$内可导，并且两个函数的导数不同时为零以及$g(a) \neq g(b)$，则存在$x_0 \in (a,b)$，使得
+  \[ \frac{f'(x_0)}{g'(x_0)} = \frac{f(b)-f(a)}{g(b)-g(a)} \]
+\end{theorem}
+
+\begin{proof}[证明]
+  同拉格朗日定理相仿，作函数
+  \[ h(x) = f(a) + \frac{f(b)-f(a)}{g(b)-g(a)}(g(x)-g(a)) \]
+  再作
+  \[ C(x) = f(x) - h(x) \]
+  则可以验证，$C(x)$符合罗尔定理的条件，由罗尔定理即得结论。
+\end{proof}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../calculus-note"
