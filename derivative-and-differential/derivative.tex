@@ -67,25 +67,6 @@
 \[ y-y_0 = f'(x_0)(x-x_0) \]
 这就是导数的几何意义.
 
-\subsection{与连续的关系}
-\label{sec:the-relation-with-continuess}
-
-论理，函数在某点处可导，则必定在该点处连续，反之则不一定，还能有什么关系呢？我们用一些定理来说明。
-
-\begin{theorem}
-  设函数$f(x)$在$x_0$的某邻域内连续，且在其空心邻域内可导，如果导数函数$f'(x)$在$x_0$处存在左右极限，则函数在$x_0$处存在左导数和右导数，并且有
-  \begin{eqnarray*}
-   f_-'(x_0) & = & \lim_{x \to x_0^-} f'(x)  \\
-   f_+'(x_0) & = & \lim_{x \to x_0^+} f'(x) 
-  \end{eqnarray*}
-\end{theorem}
-
-\begin{proof}[证明]
-  只证明右侧导数的部分，左导数也是完全类似的。设导函数$f'(x)$在$x_0$处的右极限是$A$，只要证明$f(x)$在$x_0$处右可导且导数值也是$A$即可，即对无论多么小的正实数$\varepsilon>0$，需要证明存在一个$x_0$的某个右邻域$(x_0,x_0+\delta)$，使得在此右邻域上恒有
-  \[ \left| \frac{f(x)-f(x_0)}{x-x_0} \right| < \varepsilon \]
-  成立.
-\end{proof}
-
 \subsection{求导法则}
 \label{sec:rule-of-derivative}
 

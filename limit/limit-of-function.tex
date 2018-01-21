@@ -145,6 +145,28 @@
 考虑它在无穷远处的极限，通过与上例类似的方法，可以得到，如果$m=n$，则极限为$\dfrac{a_n}{b_n}$，若$m>n$，则极限为零，若$m<n$，则极限为无穷大.
 \end{example}
 
+\begin{example}
+  我们来建立一个有用的极限，设$r$为一个有理数，则有
+  \[ \lim_{x \to 0} \frac{(1+x)^r-1}{x} = r \]
+  $r=0$时结论显然成立，先来证明$r$是正整数的情况，由二项式定理有
+  \[ \frac{(1+x)^n-1}{x} = \frac{C_n^1x+C_n^2x^2+\cdots+C_n^nx^n}{x} = C_n^1+C_n^2x+\cdots+C_n^nx^{n-1} \]
+  所以得到
+  \[ \lim_{x \to 0} \frac{(1+x)^n-1}{x} = n \]
+  而对于$r$为负整数的情形，有
+  \[ \frac{(1+x)^{-n}-1}{x} = \frac{1-(1+x)^n}{x} \cdot \frac{1}{(1+x)^n} \]
+  令$x \to 0$，上式极限即为$-n$，所以结论对于$r$为一切整数的情形都成立.
+
+  再设$r$是有理数$\dfrac{n}{m}$，令$t=(1+x)^{n/m}$，由公式
+  \[ a^m-b^m=(a-b)(a^{m-1}+a^{m-2}b+\cdots+ab^{m-2}+b^{m-1}) \]
+  得
+  \[ \frac{(1+x)^{n/m}-1}{x} = \frac{t-1}{x} = \frac{t^m-1}{x(1+t+\cdots+t^{m-1})} = \frac{(1+x)^n-1}{x} \cdot \frac{1}{1+t+\cdots+t^{m-1}} \]
+  当$x \to 0$时，第一个因子趋于$n$，第二个因子由于$t \to 1$而趋于$m$，因此整体趋于极限$\dfrac{n}{m}$，即$r$，得证。
+
+  这就是说，在$x \to 0$时，有$(1+x)^r=1+rx+o(x)$.
+
+  在以后，我们将把这结论推广到$r$为无理数的情形，从而对于指数为一切实数，结论都是成立的.
+\end{example}
+
 \subsection{复合函数的极限}
 \label{sec:limit-of-composite-function}
 
@@ -277,7 +299,7 @@
   关于余弦函数$\cos{x}$在$x \to 0$，也有如下结果
   \[ \lim_{x \to 0} \frac{1-\cos{x}}{x^2} = \frac{1}{2} \]
   这是由于
-    \[ \frac{1-\cos{x}}{x^2} & = & \frac{2\sin^2 \frac{x}{2}}{x^2} = \frac{1}{2} \cdot \left( \frac{\sin{\frac{x}{2}}}{\frac{x}{2}} \right)^2 \]
+    \[ \frac{1-\cos{x}}{x^2} = \frac{2\sin^2 \frac{x}{2}}{x^2} = \frac{1}{2} \cdot \left( \frac{\sin{\frac{x}{2}}}{\frac{x}{2}} \right)^2 \]
     取极限并利用平方函数的连续性即得结论，于是就有，在$x \to 0$时，有$\cos{x}=1-\dfrac{1}{2}x^2+o(x^2)$.
 \end{example}
 
