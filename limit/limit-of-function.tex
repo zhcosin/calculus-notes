@@ -271,6 +271,22 @@
 
 函数$f(x)=\sin{x}/x$在$x=0$附近的图象如\autoref{fig:limit-of-sinx-over-x-at-0}所示，它的图象反得在函数$y=1/x$和$y=-1/x$之间振荡，在$x=0$附近，函数值趋于1，但它在$x=0$处并无定义。
 
+定理表明，在$x \to 0$时，正弦函数$\sin{x}$与$x$是等价无穷小，即$\sin{x}=x+o(x)$.
+
+\begin{example}
+  关于余弦函数$\cos{x}$在$x \to 0$，也有如下结果
+  \[ \lim_{x \to 0} \frac{1-\cos{x}}{x^2} = \frac{1}{2} \]
+  这是由于
+    \[ \frac{1-\cos{x}}{x^2} & = & \frac{2\sin^2 \frac{x}{2}}{x^2} = \frac{1}{2} \cdot \left( \frac{\sin{\frac{x}{2}}}{\frac{x}{2}} \right)^2 \]
+    取极限并利用平方函数的连续性即得结论，于是就有，在$x \to 0$时，有$\cos{x}=1-\dfrac{1}{2}x^2+o(x^2)$.
+\end{example}
+
+\begin{example}
+  对于正切函数，我们有
+  \[ \lim_{x \to 0} \frac{\tan{x}}{x} = 1 \]
+  这从$\tan{x}=\dfrac{\sin{x}}{\cos{x}}$便可以得出，于是在$x \to 0$时，有$\tan{x} = x + o(x)$.
+\end{example}
+
 \begin{example}
   \label{example:limit-of-sin-cos-function}
   我们来证明正弦函数$f(x)=\sin{x}$在任意$x_0 \in \mathbb{R}$处的极限是$\sin{x_0}$，即
@@ -321,6 +337,17 @@
   利用复合函数的极限结果(\autoref{theorem:limit-of-combine-function})，便知当式右端当$t \to +\infty$时的极限是$e$，所以当$x \to -\infty$时左端的极限也就是$e$，所以最终当$x \to \infty$时，函数$(1+1/x)^x$的极限都是$e$.
 \end{proof}
 
+在此基础上，我们有更为一般性的结论:
+\begin{theorem}
+  设函数$f(x)$在某一极限过程中为无穷小，那么在同样的极限过程中有
+  \[ \lim (1+f(x))^{1/f(x)} = \mathrm{e} \]
+\end{theorem}
+
+\begin{proof}[证明]
+  以$x \to \infty$为例，因为$\lim\limits_{x \to \infty}(1+\dfrac{1}{x})^x = \mathrm{e}$，所以对于无论多么小的正实数$\varepsilon$，都存在正实数$M$，使得满足$|x|>M$的一切实数$x$都符合$|(1+\dfrac{1}{x})^x-\mathrm{e}|<\varepsilon$，又因为$f(x)$为无穷小，所以对于这个正实数$M$，存在另一正实数$K$，使得当$|x|>K$时，有$|f(x)|<\dfrac{1}{M}$成立，于是$\left| \frac{1}{f(x)} \right|>M$，从而就有
+  \[ \left| (1+f(x))^{1/f(x)} - \mathrm{e} \right| < \varepsilon \]
+  这就证得结论。
+\end{proof}
 
 \subsection{无穷小与无穷大}
 \label{sec:infinite-small-and-great}

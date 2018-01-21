@@ -460,6 +460,34 @@
 \end{proof}
 
 
+\subsection{利用函数连续性求极限}
+\label{sec:find-limit-by-continuousness}
+
+利用函数的连续性，我们可以求得一些有用的极限。
+
+\begin{example}
+  \label{example:ln-1+x-equaliant-to-x}
+  关于对数函数有极限
+  \[ \lim_{x \to 0} \frac{\log_a(1+x)}{x} = \log_a \mathrm{e} \]
+  因为
+  \[ \frac{\log_a(1+x)}{x} = \log_a (1+x)^{1/x} \]
+  由$\lim_{x \to 0} (1+x)^{1/x} = \mathrm{e}$及对数函数的连续性即得结论，特别的有
+  \[ \lim_{x \to 0} \frac{\ln(1+x)}{x} = 1 \]
+  这就是说，在$x \to 0$时，有$\ln(1+x)=x+o(x)$.
+\end{example}
+
+\begin{example}
+  \label{example:e-power-x-1-equalitant-to-x}
+  对于指数函数，有
+  \[ \lim_{x \to 0} \frac{a^x-1}{x} = \ln{a} \]
+  只要令$t=a^x-1$，就有
+  \[ \frac{a^x-1}{x} = \frac{t}{\log_a(1+t)} \]
+  而$x \to 0$时，$t \to 0$，借用上例的结论，便知上式有极限$\ln{a}$，特别情况是
+  \[ \lim_{x \to 0} \frac{e^x-1}{x} = 1 \]
+  这就是说，在$x \to 0$时，有$e^x=1+x+o(x)$
+\end{example}
+
+
 
 %%% Local Variables:
 %%% mode: latex
