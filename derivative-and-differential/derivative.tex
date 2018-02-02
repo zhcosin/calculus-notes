@@ -36,6 +36,14 @@
 \end{example}
 
 \begin{example}
+  现在来求指数函数$f(x)=a^x(a>0,a\neq 1)$在任意点$x_0$处的导数。
+  利用在 \autoref{example:e-power-x-1-equalitant-to-x} 中求得的极限，有
+  \[ \lim_{x \to x_0} \frac{a^{x}-a^{x_0}}{x-x_0} = \lim_{x \to x_0} a^{x_0} \frac{a^{x-x_0}-1}{x-x_0} = \lim_{h \to 0} a^{x_0} \frac{a^h-1}{h} = a^{x_0} \ln{a} \]
+  这表明指数函数在定义域上处处可导，特殊情况是，以自然对数$\mathrm{e}$为底的指数函数在$x_0$处的导数是
+  \[ \lim_{x \to x_0} \frac{e^x-e^{x_0}}{x-x_0} = e^{x_0} \]
+\end{example}
+
+\begin{example}
   我们在\autoref{example:function-with-continuous-at-single-point}中利用狄利克雷函数构造了仅在一个点处连续的函数例子:$f(x)=xD(x)$，我们指出，这个函数虽然在$x=0$处连续，但在此处却不可导，因为当$x$分别取有理数值和无理数值并趋于零时，变化率
   \[ \frac{f(x)-f(0)}{x-0} = \frac{f(x)}{x} = D(x) \]
   分别趋于两个不同的极限值，所以不可导，但是如果我们把函数中的无穷小因子升次，变成
@@ -59,6 +67,11 @@
 \begin{example}
   我们在前面的例子中实际上已经求得了幂函数$f(x)=x^n(n \in \mathbb{Z})$的导函数是$f'(x)=nx^{n-1}$，以及三角函数的导函数:
   \[ (\sin{x})'=\cos{x}, \  (\cos{x})'=-\sin{x} \]
+  而指数函数的导函数是
+  \[ (a^x)'=a^x \ln{a} \]
+  尤其特殊的是
+  \[ (\mathrm{e}^x)' = \mathrm{e}^x \]
+  这就是说，以$\mathrm{e}$为底的指数函数，它的导函数就是它自己，这一点是有趣的，也非常重要.
 \end{example}
 
 函数在某点处可导，其函数值增量与自变量增量之比是
