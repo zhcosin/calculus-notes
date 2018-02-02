@@ -119,6 +119,26 @@
   \[ u'(x_0) = \frac{f'(x_0)g(x_0)-f(x_0)g'(x_0)}{g^2(x_0)} \]
 \end{theorem}
 
+\begin{example}
+  考察多项式函数
+  \[ f(x) = a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0 \]
+  现在容易得知它的导函数是
+  \[ f'(x) = na_nx^{n-1}+(n-1)a_{n-1}x^{n-2}+\cdots+2a_2x+a_1 \]
+  显然，$n$次多项式函数的导函数是$n-1$次多项式函数。
+\end{example}
+
+\begin{example}
+  由商的求导法则，可得出正切函数的导函数
+  \begin{eqnarray*}
+    \tan'{x} & = & \left( \frac{\sin{x}}{\cos{x}} \right)'  \\
+             & = & \frac{(\sin{x})'\cos{x}-\sin{x}(\cos{x})'}{\cos^2{x}} \\
+             & = & \frac{\cos^2{x}+\sin^2{x}}{\cos^2{x}} \\
+    & = & \frac{1}{\cos^2{x}} = \sec^2{x}
+  \end{eqnarray*}
+
+  以及
+  \[ (\sec{x})' = \frac{\sin{x}}{\cos^2{x}}, \  (\csc{x})'=-\frac{\cos{x}}{\sin^2{x}} \]
+\end{example}
 
 
 \subsection{反函数的导数}
