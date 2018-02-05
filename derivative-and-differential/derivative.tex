@@ -23,9 +23,21 @@
 \end{example}
 
 \begin{example}
-  设$n \in \mathbb{Z}$，我们来求幂函数$f(x)=x^n$在$x_0$处的导数，因为
+  设$n \in \mathbb{Z}$，我们来求幂函数$f(x)=x^n(n \in N_+)$在$x_0$处的导数，因为
   \[ \frac{x^n-x_0^n}{x-x_0} = x^{n-1}+x^{n-2}x_0+\cdots+xx_0^{n-2}+x_0^{n-1} \]
   上式右端在$x \to x_0$时显然以$nx_0^{n-1}$为极限.
+\end{example}
+
+\begin{example}
+  函数$f(x)=\frac{1}{x}$在$x_0 \neq 0$处的导数，有
+  \[ \frac{\frac{1}{x}-\frac{1}{x_0}}{x-x_0} = - \frac{1}{xx_0} \]
+  令$x \to x_0$，便知函数在$x_0$处的导数值是$-\frac{1}{x_0^2}$.
+\end{example}
+
+\begin{example}
+  函数$f(x)=\frac{1}{\sqrt{x}}$在$x_0$处，有
+  \[ \frac{\sqrt{x}-\sqrt{x_0}}{x-x_0} = \frac{1}{\sqrt{x}+\sqrt{x_0}} \]
+  因此，函数在$x_0$处的导数值是$\frac{1}{2 \sqrt{x_0}}$.
 \end{example}
 
 \begin{example}
@@ -183,8 +195,18 @@
 \subsection{复合函数的导数}
 \label{sec:derivative-of-embed-function}
 
+\begin{theorem}
+  设函数$u=\varphi(x)$在$x_0$处可导，而函数$y=f(u)$在$u_0=\varphi(x)$处亦可导，且$y=f(u)$在$u_0$的某空心邻域内函数值恒不与$f(u_0)$相同，则复合函数$y=f(\varphi(x))$在$x_0$处可导，且导数值为$f'(u_0)\varphi '(x_0)$.
+\end{theorem}
+
+\begin{proof}[证明]
+  由$x=\varphi(x)$在$x_0$处的连续性，当$x \to x_0$时亦必有$u \to u_0$，于是在等式
+  \[ \frac{f(\varphi(x))-f(\varphi(x_0))}{x-x_0} = \frac{f(\varphi(x))-f(\varphi(x_0))}{\varphi(x)-\varphi(x_0)} \cdot \frac{\varphi(x)-\varphi(x_0)}{x-x_0} = \frac{f(u)-f(u_0)}{u-u_0} \cdot \frac{\varphi(x)-\varphi(x_0)}{x-x_0} \]
+  两边令$x \to x_0$便得结论.
+\end{proof}
+
 \begin{example}
-  对于双曲函数的导函数，就有
+  对于双曲函数的导函数，将双曲余弦$y=\cos{x}=\frac{e^x+e^{-x}}{2}$看成$\varphi(x)=e^x$以及$f(x)=\frac{u+\frac{1}{u}}{2}$的复合，就有
   \[ (\cosh{x})' = \left( \frac{\mathrm{e}^x+\mathrm{e}^{-x}}{2} \right)' = \frac{\mathrm{e}^x-\mathrm{e}^{-x}}{2} = \sinh{x} \]
   同样有
   \[ (\sinh{x})' = \cosh{x} \]
