@@ -144,6 +144,11 @@
   令$x \to x_0$取极限即得结论.
 \end{proof}
 
+由这个定理可得下面推论，当然这推论直接使用导数定义也是可以验证的。
+\begin{inference}
+  函数$y=Cf(x)$的导函数是$y'=Cf'(x)$，如果$f(x)$存在导函数，这里$C$是任意实常数。
+\end{inference}
+
 由以上两个定理，只要把两个函数的商函数$\dfrac{f(x)}{g(x)}$写成$f(x)\cdot \dfrac{1}{g(x)}$，就得到
 \begin{theorem}
   设函数$f(x)$和$g(x)$都在$x_0$的某个邻域内有定义且$g(x)\neq 0$，如果两者都在$x_0$处可导，则$u(x)=\dfrac{f(x)}{g(x)}$在$x_0$处可导，并且有
@@ -246,8 +251,27 @@
   于是就证明了结论。
 \end{example}
 
+\begin{example}
+  仿上例的方法，设函数$u(x)$和$v(x)$均可导，我们来求$y=u(x)^{v(x)}$的导函数，同样把它写成$y=\mathrm{e}^{v(x) \ln{u(x)}}$的形式，可求得
+  \[ y'=e^{v(x) \ln{u(x)}} (v(x) \ln{u(x)})' = u(x)^{v(x)} (v'(x)\ln{u(x)}+\frac{v(x)u'(x)}{u(x)}) \]
+\end{example}
+
+\begin{example}
+  假如函数$f(x)$的定义域关于$x=0$对称，如果它是奇函数，即对任意$x$成立$f(-x)=-f(x)$，那么可以证明，它的导函数$f'(x)$一定是偶函数，反之，如果$f(x)$是偶函数，那么它的导函数$f'(x)$一定是奇函数，这在正弦函数和余弦函数的身上已经得到验证。
+\end{example}
+
 \subsection{求导公式表}
 \label{sec:table-of-derivative-formule}
+
+我们把到现在为止，我们已经求得的导数公式列在这里:
+
+1. 常函数 $(C)' = 0$
+
+2. 幂函数 $(x^p)' = p x^{p-1}, (p \in \mathbb{R},x>0)$.
+
+3. 指数函数 $(a^x)' = a^x \ln{a}$，对数函数$(\log_a x)' = \frac{\log_a \mathrm{e}}{x}$，特殊情况是 $(\mathrm{e}^x)' = \mathrm{e}^x$与$(\ln{x})'=\frac{1}{x}$.
+
+4. 三角函数与反三角函数 $(\sin{x})' = \cos{x}$，$(\cos{x})'=-\sin{x}$，$(\tan{x})'=\sec^2{x}$，$(\arcsin{x})' = \frac{1}{\sqrt{1-x^2}}$，$(\arccos{x})'= - \frac{1}{\sqrt{1-x^2}}$，$(\arctan{x})' = \frac{1}{1+x^2}$.
 
 \subsection{参变量函数的导数}
 \label{sec:derivative-of-parametered-function}
