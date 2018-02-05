@@ -167,6 +167,19 @@
   \[ \lim_{y \to y_0} \frac{\varphi(y)-\varphi(y_0)}{y-y_0} = \lim_{x \to x_0} \frac{x-x_0}{f(x)-f(x_0)} = \frac{1}{f'(x_0)} \]
 \end{proof}
 
+\begin{example}
+  由指数函数的导数，可以得到对数函数的导数，函数$y=a^x(a>0, a \neq 1)$的导函数是$y'=a^x \ln{a}$，于是它的反函数$x=\log_a y$的导函数就是$x'=\frac{1}{a^x \ln{a}}=\frac{\log_a \mathrm{e}}{y}$，特别的是 $(\ln{x})'=\frac{1}{x}$.
+\end{example}
+
+\begin{example}
+  来求一下反三角函数的导数，因为$(\sin{x})'=\cos{x}$，所以
+  \[ (\arcsin{y})'=\frac{1}{(\sin{x})'} = \frac{1}{\cos{x}} = \frac{1}{\sqrt{1-y^2}} \]
+  注意反正弦的取值范围是$(-\frac{\pi}{2},\frac{\pi}{2})$，所以这里余弦是正值，这就是反正弦函数的导数，同样可求得反余弦导函数
+  \[ (\arccos{y})' = - \frac{1}{\sqrt{1-y^2}} \]
+  对于反正切函数，则有
+  \[ (\arctan{y})' = \frac{1}{(\tan{x})'} = \cos^2{x} = \frac{1}{1+\tan^2{x}} = \frac{1}{1+y^2} \]
+\end{example}
+
 \subsection{复合函数的导数}
 \label{sec:derivative-of-embed-function}
 
