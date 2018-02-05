@@ -182,8 +182,12 @@
 
 关于反函数的连续性，有如下结论:
 \begin{theorem}
-  如果函数$f(x)$在闭区间$[a,b]$上严格单调并连续，则其函数$x=f^{-1}(y)$在其定义域$[f(a),f(b)]$或者$[f(b),f(a)]$上也连续。
+  如果函数$f(x)$在闭区间$[a,b]$上严格单调并连续，则其函数$x=\varphi(y)$在其定义域$[f(a),f(b)]$或者$[f(b),f(a)]$上也连续。
 \end{theorem}
+
+\begin{proof}[证明]
+  假定原函数$f(x)$是严格增加的，只要证明反函数$x=\varphi(y)$在任意一点$y_0 \in [f(a),f(b)]$处连续就行，只证明$y_0$属于开区间的情形，端点处的情形也是类似的，设$y_0=f(x_0) \in (f(a),f(b))$，需要证明对任意$\delta>0$，都存在正实数$\varepsilon>0$，以使得$|y-y_0|<\varepsilon$时就有$|x-x_0|<\delta$，这是很容易的，对于确定的$\delta$，则两个函数值$U=y_0-\delta$和$V=y_0+\delta$，如果$U$或$V$超出了闭区间$[f(a),f(b)]$的范围，就适当向$f(x_0)$的方向作一定程度的调整，以使得闭区间$[U,V] \subseteq [f(a),f(b)]$，且$U<y_0<V$，如此一来，由介值性，存在$x_1,x_2 \in [a,b]$，使得$U=f(x_1)$和$V=f(x_2)$，又由单调性，显然$x_1 < x_0 < x_2$，显然当$x \in (x_1,x_2)$时，因此可以取$\varepsilon = \min\{x_0-x_1,x_2-x_0\}$就符合条件.
+\end{proof}
 
 \subsection{一致连续}
 \label{sec:uniform-continuity}
