@@ -227,7 +227,7 @@
 \end{example}
 
 \begin{example}
-  我们已经知道幂函数$x^n(n \in \mathbb{N}_+)$的导函数是$nx^{n-1}$，现在我们将这一结果推广为，任意幂函数$x^p(p \in \mathbb{R})$的导函数都是$px^{p-1}$.
+  我们已经知道幂函数$x^n(x>0, n \in \mathbb{N}_+)$的导函数是$nx^{n-1}$，现在我们将这一结果推广为，任意幂函数$x^p(x>0, p \in \mathbb{R})$的导函数都是$px^{p-1}$.
 
   显然$p=0$时结论成立，如果$p$为有理数$\frac{m}{n}$，那么对于下式
   \[ \frac{(x+\Delta x)^{m/n}-x^{m/n}}{\Delta x} \]
@@ -240,6 +240,10 @@
   而因子$a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1}$中的每一项都趋于$x^{m(n-1)/n}$，因此整个式子的极限便是
   \[ \frac{mx^{m-1}}{nx^{m(n-1)/n}} = \frac{m}{n} x^{\frac{m}{n}-1} \]
   于是结论对于$p \in \mathbb{Q}$都成立。
+
+  但当考虑到$p$为无理数的情形时，上面的方法就失效了，我们不得不寻求别的方法，在这里，我们把$x^p$写成复合函数的形式$y=\mathrm{e}^{p \ln{x}}$，于是可以求得
+  \[ (x^p)' = (\mathrm{e}^{p \ln{x}})' = \mathrm{e}^{p \ln{x}} \cdot (p \ln{x})' = \mathrm{e}^{p \ln{x}} \cdot \frac{p}{x} = px^{p-1} \]
+  于是就证明了结论。
 \end{example}
 
 \subsection{求导公式表}
