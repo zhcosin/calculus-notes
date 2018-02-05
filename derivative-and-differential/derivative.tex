@@ -157,6 +157,16 @@
 \subsection{反函数的导数}
 \label{sec:derivative-of-revert-function}
 
+\begin{theorem}
+  如果函数$f(x)$在$x_0$的某个邻域上严格单调，且在$x_0$处存在非零的导数，则其反函数$x=\varphi(y)$在$y_0=f(x_0)$处亦可导，且导数值
+  \[ \varphi '(y_0) = \frac{1}{f'(x_0)} \]
+\end{theorem}
+
+\begin{proof}[证明]
+  由于严格单调且连续，所以$x \to x_0$等价于$y \to y_0$，因此有
+  \[ \lim_{y \to y_0} \frac{\varphi(y)-\varphi(y_0)}{y-y_0} = \lim_{x \to x_0} \frac{x-x_0}{f(x)-f(x_0)} = \frac{1}{f'(x_0)} \]
+\end{proof}
+
 \subsection{复合函数的导数}
 \label{sec:derivative-of-embed-function}
 
