@@ -35,53 +35,6 @@
 
 容易看出，如果在某点可导，则必在该点处连续。
 
-\begin{example}
-  常数函数$f(x)=C$，由于函数的增量始终为零，所以它在任意点处都可导，且导数为零。
-\end{example}
-
-\begin{example}
-  设$n \in \mathbb{Z}$，我们来求幂函数$f(x)=x^n(n \in N_+)$在$x_0$处的导数，因为
-  \[ \frac{x^n-x_0^n}{x-x_0} = x^{n-1}+x^{n-2}x_0+\cdots+xx_0^{n-2}+x_0^{n-1} \]
-  上式右端在$x \to x_0$时显然以$nx_0^{n-1}$为极限.
-\end{example}
-
-\begin{example}
-  函数$f(x)=\frac{1}{x}$在$x_0 \neq 0$处的导数，有
-  \[ \frac{\frac{1}{x}-\frac{1}{x_0}}{x-x_0} = - \frac{1}{xx_0} \]
-  令$x \to x_0$，便知函数在$x_0$处的导数值是$-\frac{1}{x_0^2}$.
-\end{example}
-
-\begin{example}
-  函数$f(x)=\frac{1}{\sqrt{x}}$在$x_0$处，有
-  \[ \frac{\sqrt{x}-\sqrt{x_0}}{x-x_0} = \frac{1}{\sqrt{x}+\sqrt{x_0}} \]
-  因此，函数在$x_0$处的导数值是$\frac{1}{2 \sqrt{x_0}}$.
-\end{example}
-
-\begin{example}
- 我们在 \autoref{example:limit-of-sinx-sinx0-over-x-x0} 中已经证明了下面两个极限:
-  \[ \lim_{x \to x_0} \frac{\sin{x}-\sin{x_0}}{x-x_0} = \cos{x_0}, \  
-   \lim_{x \to x_0} \frac{\cos{x}-\cos{x_0}}{x-x_0} = -\sin{x_0} \]
- 这表明正弦函数和余弦函数在任意点处都是可导的。
-\end{example}
-
-\begin{example}
-  现在来求指数函数$f(x)=a^x(a>0,a\neq 1)$在任意点$x_0$处的导数。
-  利用在 \autoref{example:e-power-x-1-equalitant-to-x} 中求得的极限，有
-  \[ \lim_{x \to x_0} \frac{a^{x}-a^{x_0}}{x-x_0} = \lim_{x \to x_0} a^{x_0} \frac{a^{x-x_0}-1}{x-x_0} = \lim_{h \to 0} a^{x_0} \frac{a^h-1}{h} = a^{x_0} \ln{a} \]
-  这表明指数函数在定义域上处处可导，特殊情况是，以自然对数$\mathrm{e}$为底的指数函数在$x_0$处的导数是
-  \[ \lim_{x \to x_0} \frac{e^x-e^{x_0}}{x-x_0} = e^{x_0} \]
-\end{example}
-
-\begin{example}
-  我们在\autoref{example:function-with-continuous-at-single-point}中利用狄利克雷函数构造了仅在一个点处连续的函数例子:$f(x)=xD(x)$，我们指出，这个函数虽然在$x=0$处连续，但在此处却不可导，因为当$x$分别取有理数值和无理数值并趋于零时，变化率
-  \[ \frac{f(x)-f(0)}{x-0} = \frac{f(x)}{x} = D(x) \]
-  分别趋于两个不同的极限值，所以不可导，但是如果我们把函数中的无穷小因子升次，变成
-  \[ f(x)=x^2D(x) \]
-  此时有
-  \[ \lim_{x \to 0} \frac{f(x)-f(0)}{x-0} = \lim_{x \to 0} xD(x) = 0 \]
-  这表明这个新构造的函数在$x=0$处可导，且导数为零，然而它在除$x=0$之外的其它点处均不连续，所以也就不可导，于是它成为了仅在一个点处连续且可导的函数例子。
-\end{example}
-
 如果函数$f(x)$在$x_0$处可导，则在此处有
 \[ \frac{\Delta y}{\Delta x} = f'(x_0)+\alpha \]
 其中$\alpha$是一个无穷小，于是有
@@ -94,13 +47,55 @@
 \end{definition}
 
 \begin{example}
-  我们在前面的例子中实际上已经求得了幂函数$f(x)=x^n(n \in \mathbb{Z})$的导函数是$f'(x)=nx^{n-1}$，以及三角函数的导函数:
-  \[ (\sin{x})'=\cos{x}, \  (\cos{x})'=-\sin{x} \]
-  而指数函数的导函数是
-  \[ (a^x)'=a^x \ln{a} \]
-  尤其特殊的是
-  \[ (\mathrm{e}^x)' = \mathrm{e}^x \]
-  这就是说，以$\mathrm{e}$为底的指数函数，它的导函数就是它自己，这一点是有趣的，也非常重要.
+  常数函数$f(x)=C$，由于函数的增量始终为零，所以它在任意点处都可导，且导数为零。
+\end{example}
+
+\begin{example}
+  设$n \in \mathbb{Z}$，我们来求幂函数$f(x)=x^n(n \in N_+)$在$x_0$处的导数，因为
+  \[ \frac{x^n-x_0^n}{x-x_0} = x^{n-1}+x^{n-2}x_0+\cdots+xx_0^{n-2}+x_0^{n-1} \]
+  上式右端在$x \to x_0$时显然以$nx_0^{n-1}$为极限，于是该函数的导函数是
+  \[ (x^n)' = nx^{n-1} \]
+\end{example}
+
+\begin{example}
+  函数$f(x)=\frac{1}{x}$在$x_0 \neq 0$处的导数，有
+  \[ \frac{\frac{1}{x}-\frac{1}{x_0}}{x-x_0} = - \frac{1}{xx_0} \]
+  令$x \to x_0$，便知函数在$x_0$处的导数值是$-\frac{1}{x_0^2}$，于是有
+  \[ \left( \frac{1}{x} \right)' = - \frac{1}{x^2} \]
+\end{example}
+
+\begin{example}
+  函数$f(x)=\sqrt{x}$在$x_0$处，有
+  \[ \frac{\sqrt{x}-\sqrt{x_0}}{x-x_0} = \frac{1}{\sqrt{x}+\sqrt{x_0}} \]
+  因此，函数在$x_0$处的导数值是$\frac{1}{2 \sqrt{x_0}}$，即它的导函数是
+  \[ \left( \sqrt{x} \right) ' = \frac{1}{2 \sqrt{x}} \]
+\end{example}
+
+\begin{example}
+ 我们在 \autoref{example:limit-of-sinx-sinx0-over-x-x0} 中已经证明了下面两个极限:
+  \[ \lim_{x \to x_0} \frac{\sin{x}-\sin{x_0}}{x-x_0} = \cos{x_0}, \  
+   \lim_{x \to x_0} \frac{\cos{x}-\cos{x_0}}{x-x_0} = -\sin{x_0} \]
+ 于是有
+ \[ (\sin{x})' = \cos{x}, \  (\cos{x})' = - \sin{x} \]
+\end{example}
+
+\begin{example}
+  现在来求指数函数$f(x)=a^x(a>0,a\neq 1)$在任意点$x_0$处的导数。
+  利用在 \autoref{example:e-power-x-1-equalitant-to-x} 中求得的极限，有
+  \[ \lim_{x \to x_0} \frac{a^{x}-a^{x_0}}{x-x_0} = \lim_{x \to x_0} a^{x_0} \frac{a^{x-x_0}-1}{x-x_0} = \lim_{h \to 0} a^{x_0} \frac{a^h-1}{h} = a^{x_0} \ln{a} \]
+  于是有
+  \[ (a^x)' = a^x \ln{a} \]
+  特别的有 $(e^x)'=e^x$，这就是说，以$\mathrm{e}$为底的指数函数的导函数就是它自己，这非常重要且有趣.
+\end{example}
+
+\begin{example}
+  我们在\autoref{example:function-with-continuous-at-single-point}中利用狄利克雷函数构造了仅在一个点处连续的函数例子:$f(x)=xD(x)$，我们指出，这个函数虽然在$x=0$处连续，但在此处却不可导，因为当$x$分别取有理数值和无理数值并趋于零时，变化率
+  \[ \frac{f(x)-f(0)}{x-0} = \frac{f(x)}{x} = D(x) \]
+  分别趋于两个不同的极限值，所以不可导，但是如果我们把函数中的无穷小因子升次，变成
+  \[ f(x)=x^2D(x) \]
+  此时有
+  \[ \lim_{x \to 0} \frac{f(x)-f(0)}{x-0} = \lim_{x \to 0} xD(x) = 0 \]
+  这表明这个新构造的函数在$x=0$处可导，且导数为零，然而它在除$x=0$之外的其它点处均不连续，所以也就不可导，于是它成为了仅在一个点处连续且可导的函数例子。
 \end{example}
 
 \subsection{求导法则}
@@ -216,12 +211,19 @@
   两边令$x \to x_0$便得结论.
 \end{proof}
 
+根据定理，函数$y=f(\varphi(x))$的导函数是$y'=f'(\varphi(x))\varphi '(x)$.
+
 \begin{example}
   对于双曲函数的导函数，将双曲余弦$y=\cos{x}=\frac{e^x+e^{-x}}{2}$看成$\varphi(x)=e^x$以及$f(x)=\frac{u+\frac{1}{u}}{2}$的复合，就有
   \[ (\cosh{x})' = \left( \frac{\mathrm{e}^x+\mathrm{e}^{-x}}{2} \right)' = \frac{\mathrm{e}^x-\mathrm{e}^{-x}}{2} = \sinh{x} \]
   同样有
   \[ (\sinh{x})' = \cosh{x} \]
   这跟三角函数的求导函数非常类似，以后我们还会看到，双曲函数在很多方面都跟三角函数有类似的性质。
+\end{example}
+
+\begin{example}
+  我们也可以把余弦函数$y=\cos{x}$写成$y=\sin{\left( x+\frac{\pi}{2} \right)}$，从而将它看成是由$y=\sin{u}$以及$u=x+\frac{\pi}{2}$复合而成，于是便得
+  \[ (\cos{x})' = (\sin{u})' \cdot u'(x) = \cos{u} = \cos{\left( x+\frac{\pi}{2} \right)} = - \sin{x} \]
 \end{example}
 
 \subsection{求导公式表}
