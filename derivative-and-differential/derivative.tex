@@ -226,6 +226,22 @@
   \[ (\cos{x})' = (\sin{u})' \cdot u'(x) = \cos{u} = \cos{\left( x+\frac{\pi}{2} \right)} = - \sin{x} \]
 \end{example}
 
+\begin{example}
+  我们已经知道幂函数$x^n(n \in \mathbb{N}_+)$的导函数是$nx^{n-1}$，现在我们将这一结果推广为，任意幂函数$x^p(p \in \mathbb{R})$的导函数都是$px^{p-1}$.
+
+  显然$p=0$时结论成立，如果$p$为有理数$\frac{m}{n}$，那么对于下式
+  \[ \frac{(x+\Delta x)^{m/n}-x^{m/n}}{\Delta x} \]
+  令$a=(x+\Delta x)^{m/n}$及$b=x^{m/n}$并借用公式
+  \[ a-b = \frac{a^n-b^n}{a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1}} \]
+  可得
+  \[ \frac{(x+\Delta x)^{m/n}-x^{m/n}}{\Delta x} = \frac{(x+\Delta x)^m - x^m}{\Delta x (a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1})} \]
+  令$\Delta x \to 0$，显然有
+  \[ \frac{(x+\Delta x)^m - x^m}{\Delta x} \to m x^{m-1} \]
+  而因子$a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1}$中的每一项都趋于$x^{m(n-1)/n}$，因此整个式子的极限便是
+  \[ \frac{mx^{m-1}}{nx^{m(n-1)/n}} = \frac{m}{n} x^{\frac{m}{n}-1} \]
+  于是结论对于$p \in \mathbb{Q}$都成立。
+\end{example}
+
 \subsection{求导公式表}
 \label{sec:table-of-derivative-formule}
 
