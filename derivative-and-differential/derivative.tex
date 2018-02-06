@@ -298,7 +298,7 @@
     \end{cases}
   \]
   于是它在$\theta=\theta_0$处的导数是
-  \[ \frac{\dif y}{\dif x} = -\tan{\theta_0} \]
+  \[ \frac{\dif y}{\dif x} = -\cot{\theta_0} \]
 \end{example}
 
 对于函数$y=f(x)$来说，它也可以看成是由以下的参数方程决定的曲线
@@ -311,6 +311,97 @@
 
 \subsection{高阶导数}
 \label{sec:high-level-derivative}
+
+如果一个函数连续，则它的图象是一条不连续不间段的曲线，而如果它又可导，则它的曲线呈现出光滑无转折点的特征，那么由于导函数的存在，自然会问到导函数是否也可导这样一个问题，也就是导数的导数，即高阶导数。
+
+\begin{definition}
+  如果函数$f(x)$在某个区间上存在导函数，且导函数也可导，则称导函数的导函数是$f(x)$的\emph{二阶导数}，记作$f''(x)$或者$\frac{\dif^2y}{\dif x^2}$，类似的可以得到\emph{三阶导数}$\frac{\dif^3y}{\dif x^3}$或者$y^{(3)}$或者$f^{(3)}(x)$、\emph{四阶导数}$\frac{\dif^4 y}{\dif x^4}$或者$f^{(4)}(x)$...$n$阶导数$\frac{\dif^n y}{\dif x^n}$或者$f^{(n)}(x)$，这些统称\emph{高阶导数}.
+\end{definition}
+
+下面考虑基本函数的高阶导数。
+
+1. 幂函数$y=x^p(x>0, p \in \mathbb{R})$.
+
+显然有
+\begin{align*}
+  \frac{\dif y}{\dif x} & = px^{p-1} \\
+  \frac{\dif^2 t}{\dif x^2} & = p(p-1)x^{p-2} \\
+  \cdots \\
+  \frac{\dif ^n y}{\dif x^n} & = p(p-1)\cdots (p-n+1)x^{p-n}
+\end{align*}
+
+对于指数是正整数$m$的情形来说，函数$x^m(m \in \mathbb{N}_+)$的一阶导数是$m-1$次多项式，二阶导数是$m-2$阶多项式，$m$阶导数则成为常数，阶数更高阶的导数将恒为零函数。
+
+2. 指数函数$y=a^x(a>0,a \neq 1)$.
+
+这时有
+\begin{align*}
+  \frac{\dif y}{\dif x} & = a^x \ln{a} \\
+  \frac{\dif^2 y}{\dif x^2} & = a^x (\ln{a})^2 \\
+  \frac{\dif^3 y}{\dif x^3} & = a^x (\ln{a})^3 \\
+  \cdots \\
+  \frac{\dif^n y}{\dif x^n} & = a^x (\ln{a})^n \\
+\end{align*}
+
+对于$y=\mathrm{e}^x$来说，则因为$\frac{\dif y}{\dif x} = \mathrm{e}^x = y$，所以它的任意阶的导函数仍然是它自己。
+
+3. 对数函数$y=\log_a x(a>0, a \neq 1)$.
+
+因为求一阶导数后就成为幂函数，所以可以应用幂函数的高阶导数结果.
+\begin{align*}
+  \frac{\dif y}{\dif x} & = \frac{1}{x \ln{a}} \\
+  \frac{\dif ^2y}{\dif x^2} & = - \frac{1}{x^2\ln{a}} \\
+  \cdots \\
+  \frac{\dif^ny}{\dif x^n} & = \frac{(-1)^{n-1}(n-1)!}{x^n \ln{a}}
+\end{align*}
+
+特别情况是
+\[ \frac{\dif^n (\ln{x})}{\dif x^n} = \frac{(-1)^{n-1}(n-1)!}{x^n} \]
+
+4. 三角函数
+
+正弦函数$y=\sin{x}(x \in \mathbb{R})$
+\begin{align*}
+  \frac{\dif y}{\dif x} & = \cos{x} = \sin{\left( x+\frac{\pi}{2} \right)} \\
+  \frac{\dif^2 y}{\dif x^2} & = -\sin{x} = \sin{(x+\pi)} \\
+  \cdots \\
+  \frac{\dif^ny}{\dif x^n} & = \sin{\left( x+\frac{n\pi}{2} \right)}
+\end{align*}
+
+同理，对于余弦也有
+\[ \frac{\dif^n (\cos{x})}{\dif x^n} = \cos{\left( x+\frac{n\pi}{2} \right)} \]
+
+对于正切函数$y=\tan{x}$，先求出低数较高的几个导数如下
+\begin{align*}
+  \frac{\dif y}{\dif x} & = 1+\tan^2{x} \\
+  \frac{\dif^2 y}{\dif x^2} & = 2\tan{x}(1+\tan^2{x}) \\
+  \frac{\dif^3y}{\dif x^3} & = (2+6\tan^2{x})(1+\tan^2{x})
+\end{align*}
+由复合函数求导法则可知，其$n$阶导数中必然包含因式$1+\tan^2{x}$，而剩下的部分是一个关于$\tan{x}$的$n-1$次多项式，即
+\[ \frac{\dif^n (\tan{x})}{\dif x^n} = (1+\tan^2{x})g_n(\tan{x}) \]
+求导便得
+\[ \frac{\dif^{n+1}y}{\dif x^{n+1}} = (1+\tan^2{x})[2\tan{x}g_n(\tan{x})+(1+\tan^2{x})g_n'(\tan{x})] \]
+即$g_n(t)$具有如下的递推公式
+\[ g_{n+1}(t) = 2tg_n(t)+(1+t^2)g_n'(t) \]
+且$g_1(t)=1$.
+
+5. 对于反三角函数.
+
+\subsection{莱布尼茨公式}
+\label{sec:Leibniz-formular-for-high-level-derivative-of-multiply}
+
+设两个函数$f(x)$与$g(x)$都存在高阶导数，来讨论一下它俩之积的高阶导数，设$h(x)=f(x)g(x)$，根据乘积函数的求导法则，可以求得
+\begin{align*}
+  h'(x) & = f'(x)g(x)+f(x)g'(x) \\
+  h''(x) & = f''(x)g(x)+2f'(x)g'(x)+f(x)g''(x) \\
+  h''''(x) & = f'''(x)g(x)+3f''(x)g'(x)+3f'(x)g''(x)+f(x)g'''(x)
+\end{align*}
+易见这与二项式定理非常相似，利用数学归纳法可以证明下面一般性的结果:
+
+\begin{theorem}
+  设函数$f(x)$与$g(x)$都在某个共同的区间上存在直到$n$阶的导函数，则乘积$h(x)=f(x)g(x)$的$n$阶导数是
+  \[ h^{(n)}(x) = \sum_{i=0}^n C_n^i f^{(n-i)}(x)g^{(i)}(x) \]
+\end{theorem}
 
 \subsection{微分与高阶微分}
 \label{sec:difference-and-high-level-difference}
