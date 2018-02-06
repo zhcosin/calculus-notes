@@ -25,8 +25,8 @@
 \begin{definition}
   设函数$f(x)$在$x_0$的某邻域内有定义，如果极限
   \[ \lim_{x \to x_0} \frac{f(x)-f(x_0)}{x-x_0} \]
-  存在，则称函数$f(x)$在$x_0$处\emph{可导}，此极限值称为$f(x)$在$x_0$处的\emph{导数}，并记为$f'(x_0)$，即
-  \[ f'(x_0) = \lim_{x \to x_0} \frac{f(x)-f(x_0)}{x-x_0} \]
+  存在，则称函数$f(x)$在$x_0$处\emph{可导}，也称为\emph{可微}，此极限值称为$f(x)$在$x_0$处的\emph{导数}，并记为$f'(x_0)$，或者称为\emph{微商} \footnote{这个称呼及记号的意义在介绍了微分的概念后就清楚了。}，记为$\frac{\dif y}{\dif x} \big| _{x=x_0} $,即
+  \[ f'(x_0) = \frac{\dif y}{\dif x} \big| _{x=x_0} = \lim_{x \to x_0} \frac{f(x)-f(x_0)}{x-x_0} \]
   如果前述极限不存在，则称函数在该点处不可导. 类似的，把极限过程分别替换为左极限和右极限，就得出\emph{左导数}$f_-'(x_0)$和\emph{右导数}$f_+'(x_0)$的概念，即
   \[ f_-'(x_0) = \lim_{x \to x_0^-} \frac{f(x)-f(x_0)}{x-x_0}, \ f_+'(x_0) = \lim_{x \to x_0} \frac{f(x)-f(x_0)}{x-x_0} \]
 \end{definition}
@@ -275,6 +275,39 @@
 
 \subsection{参变量函数的导数}
 \label{sec:derivative-of-parametered-function}
+
+前面已经提过，引入导数概念的一个几何背景就是求曲线上某点处的切线，这个问题在曲线方程是用函数方程$y=f(x)$来表达的情形下已经解决了，但是通常一般的曲线并不能表达为一个函数，而是由参数方程表达的，比如圆的参数方程是$x=\cos{\theta},y=\sin{\theta}$，假定一段曲线的参数方程是
+\[
+  \begin{cases}
+    x = x(t) \\
+    y = y(t)
+  \end{cases}
+\]
+假定参数$t$在$t_0$的某个邻域内变化，且两个分函数都在这个邻域上可导，那么有
+\[ \frac{\Delta y}{\Delta x} = \frac{y(t+\Delta t)-y(t)}{x(t+\Delta t)-x(t)} = \frac{y(t+\Delta t)-y(t)}{\Delta t} \cdot \frac{\Delta t}{x(t+\Delta t)-x(t)} \]
+令$\Delta t \to 0$便得
+\[ \frac{\dif y}{\dif x} = \frac{y'(t)}{x'(t)} \]
+当然这里需要$x'(t) \neq 0$，这就是参变量函数的导数公式.
+
+\begin{example}
+  对于圆来说，它的参数方程是
+  \[
+    \begin{cases}
+      x=\cos{\theta} \\
+      y = \sin{\theta}
+    \end{cases}
+  \]
+  于是它在$\theta=\theta_0$处的导数是
+  \[ \frac{\dif y}{\dif x} = -\tan{\theta_0} \]
+\end{example}
+
+对于函数$y=f(x)$来说，它也可以看成是由以下的参数方程决定的曲线
+\[
+  \begin{cases}
+    x = t \\
+    y = f(t)
+  \end{cases}
+\]
 
 \subsection{高阶导数}
 \label{sec:high-level-derivative}
