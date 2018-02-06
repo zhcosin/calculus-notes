@@ -92,6 +92,44 @@
 
 这两个定理表明，导函数虽然不一定是连续函数，但却在一定程度上具有连续函数的某些性质，也正是因此，不是任何一个函数都可以成为某个函数的导函数的。
 
+\subsection{洛必达法则}
+\label{sec:L'Hopital-rule}
+
+洛必达法则是一系列函数极限公式的统称。
+
+第一个定理是关于$\frac{0}{0}$型的不定式的。
+\begin{theorem}
+  设$f(x)$与$g(x)$都在$x_0$的某个空心邻域内可导，且
+  \begin{enumerate}
+  \item $\lim_{x \to x_0} f(x) = \lim_{x \to x_0} g(x) = 0$.
+  \item 在点$x_0$的某空心邻域内两者都可导，且$g'(x) \neq 0$.
+  \item $\lim_{x \to x_0} \frac{f'(x)}{g'(x)}=A$，这里$A$可以是有限实数，也可以是无穷大或者带符号的无穷大.
+  \end{enumerate}
+  则有
+  \[ \lim_{x \to x_0} \frac{f(x)}{g(x)} = A \]
+\end{theorem}
+
+第二个是关于$\frac{\infty}{\infty}$型的不定式.
+\begin{theorem}
+  设函数$f(x)$与$g(x)$都在$x_0$右侧的某个空心邻域内可导，且
+  \begin{enumerate}
+  \item $\lim_{x \to x_0^+} f(x) = \lim_{x \to x_0^+} g(x) = \infty$.
+  \item 两个函数都在$x_0$的该空心邻域内可导，且$g'(x) \neq 0$.
+  \item $\lim_{x to x_0^+} \frac{f'(x)}{g'(x)} = A$，这里$A$可以是实数，也可以是无穷大或者带符号的无穷大.
+  \end{enumerate}
+\end{theorem}
+
+\subsection{泰勒公式}
+\label{sec:taylor-formular}
+
+\subsection{基本函数的泰勒展式}
+\label{sec:taylor-expand-for-fundation-function}
+
+\subsection{插值公式}
+\label{sec:interpolation-formula}
+
+
+
 
 %%% Local Variables:
 %%% mode: latex
