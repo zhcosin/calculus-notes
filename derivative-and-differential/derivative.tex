@@ -406,6 +406,37 @@
 \subsection{微分与高阶微分}
 \label{sec:difference-and-high-level-difference}
 
+现在来讨论一个重要的概念：微分。
+
+假定函数$f(x)$在$x_0$的某邻域内有定义且在$x_0$处可导，那么有
+\[ \Delta y = f'(x_0)\Delta x + o(\Delta x) \]
+即函数值的增量$\Delta y$可以写成一个自变量增量的倍数$f'(x_0)\Delta x$与一个自变量增量的高阶无穷小之和，也就是说，函数值的增量$\Delta y$作为一个无穷小，我们从中分离出了主要成分$f'(x_0)\Delta x$，而剩下的部分与主要成分相比可以忽略不计（高阶无穷小），这个主要成分正好是自变量增量的倍数，称为\emph{线性主部}，于是提出微分的概念如下:
+\begin{definition}
+  设函数$f(x)$在$x_0$的某个邻域内有定义，如果存在常数$A$，使得当自变量增量$\Delta x$趋于零时，函数值增量$\Delta y$与$A\Delta x$相差一个$\Delta x$的高阶无穷小，即
+  \[ \Delta y = A \Delta x + o(\Delta x) \]
+  则称函数$f(x)$在$x_0$处\emph{可微}，而表达式$A\Delta x$就称为函数$f(x)$在$x_0$处的\emph{微分}，记作$\dif y |_{x=x_0}$或者$\dif f(x_0)$.
+\end{definition}
+
+微分概念的核心就是从无穷小中分离出最主要的线性成分，这部分就是函数的微分。
+
+如果函数$f(x)$在$x_0$处可导，显然就有
+\[ \Delta y = f'(x_0)\Delta x + o(\Delta x) \]
+这表明，$f'(x_0)\Delta x$就是函数在该处的微分，也就是$A=f'(x_0)$，微分定义中显然$A$若存在也不可能有多个值，所以得到结论：函数在某点处可微的充分必要条件是在该点处可导。而微分就是导数与自变量的增量之积。
+
+对于自变量而言，如果把它看成它自己的函数，显然有$\dif x = \Delta x$，所以微分表达式通常写成
+\[ \dif y = f'(x_0) \dif x \]
+而不是写成$\dif y = f'(x_0) \Delta x$，把上式改写成
+\[ f'(x_0) = \frac{\dif y}{\dif x} \]
+这就表明，函数在某点处的导数值，正是该点处函数的微分与自变量比的微分之比，这就是导数被称为微商以及导数符号$\frac{\dif y}{\dif x}$的由来。
+
+微分可以用于一些近似计算.
+
+\begin{example}
+  ，例如，要计算$\sqrt{4.01}$，由开方函数的微分$\dif (\sqrt{x})=\frac{\dif x}{2 \sqrt{x}}$得
+  \[ \sqrt{4.01} \approx \sqrt{4} + \frac{0.01}{2 \sqrt{4}} = 2.0025 \]
+  这与精确值$\sqrt{4.01}=2.0024984\ldots$接近的很好。
+\end{example}
+
 
 
 %%% Local Variables:
