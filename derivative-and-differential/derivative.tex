@@ -437,13 +437,71 @@
   这与精确值$\sqrt{4.01}=2.0024984\ldots$接近的很好。
 \end{example}
 
+有了导数与微分的关系，根据基本函数的导法公式，可以得出对应的微分公式
+
+1. $y=c$, $\dif y = 0$.
+
+2. $y=x^p(p \in \mathbb{R},x>0)$, $\dif y = px^{p-1} \dif x$.
+
+3. $y=a^x(a>0,a \neq 1)$,$\dif y=a^x\ln{a} \dif x$,特殊情况:$\dif (\mathrm{e}^x) = \mathrm{e}^x \dif x$.
+
+4. $y=\log_a x(a>0,a\neq 1,x>0)$,$\dif y=\frac{\dif x}{x \ln{a}}$，特殊情况:$\dif (\ln{x}) = \frac{\dif x}{x}$.
+
+5. 三角函数
+\[ \dif (\sin{x}) = \cos{x} \dif x, \  \dif (\cos{x}) = -\sin{x} \dif x, \  \dif (\tan{x}) = \sec^2{x} \dif x \]
+
+6. 反三角函数
+\[ \dif (\arcsin{x}) = \frac{\dif x}{\sqrt{1-x^2}}, \  \dif (\arccos{x}) = - \frac{\dif x}{\sqrt{1-x^2}}, \ \dif (\arctan{x}) = \frac{\dif x}{1+x^2} \]
+
+以及微分法则
+\begin{enumerate}
+\item $\dif (cf(x)) = c \dif (f(x))$，这里$C$是常数.
+\item $\dif (f(x) \pm g(x)) = \dif (f(x)) \pm \dif (g(x))$.
+\item $\dif (f(x)g(x)) = \dif (f(x))g(x) + f(x) \dif (g(x))$.
+\item $\dif \left( \frac{f(x)}{g(x)} \right) = \frac{\dif (f(x))g(x) - f(x) \dif (g(x))}{f^2(x)}$.
+\end{enumerate}
+
+由反函数的求导法则，我们可以建立反函数的微分法则，设$y=f(x)$的反函数为$x=\varphi(y)$，那么有
+\[ \dif y = f'(x) \dif x, \  \dif x = \varphi'(y) \dif y \]
+而$f'(x)\varphi'(y)=1$，所以
+\[ \dif x = \frac{\dif y}{f'(x)} \]
+
 \subsection{微分的形式不变性}
 \label{sec:the-non-variabriant-format-of-differtial}
+
+前面已经讲过，设复合函数$h(x)=f(g(x))$是由$y=f(u)$及$u=g(x)$复合而成，那么有求导公式
+\[ h'(x) = f'(g(x))g'(x) \]
+因此它的微分为
+\[ \dif (h(x)) = f'(g(x)) g'(x) \dif x \]
+但是我们知道，上式右端中的因子$g'(x) \dif x$正是函数$g(x)$的微分，即
+\[ \dif (g(x)) = g'(x) \dif x \]
+因此前一式子可以写成
+\[ \dif (f(g(x))) = f'(g(x)) \dif (g(x)) \]
+这与函数$f(x)$的微分表达式$\dif (f(u)) = f'(u) \dif u$一模一样，只是在其中把$u$用$u=g(x)$替换掉了而已，这表明一个事实，在微分表达式中，如果一个变量又是别的变量的函数，可以在替换变量的同时把该变量的微分替换为相应函数的微分就行，微分表达式仍然成立，这就是\emph{微分的形式不变性}.
+
+复合函数的导数规则看起来不如微分的形式不变性来得简单。
 
 \subsection{微分方程}
 \label{sec:differtial-equation}
 
+我们知道指数函数$y=f(x)=\mathrm{e}^x$的导函数就是它自己，用微分的形式写出来就是
+\[ \frac{\dif f(x)}{\dif x} = f(x) \]
+或者简单写成
+\[ \frac{\dif y}{\dif x} = y \]
+或者更加简洁的写成
+\[ y'=y \]
+像这样把函数自身与其微分(或者导数)联系起来的方程，就称为\emph{微分方程}。
 
+上面的例子就表明指数函数$y=\mathrm{e}^x$就满足微分方程
+\[ \frac{\dif y}{\dif x} = y \]
+我们还可以写出一些微分方程
+\begin{align*}
+  y''+y'+y&=0 \\
+  y'^2+x^2&=0 \\
+  y''+2y'y+y^2& = 0
+\end{align*}
+
+如果一个函数与它的导函数满足一个给定的微分方程，就称这函数是这微分方程的一个\emph{解}.例如，函数$y=\mathrm{e}^x$就是微分方程$y'=y$的一个解，但并不是唯一解，因为零函数也满足这方程。
 
 
 
