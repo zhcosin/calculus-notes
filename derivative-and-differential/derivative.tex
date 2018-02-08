@@ -499,6 +499,29 @@
 \[ f''(g(x)) (\dif g(x))^2 = f''(g(x)) g'^2(x) \dif x^2 \]
 可知两者并不相等，因此，高阶微分不再具有形式不变性。
 
+\subsection{微分用于近似计算}
+\label{sec:approx-by-differtial}
+
+微分提供了一个近似计算的思路，设函数$y=f(x)$在$x=x_0$处可微，则在$x_0$处给自变量一个微小的增量$\Delta x$，函数值也相应有一个增量$\Delta y$，有
+\[ \Delta y = f(x_0+\Delta x) - f(x_0) = f'(x_0) \Delta x + o(\Delta x) \]
+于是
+\[ f(x_0+\Delta x) = f(x_0) + f'(x_0) \Delta x + o(\Delta x) \]
+于是有如下的近似公式
+\[ f(x_0+\Delta x) \approx f(x_0) + f'(x_0) \Delta x \]
+并且由于误差是$\Delta x$的高阶无穷小，所以相对误差可以任意小，只要$\Delta x$足够小。
+
+\begin{example}
+  可以建立如下的近似公式，当$|x|$非常小时，有
+  \begin{align*}
+    (1+x)^{\alpha} & \approx 1 + \alpha x \\
+    \mathrm{e}^x & \approx 1 + x \\
+    \ln{(1+x)} & \approx x \\
+    \sin{x} & \approx x \\
+    \tan{x} & \approx x
+  \end{align*}
+  其中第一个式子中，取$\alpha=\frac{1}{2}$，可得
+    \[ \sqrt{1+x} \approx 1 + \frac{1}{2}x \]
+\end{example}
 
 \subsection{微分方程}
 \label{sec:differtial-equation}
