@@ -2,6 +2,17 @@
 \section{利用导数研究函数的性质}
 \label{sec:research-function-use-derivative}
 
+\subsection{函数为常数的条件}
+\label{sec:condition-for-constant-function}
+
+\begin{theorem}
+  某区间上的可导函数的函数值恒保持为某个常数的充分必要条件是，它的导函数为零函数.
+\end{theorem}
+
+\begin{inference}
+  如果某区间上的两个可导函数的导函数恒相等，则这两个函数仅相差一个常数。
+\end{inference}
+
 \subsection{单调性与极值}
 \label{sec:research-monotonicity-and-minmax-value}
 
@@ -21,14 +32,33 @@
 
   首先可以肯定函数是单调不减的了，把区间划分成多个小区间，使得每个小区间上至多只有一个导函数零点，如果函数在每个小区间上是严格增加的，而连续性又保证了端点处的接续，那么就能得出函数在整个区间上都是严格增加的，所以只需要证明导函数只在一个点处取零点的情形就可以了。
 
-  假定导函数$f'(x)$仅在区间$[a,b]$内的某一点$c$处取零值，采用反证明法来证明函数是严格增加的，若不然，假如存在$x_1,x_2 \in [a,b]$使得$x_1<x_2$且$f(x_1)=f(x_2)$，那么$f'(x_1)$与$f'(x_2)$中至多只有一个为零，而另一个必为正值，不妨设就是$f‘(x_1)>0$，于是存在$x_1$的某个右邻域$(x_1,x_1+\delta)$，在此右邻域上恒有$f(x)>f(x_1)=f(x_2)$，只要把$\delta$限制的充分小，就能保证$x_1+\delta<x_2$，于是函数在$(x_1,x_1+\delta)$上的函数值就都大于$f(x_2)$，这与函数的单调不减是矛盾的，从而得证。
+  假定导函数$f'(x)$仅在区间$[a,b]$内的某一点$c$处取零值，采用反证明法来证明函数是严格增加的，若不然，假如存在$x_1,x_2 \in [a,b]$使得$x_1<x_2$且$f(x_1)=f(x_2)$，那么$f'(x_1)$与$f'(x_2)$中至多只有一个为零，而另一个必为正值，不妨设就是$f'(x_1)>0$，于是存在$x_1$的某个右邻域$(x_1,x_1+\delta)$，在此右邻域上恒有$f(x)>f(x_1)=f(x_2)$，只要把$\delta$限制的充分小，就能保证$x_1+\delta<x_2$，于是函数在$(x_1,x_1+\delta)$上的函数值就都大于$f(x_2)$，这与函数的单调不减是矛盾的，从而得证。
 \end{proof}
 
 \begin{example}
   关于定理中导函数恒非负，仅在有限个点处取零值也能保证函数的严格增加这一点，函数$y=x^3$提供了一个例子，它的导函数$y'=3x^2 \geqslant 0$，但仅在$x=0$处取零值，并不影响原来函数是严格增加的这一事实。
 \end{example}
 
-需要说明的是，对于函数单调不减与单调不增来讲，条件$f'(x) \geqslant 0$或者$f'(x) \leqslant 0$是充分必要条件（在函数可导的前提下），但对于严格单调来说，不等式成立且至多仅在有限个点处取等号，则只是充分条件而非必要条件，我们会举反例加以说明。
+\begin{example}
+需要说明的是，对于函数单调不减与单调不增来讲，条件$f'(x) \geqslant 0$或者$f'(x) \leqslant 0$是充分必要条件（在函数可导的前提下），但对于严格单调来说，不等式成立且至多仅在有限个点处取等号，则只是充分条件而非必要条件，我们会举一个反例加以说明。
+
+在正方形区域$[-1,1]\times[-1,1]$中，用$x=y=\pm \frac{1}{n}(n=1,2,\ldots)$划分网格，并在每一个小正方形区域$[\frac{1}{n+1},\frac{1}{n}] \times [\frac{1}{n+1},\frac{1}{n}]$内，将左下角的角点$\left(\frac{1}{n+1},\frac{1}{n+1}\right)$与右上角的角点$\left(\frac{1}{n},\frac{1}{n}\right)$用一段正弦曲线连接起来，这段正弦曲线是将$y=\sin{x}$在$\left[ -\frac{\pi}{2}, \frac{\pi}{2} \right]$中的部分进行平移和沿坐标轴方向的拉伸变换得来，使得正好被小正方形区域框住，这样一段一段的正弦曲线相接，这样构成一个全新的函数:
+\[ f(x) = \frac{1}{2} \left( \frac{1}{n+1} + \frac{1}{n} \right) + \frac{1}{2n(n+1)} \sin{\pi n(n+1) \left[ x - \frac{1}{2} \left( \frac{1}{n+1} + \frac{1}{n} \right) \right]}, \  x \in \left[ \frac{1}{n+1}, \frac{1}{n} \right] \]
+在$x=0$处令$f(0)=0$，然后将曲线中心对称到第三象限，得到另一半图象，从而得出完整的函数图象，显然这个函数是严格增加的，但导函数在每一个$x = \pm \frac{1}{n}$处都取零值，我们再证明$f'(0)=1$就可以了。
+
+设
+\[ x = \frac{1}{2} \left( \frac{1}{n+1} + \frac{1}{n} \right) +t, \  |t| \leqslant \frac{1}{2}\left( \frac{1}{n} - \frac{1}{n+1} = \frac{1}{2n(n+1)} \right) \]
+于是
+\begin{align*}
+  \frac{f(x)-f(0)}{x-0} & = \frac{f(x)}{x} \\
+                        & = \frac{\frac{1}{2} \left( \frac{1}{n+1} + \frac{1}{n} \right)+\frac{1}{2n(n+1)}\sin{\pi n(n+1)t}}{\frac{1}{2} \left( \frac{1}{n+1} + \frac{1}{n} \right)+t} \\
+  & = \frac{2n+1+\sin{\pi n(n+1)t}}{2n+1+2n(n+1)t}
+\end{align*}
+注意到$|2n(n+1)t| \leqslant 1$，得出
+\[ \lim_{x \to 0} \frac{f(x)}{x} = 1 \]
+即$f'(0)=1$.
+\end{example}
+
 
 关于极值，费马极值定理已经表明，极值点处如果可导，则导数只能是零，但是如何判断导函数的零点是否是原来函数的极值点呢，有如下定理
 \begin{theorem}
@@ -58,6 +88,19 @@
   \[ \frac{\sin{\alpha}}{v_1} = \frac{\sin{\beta}}{v_2} \]
   通常用入射角和折射角来标记点$P$的位置，而不是用$x_0$，上式就是光线传播最短路径所应满足的条件，其被称为光的折射定律。
 \end{example}
+
+\subsection{证明不等式}
+\label{sec:proof-inequality-use-derivative}
+
+\subsection{函数的凸性与拐点}
+\label{sec:convert-of-function}
+
+\subsection{方程的近似解}
+\label{sec:approx-solve-of-equation}
+
+
+
+
 
 %%% Local Variables:
 %%% mode: latex
