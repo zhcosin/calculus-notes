@@ -52,8 +52,8 @@
 \begin{example}
 需要说明的是，对于函数单调不减与单调不增来讲，条件$f'(x) \geqslant 0$或者$f'(x) \leqslant 0$是充分必要条件（在函数可导的前提下），但对于严格单调来说，不等式成立且至多仅在有限个点处取等号，则只是充分条件而非必要条件，我们会举一个反例加以说明。
 
-在正方形区域$[-1,1]\times[-1,1]$中，用$x=y=\pm \frac{1}{n}(n=1,2,\ldots)$划分网格，并在每一个小正方形区域$[\frac{1}{n+1},\frac{1}{n}] \times [\frac{1}{n+1},\frac{1}{n}]$内，将左下角的角点$\left(\frac{1}{n+1},\frac{1}{n+1}\right)$与右上角的角点$\left(\frac{1}{n},\frac{1}{n}\right)$用一段正弦曲线连接起来，这段正弦曲线是将$y=\sin{x}$在$\left[ -\frac{\pi}{2}, \frac{\pi}{2} \right]$中的部分进行平移和沿坐标轴方向的拉伸变换得来，使得正好被小正方形区域框住，这样一段一段的正弦曲线相接，构成一个全新的函数:
-\[ f(x) = \frac{1}{2} \left( \frac{1}{n+1} + \frac{1}{n} \right) + \frac{1}{2n(n+1)} \sin{\pi n(n+1) \left[ x - \frac{1}{2} \left( \frac{1}{n+1} + \frac{1}{n} \right) \right]}, \  x \in \left[ \frac{1}{n+1}, \frac{1}{n} \right] \]
+在正方形区域$[-1,1]\times[-1,1]$中，用$x=y=\pm \frac{1}{n}(n=1,2,\ldots)$划分网格，并在每一个小正方形区域$[\frac{1}{n+1},\frac{1}{n}] \times [\frac{1}{n+1},\frac{1}{n}]$内，将左下角的角点$\left(\frac{1}{n+1},\frac{1}{n+1}\right)$与右上角的角点$\left(\frac{1}{n},\frac{1}{n}\right)$用一段正弦曲线连接起来，这段正弦曲线是将$y=\sin{x}$在$\left[ -\frac{\pi}{2}, \frac{\pi}{2} \right]$中的部分进行平移和沿坐标轴方向的拉伸变换得来，使得正好被小正方形区域框住，这样一段一段的正弦曲线相接，构成一个全新的函数，在每一个区间$[\frac{1}{n+1},\frac{1}{n}]$上，函数的表达式是:
+\[ f(x) = \frac{1}{2} \left( \frac{1}{n+1} + \frac{1}{n} \right) + \frac{1}{2n(n+1)} \sin{\pi n(n+1) \left[ x - \frac{1}{2} \left( \frac{1}{n+1} + \frac{1}{n} \right) \right]} \]
 在$x=0$处令$f(0)=0$，然后将曲线中心对称到第三象限，得到另一半图象，从而得出完整的函数图象，显然这个函数是严格增加的，但导函数在每一个$x = \pm \frac{1}{n}$处都取零值，我们再证明$f'(0)=1$就可以了。
 
 设
@@ -108,6 +108,54 @@
 
 \subsection{函数的凸性与拐点}
 \label{sec:convert-of-function}
+
+函数的凸性是关于函数图象的拱形特征的刻画，如果函数的图象在区间上向上拱起，则它图象上任意两点间的部分，都位于这两点连线段的上方，从而引出如下定义
+\begin{definition}
+  如果定义在区间$(a,b)$上的函数$f(x)$对区间上的任意两个数$x_1,x_2$以及任意满足$\alpha+\beta=1(\alpha \geqslant 0,\beta \geqslant 0)$的一对实数$\alpha$、$\beta$都成立
+  \[ f(\alpha x_1+\beta x_2) \geqslant \alpha f(x_1) + \beta f(x_2) \]
+  则称函数在这区间上是\emph{上凸函数}，如果式中的等号总是取不到，则称为\emph{严格上凸函数}，把不等式反向，则得到\emph{下凸函数}和\emph{严格下凸函数}的定义。
+\end{definition}
+
+例如，幂函数$y=x^n(n \in \mathbb{N}_+)$是$\mathbb{R}$上的下凸函数。
+
+对于连续函数而言，上面的定义与下面这个定义等价
+\begin{definition}
+  如果区间上的连续函数$f(x)$对区间上的任意$x_1,x_2$都成立
+  \[ f \left( \frac{x_1+x_2}{2} \right) \geqslant \frac{f(x_1)+f(x_2)}{2} \]
+  则称它是区间上的\emph{上凸函数}，类似的可得到严格上凸、下凸、严格下凸的定义。
+\end{definition}
+
+即对于连续函数来说，只需要前面定义中$\alpha=\beta=\frac{1}{2}$就够了，这一点在我关于初等数学的笔记中已经证明过，这里从略。
+
+由定义立即可以得到著名的 \emph{琴生不等式}.
+\begin{theorem}
+  对于某区间上的上凸函数而言，在区间上任意取定$n$个实数$x_i(i=1,2,\ldots,n)$，有
+  \[ f \left( \frac{1}{n} \sum_{i=1}^n x_i \right) \geqslant \frac{1}{n} \sum_{i=1}^n f(x_i) \]
+\end{theorem}
+
+这定理的证明同样见于我的初等数学笔记，仍然从略。
+
+\begin{example}
+  琴生不等式是一系列重要不等式的来源，例如，在后面我们将证明，对数函数$y=\ln{x}$在$(0,+\infty)$上是上凸的，于是套用琴生不等式，对任意$n$个正实数$x_i(i=1,2,\ldots,n)$，就有
+  \[ \ln{\left( \frac{1}{n} \sum_{i=1}^n x_i \right)} \geqslant \frac{1}{n} \sum_{i=1}^n \ln{x_i} \]
+  即
+  \[ \frac{1}{n} \sum_{i=1}^n x_i \geqslant \sqrt[n]{\prod_{i=1}^n x_i} \]
+  这就是著名的\emph{均值不等式}.
+\end{example}
+
+利用数学归纳法，可以得到
+\begin{theorem}
+  如果函数$f(x)$在某区间上上凸，那么对于该区间上任意$n$个实数$x_i(i=1,2,\ldots,n)$以及满足
+  \[ \sum_{i=1}^n \alpha_i=1(\alpha_i \geqslant 0,i=1,2,\ldots,n) \]
+  的一组权值$\alpha_i(i=1,2,\ldots,n)$，成立不等式
+  \[ f \left( \sum_{i=1}^n \alpha_i x_i \right) \geqslant \sum_{i=1}^n \alpha_i f(x_i) \]
+\end{theorem}
+
+现在我们利用导数工具来研究函数的凸性，自然的，仅限于可导函数的凸性。
+
+\begin{theorem}
+  如果函数的导函数在某区间上是单调不增的，那么函数在该区间上是上凸的。
+\end{theorem}
 
 \subsection{方程的近似解}
 \label{sec:approx-solve-of-equation}
