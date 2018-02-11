@@ -120,7 +120,25 @@
   则称函数在这区间上是\emph{上凸函数}，如果式中的等号总是取不到，则称为\emph{严格上凸函数}，把不等式反向，则得到\emph{下凸函数}和\emph{严格下凸函数}的定义。
 \end{definition}
 
-例如，幂函数$y=x^n(n \in \mathbb{N}_+)$是$\mathbb{R}$上的下凸函数。
+显然，把函数乘以一个正常数，不改变凸性，若乘以一个负常数，则凸性与原来相反，若干个具有相同凸性的函数相加，结果仍具备相同的凸性。
+
+\begin{example}
+  二次函数$y=x^2$在$\mathbb{R}$上是下凸函数，因为
+  \[ (\alpha x_1 + \beta x_2)^2 - (\alpha x_1^2 + \beta x_2^2) = -\alpha \beta (x_1-x_2)^2 \leqslant 0 \]
+  并且等号仅在$x_1=x_2$时成立，所以它不但是下凸，还是严格下凸，一般的二次函数通过平移，都可以化为$y=ax^2$的形式，而平移不改变凸性，但相应的区间也会相应的平移，所以结论就是，如果二次函数的二次系数为正，则为下凸，否则为上凸。
+\end{example}
+
+把定义中居于中间的$\alpha x_1 + \beta x_2$看成第三个变量，就得下来这个定理
+\begin{theorem}
+  \label{convert-function-tangent-of-secant-line}
+  函数$f(x)$在某区间上为上凸函数的充分必要条件是，对于区间上任意三个实数$x_1<x_2<x_3$，都成立
+  \[ \frac{f(x_1)-f(x_2)}{x_1-x_2} \geqslant \frac{f(x_2)-f(x_3)}{x_2-x_3} \]
+\end{theorem}
+这只要注意到中间的$x_2$可以用$x_1$与$x_3$的加权平均表达出来就明白了:
+\[ x_2 = \frac{x_2-x_3}{x_1-x_3} x_1 + \frac{x_1-x_2}{x_1-x_3} x_3 \]
+于是只需要取
+\[ \alpha = \frac{x_2-x_3}{x_1-x_3}, \  \beta = \frac{x_1-x_2}{x_1-x_3} \]
+再代回到定义中的不等式，便得知定理成立。
 
 对于连续函数而言，上面的定义与下面这个定义等价
 \begin{definition}
@@ -160,6 +178,39 @@
 \begin{theorem}
   如果函数的导函数在某区间上是单调不增的，那么函数在该区间上是上凸的。
 \end{theorem}
+由拉格朗日定理结合前面的\autoref{convert-function-tangent-of-secant-line}就清楚了，当然，这只是充分条件，不是必要条件。
+
+自然的也有如下结论
+\begin{inference}
+  如果函数在某区间上二阶可导，且$f''(x) \leqslant 0$，那么函数在该区间上是上凸的，如果不等式反向，则是下凸的。
+\end{inference}
+
+\begin{example}
+  由此可以知道，指数函数在$\mathbb{R}$上是下凸的，而对数函数在$(0,+\infty)$上是上凸的。正弦函数在$(0,\pi)$上是上凸的，而在$(-\pi,0)$上是下凸的，余弦函数在$(-\frac{\pi}{2},\frac{\pi}{2})$上是上凸的，而在$(\frac{\pi}{2}，\frac{3\pi}{2})$上是下凸的。
+\end{example}
+
+\begin{example}[幂函数的凸性与幂平均值不等式]
+  对于幂函数$y=x^p$，二阶导函数$y''=p(p-1)x^{p-2}$，如果$p>1$，则它在$(0,+\infty)$上是下凸函数，否则是上凸函数。我们对一般的幂函数应用琴生不等式，即对任意$n$个正实数$x_i(i=1,2,\ldots,n)$，如果$p>1$，则有
+  \begin{equation}
+    \label{eq:power-mean-value-inequality-1}
+   \left( \frac{1}{n} \sum_{i=1}^n x_i \right)^p \leqslant \frac{1}{n}\sum_{i=1}^n x_i^p 
+  \end{equation}
+  如果$p<1$，不等式反向。
+
+  现在设实数$p>q>0$，那么由上述不等式有
+  \[ \left( \frac{1}{n} \sum_{i=1}^n t_i \right)^{\frac{p}{q}} \leqslant \frac{1}{n}\sum_{i=1}^n t_i^{\frac{p}{q}} \]
+  再令$t_i=x_i^q$，即得
+  \begin{equation}
+    \label{eq:power-mean-value-inequality-2}
+   \left( \frac{1}{n} \sum_{i=1}^n x_i^q \right)^{\frac{1}{q}} \leqslant  \left( \frac{1}{n} \sum_{i=1}^n x_i^p \right)^{\frac{1}{p}}
+ \end{equation}
+ 这表明，函数
+ \[ f(\alpha) = \left( \frac{1}{n} \sum_{i=1}^n x_i^{\alpha} \right)^{\frac{1}{\alpha}} \]
+ 关于指数$\alpha$严格增加。
+
+ 不等式\autoref{eq:power-mean-value-inequality-1}以及\autoref{eq:power-mean-value-inequality-2}称为\emph{幂平均值不等式}.
+\end{example}
+
 
 \subsection{方程的近似解}
 \label{sec:approx-solve-of-equation}
