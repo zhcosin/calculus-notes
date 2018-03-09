@@ -507,6 +507,29 @@
   \[ \lim_{x \to 0} \frac{(1+x)^{\mu}-1}{x} = \mu \]
 \end{example}
 
+\subsection{题选}
+\label{sec:exercise-for-continuousness-of-function}
+
+\begin{exercise}
+  设定义在 $\mathbb{R}$ 上的连续函数 $f(x)$，对于任意 $x \in \mathbb{R}$都成立 $f(2x)=f(x)$，问该函数是否是常数函数?
+\end{exercise}
+
+\begin{proof}[解答]
+  首先易知 $f(0)=0$，并且对于任意实数$x$和任意正整数$n$，有
+  \[ f(x) = f \left( \frac{x}{2^n} \right) \]
+  由函数$f(x)$在$x=0$处的连续性，$\forall \varepsilon>0$，$\exists \delta>0$，使得当$|x|<\delta$时，恒有$|f(x)|<\varepsilon$.
+
+  任取两个不相等的实数$x$和$y$，对于上述$\delta$，必然当正整数$n$充分大时有
+  \[ \left| \frac{x}{2^n} \right| < \delta, \  \left| \frac{y}{2^n} \right| < \delta \]
+  因此有
+  \[ \left| f \left( \frac{x}{2^n} \right) \right| < \varepsilon, \  \left| f \left( \frac{y}{2^n} \right) \right| < \varepsilon \]
+  从而
+  \[ \left| f \left( \frac{x}{2^n} \right) - f \left( \frac{y}{2^n} \right) \right| < 2\varepsilon \]
+  即
+  \[ |f(x)-f(y)| < 2\varepsilon \]
+  由 $\varepsilon$的任意性，有$f(x)=f(y)$，因此函数是常数函数，并且由过程可知，函数其实保证在 $x=0$ 处连续就能保证是常数函数了。
+\end{proof}
+
 
 
 %%% Local Variables:
