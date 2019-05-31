@@ -4,12 +4,14 @@ import graph;
 import geometry;
 import interpolate; // 插值
 
-srand(6639);
+srand(28539);
 
-size(200);
+size(400);
 
+pair O = (0, 0);
 xaxis("$x$", -1, 12, Arrow);
 yaxis("$y$", -1, 6, Arrow);
+label("$O$", O, SW);
 
 pair A = (1,3), B = (7, 3), C = (10, 4);
 pair Z1 = (5, 4), Z2 = (8, 2);
@@ -57,20 +59,37 @@ for (int index = 0; index < sliceXArr.length; ++index) {
 
   // 随机在各小区间上取一个点
   if (index < sliceXArr.length - 1) {
-    ksi[index] = sliceX + 0.5 * intervalLen + 2 * (unitrand() - 0.5) * 0.3 * intervalLen; 
+    ksi[index] = sliceX + 0.5 * intervalLen + 2 * (unitrand() - 0.5) * 0.1 * intervalLen; 
     yksi[index] = f0(ksi[index]);
 
-    draw((ksi[index], 0) -- (ksi[index], yksi[index]), dashed);
+    //draw((ksi[index], 0) -- (ksi[index], yksi[index]), dashed);
   }
 
   draw(slicePointArr[index] -- sliceFunPointArr[index]);
+
+  // 标注各个分点
+  if (index == 0) {
+    label("$a$", slicePointArr[index], S);
+  } else if (index == 1) {
+    label("$x_1$", slicePointArr[index], S);
+  } else if (index == sliceXArr.length - 2) {
+    label("$x_{n-1}$", slicePointArr[index], S);
+  } else if (index == sliceXArr.length - 1) {
+    label("$b$", slicePointArr[index], S);
+  } else if (index >= sliceXArr.length / 2 - 1 && index < sliceXArr.length / 2) {
+    draw((ksi[index], 0) -- (ksi[index], yksi[index]), dashed);
+    label("$\xi_i$", (ksi[index], 0), S);
+    label("$x_i$", slicePointArr[index], S);
+  } else if (index >= sliceXArr.length / 2 && index < sliceXArr.length / 2 + 1) {
+    label("$x_{i+1}$", slicePointArr[index], S);
+  }
 }
 
 // 绘制各个小矩形
 for (int index = 0; index < intervalCount; ++index) {
   draw((sliceXArr[index], 0) -- (sliceXArr[index], yksi[index]));
   draw((sliceXArr[index + 1], 0) -- (sliceXArr[index + 1], yksi[index]));
-  draw((sliceXZrr) -- ());
+  draw((sliceXArr[index], yksi[index]) -- (sliceXArr[index+1], yksi[index]));
 }
 
 
