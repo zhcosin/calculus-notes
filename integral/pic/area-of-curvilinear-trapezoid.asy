@@ -79,9 +79,9 @@ for (int index = 0; index < sliceXArr.length; ++index) {
   } else if (index >= sliceXArr.length / 2 - 1 && index < sliceXArr.length / 2) {
     draw((ksi[index], 0) -- (ksi[index], yksi[index]), dashed);
     label("$\xi_i$", (ksi[index], 0), S);
-    label("$x_i$", slicePointArr[index], S);
+    label("$x_{i-1}$", slicePointArr[index], S);
   } else if (index >= sliceXArr.length / 2 && index < sliceXArr.length / 2 + 1) {
-    label("$x_{i+1}$", slicePointArr[index], S);
+    label("$x_{i}$", slicePointArr[index], S);
   }
 }
 
