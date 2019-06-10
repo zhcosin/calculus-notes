@@ -228,7 +228,25 @@
 \subsection{可积函数与不可积函数}
 \label{sec:integrable-and-not-function}
 
+虽然我们已经得出了函数在闭区间上可积的充分必要条件，但那个条件更多的是理论上的意义，对于一个给定的函数，要快速的判断可积性是比较困难的，所以这一节我们总结一些常用的可积函数和不可积函数。
 
+\begin{theorem}
+  闭区间上的连续函数总是可积的.
+\end{theorem}
+
+\begin{proof}
+  由于闭区间上的连续函数必然是一致连续，即任给正实数$\varepsilon>0$，都存在另一个正实数$\delta>0$，使得对于该闭区间上任意两个自变量$x_1,x_2$，只要$|x_1-x_2|<\delta$，就能保证$|f(x_1)-f(x_2)|<\varepsilon$.也就是说，只要划分的最大子小区间长度小于$\delta$，那么所有子区间上的振幅都会小于$\varepsilon$，于是它对应的上下积分和之差
+  \[ \sum_{i=1}^n \omega_i \Delta x_i < \varepsilon (b-a) \]
+  这里$a$和$b$分别是闭区间的两个端点.上式便表明了函数的可积性。
+\end{proof}
+
+\begin{theorem}
+  如果函数在闭区间上只有有限多个间断点，那么它是可积的.
+\end{theorem}
+
+\begin{theorem}
+  如果函数在闭区间上单调有界，则它是可积的.
+\end{theorem}
 
 
 \subsection{定积分的性质}
