@@ -147,6 +147,7 @@
 
 利用达布和，我们有如下的可积条件:
 \begin{theorem}
+  \label{integrable-predication-theorem-1}
   函数$f(x)$在闭区间上可积的充分必要条件是:
   \[ \lim_{\lambda \to 0} (S - s) = 0 \]
   这里 $\lambda$ 表示划分下的各小区间的最大长度.
@@ -178,7 +179,13 @@
 
 在某个划分中，对于每一个小区间$[x_{i-1},x_i]$而言，$M_i-m_i$可以视作函数$f(x)$在该小区间上的振幅，记作$\omega_i$，于是上述定理中的等式也可以写为
 \[ \lim_{\lambda \to 0} \sum_{i=1}^n \omega_i \Delta x_i = 0 \]
-在接下来我们将会用到这种形式.
+在接下来我们将会用到这种形式，为了方便引用，将其写成定理的形式:
+\begin{theorem}
+  \label{integrable-predication-theorem-2}
+  函数$f(x)$在闭区间上可积的充分必要条件是:
+  \[ \lim_{\lambda \to 0} \omega_i \Delta x_i = 0 \]
+  这里 $\lambda$ 表示划分下的各小区间的最大长度.
+\end{theorem}
 
 \begin{inference}
   闭区间上的无界函数不可积.
@@ -205,7 +212,7 @@
   \[ S_A<I^{*}+\frac{1}{2}\varepsilon \]
   虽然我们现在还未确定$\delta$是多少，但是我们考虑最大子区间长度小于$\delta$的任意一个划分$X$，如果将划分$A$的分点全部加进$X$的分点中去，得到一个新划分$Y$，那么由上积分和的性质有$S_Y<S_X$，因此有
   \[ S_Y<I^{*}+\frac{1}{2}\varepsilon \]
-  接着我们考虑这个在$X$划分中加入若干分点到底对上积分和能造成多大的变化，也就是估计$S_X$与$S_Y$之差，因为这个划分$A$我们是针对$\varepsilon$取定的，我们假设它有$l$个分点，那么在划分$X$中插入$l$个分点，最多只能影响$X$中原来$l$个小区间上的积分和，且每个小区间上的积分和改变量不会超过$(M-m)\delta$，于是有
+  接着我们考虑:在$X$划分中加入若干分点到底能引起上积分和产生多大的变化，也就是估计$S_X$与$S_Y$之差，因为这个划分$A$我们是针对$\varepsilon$取定的，我们假设它有$l$个分点，那么在划分$X$中插入$l$个分点，最多只能影响$X$中原来$l$个小区间上的积分和，且每个小区间上的积分和改变量不会超过$(M-m)\delta$，于是有
   \[ |S_Y-S_X|<l(M-m)\delta \]
   这里$M$和$m$分别是函数在整个要积分的闭区间上的上确界和下确界.因此如果取$\delta$使其满足
   \[ \delta < \frac{\varepsilon}{2l(M-m)} \]
@@ -243,6 +250,25 @@
 \begin{theorem}
   如果函数在闭区间上只有有限多个间断点，那么它是可积的.
 \end{theorem}
+
+为了方便证明这个，我们把 \autoref{integrable-predication-theorem-2} 改述为以下的形式:
+\begin{theorem}
+  \label{integrable-predication-theorem-3}
+  函数$f(x)$在闭区间上可积的充分必要条件是: 对于任意小的两个正实数 $\varepsilon>0$和$\sigma>0$，都存在一个很小的正实数$\delta>0$，使得任何一个最大小区间长度小于$\delta$的划分都满足： 那些振幅大于$\varepsilon$的小区间长度总和不超过$\sigma$.
+\end{theorem}
+
+\begin{proof}
+  充分性，在定理所述条件下，振幅和被分为两部分：振幅不超过$\varepsilon$的小区间上的振幅和，与振幅超过$\varepsilon$的小区间上的振幅和，对于前者，这部分振幅和不超过$\varepsilon (b-a)$，对于后者，这部分振幅和不超过$\sigma(M-m)$，于是整个振幅和将不会超过
+  \[ \varepsilon(b-a)+\sigma(M-m) \]
+  由$\varepsilon$和$\sigma$的任意性，即知该振幅和可以任意小，即可积。
+
+  必要性是显然的。
+\end{proof}
+
+有了这个描述，现在来证明在闭区间上有有限个间断点的函数是可积的:
+\begin{proof}
+  对于某个划分而言，我们将这些小区间分成两类，一类是包含间断点的，一类是不包含间断点的，只要划分足够细，包含间断点的那些小区间的总长度可以任意小，而不包含间断点的那些小区间上的振幅可以任意小，因此，函数在区间上可积。
+\end{proof}
 
 \begin{theorem}
   如果函数在闭区间上单调有界，则它是可积的.
