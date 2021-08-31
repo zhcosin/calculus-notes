@@ -278,6 +278,48 @@
 \subsection{定积分的性质}
 \label{sec:properties-of-definite-integral}
 
+\begin{property}
+  如果函数 $f(x)$ 在 $[a,b]$ 上可积，则它在反向区间 $[b,a]$ 上也可积，且有
+  \[ \int_b^a f(x) dx = - \int_a^b f(x) dx \]
+\end{property}
+
+\begin{property}
+  设函数 $f(x)$ 在 $[a,b]$ 上可积，$r$、$s$、$t$ 是该区间上任意三个实数(大小关系任意)，恒有
+  \[ \int_r^s f(x) dx = \int_r^t f(x) dx + \int_t^s f(x) dx \]
+\end{property}
+
+\begin{property}
+  如果函数 $f(x)$在 $[a,b]$ 上可积，则 $kf(x)$ 也在该区间上可积，且
+  \[ \int_a^b f(x) dx = k \int_a^b f(x) dx  \]
+\end{property}
+
+\begin{property}
+  如果函数 $f(x)$、$g(x)$ 均在 $[a,b]$ 上可积，则 $f(x)\pm g(x)$在该区间上也可积，且
+  \[ \int_a^b [f(x) \pm g(x)] dx =  \int_a^b f(x) dx \pm \int_a^b f(x) dx \]
+\end{property}
+
+\begin{property}
+  如果函数 $f(x)$ 在 $[a,b]$ 上可积，且恒有 $f(x) \geqslant 0$，则
+  \[ \int_a^b f(x) dx \geqslant 0 \]
+  更进一步，在上述条件下，只要恒有 $f(x) > 0$，就有
+  \[ \int_a^b f(x) dx > 0 \]
+\end{property}
+
+\begin{property}
+  如果函数 $f(x)$、$g(x)$ 均在 $[a,b]$ 上可积，且恒有 $f(x) \geqslant g(x)$ ，则有
+  \[ \int_a^b f(x) dx \geqslant \int_a^{b} g(x) dx \] 
+  如果前面不等式恒取大于号，则积分不等式也恒取大于号.
+\end{property}
+
+\begin{property}
+  如果函数 $f(x)$ 在区间 $[a,b]$ 上可积，且在该区间上函数有上界$M$和下界$m$，则有
+  \[ m(b-a) \leqslant \int_a^{b} f(x) dx \leqslant M \]
+\end{property}
+
+\subsection{积分中值定理}
+\label{sec:integral-midvalue-theoream}
+
+
 
 \subsection{变动上限的积分函数}
 \label{sec:variable-upper-limit-integral-function}
@@ -289,6 +331,8 @@
 
 \subsection{牛顿-莱布尼茨公式}
 \label{sec:newton-leibniz-formular}
+
+
 
 
 
