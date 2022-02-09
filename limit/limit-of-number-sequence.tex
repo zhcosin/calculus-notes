@@ -68,7 +68,7 @@
   \label{example:limit-of-q-power-n}
   设实数$q$满足$|q|<1$，则
   \[ \lim_{n \to \infty} q^n = 0 \]
-  对于任意小的正实数$\varepsilon$，要使不等式$|q^n - 0| < \varepsilon$，只要$n>\dfrac{\ln{\varepsilon}}{\ln{q}}$就行了，这就证明得了结论。
+  对于任意小的正实数$\varepsilon$，要使不等式$|q^n - 0| < \varepsilon$，只要$n>\dfrac{\ln{\varepsilon}}{\ln{|q|}}$就行了，这就证明得了结论。
 \end{example}
 
 \begin{example}
@@ -131,7 +131,7 @@
 
   \begin{proof}[证明二]
     设$z_n=\sqrt[n]{a}-1$，则
-    \[ a = (1+z_n)^n = 1+ nz_n+\frac{1}{2!}z_n^2+\cdots+z_n^n > 1+ n z_n \]
+    \[ a = (1+z_n)^n = 1+ nz_n+\frac{n(n-1)}{2!}z_n^2+\cdots+z_n^n > 1+ n z_n \]
     所以得到
     \[ 0<z_n<\frac{1}{n}(a-1) \]
     下同证明一.
@@ -234,7 +234,7 @@
 \end{theorem}
 
 \begin{proof}[证明]
-  反证法，若$A<B$，则取$\varepsilon=\dfrac{1}{2}(B-A)$，在$n$充分大时必同时有$a_n<A+\varepsilon=\dfrac{1}{2}(A+B)$以及$b_n>B-\varepsilon=\dfrac{1}{2}(A+B)$成立，这时显然有$a_n<b_n$，与定理条件矛盾，所以$A \leqslant B$.
+  反证法，若$A>B$，则取$\varepsilon=\dfrac{1}{2}(A-B)$，在$n$充分大时必同时有$a_n>A-\varepsilon=\dfrac{1}{2}(A+B)$以及$b_n<B+\varepsilon=\dfrac{1}{2}(A+B)$成立，这时显然有$a_n>b_n$，与定理条件矛盾，所以$A \leqslant B$.
 \end{proof}
 
 要注意的是由定理中的条件并不能得出$A<B$的结论来，例如$a_n=\dfrac{1}{n^2}$与$b_n=\dfrac{1}{n}$.
@@ -427,7 +427,7 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 \label{sec:stolz-theorem}
 
 \begin{theorem}[Stolz 定理]
-  对于两个数列$x_n$和$y_n$，其中$y_n$是一个(至少从某一项开始)严格增加到正无穷或者严格减小到负无穷的数列，如果$\lim\limits_{n\to\infty}\dfrac{x_{n+1}-x_n}{y_{n+1}-y_n} = M$，那么有$\lim\limits \dfrac{x_n}{y_n} = M$，这里的$M$可以是一个实数，也可以是正无穷或者负无穷。
+  对于两个数列$a_n$和$b_n$，其中$b_n$是一个(至少从某一项开始)严格增加到正无穷或者严格减小到负无穷的数列，如果$\lim\limits_{n\to\infty}\dfrac{a_{n+1}-a_n}{b_{n+1}-b_n} = M$，那么有$\lim\limits \dfrac{a_n}{b_n} = M$，这里的$M$可以是一个实数，也可以是正无穷或者负无穷。
 \end{theorem}
 
 \begin{proof}[证明]
