@@ -1,0 +1,222 @@
+
+\section{正项级数的收敛性判别}
+\label{sec:positive-number-series}
+
+对于级数$\sum_{n=1}^{\infty}a_n$，如果它的每一项都是正数（或者当$n$充分大时恒保持正号），我们有一系列的判别方法可以判断它的收敛性。
+
+由于正项级数的部分和是单调增加的，所以回想起数列极限的单调有界定理，我们就有
+
+\begin{theorem}
+  正项级数收敛的充分必要条件是它的部分和有界。
+\end{theorem}
+
+\begin{example}
+  级数$\sum_{n=1}^{\infty}\frac{1}{n(n+1)}$的部分和$S_n=1-\frac{1}{n+1}<1$，所以级数收敛。
+\end{example}
+
+\begin{example}
+  级数$\sum_{n=1}^{\infty}\frac{1}{n!}$的部分和$S_n=1+\frac{1}{1!}+\frac{1}{2!}+\cdots+\frac{1}{n!}$，我们在\autoref{sec:a-import-sequence-limit}便已经得到过$S_n<3$，所以级数收敛。
+\end{example}
+
+\begin{example}
+  \label{example:series-ln-1-plus-1-over-n-converage}
+  级数$\sum_{n=1}^{\infty}\ln{\left( 1+\frac{1}{n} \right)}$，注意到$\ln{\left( 1+\frac{1}{n} \right)} = \ln{(n+1)}-\ln{n}$，所以部分和$S_n=\ln{(n+1)}$，显然无界，所以级数发散。
+\end{example}
+
+\subsection{比较判别法}
+\label{sec:compare-method-aboud-series-converage}
+
+如下的比较判别法是相当重要的:
+\begin{theorem}[比较判别法]
+  \label{theorem:comparison-method-about-series-converage}
+  对于两个正项级数$\sum_{n=1}^{\infty}a_n$和$\sum_{n=1}^{\infty}b_n$，如果从某一项起恒有$a_n \leqslant b_n$，那么由$\sum_{n=1}^{\infty}b_n$的收敛便能推得$\sum_{n=1}^{\infty}a_n$也收敛，同理，由$\sum_{n=1}^{\infty}a_n$发散便能推得$\sum_{n=1}^{\infty}b_n$也发散。
+\end{theorem}
+
+\begin{proof}[证明]
+  由条件，存在下标$N$，使得当$n>N$时恒有$a_n \leqslant b_n$，分别用$A_n$和$B_n$表示两个级数的部分和，则
+  \[ A_n = A_N + (a_{N+1}+\cdots+a_n), \  B_n=B_N+(b_{N+1}+\cdots+b_n) \]
+  显然$A_n - A_N \leqslant B_n-B_N$，所以如果$\sum_{n=1}^{\infty}b_n$收敛，则$B_n$有上界，从而$A_n$也有上界，所以$\sum_{n=1}^{\infty}a_n$也收敛。而如果$\sum_{n=1}^{\infty}$是发散的，那么$A_n$必定没有上界，从而$B_n$也不可能有上界，因而$\sum_{n=1}^{\infty}b_n$也必然发散。
+\end{proof}
+
+实际上，条件$a_n \leqslant b_n$可以改成$a_n \leqslant \lambda b_n$，其中$\lambda$是一个正常数，这是因为正项级数$\sum_{n=1}^{\infty}b_n$跟正项级数$\sum_{n=1}^{\infty}\lambda b_n$的收敛性是相同的。
+
+这个判别法还有以下的极限形式
+\begin{theorem}
+  如果正项级数$\sum_{n=1}^{\infty}a_n$和正项级数$\sum_{n=1}^{\infty}b_n$的通项之比有极限(有限的或无穷的均可)
+  \[ \lim_{n \to \infty} \frac{a_n}{b_n} = K \]
+  则如果$K$是正常数，那么两个级数同时收敛同时发散。如果$K=0$，则由$\sum_{n=1}^{\infty}b_n$收敛可推得$\sum_{n=1}^{\infty}a_n$也收敛，如果$K=+\infty$，由由$\sum_{n=1}^{\infty}b_n$发散可推得$\sum_{n=1}^{\infty}a_n$也发散。
+\end{theorem}
+
+\begin{example}
+  设$a_n=\frac{1}{n}$，$b_n=\ln{\left( 1+\frac{1}{n} \right)}$，由极限
+  \[ \lim_{n \to \infty} \frac{\frac{1}{n}}{\ln{\left( 1+\frac{1}{n} \right)}} =1 \]
+  知道它们同时收敛同时发散，而在\autoref{example:series-ln-1-plus-1-over-n-converage}中已经知道$\sum_{n=1}^{\infty}b_n$是发散的，所以$\sum_{n=1}^{\infty}a_n$也是发散的。
+\end{example}
+
+
+\begin{example}
+  我们来研究一个重要的级数，即级数$\sum_{n=1}^{\infty}\frac{1}{n^s}$的收敛性。
+
+  如果$s=1$，则级数成为
+  \[ \sum_{n=1}^{\infty}\frac{1}{n} = 1+\frac{1}{2} + \frac{1}{3} + \cdots \]
+  有如下的片段和估计
+  \[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n} > n \cdots \frac{1}{2n} = \frac{1}{2} \]
+  片断和不能任意小，违反柯西收敛准则，所以$s=1$时级数发散，于是$s<1$时级数也都发散，因为部分和会更大。
+
+  而对于$s>1$的情况，我们将证明它是收敛的，这是因为我们有
+  \[ \frac{1}{(n+1)^s} + \frac{1}{(n+2)^s} + \cdots + \frac{1}{(2n)^s} < n \cdot \frac{1}{n^s} = \frac{1}{n^{s-1}} \]
+  所以我们把正整数分段，每一段以$2^k+1$作为开始，以$2^{k+1}$作为结尾，就有
+  \[ \sum_{i=1}^{2^n}\frac{1}{i^s} = 1+\sum_{k=0}^n \sum_{i=1}^{2^k} \frac{1}{(2^k+i)^s} < 1+\sum_{k=0}^n \frac{1}{(2^k)^{s-1}} =  1+\sum_{k=0}^n \left( \frac{1}{2^{s-1}} \right)^k \]
+  注意到$s>1$，所以上式最右边是一个公比小于1的等比级数，显然它是收敛的，于是左边的部分和有上界，从而级数收敛。
+
+  这个级数的和作为$s$的函数，便是著名的 \emph{黎曼函数}$\zeta(s)$，即对于$s>1$，
+  \[ \zeta (s) = \sum_{n=1}^{\infty} \frac{1}{n^s} \]
+  这函数在数论中有非常重要的地位。
+\end{example}
+
+
+
+我们还有另一种形式的比较判别法
+\begin{theorem}
+  对于两个正项级数$\sum_{n=1}^{\infty}a_n$和$\sum_{n=1}^{\infty}b_n$，如果从某一项起恒有
+  \[ \frac{a_{n+1}}{a_n} \leqslant \frac{b_{n+1}}{b_n} \]
+  那么由$\sum_{n=1}^{\infty}b_n$收敛可推出$\sum_{n=1}^{\infty}a_n$也收敛，同样，由$\sum_{n=1}^{\infty}a_n$发散也可以推出$\sum_{n=1}^{\infty}b_n$发散。
+\end{theorem}
+
+\begin{proof}[证明]
+  设从$n>N$时就有条件中的不等式恒成立，则可得
+  \[ \frac{a_n}{a_N} \leqslant \frac{b_n}{b_N} \]
+  由\autoref{theorem:comparison-method-about-series-converage}即得结论。
+\end{proof}
+
+利用比较判别法，我们把给定级数与一些已知为收敛的级数相比较，可以开发出一系列更具体的判别法，下文的判别法，基本都是如此。
+
+\subsection{柯西判别法与达朗贝尔判别法}
+\label{sec:cauchy-dalembert-method-aboud-series-converage}
+
+因为几何级数$\sum_{n=1}^{\infty}q^n$在$0<q<1$时收敛，我们以它为比较标准，就可以得到柯西判别法和达朗贝尔判别法。
+
+\begin{theorem}[柯西判别法]
+  对于正项级数$\sum_{n=1}^{\infty}a_n$，作柯西序列
+  \[ \mathcal{C}_n = \sqrt[n]{a_n} \]
+  如果存在正实数$0<q<1$，使得当$n$充分大时恒有$\mathcal{C}_n \leqslant q$，那么级数$\sum_{n=1}^{\infty}a_n$收敛，如果当$n$充分大时恒有$\mathcal{C}_n \geqslant 1$，那么级数发散。
+\end{theorem}
+
+\begin{proof}[证明]
+  设当$n>N$时恒有$\mathcal{C}_n \leqslant q$，那么此时有$a_n \leqslant q^n$，而级数$\sum_{n=1}^{\infty}q^n$在$0<q<1$时是收敛的，由比较判别法可得$\sum_{n=1}^{\infty}a_n$也收敛。而如果当$n>N$时恒有$\mathcal{C}_n \geqslant 1$，那么此时恒有$a_n \geqslant 1$，通项不能趋于零，故级数发散。
+\end{proof}
+
+柯西判别法也有极限形式
+\begin{inference}
+  对于正项级数$\sum_{n=1}^{\infty}a_n$，如果柯西序列有极限$\lim_{n \to \infty} \mathcal{C}_n=q$，那么当$0<q<1$时级数收敛，当$q>1$时级数发散，当$q=1$时可能收敛也可能发散。
+\end{inference}
+
+\begin{theorem}[达朗贝尔判别法]
+  对于正项级数$\sum_{n=1}^{\infty}a_n$，作达朗贝尔序列
+  \[ \mathcal{D}_n = \frac{a_{n+1}}{a_n} \]
+  如果当$n$充分大时有$\mathcal{D}_n \leqslant q$，其中$0<q<1$为常数，那么级数收敛，如果当$n$充分大时恒有$\mathcal{D}_n \geqslant 1$，那么级数发散。
+\end{theorem}
+
+\begin{proof}[证明]
+  设当$n>N$时，$\mathcal{D}_n \leqslant q$，其中$0<q<1$，那么自然就有$a_n \leqslant a_N q^{n-N}$，由比较判别法即知原级数收敛。而如果当$n>N$时$\mathcal{D}_n \geqslant 1$，那么自然有$a_n \geqslant a_N$，通项不趋于零，级数发散。
+\end{proof}
+
+达朗贝尔判别法的极限形式
+\begin{inference}
+  对于正项级数$\sum_{n=1}^{\infty}a_n$，如果达朗贝尔序列有极限$\lim_{n \to \infty} \mathcal{D}_n = q$，在$0<q<q$时级数收敛，在$q>1$时级数发散，$q=1$时级数可能收敛也可能发散。
+\end{inference}
+
+由达朗贝尔的条件出发，可以得它也满足柯西判别法的条件，因为由$a_n \leqslant a_N q^{n-N}$可得$\sqrt[n]{a_n} \leqslant q \sqrt[n]{a_N/q^N}$，后一根式极限为1，所以当$n$充分大时它可以保证$q \sqrt[n]{a_N/q^N}<q'<1$，这里$q'$是比$q$稍大些但仍然小于1的常数，这样就得出了柯西判别法的条件，所以能用达朗判别法判断为收敛的级数，也能用柯西判别法来判别，但不一定能有达朗贝尔判别法来得方便。
+
+\subsection{拉阿伯判别法}
+\label{sec:raabe-method-about-positive-series}
+
+我们已知级数$\sum_{n=1}^{\infty}\frac{1}{n^s}$在$s>1$时收敛，在$s \leqslant 1$时发散，把给定的级数与这个级数相比较，就得出拉阿伯判别法。
+
+\begin{theorem}[拉阿伯判别法]
+  对于正项级数$\sum_{n=1}^{\infty}a_n$，记拉阿伯序列
+  \[ \mathcal{R}_n = n \left( \frac{a_n}{a_{n+1}}-1 \right) \]
+  如果存在常数$r>1$，使得当$n$充分大时恒有$\mathcal{R}_n \geqslant r$，则级数收敛，如果当$n$充分大时恒有$\mathcal{R}_n \leqslant 1$，则级数发散。
+\end{theorem}
+
+\begin{proof}[证明]
+  假定当$n>N$时恒有$\mathcal{R}_n \geqslant r$，则可得
+  \[ \frac{a_{n+1}}{a_n} \leqslant \frac{n}{n+r} \]
+  对于右边的分式，我们将说明存在$s>1$，使得当$n$充分大时恒有
+  \[ \frac{n}{n+r} \leqslant \left( \frac{n}{n+1} \right)^s \]
+  这$s$只要满足下式
+  \[ s \leqslant \frac{\ln{\left( 1+\frac{r}{n} \right)}}{\ln{\left( 1+\frac{1}{n} \right)}} \]
+  借由当$x \to 0$时的等价无穷小$\ln(1+x) \sim x$，我们可得出上式右边以$r$为极限，而$r>1$，所以取$1<s<r$，则上式右边充分大时便能恒大于$s$，于是
+  \[ \frac{a_{n+1}}{a_n} \leqslant \left( \frac{n}{n+1} \right)^s \]
+  便能在$n$充分大时恒成立，由级数$\sum_{n=1}^{\infty}\frac{1}{n^s}$在$s>1$时收敛知原级数收敛。
+
+  如果当$n$充分大时$\mathcal{R}_n \leqslant 1$，则此时
+  \[ \frac{a_{n+1}}{a_n} \geqslant \frac{n}{n+1} \]
+  由级数$\sum_{n=1}^{\infty}\frac{1}{n}$的发散知原级数发散。
+\end{proof}
+
+拉阿伯判别法的极限形式是
+\begin{inference}
+  对于正项级数$\sum_{n=1}^{\infty}a_n$，如果拉阿伯序列存在极限$\lim_{n \to \infty} \mathcal{R}_n=R$，则$R>1$时级数收敛，$R<1$时级数发散，$R=1$时级数可能收敛也可能发散。
+\end{inference}
+
+\subsection{库默尔判别法}
+\label{sec:kummer-method-about-series-converage}
+
+库默尔判别法是一个泛型化的判别法，利用它可以构造一系列具体的判别法，包括达朗贝尔判别法和拉阿伯判别法。
+
+\begin{theorem}[库默尔(Kummer)判别法]
+  对于正项级数$\sum_{n=1}^{\infty}a_n$，我们选取一个序列$c_n$，使得级数$\sum_{n=1}^{\infty}\frac{1}{c_n}$是发散的，作库默尔序列
+  \[ \mathcal{K}_n = c_n \cdot \frac{a_n}{a_{n+1}} - c_{n+1} \]
+  如果存在正常数$r$，使得当$n$充分大时恒有$\mathcal{K}_n \geqslant r$，那么级数$\sum_{n=1}^{\infty}a_n$收敛，如果当$n$充分大时恒有$\mathcal{K}_n \leqslant 0$，则级数$\sum_{n=1}^{\infty}$发散。
+\end{theorem}
+
+\begin{proof}[证明]
+  如果当$n \geqslant N$时有$\mathcal{K}_n \geqslant r > 0$，那么此时有$c_na_n-c_{n+1}a_{n+1} \geqslant r a_{n+1} > 0$，这表明数列$c_na_n$是一个单调递减的正项数列，因而它存在极限，进而有
+  \[ c_Na_N-c_{n+1}a_{n+1} = \sum_{i=N}^n (c_ia_i-c_{i+1}a_{i+1}) \geqslant r \sum_{i=N}^n a_{i+1} \]
+  由于$c_na_n$存在极限，因而正项(至少从$N$开始为正)级数$\sum_{n=1}^{\infty}(c_na_n-c_{n+1}a_{n+1})$收敛，于是由比较判别法，级数$\sum_{n=1}^{\infty}a_n$收敛，而且从这证明过程中可以看到，条件$\sum_{n=1}^{\infty}\frac{1}{c_n}$发散并没有用到，但这条件在证明定理的后一半结论时会用到。
+
+  如果当$n$充分大时恒有$\mathcal{K}_n \leqslant 0$，便有
+  \[ \frac{a_{n+1}}{a_n} \leqslant \frac{\frac{1}{c_n}}{\frac{1}{c_{n+1}}} \]
+  由级数$\sum_{n=1}^{\infty}\frac{1}{c_n}$的发散，知级数$\sum_{n=1}^{\infty}a_n$发散。
+\end{proof}
+
+在库默尔判别法中，取$c_n=1$，就得出达朗贝尔判别法，取$c_n=n$，就得出拉阿伯判别法。
+
+库默尔判别法的极限形式是
+\begin{theorem}
+  对于正项级数$\sum_{n=1}^{\infty}a_n$及选定的序列$c_n$，如果库默尔序列有极限$\lim_{n \to \infty} \mathcal{K}_n=K$，则如果$K>0$，则级数收敛，如果$K<0$，则级数发散，而对于$K=0$，则级数可能收敛也可能发散。
+\end{theorem}
+
+\subsection{积分判别法}
+\label{sec:the-integrate-method-of-determination-number-series}
+
+可以利用反常积分来判别一类级数的敛散性.
+\begin{theorem}[积分判别法]
+  若可积函数$f(x)$在$[0,+\infty)$上恒取非负值且单调递减，则反常积分$\int_0^{+\infty}f(x)dx$与级数$\sum_{n=1}^{\infty}f(n)$有相同的敛散性。
+\end{theorem}
+
+\begin{proof}[证明]
+  令$S_n=\sum_{i=1}^nf(i)$，$I_n=\int_0^nf(x)dx$，则$S_n$和$I_n$都是单调增加的数列，又
+  \[ I_n=\sum_{i=1}^n\int_{i-1}^if(x)dx \]
+  由单调性，有
+  \[ \sum_{i=1}^nf(i) \leqslant I_n \leqslant \sum_{i=1}^nf(i-1) \]
+  即
+  \[ S_n \leqslant I_n \leqslant f(0)+S_{n-1} \]
+  可见，如果级数$\sum_{n=1}^{\infty}f(n)$收敛，则$S_n$有极限$S$，则$I_n$单调增加并有上界$f(0)+S$，因而$I_n$有极限(不一定是$S$)，即反常积分$\int_{i=1}^{+\infty}f(x)dx$收敛。反之，如果反常积分收敛，则$I_n$有极限$I$，这时$S_n$单调增加并有上界$I$，因此$S_n$收敛，即级数$\sum_{i=1}^{\infty}f(n)$收敛。
+\end{proof}
+
+需要说明的是，上述定理中的区间可以是任意的左闭右开区间$[a,+\infty)$，这时级数只要从大于$a$的任一正整数开始即可，从定理证明过程可以看出这并没有什么影响。
+
+\begin{example}
+  对于正实数$p$,考虑如下的级数
+  \[ \sum_{n=1}^{\infty}\frac{1}{n^p} \]
+  对应的函数$f(x)=1/x^p$在$[1/2,+\infty)$上单调递减，由于$p>1$时反常积分$\int_1^{+\infty}f(x)dx$收敛，所以此时级数也收敛，在$p \leqslant 1$时反常积分是发散的，所以此时级数也是发散的。
+\end{example}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../book"
+%%% End:
