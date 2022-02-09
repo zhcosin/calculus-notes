@@ -188,6 +188,7 @@
 \end{theorem}
 
 \begin{inference}
+  \label{no-bound-function-not-integrable}
   闭区间上的无界函数不可积.
 \end{inference}
 因为对于闭区间上的无界函数，无论把小区间划分得有多细，总存在一个振幅无穷大的小区间，按前述定理，这个定积分不存在。
@@ -283,6 +284,10 @@
   \[ \int_b^a f(x) dx = - \int_a^b f(x) dx \]
 \end{property}
 
+\begin{proof}[证明]
+  这只要在划分区间时进行反向划分就可以得出，对于区间 $[a,b]$ 的任一分划 $a=x_0<x_1<\cdots<x_n=b$，它也能成为反向区间 $[b,a]$ 的一个分划，但在计算积分和时，它们的 $\Delta x_i$ 分别为 $x_i-x_{i-1}$和 $x_{i-1}-x_i$，符号正好相反，因此对应于该分划的积分和也互为相反数，因此便有此结论.
+\end{proof}
+
 \begin{property}
   设函数 $f(x)$ 在 $[a,b]$ 上可积，$r$、$s$、$t$ 是该区间上任意三个实数(大小关系任意)，恒有
   \[ \int_r^s f(x) dx = \int_r^t f(x) dx + \int_t^s f(x) dx \]
@@ -319,12 +324,68 @@
 \subsection{积分中值定理}
 \label{sec:integral-midvalue-theoream}
 
+假定函数 $f(x)$ 在闭区间 $[a,b]$ 上可积，依 \autoref{no-bound-function-not-integrable}，它必定是有界的，记它在该区间上的上下确界分别为 $M$ 和 $m$，则对于它的任意一个分划上的积分和，都有
+\[ \sum_{i=1}^nf(\xi_i)\Delta x_i \geqslant \sum_{i=1}^n m\Delta x_i = m(b-a) \]
+及
+\[ \sum_{i=1}^nf(\xi_i)\Delta x_i \leqslant \sum_{i=1}^n M\Delta x_i = M(b-a) \]
+最终
+\[ m(b-a) \leqslant \sum_{i=1}^nf(\xi_i)\Delta x_i \leqslant  M(b-a) \]
+作为极限的积分，自然也有
+\[ m(b-a) \leqslant \int_a^{b} f(x) dx \leqslant M(b-a) \]
+
+因此便得到
+\begin{theorem}
+  \label{theorem:integra-midvalue}
+  设函数 $f(x)$ 在闭区间 $[a,b]$ 上可积，同时它在该区间上的上下确界分别为 $M$ 和 $m$，则存在实数 $\mu$ 符合 $m \leqslant \mu \leqslant M$，满足
+\[ \int_a^{b} f(x) dx = \mu(b-a) \]
+\end{theorem}
+
+如果函数 $f(x)$ 在闭区间 $[a,b]$ 上连续，则依介值定理，还有
+\begin{theorem}
+  \label{theorem:integral-midvalue-theoream-of-continuous-function}
+  若函数 $f(x)$ 在闭区间 $[a,b]$ 上连续，且上下确界分别为 $M$ 和 $m$，则存在 $\xi \in [a,b]$，使得
+\[ \int_a^{b} f(x) dx = f(\xi)(b-a) \]
+\end{theorem}
+
+
 
 
 \subsection{变动上限的积分函数}
 \label{sec:variable-upper-limit-integral-function}
 
-证明出：变动上限的连续函数的积分，其对于变动上限的导函数就是被积函数自己
+假定函数 $f(x)$ 在闭区间 $[a,b]$ 上连续，那么它也是可积的，则依定积分的性质，它在 $[a,b]$ 的任意子区间 $[a,x]$ 上也是可积的,这里 $a \leqslant x \leqslant b$，据此我们可以作出一个函数
+\[ \Phi(x) = \int_a^x f(t) dt \]
+函数 $\Phi(x)$ 以变动的积分上限作为自变量，并定义在区间 $[a,b]$ 上，为与自变量 $x$ 区分，积分变量用 $t$ 表示. 它的几何意义就是变动右边界的曲边梯形面积.
+
+我们研究下它的可导性及导函数
+
+\begin{equation*}
+  \begin{split}
+    \frac{\Phi(x+\Delta x)-\Phi(x)}{\Delta x} & = \frac{1}{\Delta x}\int_x^{x+\Delta x} f(t) dt \\
+    & = f(\xi)
+  \end{split}
+\end{equation*}
+
+其中 $\xi$ 介于 $x$ 与 $x+\Delta x$ 之间，当 $\Delta x \rightarrow 0$ 时，有 $\xi \rightarrow x$，因此有
+\begin{equation*}
+  \begin{split}
+    \Phi'(x) & = \lim_{\Delta x \rightarrow 0}   \frac{\Phi(x+\Delta x)-\Phi(x)}{\Delta x} \\
+    & = \lim_{\Delta x \rightarrow 0} f(\xi) \\
+    & = f(x)
+  \end{split}
+\end{equation*}
+即函数 $\Phi(x)$ 可导，且导函数满足
+\[ \Phi'(x) = f(x) \]
+这表明：变动右边界的曲边梯形的面积，以函数值自身为其变化率，反过来说，对于闭区间上的连续函数，变动上限的定积分也正好是它的一个原函数.
+
+我们知道，函数的原函数如果存在，则会是一个函数族，它们都相差一个常数，假定 $F(x)$ 是 $f(x)$ 的任一原函数，则必有
+\[ F(x) = \Phi(x) +C \]
+这里 $C$ 是一个常数，注意到 $\Phi(a)=0$，代入上式即得 $C=F(a)$，即
+\[ \Phi(x) = F(x) - F(a) \]
+那么作为定积分的曲边梯形面积就有
+\[ \int_a^{b}f(t)dt = \Phi(b) = F(b) - F(a) \]
+这就是说，闭区间上的连续的定积分值，等于它的任一原函数在这个区间两端点处的函数值之差! 这个结论是如此的完美! 它既为我们指出了定积分与原函数之间的关系，也给出了一种计算定积分值的途径.
+
 
 \subsection{不定积分概念与性质,基本积分表}
 \label{sec:indefinite-integral}
