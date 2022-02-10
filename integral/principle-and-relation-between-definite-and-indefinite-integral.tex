@@ -233,7 +233,7 @@
 
 这个定理的理论意义是如此之重要，因为前面已经说明首先闭区间上的无界函数是不可积的，而对于有界函数来说，它在闭区间上的上积分与下积分是一定存在的，所以定积分是否存在的问题，便归结于这个上积分与下积分是否相等的问题了。
 
-\subsection{可积函数与不可积函数}
+\subsection{可积函数类}
 \label{sec:integrable-and-not-function}
 
 虽然我们已经得出了函数在闭区间上可积的充分必要条件，但那个条件更多的是理论上的意义，对于一个给定的函数，要快速的判断可积性是比较困难的，所以这一节我们总结一些常用的可积函数和不可积函数。
@@ -413,6 +413,42 @@
   设函数$f(x)$在闭区间$[a,b]$上连续，$F(x)$是它的任一原函数，则关于$f(x)$在该区间上的定积分有
   \[ \int_a^{b} f(x)dx=F(b)-F(a) \]
 \end{theorem}
+在此给出另外一种证明:
+\begin{proof}
+  对于闭区间$[a,b]$的任一分划$a=x_0<x_1<\cdots<x_n=b$,利用原函数$F(x)$的可导性以及拉格朗日中值定理有
+  \begin{equation*}
+    \begin{split}
+      F(b)-F(a) & = \sum_{i=1}^n (F(x_i)-F(x_{i-1})) \\
+      & = \sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})
+    \end{split}
+  \end{equation*}
+  其中$\xi_{i} \in (x_{i-1}, x_i)$为拉格朗日中值定理中存在的中值，非任意取定.
+
+  上式对于任一分划都存在相对应的一组$\xi_i(i=1,2,\ldots,n)$，而由于$f(x)$可积，因而对于任意小的正实数$\varepsilon>0$，均存在另一个很小的正实数$\delta>0$，使得对于满足所有小区间长度都小于$\delta$的任意一个划分，在各个小区间上任意选定一组$\eta_i(i=1,2,\ldots,n)$，都有
+  \[ \left|\sum_{i=1}^nf(\eta_i)\Delta x_i-\int_a^{b}f(x)dx \right| <\varepsilon \]
+既然任意选定$\eta_i(i=1,2,\ldots,n)$都成立这不等式，那么对于同一个划分及其上确定的中值组$\xi_i(i=1,2,\ldots,n)$，自然也有
+  \[ \left|\sum_{i=1}^nf(\xi_i)\Delta x_i-\int_a^{b}f(x)dx \right| <\varepsilon \]
+  也就是说
+  \[ \left| [F(b)-F(a)]-\int_a^{b}f(x)dx \right| <\varepsilon \]
+  因而有
+  \[ F(b)-F(a) = \int_a^{b} f(x)dx \]
+\end{proof}
+
+\subsection{积分第二中值定理}
+\label{sec:second-midvalue-theorem-for-integral}
+
+积分第二中值定理是关于两个函数乘积的积分的:
+\begin{theorem}[积分第二中值定理]
+  设函数$f(x)$和$g(x)$均在$[a,b]$上有定义，且$f(x)$单调递减并且函数值非负，同时$g(x)$在该区间上可积，则存在 $\xi \in [a,b]$，使得
+  \[ \int_a^{b} f(x)g(x)dx=f(a)\int_a^{\xi}g(x)dx \]
+  类似的，如果$f(x)$是单调递增而其它条件不变(仍要求函数值非负)，则存在$\xi \in [a,b]$，使得
+  \[ \int_a^{b} f(x)g(x)dx=f(b)\int_{\xi}^{b}g(x)dx \]
+\end{theorem}
+
+\begin{inference}
+  设函数$f(x)$和$g(x)$均在$[a,b]$上有定义，且$f(x)$单调(不要求函数值非负)，且$g(x)$在该区间上可积，则存在 $\xi \in [a,b]$，使得
+  \[ \int_a^{b}f(x)g(x)dx = f(a)\int_a^{\xi}g(x)dx+f(b)\int_{\xi}^{b}g(x)dx \]
+\end{inference}
 
 
 \subsection{不定积分概念与性质,基本积分表}
