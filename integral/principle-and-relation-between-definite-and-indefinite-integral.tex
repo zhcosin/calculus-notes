@@ -357,8 +357,11 @@
 \[ \Phi(x) = \int_a^x f(t) dt \]
 函数 $\Phi(x)$ 以变动的积分上限作为自变量，并定义在区间 $[a,b]$ 上，为与自变量 $x$ 区分，积分变量用 $t$ 表示. 它的几何意义就是变动右边界的曲边梯形面积.
 
-我们研究下它的可导性及导函数
+我们研究下它的连续性和可导性，由
+\[ \Phi(x+\Delta x) - \Phi(x) = \int_a^{x+\Delta x} f(t)dt - \int_a^x f(t)dt = \int_x^{x+\Delta x} f(t)dt = f(\xi)\Delta x \]
+其中最后一步是运用积分中值定理得出，且 $\xi$ 介于 $x$ 与 $x+\Delta x$ 之间，由于函数 $f(x)$ 有界，因此上式最右边在 $\Delta x \rightarrow 0$时显然是一个无穷小，因此 $\Phi(x)$ 在闭区间 $[a,b]$上是连续的.
 
+再看可导性
 \begin{equation*}
   \begin{split}
     \frac{\Phi(x+\Delta x)-\Phi(x)}{\Delta x} & = \frac{1}{\Delta x}\int_x^{x+\Delta x} f(t) dt \\
@@ -366,7 +369,7 @@
   \end{split}
 \end{equation*}
 
-其中 $\xi$ 介于 $x$ 与 $x+\Delta x$ 之间，当 $\Delta x \rightarrow 0$ 时，有 $\xi \rightarrow x$，因此有
+其中 $\xi$ 介于 $x$ 与 $x+\Delta x$ 之间，当 $\Delta x \rightarrow 0$ 时，有 $\xi \rightarrow x$，再由连续性有 $f(\xi) \rightarrow f(x)$,因此有
 \begin{equation*}
   \begin{split}
     \Phi'(x) & = \lim_{\Delta x \rightarrow 0}   \frac{\Phi(x+\Delta x)-\Phi(x)}{\Delta x} \\
@@ -377,6 +380,13 @@
 即函数 $\Phi(x)$ 可导，且导函数满足
 \[ \Phi'(x) = f(x) \]
 这表明：变动右边界的曲边梯形的面积，以函数值自身为其变化率，反过来说，对于闭区间上的连续函数，变动上限的定积分也正好是它的一个原函数.
+
+于是得到一个重要结论:
+\begin{inference}
+  闭区间上的连续函数必定存在原函数，变动上限的定积分便是其一.
+\end{inference}
+
+由于初等函数在其有定义的各个区间上都是连续函数，因此它们在各个区间上就都存在原函数，不过，初等函数的原函数不一定还是初等函数，后面将会见到，还有可能是非常高深的函数.
 
 
 \subsection{牛顿-莱布尼茨公式}
