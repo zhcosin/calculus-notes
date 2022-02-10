@@ -212,18 +212,25 @@
 
   我们来证明，我们在 \autoref{example:continuous-of-riemann-function}中证明过，黎曼函数在$[0,1]$上的无理点处均连续，$(0,1)$上的有理点都是它的间断点。现在我们证明，它在$[0,1]$上是可积的，这就是一个拥有大量稠密间断点的非连续函数但却可积的例子.
 
-  对于任意小的正实数 $\varepsilon>0$，我们需要找到另一个充分小的正实数$\delta>0$，使得对于满足小区间长度全部都小于$\delta$的任意一个分划，都有 $\sum_{i=1}^n\omega_i\Delta x_i<\varepsilon$.
+  对于任意小的正实数 $\varepsilon>0$，我们需要找到另一个充分小的正实数$\delta>0$，使得对于满足小区间长度全部都小于$\delta$的任意一个分划，都有
+  \[ \sum_{i=1}^n\omega_i\Delta x_i<\varepsilon \]
 
   针对 $\varepsilon$，我们取定一个充分大的正整数$N$(具体需要大到何种程度待定)，注意到，满足函数值 $R(x) \geqslant \frac{1}{N}$ 的自变量是有限的: $\frac{1}{2}$、$\frac{1}{3}$、$\frac{2}{3}$、$\frac{1}{4}$、$\frac{3}{4}$、$\ldots$, $\frac{1}{N}$、$\ldots$、$\frac{N-1}{N}$，一共不超过
   \[ 1+2+\cdots+(N-1) = \frac{1}{2}(N-1)(N-2)<N^2 \]
-  个，记这些自变量的集合为 $X$，即 $X=\{x|R(x) \geqslant \frac{1}{N}\}$.
+  个，记这些自变量的集合为 $X$，即
+  \[ X=\{x|R(x) \geqslant \frac{1}{N}\} \]
+  上式即是说，$X$中的元素个数不会超过 $N^{2}$.
   对于一个充分小的实数$\delta$，作闭区间$[0,1]$的任意一个满足所有小区间长度都小于$\delta$的划分，这些小区间可以分为两类，一类包含 $X$ 中的点，一类不包含 $X$ 中的点，由于 $X$ 是有限集，甚至可以将 $\delta$ 取得足够小使得每个小区间上至多只包含一个 $X$ 中的点，不过这并不是必要的. 对于包含 $X$ 中的点的那些小区间，有 $\omega_i<1$，并且小区间的个数不超过$X$中元素个数，自然也就不会超过 $N^2$, 从而
   \[ \sum_1 \omega_i \Delta x_i < \sum_1 \Delta x_i < N^2\delta \]
   而对于那些不包含 $X$ 中元素的小区间，有 $\omega_i<\frac{1}{N}$，并且区间总长度不超过1，从而
   \[ \sum_2 \omega_i \Delta x_i < \frac{1}{N}\sum_2 \Delta x_i < \frac{1}{N} \]
   因而有
   \[ \sum_{i=1}^n \omega_i \Delta x_i = \sum_1 \omega_i \Delta x_i + \sum_2 \omega_i \Delta x_i < N^2\delta + \frac{1}{N} \]
-  现在只要取 $N>\frac{2}{\varepsilon}$ 及 $\delta < \frac{\varepsilon}{2N^2}$，就有
+  现在只要取
+  \[ N>\frac{2}{\varepsilon} \]
+  及
+  \[ \delta < \frac{\varepsilon}{2N^2} \]
+  就有
   \[ \sum_{i=1}^n \omega_i \Delta x_i < N^2\delta + \frac{1}{N} < \frac{1}{2}\varepsilon + \frac{1}{2}\varepsilon = \varepsilon \]
 因而可积.
 \end{example}
