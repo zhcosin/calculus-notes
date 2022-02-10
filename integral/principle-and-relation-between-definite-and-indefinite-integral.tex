@@ -353,15 +353,20 @@
 \subsection{变动上限的积分函数}
 \label{sec:variable-upper-limit-integral-function}
 
-假定函数 $f(x)$ 在闭区间 $[a,b]$ 上连续，那么它也是可积的，则依定积分的性质，它在 $[a,b]$ 的任意子区间 $[a,x]$ 上也是可积的,这里 $a \leqslant x \leqslant b$，据此我们可以作出一个函数
+假定函数 $f(x)$ 在闭区间 $[a,b]$ 上可积，则依定积分的性质，它在 $[a,b]$ 的任意子区间 $[a,x]$ 上也是可积的,这里 $a \leqslant x \leqslant b$，据此我们可以作出一个函数
 \[ \Phi(x) = \int_a^x f(t) dt \]
 函数 $\Phi(x)$ 以变动的积分上限作为自变量，并定义在区间 $[a,b]$ 上，为与自变量 $x$ 区分，积分变量用 $t$ 表示. 它的几何意义就是变动右边界的曲边梯形面积.
 
 我们研究下它的连续性和可导性，由
-\[ \Phi(x+\Delta x) - \Phi(x) = \int_a^{x+\Delta x} f(t)dt - \int_a^x f(t)dt = \int_x^{x+\Delta x} f(t)dt = f(\xi)\Delta x \]
-其中最后一步是运用积分中值定理得出，且 $\xi$ 介于 $x$ 与 $x+\Delta x$ 之间，由于函数 $f(x)$ 有界，因此上式最右边在 $\Delta x \rightarrow 0$时显然是一个无穷小，因此 $\Phi(x)$ 在闭区间 $[a,b]$上是连续的.
+\[ \Phi(x+\Delta x) - \Phi(x) = \int_a^{x+\Delta x} f(t)dt - \int_a^x f(t)dt = \int_x^{x+\Delta x} f(t)dt = \mu \Delta x \]
+其中最后一步是运用积分中值定理得出，且 $\mu$ 介于函数$f(x)$在该闭区间上的上下确界之间，上式最右边在 $\Delta x \rightarrow 0$时显然是一个无穷小，因此 $\Phi(x)$ 在闭区间 $[a,b]$上是连续的.由此得到
+\begin{theorem}
+  如果函数$f(x)$在闭区间$[a,b]$上可积，则变动上限的积分函数
+  \[ \Phi(x) = \int_a^x f(t)dt \]
+  在闭区间$[a,b]$上处处连续.
+\end{theorem}
 
-再看可导性
+再讨论可导性，如果再假定函数$f(x)$在闭区间$[a,b]$上还是连续的，就有
 \begin{equation*}
   \begin{split}
     \frac{\Phi(x+\Delta x)-\Phi(x)}{\Delta x} & = \frac{1}{\Delta x}\int_x^{x+\Delta x} f(t) dt \\
@@ -379,6 +384,11 @@
 \end{equation*}
 即函数 $\Phi(x)$ 可导，且导函数满足
 \[ \Phi'(x) = f(x) \]
+于是有
+\begin{theorem}
+  如果函数$f(x)$在闭区间$[a,b]$上连续，则变动上限的积分函数$\Phi(x)=\int_a^xf(t)dt$在区间$[a,b]$上处处可导，且导函数就是 $f(x)$，即
+  \[ \Phi'(x) = f(x) \]
+\end{theorem}
 这表明：变动右边界的曲边梯形的面积，以函数值自身为其变化率，反过来说，对于闭区间上的连续函数，变动上限的定积分也正好是它的一个原函数.
 
 于是得到一个重要结论:
