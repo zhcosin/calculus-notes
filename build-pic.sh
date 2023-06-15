@@ -29,7 +29,8 @@ function scandir() {
 	    if [[ ${filename:(-${#2})} = $2 ]]
 	    then
 		echo "process file:  "${cur_dir}/$filename
-                asy -f pdf $filename
+                #asy -f pdf $filename # for linux
+                asy -noV -f pdf $filename # for windows
 	    fi
 	fi
     done
