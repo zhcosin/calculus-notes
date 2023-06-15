@@ -1,6 +1,5 @@
 .*
 *.pdf
-!calculus-note.pdf
 *.eps
 *.swp
 *.log
