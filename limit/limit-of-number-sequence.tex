@@ -913,7 +913,16 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 \subsection{圆周率$\pi$}
 \label{sec:pi}
 
-
+考虑圆的面积，以$r$表其半径，我们用内接和外切正多边形的面积来近似圆的面积，其内接正$n$边形的面积是
+\[ S_n=\frac{1}{2}r^2\cdot n \sin{\frac{2\pi}{n}} \]
+外切正$n$边形的面积是
+\[ T_n = r^2 \cdot n \tan{\frac{\pi}{n}} \]
+记圆的面积为$P$，显然有
+\[ S_n<P<T_n \]
+另一方面容易知道
+\[ S_{2n}>S_{n}, T_{2n}<T_n \]
+于是数列 $S_{2^n}$ 严格递增有上界而 $T_{2^n}}$ 严格递减有下界，故两者都有极限，分别记为 $S$ 和 $T$，即
+\[ S=\lim_{n\to\infty}S_{2^n}, T=\lim_{n\to\infty}T_{2^n} \]
 
 \subsection{闭区间套定理}
 \label{sec:theorem-of-closed-interval-sequence}
