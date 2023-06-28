@@ -586,6 +586,34 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
   故它又是递增的，因此有极限，且极限不超过1，以后将看到(\autoref{example:limit-of-sum-of-i/n+1-i-in-(1-n)})，它的极限是$\ln{2}$.
 \end{example}
 
+\begin{example}
+  这里我们建立如下两个极限
+  \[ \lim_{n\to\infty}\cos{\frac{\pi}{2^n}}=1 \]
+  及
+  \[ \lim_{n\to\infty}\sin{\frac{\pi}{2^n}}=0 \]
+
+  依单调性, 序列 $\cos{\frac{\pi}{2^n}}$ 是单调增加的，且有上界，因此必有极限，只是要求出此极限，还需要别的方法。
+
+  
+  由余弦半角公式
+  \[ \cos{\frac{\theta}{2}} = \sqrt{ \frac{1+\cos{\theta}}{2} } \]
+  可得
+  \begin{equation*}
+    \begin{split}
+        & 1-\cos{\frac{\pi}{2^{n+1}}} \\
+        =& 1-\sqrt{\frac{1+\cos{\frac{\pi}{2^{n}}}}{2}} \\
+      = & \frac{1-\cos{\frac{\pi}{2^{n}}}}{2 \left( 1+\sqrt{\frac{1+\cos{\frac{\pi}{2^{n}}}}{2}} \right)} \\
+      < & \frac{1}{2} \left( 1-\cos{\frac{\pi}{2^{n}}} \right)
+    \end{split}
+  \end{equation*}
+  于是
+  \[ 0 < 1-\cos{\frac{\pi}{2^{n+1}}} < \frac{1}{2^{n-1}} \left( 1- \cos{\frac{\pi}{2}} \right) = \frac{1}{2^{n-1}} \]
+  这便表明
+  \[ \lim_{n\to\infty}\cos{\frac{\pi}{2^n}}=1 \]
+  同时有
+  \[ \lim_{n\to\infty}\cos{\frac{\pi}{2^n}} = \lim_{n\to_{infty}}\sqrt{1-\cos^2 \frac{\pi}{2^n} } = 0 \]
+\end{example}
+
 \subsection{无穷级数}
 \label{sec:infinite-series}
 
