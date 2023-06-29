@@ -1,5 +1,5 @@
 
-\section{实数理论}
+\section{实数与复数}
 \label{sec:real-number-theory}
 
 分析学的基础建立在实数的公理化体系之上，在讨论极限理论之前，先来讨论一下实数的理论。
@@ -209,14 +209,16 @@
   如果$x>0$，则右边中括号内的部分显然大于$n$，于是要证的不等式成立，而如果$-1<x<0$，则中括号内的部分小于$n$，再与负数$x$相乘，不等式反向即证出伯努利不等式。
 \end{proof}
 
-\subsection{复数}
-\label{sec:complex-number}
+\subsection{复数的概念}
+\label{sec:import-complex-number}
+
+
 
 数系的扩充与解方程密切相关，为了解一元一次方程引入了有理数，数系被扩充为有理数集，为了解二次方程又发现了无理数，由此我们的数系被扩充到了实数集。但在实数范围内，方程$x^2+1=0$仍然无解，于是引入了虚数，虚数与实数一起构成了更加广阔的复数集。
 
-复数集的引入，理由虽然比较牵强，但后来的事实表明，很多数学理论在复数范围内都能得到完美的解决，例如代数学基本定理就表明，任何一个关于某未知数的$n$次方程，在复数范围内都有且仅有$n$个根(重根按重数计数)，又例如，有些数列，它的每一项都是整数，然而它的通项，却只能借助复数来表达，又比如，在复数范围内，指数函数将与三角函数产生密切关系，欧拉公式$e^{ix}=\cos{x}+i\sin{x}$便揭示了这一点，这在实数范围内是很难看清二者的关系的。诸如此类，许多理论都表明复数具有重大的理论意义，这一点随着我们对高等数学的更多了解，将能有更多体会。
+复数集的引入，理由看似比较牵强，但后来的事实表明，很多数学理论在复数范围内都能得到完美的解决，例如代数学基本定理就表明，任何一个关于某未知数的$n$次方程，在复数范围内都有且仅有$n$个根(重根按重数计数)，又例如，有些数列，它的每一项都是整数，然而它的通项，却只能借助复数来表达，又比如，在复数范围内，指数函数将与三角函数产生密切关系，欧拉公式$e^{ix}=\cos{x}+i\sin{x}$便揭示了这一点，而三角函数与双曲函数拥有许多类似的性质，但在实数范围内不容易看出它们有什么内在联系，而在复变函数领域内将会看到这并不是巧合。诸如此类，许多理论都表明复数具有重大的理论意义，这一点随着我们对高等数学的更多了解，将能有更多体会。
 
-为了解方程$x^2+1=0$，引入一个虚数$i$，规定$i^2=-1$，因为实数范围内是不可能有某个数的平方是负的，所以这引入的$i$便称为一个虚数，并且称它是虚数单位。规定虚数可以与实数相加与相乘，并且符合实数运算所满足的交换律、结合律、分配律。
+为了解方程$x^2+1=0$，引入一个数$i$，规定$i^2=-1$，因为实数范围内是不可能有某个数的平方是负的，所以这引入的$i$便称为一个\emph{虚数}，并且称它是\emph{虚数单位}。规定虚数可以与实数相加与相乘，并且符合实数运算所满足的交换律、结合律、分配律。
 
 那么将实数与虚数进行混合加法与乘法运算，会有什么结果呢，将$i$与实数$b$相乘得出$bi$，再将$bi$与实数$a$相加得到$a+bi$，这个形式无法继续化简了，它就是复数的一般形式，也就是任意一个复数都具有这种形式，我们就来证明它。
 
@@ -230,12 +232,27 @@
   根据虚数单位$i$的定义，可知其乘幂$i^n$依次循环取值$i,-1,-i,1$，由此便知定理成立。
 \end{proof}
 
-由此，复数都具有形式$z=a+bi(a,b\in R)$，$a$称为它的\emph{实部}，记作$Re(z)$，$b$称为它的虚部，记作$Im(z)$，显然复数$a+bi$与数对$(a,b)$一一对应，于是便与坐标平面上的点一一对应，于是坐标平面上的每一个点都对应着一个复数，于是这平面便被称为\emph{复平面}.
+由此，复数都具有形式$z=a+bi(a,b\in R)$，$a$称为它的\emph{实部}，记作$Re(z)$，$b$称为它的虚部，记作$Im(z)$，显然复数$a+bi$与数对$(a,b)$一一对应，于是便与坐标平面上的点一一对应，于是坐标平面上的每一个点都对应着一个复数，于是这平面便被称为\emph{复平面}，而虚数单位 $i$ 对应着复平面上的点 $(0,1)$.
 
 规定，两个复数相等当且仅当它们的实部和虚部分别相等.此外，复数集上没有大小关系。
 
-称复数$a-bi$是复数$z=a+bi$的\emph{共轭复数}，记作$\overline{z}$，即共轭的两个复数实部相等而虚部互为相反数，显然
-\[ z+\overline{z}=2Re(z), \  z-\overline{z}=2iIm(z), \  z\overline{z}=|z|^2 \]
+称 $\sqrt{a^2+b^2}$ 为复数 $z=a+bi$ 的 \emph{模}，记作 $|z|$，即 $|z|=\sqrt{a^2+b^2}$.
+
+称复数$a-bi$为复数$z=a+bi$ 的 \emph{共轭复数}，记作$\overline{z}$，显然，$z$的共轭复数的共轭复数是 $z$，因此$a+bi$与$a-bi$互为共轭,也就是 $\overline{\overline{z}}=z$.
+
+
+\subsection{复数的运算}
+\label{sec:operation-of-complex-number}
+
+设 $z_1=a_1+b_1i$, $z_2=a_2+b_2i$，有加法运算
+\[ z_1+z_2 = (a_1+b_1i)+(a_2+b_2i) = (a_1+a_2)+(b_1+b_2)i \]
+即实部之和为和数的实部，虚部之和为和数的虚部.
+
+同样有减法运算
+\[ z_1-z_2 = (a_1+b_1i)-(a_2+b_2i) = (a_1-a_2)+(b_1-b_2)i \]
+
+对于复数$z=a+bi$与其共轭复数$\overline{z}=a-bi$，易得
+\[ z+\overline{z}=2a=2Re(z), \  z-\overline{z}=2b=2iIm(z) \]
 
 再定义减法为加法的逆运算，那么按照实数的运算定律，有
 \[ (a_1+b_1i) \pm (a_2+b_2i) = (a_1 \pm a_2) + (b_1 \pm b_2)i \]
@@ -244,11 +261,18 @@
 不难验证，关于共轭复数有
 \[ \overline{z_1+z_2}=\overline{z_1}+\overline{z_2} \]
 
+复数的模满足三角不等式
+\[ |z_1+z_2| \leqslant |z_1|+|z_2| \]
+
 关于乘法，有
 \begin{eqnarray*}
   (a_1+b_1i)(a_2+b_2i) & = & a_1a_2+(a_1b_2+a_2b_1)i + b_1b_2 i^2 \\
   & = & (a_1a_2-b_1b_2) + (a_1b_2+a_2b_1)i
 \end{eqnarray*}
+
+将复数$z=a+bi$与其共轭复数$\overline{z}=a-bi$相乘，有
+\[ z\overline{z}=(a+bi)(a-bi)=a^2-(bi)^2=a^2+b^2 = |z|^2 \]
+即复数的模的平方，等于它与其共轭之乘积(这必然会是个实数).
 
 同样规定除法为乘法的逆运算，有
 \begin{eqnarray*}
@@ -258,6 +282,11 @@
 
 同样可以验证
 \[ \overline{z_1z_2} = \overline{z_1} \cdot \overline{z_2}, \  \overline{\left( \frac{z_1}{z_2} \right)} = \frac{\overline{z_1}}{\overline{z_2}} \]
+
+借用除法，可以得到复数$z$的共轭为
+\[ \overline{z}=\frac{|z|}{z} \]
+
+复数乘法与除法的公式不便于记忆，因此实际计算时，直接计算反而更加容易. 稍后我们将看到，将复数表达为三角形式后，乘法与除法将是相当的直观和简洁，有着明显的几何意义.
 
 \begin{example}[从数对引入复数]
   我们从另一角度引入复数，实数对应着数轴上的点，属于一维数，我们认为经过推广后的复数为二维数，它与坐标平面上的点$(a,b)$一一对应，即复数$z$就是一个数对$(a,b)$，当$b=0$时，它就是实数，即复数$(a,0)$就是实数$a$，现在定义加法如下: 若$z_1=(a_1,b_1)$，$z_2=(a_2,b_2)$，则
@@ -271,11 +300,16 @@
   即任意实数都经由两个复数单位$(1,0)$与$(0,1)$的实系数线性组合来表出，于是记纵轴上的单位复数$(0,1)$为$i$，则上式可以简写为$(a,b)=a+bi$，这样，我们从数对出发，通过引入加法和乘法的定义也引出了复数的概念。
 \end{example}
 
+\subsection{复数的三角形式}
+\label{sec:triangle-form-of-complex-number}
+
+
+
 利用变换$x=r\cos{\theta}$，$y=r\sin{\theta}$，复数$z=a+bi$可以改写为
 \[ z=r(\cos{\theta}+i\sin{\theta}) \]
-这称为复数的三角形式，其中$r=\sqrt{x^2+y^2}$称为复数的\emph{模}，记作$|z|$，角$\theta$称为这复数的\emph{辐角}，记作$Arg(z)$，由于三角函数的周期性，将满足$0\leqslant \theta < 2\pi$的那个辐角称为\emph{辐角主值}，记作$arg(z)$.
+这称为复数的三角形式，其中$r=\sqrt{x^2+y^2}$为复数的模，即 $r=|z|$，角$\theta$称为这复数的\emph{辐角}，记作$Arg(z)$，由于三角函数的周期性，将满足$0\leqslant \theta < 2\pi$的那个辐角称为$z$的\emph{辐角主值}，记作$arg(z)$.
 
-显然，如果两个复数相等，它们的模相等，并且它们辐角集合相等。
+显然，如果两个复数相等，当且仅当它们的模相等，并且它们辐角集合相等。
 
 我们看一下在这种形式下复数的乘除法运算:
 \begin{eqnarray*}
@@ -303,6 +337,10 @@
   左边就是$|z_1-z_2|^2$，右边前两项分别是$|z_1|^2$和$|z_2|^2$，最后的两项就是$z_1$与$z_2$对应两个向量的内积的2倍，于是便得出余弦定理
   \[ |z_1-z_2|^2 = |z_1|^2+|z_2|^2-2|z_1||z_2|\cos{(\theta_1-\theta_2)} \]
 \end{example}
+
+\subsection{复数的乘方与棣莫弗公式}
+\label{sec:demoivre-formual}
+
 
 更特别的是复数的乘幂，容易知道
 \begin{equation}
@@ -360,6 +398,11 @@
   \end{eqnarray*}
 \end{example}
 
+\subsection{复数的开方与单位根}
+\label{sec:n-th-root-of-one}
+
+
+
 有了棣莫弗公式，我们来讨论一下复数的开方。
 
 记$z=r(\cos{\theta}+i\sin{\theta})$，现在来求它的$n$次方根，设$z'=r'(cos{\theta'+i\sin{\theta'}})$是它的一个$n$次方根，按棣莫弗公式，应有
@@ -368,15 +411,70 @@
 \[ r'=\sqrt[n]{r}, \  \theta'=\frac{\theta+2m\pi}{n}(m=0,1,\ldots,n-1) \]
 或者写成
 \[ \sqrt[n]{z}=\sqrt[n]{r} \left( \cos{\frac{\theta+2m\pi}{n}}+i\sin{\frac{\theta+2m\pi}{n}} \right), \  (m=0,1,\ldots,n-1) \]
-根据周期性，可知$z$的$n$次方根正好有$n$个，它们均匀分布在复平面上以原点为圆心，以$|z|$为半径的圆上，于是在复数范围内，任何数都可以开$n$次方.
+根据周期性，可知$z$的$n$次方根正好有$n$个，它们均匀分布在复平面上以原点为圆心，以$\sqrt[n]{|z|}$为半径的圆上，于是在复数范围内，任何数都可以开$n$次方.
 
 
 特别的是当$z=1$时，对1进行开$n$次方，因为$1=\cos{0}+i\sin{0}$，于是得它的根
 \[ \varepsilon_i = \cos{\frac{2i\pi}{n}}+i\sin{\frac{2i\pi}{n}}, \  i=0,1,\ldots,n-1 \]
-这些根$\varepsilon_i(i=0,1,\ldots,n-1)$称为\emph{$n$次单位根}，根据复数乘法可以知道
-\[ \varepsilon_{i+1} = \varepsilon_1 \varepsilon_i \]
-实际上更一般的结论是
-\[ \varepsilon_i \varepsilon_j = \varepsilon_{i+j} \]
+显然 $\varepsilon_0=1$，它们均匀分布在单位圆上，辐角依次为 $0$, $\frac{2\pi}{n}$, $2\cdot \frac{2\pi}{n}$, $\ldots$，$(n-1)\cdot \frac{2\pi}{n}$.
+
+这些根$\varepsilon_i(i=0,1,\ldots,n-1)$称为\emph{$n$次单位根}，如果记 $\varepsilon=\varepsilon_1$，那么容易发现，这 $n$ 个根实际上就是
+\[ 1, \varepsilon, \varepsilon^2, \ldots, \varepsilon^{n-1} \]
+而 $\varepsilon_k=\varepsilon^k(k=0,1,\ldots,n-1)$.
+
+接下来讨论下有哪些性质，先给出结论
+\begin{property}
+  对于 $n$ 次单位 $\varepsilon_i(i=0,1,\ldots,n-1)$ 或者写成 $1,\varepsilon, \varepsilon^2, \ldots, \varepsilon^{n-1}$，有
+  \begin{enumerate}
+  \item $\varepsilon^n=1=\varepsilon_i^n$
+  \item $\varepsilon_k=\varepsilon^k(k=0,1,\ldots,n-1)$
+  \item $\varepsilon_{k+l}=\varepsilon_k\varepsilon_l(k,l\in \mathbb{N})$，这里规定 $\varepsilon_{n+k}=\varepsilon_{k}$以解决下标越界.
+  \item $\overline{\varepsilon_k}=\varepsilon_{n-k}$
+  \item $1+\varepsilon+\varepsilon^2+\cdots+\varepsilon^{n-1}=0$
+  \item 有复变量多项式因式分解 $z^n-1=(z-1)(z-\varepsilon)(z-\varepsilon^2)\cdots (z-\varepsilon^{n-1})$
+  \item 单位根的幂方和(下式中 $m \in \mathbb{N}$)
+    \[
+      \sum_{k=0}^{n-1}\varepsilon_k^m =
+      \begin{cases}
+        0, & (n,m)=1, \\
+        n, & n \mid m
+      \end{cases}
+    \]
+  \end{enumerate}
+\end{property}
+
+\begin{proof}[证明]
+  前三条是容易看出的.
+
+  对于第四条，由
+  \[ \overline{\varepsilon_k} = \frac{1}{\varepsilon_k} = \frac{\varepsilon_k^n}{\varepsilon^k} = \varepsilon^{n-k} = \varepsilon_{n-k} \]
+
+  对于第五条，由 $\varepsilon^n=1$ 有
+  \[ 0 = 1- \varepsilon^n = (1-\varepsilon)(1+\varepsilon+\varepsilon^2+\cdots+\varepsilon^{n-1}) \]
+  第一个因式不可能为零，所以第二个因式必然为零(依据是复数三角形式的乘法)，即$1+\varepsilon+\varepsilon^2+\cdots+\varepsilon^{n-1}=0$.
+
+  实际上第五条可以由以下两个等式得来
+  \begin{eqnarray*}
+    \sum_{k=0}^{n-1} \cos k \frac{2\pi}{n} & = & 0 \\
+    \sum_{k=0}^{n-1} \sin k \frac{2\pi}{n} & = & 0
+  \end{eqnarray*}
+  这里只证第一个等式，第二个也是类似的处理方法，对第一个，为便于书写，我们尝试求和 $\cos\theta + \cos 2\theta + \cdots + \cos n \theta$，对它每一项都乘以因式$2\sin \frac{\theta}{2}$，再应用积化和差公式
+  \[ 2\cos\alpha\sin\beta = \sin(\alpha+\beta) - \sin(\alpha-\beta) \]
+  可得
+  \begin{equation*}
+    \begin{split}
+      & 2(\cos\theta + \cos 2\theta + \cdots + \cos n \theta)\sin \frac{\theta}{2} \\
+      = & \left(\sin \frac{3}{2} \theta - \sin  \frac{\theta}{2} \right) + \left(\sin \frac{5}{2}\theta - \sin \frac{3}{2}\theta \right) + \cdots + \left(\sin \left(n+\frac{1}{2}\right)\theta - \sin \left(n-\frac{1}{2}\right)\theta \right) \\
+      = & \sin \left(n+\frac{1}{2}\right)\theta - \sin  \frac{\theta}{2}
+    \end{split}
+  \end{equation*}
+  所以
+  \[ \cos\theta + \cos 2\theta + \cdots + \cos n \theta = \frac{\sin \left(n+\frac{1}{2}\right)\theta}{2\sin \frac{\theta}{2}} - \frac{1}{2} \]
+  上式中，将 $n$ 替换为 $n-1$，将 $\theta$ 以 $\frac{2\pi}{n}$ 取代，即可得
+  \[ \sum_{k=1}^{n-1} \cos k \frac{2\pi}{n} = -1 \]
+  注意下标是从1开始的，将下标换成从0开始，就得
+  \[ \sum_{k=0}^{n-1} \cos k \frac{2\pi}{n} = 0 \]
+\end{proof}
 
 
 

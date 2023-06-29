@@ -1176,6 +1176,25 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 \subsection{复数数列的极限}
 \label{sec:limit-of-complex-number-sequence}
 
+与实数数列相仿，我们可以得到复数数列的极限定义
+\begin{definition}
+  设有无限复数数列$z_1,z_2,\ldots$，如果存在复数$Z$，使得对于无论多么小的正实数$\varepsilon$，都能从某一个下标$N$开始，后续所有的项都满足 $|z_n-Z|<\varepsilon$，就称这复数数列当$n\to\infty$时存在极限为$Z$，或者称该数列 \emph{收敛}到$Z$，记为
+  \[ \lim_{n\to\infty}z_n = Z \]
+\end{definition}
+
+复数数列的实数和虚部各组成一个实数数列，记$z_n=x_n+iy_n$，$Z=x+iy$， 注意到
+\[ |z_n-z|=\sqrt{(x_n-x)^2+(y_n-y)^2} \]
+因此有 $|x_n-x|<|z_n-Z|$及$|y_n-y|<|z_n-Z|$，所以如果 $z_n$ 收敛到$Z$，则它的实部和虚部分别收敛到$Z$的实数和虚部.
+
+反过来，如果复数数列$z_n$的实部$x_n$和虚部$y_n$作为两个实数数列分别收敛到$x$和$y$，那么对于任意小的正实数$\varepsilon$，能找到一个共同的下标$N$，使得后续所有的$x_n$和$y_n$都满足$|x_n-x|<\varepsilon$和$|y_n-y|<\varepsilon$，于是有
+\[ |z_n-Z|=\sqrt{(x_n-x)^2+(y_n-y)^2}<\sqrt{2}\varepsilon \]
+这就表明$z_n$收敛到$Z=x+iy$，于是得到
+\begin{theorem}
+  复数数列$z_n=x_n+iy_n$收敛到复数$Z=x+iy$的充分必要条件是它的实部$x_n$和虚部$y_n$两个实数数列分别收敛到$x$和$y$.
+\end{theorem}
+
+和实数数列相仿，容易证明，收敛的复数数列必然有界，且满足极限的和差积商的运算法则。
+
 \subsection{题选}
 \label{sec:exercises-for-number-sequence-limit}
 
