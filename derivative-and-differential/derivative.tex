@@ -523,6 +523,65 @@
     \[ \sqrt{1+x} \approx 1 + \frac{1}{2}x \]
 \end{example}
 
+\subsection{微分方程}
+\label{sec:differtial-equation}
+
+我们知道指数函数$y=f(x)=\mathrm{e}^x$的导函数就是它自己，用微分的形式写出来就是
+\[ \frac{\dif f(x)}{\dif x} = f(x) \]
+或者简单写成
+\[ \frac{\dif y}{\dif x} = y \]
+或者更加简洁的写成
+\[ y'=y \]
+像这样把函数自身与其微分(或者导数)联系起来的方程，就称为\emph{微分方程}。
+
+上面的例子就表明指数函数$y=\mathrm{e}^x$就满足微分方程
+\[ \frac{\dif y}{\dif x} = y \]
+我们还可以写出一些微分方程
+\begin{align*}
+  y''+y'+y&=0 \\
+  y'^2+x^2&=0 \\
+  y''+2y'y+y^2& = 0
+\end{align*}
+
+如果一个函数与它的导函数满足一个给定的微分方程，就称这函数是这微分方程的一个\emph{解}.例如，函数$y=\mathrm{e}^x$就是微分方程$y'=y$的一个解，但并不是唯一解，因为零函数也满足这方程。
+
+\begin{example}
+  通过求导可以验证，函数
+  \[ y=C_1 \cos{x} + C_2 \sin{x} \]
+  满足微分方程
+  \[ y''+y=0 \]
+  这里$C_1$和$C_2$是常数。
+\end{example}
+
+\begin{example}
+  函数
+  \[ y= C_1 \cosh{x} + C_2 \sinh{x} \]
+  满足微分方程
+  \[ y''-y=0 \]
+\end{example}
+
+\begin{example}
+  可以验证，函数
+  \[ y = C_1 \mathrm{e}^{\lambda_1 x} + C_2 \mathrm{e}^{\lambda_2 x} \]
+  满足微分方程
+  \[ y''-(\lambda_1+\lambda_2)y' + \lambda_1 \lambda_2 y = 0 \]
+  像这样由$y$、$y'$、$y''$等各阶导数的线性组合(系数可以是常数或者自变量$x$的表达式)而成的微分方程，称为\emph{线性微分方程}，如果各项的系数又是常数，则称为\emph{常系数线性微分方程}。
+\end{example}
+
+\begin{example}
+  在这个例子中，我们来解下面这个微分方程
+  \[ y'-\lambda y = 0 \]
+  作函数$u=y\mathrm{e}^{-\lambda x}$，那么有
+  \[ u'=\mathrm{e}^{-\lambda x} (y'-\lambda y) = 0 \]
+  根据前面的结果，函数$u$只能是常数函数，即
+  \[ y\mathrm{e}^{-\lambda x} = C \]
+  从而
+  \[ y = C \mathrm{e}^{\lambda x} \]
+  这样就解出了这个微分方程.
+\end{example}
+
+
+
 
 %%% Local Variables:
 %%% mode: latex

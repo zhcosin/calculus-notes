@@ -623,103 +623,198 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
   \[ \lim_{n\to\infty}\sin{\frac{\pi}{n}}=0 \]
 \end{example}
 
-\subsection{无穷级数}
-\label{sec:infinite-series}
+\subsection{闭区间套定理}
+\label{sec:theorem-of-closed-interval-sequence}
 
-在上一小节我们已经看到下面两个极限是存在的的
-\[ \lim_{n\to\infty} \left( 1+\frac{1}{2^2}+\cdots+\frac{1}{n^2} \right) \]
-与
-\[ \lim_{n\to\infty} \left( 1 + \frac{1}{2!}+\cdots+\frac{1}{n!} \right) \]
-这很自然的引出了无限个实数相加的和的概念。
+\begin{theorem}[闭区间套定理]
+  \label{closed-interval-sequence-theorem}
+  设闭区间序列$[a_n,b_n](n=1,2,\ldots)$ 满足:
+  \begin{enumerate}
+  \item $[a_1,b_1] \supseteq [a_2,b_2] \supseteq \cdots [a_n,b_n] \supseteq [a_{n+1},b_{n+1}] \supseteq \cdots$
+  \item $\lim\limits_{n \to \infty} (b_n-a_n) = 0$
+  \end{enumerate}
+    则存在唯一实数$x$，使得$x \in [a_n,b_n](n=1,2,\ldots)$.
+\end{theorem}
 
-一般地，对于一个无限数列 $a_1,a_2,\ldots,a_n,\ldots$，，作出它的所有项的无限和式
-\[ a_1+a_2+\cdots+a_n+\cdots \]
-为节约篇幅，以后我们都简记为
-\[ \sum_{n=1}^{\infty}a_n \]
-称为一个 \emph{无穷级数}，或者简称为\emph{级数}，即无穷级数是一个无限长的加式。很自然的我们有如下定义
-\begin{definition}[无穷级数收敛性]
-  对无穷级数 $\sum_{n=1}^{\infty}a_n$，称
-  \[ \sum_{k=1}^na_k=a_1+a_2+\cdots+a_n \]
-  为它的(前$n$项的)\emph{部分和}，若 $\lim_{n\to\infty}\sum_{k=1}^na_k$ 存在，则称无穷级数$\sum_{n=1}^{\infty}a_n$ \emph{收敛}，或者说它是一个\emph{收敛级数}，而极限$S$称为是这无穷级数的和，即
-  \[ \sum_{n=1}^{\infty}a_n = \lim_{n\to\infty}\sum_{k=1}^na_k  \]
-  反之，若极限 $\lim_{n\to\infty}\sum_{k=1}^na_k$不存在，则称无穷级数$\sum_{n=1}^{\infty}a_n$ \emph{发散}，或者说它是一个\emph{发散级数}.
-\end{definition}
+\begin{proof}[证明]
+  显然$a_n$是一个单调增加有上界的序列，所有的$b_m$都是它的上界，同样，$b_n$是单调减少有下界的数列，所有的$a_m$都是它的下界，因此两个数列均有极限，分别记为$A$和$B$，由$a_n < b_n$恒成立知$A \leqslant B$，又如果$A<B$，那么有$a_n\leqslant A < B \leqslant b_n$，这表明$b_n-a_n>B-A$，这与区间长度趋于零相矛盾，所以只能$A=B$，并且它同时位于所有的闭区间上，如果还有另一个与之不同的点也能同处于所有的闭区间上，则显然与区间长度趋于零相矛盾，所以这个共同极限是唯一同时位于所有区间上的数。
+\end{proof}
 
-无穷级数的意义在于，我们将加法从有限个数相加推广到了无限个数相加。
+\subsection{柯西收敛准则}
+\label{sec:cauchy-convergence-rule}
+
+\begin{theorem}[柯西收敛准则]
+  数列$x_n$收敛的充分必要条件是，对于任意正实数$\varepsilon$，总存在正整数$N>0$，使得任意$n_1>N$和任意$n_2>N$及任意恒有$|x_{n_1}-x_{n_2}| < \varepsilon$。
+\end{theorem}
+
+\begin{proof}[证明]
+  先证必要性. 如果数列$x_n$收敛到$x$，那么对于任意正实数$\varepsilon$，都有正整数$N$，使得$n>N$时恒有$|x_n-x|<\varepsilon / 2$，于是对于任意$n_1>N$及$n_2>N$，便有$|x_{n_1}-x_{n_2}|=|(x_{n_1}-x)- (x_{n_2}-x)|\leqslant |x_{n_1}-x|+|x_{n_2}-x|<\varepsilon / 2+\varepsilon / 2 = \varepsilon$。必要性得证。
+
+  再证充分性，先任取一个正实数$\varepsilon_1$，数列中的项能够从某一项开始全部落在一个宽度为$2\varepsilon_1$的闭区间$I_1$，再取$\varepsilon_2 = \dfrac{1}{2}\varepsilon_1$，则数列又能够从另一项（一般来说需要向后推移若干个下标）开始尽数落在一个宽度为$2\varepsilon_2$的闭区间$I_2$上，且$I_1 \supseteq I_2$，依次类推，得出一个闭区间序列$I_1,I_2,\ldots$，其中每一个闭区间都能包含数列从某一项开始之后的全部项，且这些闭区间的长度趋于零，因此按闭区间套定理，存在唯一实数$M$同时处于所有的闭区间上，它将是这数列的极限，这是因为，对于任意正实数$\varepsilon$，显然存在某个闭区间$I_m$，使得$I_m \subset (M-\varepsilon,M+\varepsilon)$，而数列能够从某一项开始全部落在闭区间$I_m$上，也就从这一项开始全部落在$M$的$\varepsilon$邻域内，所以$M$就是这数列的极限。
+\end{proof}
+
+我们还可以得出柯西收敛准则的否定叙述：数列$a_n$发散的充分必要条件是，存在正实数$r$，使得无论对于多大的正整数$N$，总是存在两个正整数$n_1$和$n_2$，使得$|a_{n_1}-a_{n_2}| \geqslant r$.
 
 \begin{example}
-  级数
-  \begin{equation*}
-    \begin{split}
-      & \sum_{n=1}^{\infty}\frac{1}{n(n+1)} \\
-      = &  \lim_{n\to\infty} \sum_{k=1}^{n}\frac{1}{k(k+1)} \\
-    = &  \lim_{n\to\infty} \sum_{k=1}^{n} \left( \frac{1}{k} - \frac{1}{k+1} \right)  \\
-    = & \lim_{n\to\infty} \left( 1 - \frac{1}{n+1} \right) \\
-    =  & 1
-    \end{split}
-  \end{equation*}
+  前$n$个正整数的平方倒数和
+  \[ S_n = 1 + \frac{1}{2^2} + \cdots + \frac{1}{n^2} \]
+  对它的片段有
+  \begin{eqnarray*}
+    S_{m+p}-S_m  & = & \frac{1}{(m+1)^2} + \frac{1}{(m+2)^2} + \cdots + \frac{1}{(m+p)^2} \\
+                 & < & \frac{1}{m(m+1)} + \frac{1}{(m+1)(m+2)} + \cdots + \frac{1}{(m+p-1)(m+p)} \\
+                 & = & \left( \frac{1}{m} - \frac{1}{m+1} \right) + \left( \frac{1}{m+1} - \frac{1}{m+2} \right) + \cdots + \left( \frac{1}{m+p-1} - \frac{1}{m+p} \right) \\
+    & = & \frac{1}{m} - \frac{1}{m+p} < \frac{1}{m}
+  \end{eqnarray*}
+  所以对于任意正实数$\varepsilon$，只要取$N>1/\varepsilon$，就能保证柯西条件成立，于是数列$S_n$有极限，不过这极限值在此处是求不出来的，在以后我们将会利用无穷级数理论，得到它的极限值，这极限值与圆周率有关:
+  \[ \lim_{n \to \infty} \sum_{i=1}^n \frac{1}{i^2} = \frac{\pi^2}{6} \]
 \end{example}
 
 \begin{example}
-  当$|q|<1$时，级数(注意下标从0开始)
-  \begin{equation*}
-    \begin{split}
-      &  \sum_{n=0}^{\infty}q^n \\
-      = & \lim_{n\to\infty} \sum_{k=0}^{n}q^k \\
-      = & \lim_{n\to\infty} \frac{1-q^{n+1}}{1-q} \\
-      = & \frac{1}{1-q}
-    \end{split}
-  \end{equation*}
-  这级数称为\emph{几何级数}.
-
-  如果下标从1开始，那么由于少了第一项，就有
-  \[ \sum_{n=1}^{\infty}q^n = \frac{1}{1-q}-1 = \frac{q}{1-q} \]
-
-  取 $q=\frac{1}{2}$，即得
-  \[ \frac{1}{2} + \frac{1}{2^2} + \frac{1}{2^3} + \cdots = 1 \]
-  取 $q=\frac{1}{3}$，得
-  \[ \frac{1}{3} + \frac{1}{3^2} + \frac{1}{3^3} + \cdots = \frac{1}{2} \]
+  前$n$个正整数的阶乘的倒数和
+  \[ T_n = 1 + \frac{1}{2!} + \cdots + \frac{1}{n!} \]
+  它的片段和
+  \begin{eqnarray*}
+    T_{m+p} - T_m & = & \frac{1}{(m+1)!} + \frac{1}{(m+2)!} + \cdots + \frac{1}{(m+p)!} \\
+                  & < & \frac{1}{2^{m+1}} + \frac{1}{2^{m+2}} + \cdots + \frac{1}{2^{m+p}} \\
+    & = & \frac{1}{2^m} \left( 1-\frac{1}{2^p} \right) < \frac{1}{2^m}
+  \end{eqnarray*}
+  可见它也满足柯西收敛条件，所以这个数列也有极限，它的极限便是自然对数的底数$e$:
+  \[ \lim_{n \to \infty} \sum_{i=1}^n \frac{1}{i!} = e \]
 \end{example}
 
-  \begin{example}
-    实际上任何一个极限$\lim_{n\to\infty}a_n$都可以表示成为级数，由以下恒等式
-    \[ a_n = a_1+(a_2-a_1)+(a_3-a_2)+\cdots+(a_n-a_{n-1}) \]
-   即知 
-    \[ \lim_{n\to\infty}a_n = a_1+\lim_{n\to\infty}\sum_{k=1}^{n-1}(a_{k+1}-a_{k}) = a_1+\sum_{n=1}^{\infty}(a_{n+1}-a_n) \]
-  \end{example}
+\begin{example}[级数收敛的柯西准则]
+  因为级数收敛等同于它的部分和数列收敛，据此可以得出级数收敛的柯西准则：级数$\sum_{n=1}^{\infty} a_n$收敛的充分必要条件是，对于任意小的正实数$\varepsilon$，总存在正整数$n$和正整数$p$，使得$|a_{n+1}+a_{n+2} + \cdots + a_{n+p}|<\varepsilon$。
 
+  同样可以得出它的反而叙述：级数$\sum_{n=1}^{\infty} a_n$发散的充分必要条件是，存在一个正实数$r$，使得无论对于多大的$N$，总存在该下标之后的某一片段和满足$|a_{n+1}+a_{n+2}+\cdots+a_{n+p}| \geqslant r$.
+\end{example}
 
 \begin{example}[调和级数的发散性]
-  \label{example:non-convergency-of-harmonic-series-proof-by-monotone}
-  在这个例子中，我们来考虑\emph{调和级数}
+  \label{example:non-convergency-of-harmonic-series-proof-by-cauchy}
+  在\autoref{example:non-convergency-of-harmonic-series-proof-by-monotone}中，我们已经证明了调和级数
   \[ \sum_{n=1}^{\infty} \frac{1}{n} = 1+\frac{1}{2} + \frac{1}{3} + \cdots  \]
-  的收敛性，它的部分和
-  \[ H_n = 1 + \frac{1}{2} + \cdots + \frac{1}{n} \]
-  虽然$H_n$随着$n$的增大，它的增量逐渐减小，但可以证明它可以大于任意正实数，因为我们有
-  \begin{eqnarray*}
-    \frac{1}{3} + \frac{1}{4} & > & 2 \times \frac{1}{4} = \frac{1}{2} \\
-    \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} & > & 4 \times \frac{1}{8} = \frac{1}{2} \\
-    ...... && \\
-    \frac{1}{2^m+1} + \frac{1}{2^m+2} + \cdots \frac{1}{2^{m+1}} & > & 2^m \times \frac{1}{2^{m+1}} = \frac{1}{2}
-  \end{eqnarray*}
-  因此
-  \begin{eqnarray*}
-    H_{2^m} & = & 1+ \frac{1}{2} + \sum_{i=1}^m \left( \frac{1}{2^i+1} + \frac{1}{2^i+2} + \cdots \frac{1}{2^{i+1}} \right) \\
-    & > & 1 + \frac{1}{2} + \frac{1}{2}m
-  \end{eqnarray*}
-  这就表明$H_{2^m}$是一个无穷大，再由$H_n$的单调性，可知它是一个正无穷大，也就是说调和级数是发散的。
+  的发散性，现在我们可以用柯西收敛准则来说明，但是所用的放缩仍然与那里是一致的，根据柯西准则，为了说明它的发散性，只要证明对于存在某个正实数$r$，无论对于多大的正整数$N$，总存在两个正整数$n_1$与$n_2$，使得$|H_{n_1}-H_{n_2}|\geqslant r$就可以了。
+
+  仍然由
+  \[ \frac{1}{2^m+1} + \frac{1}{2^m+2} + \cdots + \frac{1}{2^{m+1}} > 2^m \cdots \frac{1}{2^{m+1}} = \frac{1}{2} \]
+可知，对于任意正整数$N$，只要取一个$n_1=2^{m_1}>N$，再取$n_2=2^{m_1+1}$，就有$|H_{n_1}-H_{n_2}|>\dfrac{1}{2}$，于是部分和数列$H_n$发散，即调和级数发散。
+
+要说明的是，这里的放缩方式不是唯一的，比如说从级数中的任一项开始，作片段和
+\[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{n+m} > \frac{m}{n+m} \]
+为了让右端能够大于某个正整数，取$m=n$，即片段的长度要依赖于片段中首项的下标，下标越大，片段越长，这里有
+\[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n} > \frac{1}{2} \]
+于是我们将调和级数按下标划分片段，1和2分别为单独的片段，从3到4为一段，从5到8为一段，9到16为一段，这样划分之后，每一段上的和都大于$\dfrac{1}{2}$，但是这样的划分与前面的放缩其实是一致的，但是我们可以改为这里的$m$，以得出不同的划分，例如取$m=2n$，就得
+\[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{3n} > \frac{2}{3} \]
+于是片段的划分方式是，1是单独的片段，从2到3为一段，从4到9为一段，从10到27为一段，依次类推，每个片段上的倒数和都大于$\dfrac{2}{3}$，于是级数发散。
 \end{example}
 
+\subsection{聚点定理}
+\label{sec:accumulate-point-theorem}
 
+\begin{definition}
+  对于无穷数集$A$和某个实数$x$，若$x$的任意小的邻域$(x-\varepsilon,x_{\varepsilon})$内都包含了$A$中的无穷多个数，则称数$x$是数集$A$的一个\emph{聚点}.
+\end{definition}
 
+例如，零是数集$\left\{ \dfrac{1}{n} \right\}$的一个聚点。显然，定义中的邻域改成空心邻域也没有什么影响。
 
-依上一小节的结论，以下两个级数是收敛的
-\[ \sum_{n=1}^{\infty}\frac{1}{n^2}\]
-\[ \sum_{n=1}^{\infty}\frac{1}{n!} \]
-对于两者的和，现在先给出结论
-\[ \sum_{n=1}^{\infty}\frac{1}{n^2} = \frac{\pi^2}{6}\]
-\[ \sum_{n=1}^{\infty}\frac{1}{n!} = \mathrm{e} \]
-第一个和的推导将在以后给出，下一小节我们就将推导出第二个和.
+聚点可以在数集中，也可以不在集合中，事实上，如果聚点在集合中，那就从集合中除去此数，它仍然是新数集的聚点，并不受影响。
+
+\begin{theorem}
+  任意有界的无限数集，至少有一个聚点。
+\end{theorem}
+
+\begin{proof}[证明]
+  因为数集有界，设它的全部元素被限于某个闭区间$I_1$中，它含有无限个元素，则将此闭区间对半切割为两个子闭区间，则至少其中一个子闭区间上含有原数集中的无穷多个元素，记此子闭区间为$I_2$，同样再对$I_2$进行对半切割，则可以得出一个含有原数集中无穷多个元素的子闭区间$I_2$，依次类推，得到一个闭区间序列，该序列中每个闭区间都包含了原数集中的无穷多个元素，并且这闭区间序列符合闭区间套定理的条件，因此由这闭区间序列确定出一个数$K$，它就是原数集的一个聚点，这是因为，对于任意小的正实数$\varepsilon$，显然前述闭区间中存在某个闭区间$I_m \in (K-\varepsilon,K+\varepsilon)$，而$I_m$中包含了原数集的无穷个元素，因此$K$的邻域也就包含了原数集中的无穷个元素，即为它的一个聚点。
+\end{proof}
+
+从数列中剔除掉一些项，剩下的项按照原来的顺序排列而成的新数列，称为原数列的一个\emph{子数列}.
+\begin{inference}[博雷尔-魏尔斯特拉斯引理]
+  任何有界数列，必存在收敛的子数列。
+\end{inference}
+
+\begin{proof}[证明]
+  将数列的所有项作成一个有界数集，如果该数集是有限集，则表明数列中有无穷多个项取相同的数值，那么取这些项作成的子列就是收敛的，如果此数集是无限集，由聚点定理知它至少有一个聚点$x$，那么任意取定一个正实数$\varepsilon_1$，则数集中有无穷多个数落在$(x-\varepsilon_1,x+\varepsilon_1)$内并且不等于$x$，任取其中一个记为$a_{n_1}$，即它在原数列中的下标是$n_1$，则再取$\varepsilon_2 = \min \{ \dfrac{1}{2}\varepsilon_1, |x-a_{n_1}| \}$，又可以选落在区间$(x-\varepsilon_2,x+\varepsilon)$中并且不等于$x$的项$a_{n_2}$，这里$n_2$的选法要保证$n_2>n_1$，因为是有无穷多个数落在区间内，所以这总是可以办到的。依次类推，得出一个子列$a_{n_1},a_{n_2},\ldots$，显然这个子列是收敛到$x$的。
+\end{proof}
+
+现在讨论下无穷聚点，在讨论之前，我们先用邻域重新描述一下聚点：数$x$是无穷数集$A$的一个聚点的充分必要条件是，$x$的任意邻域都包含了数集$A$中的无穷多个数。我们已经引进过，正无穷的邻域是开区间$(a,+\infty)$，负无穷的邻域是开区间$(-\infty,a)$，因此我们把聚点的这个用邻域的定义照搬到正无穷和负无穷上，就得出无穷聚点的定义。
+
+\begin{definition}
+  如果对于任意实数$a$，正无穷的邻域$(a,+\infty)$中总是包含着无穷数集$A$中的无穷多个数，则称正无穷是数集$A$的一个\emph{无穷聚点}，同理可以定义负的无穷聚点. 
+\end{definition}
+
+在引入了无穷聚点之后，聚点定理中的数集有界的要求就可以去掉了，因为如果数集无界，显然它必然有无穷聚点。同样，博雷尔-魏尔斯特拉斯引理中数列有界的限制也就可以去掉了，以后我们所说的聚点，均可以是有限的也可以是无限的，在这种意义上，我们把前面的相关定理修正为:
+\begin{theorem}
+  任意无穷数集必有聚点，且必有最大聚点和最小聚点.
+\end{theorem}
+必有聚点这是显然的，所有聚点组成一个集合，这集合有上下确界（可以无穷），这上下确界也必然是其聚点，关于这一点我们需要详细的证明，即要证明下面的定理
+\begin{theorem}
+  设$A$是一个无穷数集，而$E$是它的聚点集合，如果$E$也有聚点，则这聚点也必定是$A$的聚点.换句话说，集合$E$具有特点：它的聚点必定也在自身中.
+\end{theorem}
+
+\begin{proof}[证明]
+ 只证明有限的情况，设$x$是聚点$E$的一个有限聚点， 则它的任意小空心邻域内必然包含了无穷多个$E$中的点，而根据聚点定义，显然这个空心邻域也就必然包含了$A$中的无穷多个点，因此它也是$A$的聚点.
+\end{proof}
+
+聚点集的这种特性称为是闭的，我们定义
+\begin{definition}
+  如果一个无穷数集的所有聚点也在这集合中，则称这集合是\emph{闭集}.
+\end{definition}
+
+与闭集相对，我们还有开集的概念，为此先引入\emph{内点}和\emph{界点}的定义.
+\begin{definition}
+  设$A$是一个数集，如果$x \in A$并且存在$x$的某个邻域$(x-\delta,x+\delta)$整个都被$A$所包含，则称为$x$是$A$的一个\emph{内点}.
+\end{definition}
+
+\begin{definition}
+  设$A$是一个数集，$x$是一个实数，如果$x$的任意小的空心邻域内都同时包含有$A$中的点和不在$A$中的点，则称$x$是$A$的一个\emph{界点}.
+\end{definition}
+
+下面定义开集:
+\begin{definition}
+  如果一个数集中的任一个点都是这数集的内点，则称这数集是\emph{开集}.
+\end{definition}
+
+注意闭集与开集并不互斥，比如实数集$\mathbb{R}$，它既是开集又是闭集.
+
+\subsection{上极限与下极限}
+\label{sec:upper-limit-and-lower-limit}
+
+这一节利用聚点的概念来定义上极限与下极限，并在此基础上讨论极限存在的条件。
+
+首先我们证明一个结论，前面已经知道，有界数集存在聚点，在此基础上还有如下结论
+\begin{theorem}
+  有界数集存在最大的聚点和最小的聚点。
+\end{theorem}
+
+\begin{proof}[证明]
+  记有界数集$A$的聚点集合是$B$，设$A$的上下确界分别是$M$和$L$，显然任何大于$M$或者小于$L$的数都不可能是$A$的聚点，也就是说，$B$也以$M$和$L$为上界和下界（但不能保证是确界），记$B$的上确界为$P$，我们来证明，$P$也是$A$的聚点，也就是$P \in B$.
+
+  对于任意正实数$\varepsilon$，存在$b_1 \in B$，使得$P-\varepsilon < b_1 < P$，但$b_1$是$A$的一个聚点，因此它的任意邻域内都含有$A$中的无限个元素，取适当的邻域，使其被包含于开区间$(P-\varepsilon,P)$中，于是开区间$(P-\varepsilon,P)$也就包含了数集$A$中的无限多个元素，从而$P$是数集$A$的聚点，同理，$B$的下确界$Q$也是数集$A$的聚点，它们分别是数集$A$的最大聚点和最小聚点。
+\end{proof}
+
+如果考虑到无穷聚点，则上述定理仍然成立。
+
+以后我们会称数列的聚点，它是指由数列所有项的数值所组成的数集(若有数值相同的项，则该值按重复次数计算)的聚点，以后不再特别说明，显然有如下定理。
+
+\begin{theorem}
+  数$A$是数列$\{a_n\}$的一个聚点的充分必要条件是，这数列存在收敛到$A$的子数列.
+\end{theorem}
+
+\begin{definition}
+  数列$a_n$的最大聚点(可以无穷)称为数列的\emph{上极限}，记作$\varlimsup\limits_{n \to \infty}a_n$，而最小的聚点称为它的\emph{下极限}，记作$\varliminf\limits_{n \to \infty} a_n$.
+\end{definition}
+
+显然，数列必同时存在上极限与下极限(可以无穷)。
+
+\begin{theorem}
+数列存在极限的充分必要条件是，它的上极限与下极限相等。  
+\end{theorem}
+
+\begin{proof}[证明]
+  必要性，如果数列$a_n$收敛到$A$，显然$A$是它的唯一聚点，上极限与下极限都是它。
+
+  充分性，设上极限与下极限都是$A$，显然$A$的任意邻域内含有数列中的无限多项，而在此邻域外只能含有数列中的有限多项，否则在此邻域外还有别的聚点存在，所以数列只能收敛到此值。
+\end{proof}
+
 
 
 \subsection{数$\mathrm{e}$}
@@ -978,198 +1073,157 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 \[ \lim_{n\to\infty} 2^n \sin{\frac{\pi}{2^n}} = \tau = \lim_{n\to\infty} 2^n \tan{\frac{\pi}{2^n}} \]
 以后我们将证明 $\tau$ 实际上就等于圆周率 $\pi$.
 
+\subsection{无穷级数}
+\label{sec:infinite-series}
 
-\subsection{闭区间套定理}
-\label{sec:theorem-of-closed-interval-sequence}
+在上一小节我们已经看到下面两个极限是存在的的
+\[ \lim_{n\to\infty} \left( 1+\frac{1}{2^2}+\cdots+\frac{1}{n^2} \right) \]
+与
+\[ \lim_{n\to\infty} \left( 1 + \frac{1}{2!}+\cdots+\frac{1}{n!} \right) \]
+这很自然的引出了无限个实数相加的和的概念。
 
-\begin{theorem}[闭区间套定理]
-  \label{closed-interval-sequence-theorem}
-  设闭区间序列$[a_n,b_n](n=1,2,\ldots)$ 满足:
-  \begin{enumerate}
-  \item $[a_1,b_1] \supseteq [a_2,b_2] \supseteq \cdots [a_n,b_n] \supseteq [a_{n+1},b_{n+1}] \supseteq \cdots$
-  \item $\lim\limits_{n \to \infty} (b_n-a_n) = 0$
-  \end{enumerate}
-    则存在唯一实数$x$，使得$x \in [a_n,b_n](n=1,2,\ldots)$.
-\end{theorem}
+一般地，对于一个无限数列 $a_1,a_2,\ldots,a_n,\ldots$，，作出它的所有项的无限和式
+\[ a_1+a_2+\cdots+a_n+\cdots \]
+为节约篇幅，以后我们都简记为
+\[ \sum_{n=1}^{\infty}a_n \]
+称为一个 \emph{无穷级数}，或者简称为\emph{级数}，即无穷级数是一个无限长的加式。很自然的我们有如下定义
+\begin{definition}[无穷级数收敛性]
+  对无穷级数 $\sum_{n=1}^{\infty}a_n$，称
+  \[ \sum_{k=1}^na_k=a_1+a_2+\cdots+a_n \]
+  为它的(前$n$项的)\emph{部分和}，若 $\lim_{n\to\infty}\sum_{k=1}^na_k$ 存在，则称无穷级数$\sum_{n=1}^{\infty}a_n$ \emph{收敛}，或者说它是一个\emph{收敛级数}，而极限$S$称为是这无穷级数的和，即
+  \[ \sum_{n=1}^{\infty}a_n = \lim_{n\to\infty}\sum_{k=1}^na_k  \]
+  反之，若极限 $\lim_{n\to\infty}\sum_{k=1}^na_k$不存在，则称无穷级数$\sum_{n=1}^{\infty}a_n$ \emph{发散}，或者说它是一个\emph{发散级数}.
+\end{definition}
 
-\begin{proof}[证明]
-  显然$a_n$是一个单调增加有上界的序列，所有的$b_m$都是它的上界，同样，$b_n$是单调减少有下界的数列，所有的$a_m$都是它的下界，因此两个数列均有极限，分别记为$A$和$B$，由$a_n < b_n$恒成立知$A \leqslant B$，又如果$A<B$，那么有$a_n\leqslant A < B \leqslant b_n$，这表明$b_n-a_n>B-A$，这与区间长度趋于零相矛盾，所以只能$A=B$，并且它同时位于所有的闭区间上，如果还有另一个与之不同的点也能同处于所有的闭区间上，则显然与区间长度趋于零相矛盾，所以这个共同极限是唯一同时位于所有区间上的数。
-\end{proof}
-
-\subsection{柯西收敛准则}
-\label{sec:cauchy-convergence-rule}
-
-\begin{theorem}[柯西收敛准则]
-  数列$x_n$收敛的充分必要条件是，对于任意正实数$\varepsilon$，总存在正整数$N>0$，使得任意$n_1>N$和任意$n_2>N$及任意恒有$|x_{n_1}-x_{n_2}| < \varepsilon$。
-\end{theorem}
-
-\begin{proof}[证明]
-  先证必要性. 如果数列$x_n$收敛到$x$，那么对于任意正实数$\varepsilon$，都有正整数$N$，使得$n>N$时恒有$|x_n-x|<\varepsilon / 2$，于是对于任意$n_1>N$及$n_2>N$，便有$|x_{n_1}-x_{n_2}|=|(x_{n_1}-x)- (x_{n_2}-x)|\leqslant |x_{n_1}-x|+|x_{n_2}-x|<\varepsilon / 2+\varepsilon / 2 = \varepsilon$。必要性得证。
-
-  再证充分性，先任取一个正实数$\varepsilon_1$，数列中的项能够从某一项开始全部落在一个宽度为$2\varepsilon_1$的闭区间$I_1$，再取$\varepsilon_2 = \dfrac{1}{2}\varepsilon_1$，则数列又能够从另一项（一般来说需要向后推移若干个下标）开始尽数落在一个宽度为$2\varepsilon_2$的闭区间$I_2$上，且$I_1 \supseteq I_2$，依次类推，得出一个闭区间序列$I_1,I_2,\ldots$，其中每一个闭区间都能包含数列从某一项开始之后的全部项，且这些闭区间的长度趋于零，因此按闭区间套定理，存在唯一实数$M$同时处于所有的闭区间上，它将是这数列的极限，这是因为，对于任意正实数$\varepsilon$，显然存在某个闭区间$I_m$，使得$I_m \subset (M-\varepsilon,M+\varepsilon)$，而数列能够从某一项开始全部落在闭区间$I_m$上，也就从这一项开始全部落在$M$的$\varepsilon$邻域内，所以$M$就是这数列的极限。
-\end{proof}
-
-我们还可以得出柯西收敛准则的否定叙述：数列$a_n$发散的充分必要条件是，存在正实数$r$，使得无论对于多大的正整数$N$，总是存在两个正整数$n_1$和$n_2$，使得$|a_{n_1}-a_{n_2}| \geqslant r$.
+无穷级数的意义在于，我们将加法从有限个数相加推广到了无限个数相加。
 
 \begin{example}
-  前$n$个正整数的平方倒数和
-  \[ S_n = 1 + \frac{1}{2^2} + \cdots + \frac{1}{n^2} \]
-  对它的片段有
-  \begin{eqnarray*}
-    S_{m+p}-S_m  & = & \frac{1}{(m+1)^2} + \frac{1}{(m+2)^2} + \cdots + \frac{1}{(m+p)^2} \\
-                 & < & \frac{1}{m(m+1)} + \frac{1}{(m+1)(m+2)} + \cdots + \frac{1}{(m+p-1)(m+p)} \\
-                 & = & \left( \frac{1}{m} - \frac{1}{m+1} \right) + \left( \frac{1}{m+1} - \frac{1}{m+2} \right) + \cdots + \left( \frac{1}{m+p-1} - \frac{1}{m+p} \right) \\
-    & = & \frac{1}{m} - \frac{1}{m+p} < \frac{1}{m}
-  \end{eqnarray*}
-  所以对于任意正实数$\varepsilon$，只要取$N>1/\varepsilon$，就能保证柯西条件成立，于是数列$S_n$有极限，不过这极限值在此处是求不出来的，在以后我们将会利用无穷级数理论，得到它的极限值，这极限值与圆周率有关:
-  \[ \lim_{n \to \infty} \sum_{i=1}^n \frac{1}{i^2} = \frac{\pi^2}{6} \]
+  级数
+  \begin{equation*}
+    \begin{split}
+      & \sum_{n=1}^{\infty}\frac{1}{n(n+1)} \\
+      = &  \lim_{n\to\infty} \sum_{k=1}^{n}\frac{1}{k(k+1)} \\
+    = &  \lim_{n\to\infty} \sum_{k=1}^{n} \left( \frac{1}{k} - \frac{1}{k+1} \right)  \\
+    = & \lim_{n\to\infty} \left( 1 - \frac{1}{n+1} \right) \\
+    =  & 1
+    \end{split}
+  \end{equation*}
 \end{example}
 
 \begin{example}
-  前$n$个正整数的阶乘的倒数和
-  \[ T_n = 1 + \frac{1}{2!} + \cdots + \frac{1}{n!} \]
-  它的片段和
-  \begin{eqnarray*}
-    T_{m+p} - T_m & = & \frac{1}{(m+1)!} + \frac{1}{(m+2)!} + \cdots + \frac{1}{(m+p)!} \\
-                  & < & \frac{1}{2^{m+1}} + \frac{1}{2^{m+2}} + \cdots + \frac{1}{2^{m+p}} \\
-    & = & \frac{1}{2^m} \left( 1-\frac{1}{2^p} \right) < \frac{1}{2^m}
-  \end{eqnarray*}
-  可见它也满足柯西收敛条件，所以这个数列也有极限，它的极限便是自然对数的底数$e$:
-  \[ \lim_{n \to \infty} \sum_{i=1}^n \frac{1}{i!} = e \]
+  当$|q|<1$时，级数(注意下标从0开始)
+  \begin{equation*}
+    \begin{split}
+      &  \sum_{n=0}^{\infty}q^n \\
+      = & \lim_{n\to\infty} \sum_{k=0}^{n}q^k \\
+      = & \lim_{n\to\infty} \frac{1-q^{n+1}}{1-q} \\
+      = & \frac{1}{1-q}
+    \end{split}
+  \end{equation*}
+  这级数称为\emph{几何级数}.
+
+  如果下标从1开始，那么由于少了第一项，就有
+  \[ \sum_{n=1}^{\infty}q^n = \frac{1}{1-q}-1 = \frac{q}{1-q} \]
+
+  取 $q=\frac{1}{2}$，即得
+  \[ \frac{1}{2} + \frac{1}{2^2} + \frac{1}{2^3} + \cdots = 1 \]
+  取 $q=\frac{1}{3}$，得
+  \[ \frac{1}{3} + \frac{1}{3^2} + \frac{1}{3^3} + \cdots = \frac{1}{2} \]
 \end{example}
 
-\begin{example}[级数收敛的柯西准则]
-  因为级数收敛等同于它的部分和数列收敛，据此可以得出级数收敛的柯西准则：级数$\sum_{n=1}^{\infty} a_n$收敛的充分必要条件是，对于任意小的正实数$\varepsilon$，总存在正整数$n$和正整数$p$，使得$|a_{n+1}+a_{n+2} + \cdots + a_{n+p}|<\varepsilon$。
+  \begin{example}
+    实际上任何一个极限$\lim_{n\to\infty}a_n$都可以表示成为级数，由以下恒等式
+    \[ a_n = a_1+(a_2-a_1)+(a_3-a_2)+\cdots+(a_n-a_{n-1}) \]
+   即知 
+    \[ \lim_{n\to\infty}a_n = a_1+\lim_{n\to\infty}\sum_{k=1}^{n-1}(a_{k+1}-a_{k}) = a_1+\sum_{n=1}^{\infty}(a_{n+1}-a_n) \]
+  \end{example}
 
-  同样可以得出它的反而叙述：级数$\sum_{n=1}^{\infty} a_n$发散的充分必要条件是，存在一个正实数$r$，使得无论对于多大的$N$，总存在该下标之后的某一片段和满足$|a_{n+1}+a_{n+2}+\cdots+a_{n+p}| \geqslant r$.
-\end{example}
 
 \begin{example}[调和级数的发散性]
-  \label{example:non-convergency-of-harmonic-series-proof-by-cauchy}
-  在\autoref{example:non-convergency-of-harmonic-series-proof-by-monotone}中，我们已经证明了调和级数
+  \label{example:non-convergency-of-harmonic-series-proof-by-monotone}
+  在这个例子中，我们来考虑\emph{调和级数}
   \[ \sum_{n=1}^{\infty} \frac{1}{n} = 1+\frac{1}{2} + \frac{1}{3} + \cdots  \]
-  的发散性，现在我们可以用柯西收敛准则来说明，但是所用的放缩仍然与那里是一致的，根据柯西准则，为了说明它的发散性，只要证明对于存在某个正实数$r$，无论对于多大的正整数$N$，总存在两个正整数$n_1$与$n_2$，使得$|H_{n_1}-H_{n_2}|\geqslant r$就可以了。
-
-  仍然由
-  \[ \frac{1}{2^m+1} + \frac{1}{2^m+2} + \cdots + \frac{1}{2^{m+1}} > 2^m \cdots \frac{1}{2^{m+1}} = \frac{1}{2} \]
-可知，对于任意正整数$N$，只要取一个$n_1=2^{m_1}>N$，再取$n_2=2^{m_1+1}$，就有$|H_{n_1}-H_{n_2}|>\dfrac{1}{2}$，于是部分和数列$H_n$发散，即调和级数发散。
-
-要说明的是，这里的放缩方式不是唯一的，比如说从级数中的任一项开始，作片段和
-\[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{n+m} > \frac{m}{n+m} \]
-为了让右端能够大于某个正整数，取$m=n$，即片段的长度要依赖于片段中首项的下标，下标越大，片段越长，这里有
-\[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n} > \frac{1}{2} \]
-于是我们将调和级数按下标划分片段，1和2分别为单独的片段，从3到4为一段，从5到8为一段，9到16为一段，这样划分之后，每一段上的和都大于$\dfrac{1}{2}$，但是这样的划分与前面的放缩其实是一致的，但是我们可以改为这里的$m$，以得出不同的划分，例如取$m=2n$，就得
-\[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{3n} > \frac{2}{3} \]
-于是片段的划分方式是，1是单独的片段，从2到3为一段，从4到9为一段，从10到27为一段，依次类推，每个片段上的倒数和都大于$\dfrac{2}{3}$，于是级数发散。
+  的收敛性，它的部分和
+  \[ H_n = 1 + \frac{1}{2} + \cdots + \frac{1}{n} \]
+  虽然$H_n$随着$n$的增大，它的增量逐渐减小，但可以证明它可以大于任意正实数，因为我们有
+  \begin{eqnarray*}
+    \frac{1}{3} + \frac{1}{4} & > & 2 \times \frac{1}{4} = \frac{1}{2} \\
+    \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} & > & 4 \times \frac{1}{8} = \frac{1}{2} \\
+    ...... && \\
+    \frac{1}{2^m+1} + \frac{1}{2^m+2} + \cdots \frac{1}{2^{m+1}} & > & 2^m \times \frac{1}{2^{m+1}} = \frac{1}{2}
+  \end{eqnarray*}
+  因此
+  \begin{eqnarray*}
+    H_{2^m} & = & 1+ \frac{1}{2} + \sum_{i=1}^m \left( \frac{1}{2^i+1} + \frac{1}{2^i+2} + \cdots \frac{1}{2^{i+1}} \right) \\
+    & > & 1 + \frac{1}{2} + \frac{1}{2}m
+  \end{eqnarray*}
+  这就表明$H_{2^m}$是一个无穷大，再由$H_n$的单调性，可知它是一个正无穷大，也就是说调和级数是发散的。
 \end{example}
 
-\subsection{聚点定理}
-\label{sec:accumulate-point-theorem}
+依上一小节的结论，以下两个级数是收敛的
+\[ \sum_{n=1}^{\infty}\frac{1}{n^2}\]
+\[ \sum_{n=1}^{\infty}\frac{1}{n!} \]
+对于两者的和，现在先给出结论
+\[ \sum_{n=1}^{\infty}\frac{1}{n^2} = \frac{\pi^2}{6}\]
+\[ \sum_{n=1}^{\infty}\frac{1}{n!} = \mathrm{e} \]
+第一个和的推导将在以后给出，第二个在前文已经得出.
 
-\begin{definition}
-  对于无穷数集$A$和某个实数$x$，若$x$的任意小的邻域$(x-\varepsilon,x_{\varepsilon})$内都包含了$A$中的无穷多个数，则称数$x$是数集$A$的一个\emph{聚点}.
-\end{definition}
-
-例如，零是数集$\left\{ \dfrac{1}{n} \right\}$的一个聚点。显然，定义中的邻域改成空心邻域也没有什么影响。
-
-聚点可以在数集中，也可以不在集合中，事实上，如果聚点在集合中，那就从集合中除去此数，它仍然是新数集的聚点，并不受影响。
-
+由数列的单调有界定理可得
 \begin{theorem}
-  任意有界的无限数集，至少有一个聚点。
+  如果实数项级数$\sum_{n=1}^{\infty}a_n$的项都是正的(或者从某一个下标开始以后的项都是正的)，且部分和$\sum_{k=1}^na_k$有上界，则该级数收敛.
 \end{theorem}
 
-\begin{proof}[证明]
-  因为数集有界，设它的全部元素被限于某个闭区间$I_1$中，它含有无限个元素，则将此闭区间对半切割为两个子闭区间，则至少其中一个子闭区间上含有原数集中的无穷多个元素，记此子闭区间为$I_2$，同样再对$I_2$进行对半切割，则可以得出一个含有原数集中无穷多个元素的子闭区间$I_2$，依次类推，得到一个闭区间序列，该序列中每个闭区间都包含了原数集中的无穷多个元素，并且这闭区间序列符合闭区间套定理的条件，因此由这闭区间序列确定出一个数$K$，它就是原数集的一个聚点，这是因为，对于任意小的正实数$\varepsilon$，显然前述闭区间中存在某个闭区间$I_m \in (K-\varepsilon,K+\varepsilon)$，而$I_m$中包含了原数集的无穷个元素，因此$K$的邻域也就包含了原数集中的无穷个元素，即为它的一个聚点。
-\end{proof}
-
-从数列中剔除掉一些项，剩下的项按照原来的顺序排列而成的新数列，称为原数列的一个\emph{子数列}.
-\begin{inference}[博雷尔-魏尔斯特拉斯引理]
-  任何有界数列，必存在收敛的子数列。
-\end{inference}
-
-\begin{proof}[证明]
-  将数列的所有项作成一个有界数集，如果该数集是有限集，则表明数列中有无穷多个项取相同的数值，那么取这些项作成的子列就是收敛的，如果此数集是无限集，由聚点定理知它至少有一个聚点$x$，那么任意取定一个正实数$\varepsilon_1$，则数集中有无穷多个数落在$(x-\varepsilon_1,x+\varepsilon_1)$内并且不等于$x$，任取其中一个记为$a_{n_1}$，即它在原数列中的下标是$n_1$，则再取$\varepsilon_2 = \min \{ \dfrac{1}{2}\varepsilon_1, |x-a_{n_1}| \}$，又可以选落在区间$(x-\varepsilon_2,x+\varepsilon)$中并且不等于$x$的项$a_{n_2}$，这里$n_2$的选法要保证$n_2>n_1$，因为是有无穷多个数落在区间内，所以这总是可以办到的。依次类推，得出一个子列$a_{n_1},a_{n_2},\ldots$，显然这个子列是收敛到$x$的。
-\end{proof}
-
-现在讨论下无穷聚点，在讨论之前，我们先用邻域重新描述一下聚点：数$x$是无穷数集$A$的一个聚点的充分必要条件是，$x$的任意邻域都包含了数集$A$中的无穷多个数。我们已经引进过，正无穷的邻域是开区间$(a,+\infty)$，负无穷的邻域是开区间$(-\infty,a)$，因此我们把聚点的这个用邻域的定义照搬到正无穷和负无穷上，就得出无穷聚点的定义。
-
-\begin{definition}
-  如果对于任意实数$a$，正无穷的邻域$(a,+\infty)$中总是包含着无穷数集$A$中的无穷多个数，则称正无穷是数集$A$的一个\emph{无穷聚点}，同理可以定义负的无穷聚点. 
-\end{definition}
-
-在引入了无穷聚点之后，聚点定理中的数集有界的要求就可以去掉了，因为如果数集无界，显然它必然有无穷聚点。同样，博雷尔-魏尔斯特拉斯引理中数列有界的限制也就可以去掉了，以后我们所说的聚点，均可以是有限的也可以是无限的，在这种意义上，我们把前面的相关定理修正为:
+因为级数收敛等同于其部分和数列的收敛，因此级数也有如下的柯西收敛准则
 \begin{theorem}
-  任意无穷数集必有聚点，且必有最大聚点和最小聚点.
-\end{theorem}
-必有聚点这是显然的，所有聚点组成一个集合，这集合有上下确界（可以无穷），这上下确界也必然是其聚点，关于这一点我们需要详细的证明，即要证明下面的定理
-\begin{theorem}
-  设$A$是一个无穷数集，而$E$是它的聚点集合，如果$E$也有聚点，则这聚点也必定是$A$的聚点.换句话说，集合$E$具有特点：它的聚点必定也在自身中.
+  级数$\sum_{n=1}^{\infty}a_n$收敛的充分必要条件是，对于无论多么小的正实数$\varepsilon$，都存在某个下标$N$，使得级数在这个下标以后的任意片段之和的绝对值都小于$\varepsilon$，即任意的$n>N$及$m\in \mathbb{N^{*}}$，都有
+  \[ |a_{n}+a_{n+1}+\cdots+a_{n+m}|<\varepsilon \]
 \end{theorem}
 
-\begin{proof}[证明]
- 只证明有限的情况，设$x$是聚点$E$的一个有限聚点， 则它的任意小空心邻域内必然包含了无穷多个$E$中的点，而根据聚点定义，显然这个空心邻域也就必然包含了$A$中的无穷多个点，因此它也是$A$的聚点.
-\end{proof}
+\begin{example}
+  调和级数的发散性
+\end{example}
 
-聚点集的这种特性称为是闭的，我们定义
+提出如下定义
 \begin{definition}
-  如果一个无穷数集的所有聚点也在这集合中，则称这集合是\emph{闭集}.
+  如果级数$\sum_{n=1}^{\infty}|a_n|$收敛，则称级数$\sum_{n=1}^{\infty}a_n$ \emph{绝对收敛}.
 \end{definition}
 
-与闭集相对，我们还有开集的概念，为此先引入\emph{内点}和\emph{界点}的定义.
-\begin{definition}
-  设$A$是一个数集，如果$x \in A$并且存在$x$的某个邻域$(x-\delta,x+\delta)$整个都被$A$所包含，则称为$x$是$A$的一个\emph{内点}.
-\end{definition}
-
-\begin{definition}
-  设$A$是一个数集，$x$是一个实数，如果$x$的任意小的空心邻域内都同时包含有$A$中的点和不在$A$中的点，则称$x$是$A$的一个\emph{界点}.
-\end{definition}
-
-下面定义开集:
-\begin{definition}
-  如果一个数集中的任一个点都是这数集的内点，则称这数集是\emph{开集}.
-\end{definition}
-
-注意闭集与开集并不互斥，比如实数集$\mathbb{R}$，它既是开集又是闭集.
-
-\subsection{上极限与下极限}
-\label{sec:upper-limit-and-lower-limit}
-
-这一节利用聚点的概念来定义上极限与下极限，并在此基础上讨论极限存在的条件。
-
-首先我们证明一个结论，前面已经知道，有界数集存在聚点，在此基础上还有如下结论
+在这定义下，立即可得
 \begin{theorem}
-  有界数集存在最大的聚点和最小的聚点。
+  绝对收敛的级数必然收敛.
 \end{theorem}
+证明很简单，利用下面的不等式再结合柯西收敛准则即可得出
+\[ |a_{n}+a_{n+1}+\cdots+a_{n+m}| < |a_{n+1}|+|a_{n+2}|+\cdots+|a_{n+m}| \]
 
-\begin{proof}[证明]
-  记有界数集$A$的聚点集合是$B$，设$A$的上下确界分别是$M$和$L$，显然任何大于$M$或者小于$L$的数都不可能是$A$的聚点，也就是说，$B$也以$M$和$L$为上界和下界（但不能保证是确界），记$B$的上确界为$P$，我们来证明，$P$也是$A$的聚点，也就是$P \in B$.
-
-  对于任意正实数$\varepsilon$，存在$b_1 \in B$，使得$P-\varepsilon < b_1 < P$，但$b_1$是$A$的一个聚点，因此它的任意邻域内都含有$A$中的无限个元素，取适当的邻域，使其被包含于开区间$(P-\varepsilon,P)$中，于是开区间$(P-\varepsilon,P)$也就包含了数集$A$中的无限多个元素，从而$P$是数集$A$的聚点，同理，$B$的下确界$Q$也是数集$A$的聚点，它们分别是数集$A$的最大聚点和最小聚点。
-\end{proof}
-
-如果考虑到无穷聚点，则上述定理仍然成立。
-
-以后我们会称数列的聚点，它是指由数列所有项的数值所组成的数集(若有数值相同的项，则该值按重复次数计算)的聚点，以后不再特别说明，显然有如下定理。
-
-\begin{theorem}
-  数$A$是数列$\{a_n\}$的一个聚点的充分必要条件是，这数列存在收敛到$A$的子数列.
+关于每一项都是正值的级数的收敛性，有以下重要的比较判别法
+\begin{theorem}[比较判别法]
+  对于两个正项实数级数$\sum_{n=1}^{\infty}a_n$和$\sum_{n=1}^{\infty}b_n$，如果对每个正整数$n$都成立$a_n \leqslant b_n$(或者从某一项开始后续所有项都满足)，那么如果$\sum_{n=1}^{\infty}b_n$收敛则$\sum_{n=1}^{\infty}a_n$必然也收敛,如果$\sum_{n=1}^{\infty}a_n$发散则$\sum_{n=1}^{\infty}b_n$必然也发散.
 \end{theorem}
+由柯西收敛准则是容易证明的，这里从略.
 
-\begin{definition}
-  数列$a_n$的最大聚点(可以无穷)称为数列的\emph{上极限}，记作$\varlimsup\limits_{n \to \infty}a_n$，而最小的聚点称为它的\emph{下极限}，记作$\varliminf\limits_{n \to \infty} a_n$.
-\end{definition}
+\begin{example}
+  讨论级数
+  \[ \sum_{n=1}^{\infty}\frac{1}{n^{\alpha}} \]
+  的收敛性，这里$\alpha>0$.
 
-显然，数列必同时存在上极限与下极限(可以无穷)。
+  我们已经知道，当$\alpha=1$时级数发散，当$\alpha=2$时级数收敛，因此按照比较判别法，$0<\alpha<1$时级数都发散，而当$\alpha>2$时级数都收敛，唯有$1<\alpha<2$的情况还不明确，然而在这种情况下仿照前文对调和级数的处理方法，我们有
+  \begin{align*}
+    \frac{1}{3^{\alpha}+\frac{1}{4^{\alpha}}} & < \frac{2}{2^{\alpha}} \\
+    \frac{1}{5^{\alpha}}+\frac{1}{6^{\alpha}}+\frac{1}{7^{\alpha}}+\frac{1}{8^{\alpha}} & < \frac{4}{4^{\alpha}} \\
+     ... & \\
+    \frac{1}{(2^n+1)^{\alpha}}+\cdots+\frac{1}{(2^{n+1})^{\alpha}} & < \frac{2^n}{(2^n)^{\alpha}}
+  \end{align*}
+  但是级数
+  \[ \sum_{n=1}^{\infty} \frac{2^n}{(2^n)^{\alpha}} = \sum_{n=1}^{\infty} \frac{1}{(2^{\alpha-1})^n} \]
+  是收敛的，因此级数
+  \[ \sum_{n=1}^{\infty} \left( \frac{1}{(2^n+1)^{\alpha}}+\cdots+\frac{1}{(2^{n+1})^{\alpha}} \right) \]
+  收敛，也即
+  \[ \sum_{n=1}^{\infty}\frac{1}{n^{\alpha}} \]
+  在$1<\alpha<2$时也收敛.
 
-\begin{theorem}
-数列存在极限的充分必要条件是，它的上极限与下极限相等。  
-\end{theorem}
+  最终结论就是，在$0<\alpha<1$时级数发散，当$\alpha>1$时级数收敛.
+\end{example}
 
-\begin{proof}[证明]
-  必要性，如果数列$a_n$收敛到$A$，显然$A$是它的唯一聚点，上极限与下极限都是它。
-
-  充分性，设上极限与下极限都是$A$，显然$A$的任意邻域内含有数列中的无限多项，而在此邻域外只能含有数列中的有限多项，否则在此邻域外还有别的聚点存在，所以数列只能收敛到此值。
-\end{proof}
 
 
 
