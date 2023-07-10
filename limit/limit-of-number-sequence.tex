@@ -1289,63 +1289,6 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
   \[ |z_n+z_{n+1}+\cdots+z_{n+m}| < \varepsilon \]
 \end{theorem}
 
-\subsection{题选}
-\label{sec:exercises-for-number-sequence-limit}
-
-
-\begin{exercise}
-  已知非负实数数列$\{a_n\}$对任意两个正整数$n$和$m$都满足$a_{n+m} \leqslant a_n+a_m$，求证:数列$\{\frac{a_n}{n}\}$收敛。
-\end{exercise}
-
-\exerciseFrom[\url{http://kuing.orzweb.net/viewthread.php?tid=4633}]
-
-\exerciseSolvedDate[2017-05-24]
-
-这道题目跟1997年的一道CMO试题的条件一模一样，只是结论不同，题目如下: 已知非负实数数列$\{a_n\}$对任意两个正整数$n$和$m$都满足$a_{n+m} \leqslant a_n+a_m$，求证:对任意$n \geqslant m$都有$a_n \leqslant ma_1+\left( \frac{n}{m}-1\right)a_m$。
-
-由于这个关联性，所以原题目的解答过程参考了后者的思路\footnote{见参考文献\cite{olympic-math}.}.
-
-\begin{proof}[证明]
-设$n>m$，有
-\begin{align*}
-\frac{a_n}{n} - \frac{a_m}{m} < & \frac{a_{n-m}+a_m}{n} - \frac{a_m}{m} \\
- = & \frac{n-m}{n} \left( \frac{a_{n-m}}{n-m} - \frac{a_m}{m} \right)
-\end{align*}
-这有点类似于辗转相除法，如果还有$n-m>m$，则继续上述步骤，经过有限步之后，必然得出
-\[ \frac{a_n}{n} - \frac{a_m}{m} \leqslant \frac{s}{n} \left( \frac{a_s}{s} - \frac{a_m}{m} \right) \]
-其中正整数$s$满足$1 \leqslant s \leqslant m$，但是这个$s$，一般的说是依赖于$n$的，但是它的取值集合却是有限个，所以右端除去因子$\frac{1}{n}$以外的部分是有界的,所以我们在上式中令$n \to \infty$，便能得出右端在$n \to \infty$时趋于零，这就说明: 对于每一个固定的$m$和任意小的正实数$\delta$，当$n$充分大时恒有
-\[ \frac{a_n}{n} \leqslant \frac{a_m}{m} + \delta \]
-这便是我们解答问题的关键所在，因为显然还能得出$a_n \leqslant a_{n-1}+a_1 \leqslant (a_{n-2}+a_1)+a_1 \leqslant \cdots \leqslant na_1$，从而$0 \leqslant \frac{a_n}{n} \leqslant a_1$说明数列$\{\frac{a_n}{n}\}$是有上下界的，因此我们只要证明如下这个引理就可以了：
-
-引理: 如果数列$\{ x_n \}$有界，并且对于数列中的每一项$x_m$和任意小的正实数$\delta$，当$n$充分大时恒有$x_n \leqslant x_m+\delta$，那么数列收敛。
-
-证明是很容易的，既然数列有下界，便有下确界，我们将证明这下确界便是其极限，设其下确界为$M$，那么对于无论多么小的正实数$\varepsilon$，存在数列中的某一项$x_m$满足$M \leqslant x_m  < M+\varepsilon$，然而由条件，当$n$充分大时恒有$x_n \leqslant x_m+\delta$，我们让这个$\delta<M+\varepsilon-x_m$，从而这时就有$M \leqslant x_n  < M+\varepsilon$，按极限定义，这下确界$M$便是其极限。
-\end{proof}
-
-\begin{exercise}
-  已知$m+1$个实数$a_i(i=0,1,\ldots,m)$满足
-  \[ a_0+a_1+\cdots+a_m=0 \]
-  求证
-  \[ \lim_{n \to \infty} (a_0 \sqrt{n}+a_1 \sqrt{n+1}+\cdots a_m \sqrt{n+m}) = 0 \]
-\end{exercise}
-
-\exerciseFrom[\url{http://kuing.orzweb.net/viewthread.php?tid=4640}]
-
-\exerciseSolvedDate[2017-05-27]
-
-\begin{proof}[证明]
-  由条件有
-  \[ a_m = -(a_0+a_1+\cdots+a_{m-1}) \]
-  所以
-  \begin{eqnarray*}
-    && \sum_{i=0}^m a_i \sqrt{n+i}  \\
-    & = & \sum_{i=0}^{m-1} a_i (\sqrt{n+i}-\sqrt{n+m}) \\
-    & = & - \sum_{i=0}^{m-1} \frac{(m-i)a_i}{\sqrt{n+i}+\sqrt{n+m}}
-  \end{eqnarray*}
-  上式每一个项的极限都是零，且项数$m$不随$n$变化，故原式极限为零。
-\end{proof}
-
-
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../calculus-note"
