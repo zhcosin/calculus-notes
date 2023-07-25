@@ -44,12 +44,12 @@
   \[ x^n-x_0^n = (x-x_0)(x^{n-1}+x^{n-2}x_0+\cdots+xx_0^{n-2}+x_0^{n-1}) \]
   限定$x \in (x_0-\delta,x_0+\delta)$，令$M=\max\{|x_0-\delta|,|x_0+\delta|\}$，则
   \[ |x^n-x_0^n| < nM^{n-1}|x-x_0| \]
-  注意这里的$nM^{n-1}$是常数，以$P$表之，则对于任意小的正实数$\varepsilon$，只要取$\delta=\dfrac{\varepsilon}{P}$，就能保证$|f(x)-f(x_0)|<\varepsilon$对任意$x \in (x_0-\delta,x_0)\cup(x_0,x_0+\delta)$恒成立，即得结论.
+  注意这里的$nM^{n-1}$是常数，以$P$表之，则对于任意小的正实数$\varepsilon$，只要取$\delta=\frac{\varepsilon}{P}$，就能保证$|f(x)-f(x_0)|<\varepsilon$对任意$x \in (x_0-\delta,x_0)\cup(x_0,x_0+\delta)$恒成立，即得结论.
 \end{example}
 
 \begin{example}
   \label{example:limit-of-sin-1-over-x-at-0}
-  考虑函数$f(x)=\sin{\dfrac{1}{x}}$在$x \to 0$时的极限情况，此时函数在-1与1之间完成无穷次振动，它的函数值不可能无限靠近任意一个实数，所以它在$x=0$处不存在极限.但若将它稍加改造，考虑函数$f(x)=x\sin{\dfrac{1}{x}}$，则此时它的图象将被限定在$y=x$和$y=-x$之间并且在靠近零时，无限的在两个函数之间振动，此时显然有$|x\sin{\dfrac{1}{x}}|\leqslant |x|$，所以显然就有
+  考虑函数$f(x)=\sin{\frac{1}{x}}$在$x \to 0$时的极限情况，此时函数在-1与1之间完成无穷次振动，它的函数值不可能无限靠近任意一个实数，所以它在$x=0$处不存在极限.但若将它稍加改造，考虑函数$f(x)=x\sin{\frac{1}{x}}$，则此时它的图象将被限定在$y=x$和$y=-x$之间并且在靠近零时，无限的在两个函数之间振动，此时显然有$|x\sin{\frac{1}{x}}|\leqslant |x|$，所以显然就有
   \[ \lim_{x \to 0} x \sin{\frac{1}{x}} = 0 \]
 \end{example}
 
@@ -84,13 +84,13 @@
       0 & x \in [0,1]-\mathbb{Q}
     \end{cases}
   \]
-  简单来说，当$x$是有理数$\dfrac{p}{q}$时，$R(x)=\dfrac{1}{q}$，注意这里$p$、$q$是一对既约整数（即最大公因数为1），且$q$是正的。而当$x$是无理数时，$R(x)=0$.
+  简单来说，当$x$是有理数$\frac{p}{q}$时，$R(x)=\frac{1}{q}$，注意这里$p$、$q$是一对既约整数（即最大公因数为1），且$q$是正的。而当$x$是无理数时，$R(x)=0$.
 
   黎曼函数可以看成是狄利克雷函数的一个改进，我们现在来证明，黎曼函数在任意点处都有极限为零。
 
-  任取数$x_0 \in [0,1]$，只需要证明$\lim\limits_{x \to x_0} R(x)=0$就可以了，对于任意小的正实数$\varepsilon>0$，我们要找一个$\delta>0$，使得$\forall x \in (x_0-\delta,x_0)\cup(x_0,x_0+\delta)$都有$|R(x)|<\varepsilon$成立，显然无理数是无关紧要的，这个$\delta$只需要由有理数来决定，当$x$是有理数$\dfrac{p}{q}(q>0)$时，我们就是要使
+  任取数$x_0 \in [0,1]$，只需要证明$\lim\limits_{x \to x_0} R(x)=0$就可以了，对于任意小的正实数$\varepsilon>0$，我们要找一个$\delta>0$，使得$\forall x \in (x_0-\delta,x_0)\cup(x_0,x_0+\delta)$都有$|R(x)|<\varepsilon$成立，显然无理数是无关紧要的，这个$\delta$只需要由有理数来决定，当$x$是有理数$\frac{p}{q}(q>0)$时，我们就是要使
   \[ \frac{1}{q} < \varepsilon \]
-  成立，这就需要让$(x_0-\delta,x_0)\cup(x_0,x_0+\delta)$上的一切有理数$\dfrac{p}{q}$都满足$q > \dfrac{1}{\varepsilon}$，这能否做到呢？是可以的，因为不满足这个条件的有理数是有限的（小于$\dfrac{1}{\varepsilon}$的正整数$q$是有限的，而小于这些$q$的非负整数$p$也是有限的），从而把这些有理数记为$x_1,x_2,\ldots,x_m$(注意这里的$m$跟$\varepsilon$有关)，则只要让$\delta$同时满足$\delta < |x_i-x_0|(i=1,2,\ldots,m)$，则这些有理数都不会落在范围$(x_0-\delta,x_0)\cup(x_0,x_0+\delta)$内，从而对于该范围内的一切有理数，前面所需要的条件就成立了，于是函数在$x_0$处有极限为零。
+  成立，这就需要让$(x_0-\delta,x_0)\cup(x_0,x_0+\delta)$上的一切有理数$\frac{p}{q}$都满足$q > \frac{1}{\varepsilon}$，这能否做到呢？是可以的，因为不满足这个条件的有理数是有限的（小于$\frac{1}{\varepsilon}$的正整数$q$是有限的，而小于这些$q$的非负整数$p$也是有限的），从而把这些有理数记为$x_1,x_2,\ldots,x_m$(注意这里的$m$跟$\varepsilon$有关)，则只要让$\delta$同时满足$\delta < |x_i-x_0|(i=1,2,\ldots,m)$，则这些有理数都不会落在范围$(x_0-\delta,x_0)\cup(x_0,x_0+\delta)$内，从而对于该范围内的一切有理数，前面所需要的条件就成立了，于是函数在$x_0$处有极限为零。
 \end{example}
 \subsection{函数极限的性质}
 \label{sec:properties-of-function-limit}
@@ -142,7 +142,7 @@
   \label{example:limit-of-fraction-function}
   再考虑一般的有理函数
   \[ f(x) = \frac{a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0}{b_mx^m+b_{m-1}x^{m-1}+\cdots+b_1x+b_0} \]
-考虑它在无穷远处的极限，通过与上例类似的方法，可以得到，如果$m=n$，则极限为$\dfrac{a_n}{b_n}$，若$m>n$，则极限为零，若$m<n$，则极限为无穷大.
+考虑它在无穷远处的极限，通过与上例类似的方法，可以得到，如果$m=n$，则极限为$\frac{a_n}{b_n}$，若$m>n$，则极限为零，若$m<n$，则极限为无穷大.
 \end{example}
 
 \begin{example}
@@ -156,11 +156,11 @@
   \[ \frac{(1+x)^{-n}-1}{x} = \frac{1-(1+x)^n}{x} \cdot \frac{1}{(1+x)^n} \]
   令$x \to 0$，上式极限即为$-n$，所以结论对于$r$为一切整数的情形都成立.
 
-  再设$r$是有理数$\dfrac{n}{m}$，令$t=(1+x)^{n/m}$，由公式
+  再设$r$是有理数$\frac{n}{m}$，令$t=(1+x)^{n/m}$，由公式
   \[ a^m-b^m=(a-b)(a^{m-1}+a^{m-2}b+\cdots+ab^{m-2}+b^{m-1}) \]
   得
   \[ \frac{(1+x)^{n/m}-1}{x} = \frac{t-1}{x} = \frac{t^m-1}{x(1+t+\cdots+t^{m-1})} = \frac{(1+x)^n-1}{x} \cdot \frac{1}{1+t+\cdots+t^{m-1}} \]
-  当$x \to 0$时，第一个因子趋于$n$，第二个因子由于$t \to 1$而趋于$m$，因此整体趋于极限$\dfrac{n}{m}$，即$r$，得证。
+  当$x \to 0$时，第一个因子趋于$n$，第二个因子由于$t \to 1$而趋于$m$，因此整体趋于极限$\frac{n}{m}$，即$r$，得证。
 
   这就是说，在$x \to 0$时，有$(1+x)^r=1+rx+o(x)$.
 
@@ -300,13 +300,13 @@
   \[ \lim_{x \to 0} \frac{1-\cos{x}}{x^2} = \frac{1}{2} \]
   这是由于
     \[ \frac{1-\cos{x}}{x^2} = \frac{2\sin^2 \frac{x}{2}}{x^2} = \frac{1}{2} \cdot \left( \frac{\sin{\frac{x}{2}}}{\frac{x}{2}} \right)^2 \]
-    取极限并利用平方函数的连续性即得结论，于是就有，在$x \to 0$时，有$\cos{x}=1-\dfrac{1}{2}x^2+o(x^2)$.
+    取极限并利用平方函数的连续性即得结论，于是就有，在$x \to 0$时，有$\cos{x}=1-\frac{1}{2}x^2+o(x^2)$.
 \end{example}
 
 \begin{example}
   对于正切函数，我们有
   \[ \lim_{x \to 0} \frac{\tan{x}}{x} = 1 \]
-  这从$\tan{x}=\dfrac{\sin{x}}{\cos{x}}$便可以得出，于是在$x \to 0$时，有$\tan{x} = x + o(x)$.
+  这从$\tan{x}=\frac{\sin{x}}{\cos{x}}$便可以得出，于是在$x \to 0$时，有$\tan{x} = x + o(x)$.
 \end{example}
 
 \begin{example}
@@ -315,9 +315,9 @@
   \[ \lim_{x \to x_0} \sin{x} = \sin{x_0} \]
   因为
   \[ |\sin{x}-\sin{x_0}| = 2 \left| \cos{\frac{x+x_0}{2}} \sin{\frac{x-x_0}{2}} \right| \leqslant 2 \left| \sin{\frac{x-x_0}{2}} \right| \]
-  根据我们已经知道的不等式，$\forall x \in \left(- \dfrac{\pi}{2}, \dfrac{\pi}{2} \right)$有$|\sin{x}| \leqslant |x|$，所以只要限定$|x-x_0|<\dfrac{\pi}{2}$，就有
+  根据我们已经知道的不等式，$\forall x \in \left(- \frac{\pi}{2}, \frac{\pi}{2} \right)$有$|\sin{x}| \leqslant |x|$，所以只要限定$|x-x_0|<\frac{\pi}{2}$，就有
   \[ |\sin{x}-\sin{x_0}| \leqslant |x-x_0| \]
-  于是对任意正实数$\varepsilon>0$，只要取$0<\delta<\min\{\varepsilon, \dfrac{\pi}{2}\}$，就能保证$\forall x \in ( x_0+\delta,x_0+\delta )$都有
+  于是对任意正实数$\varepsilon>0$，只要取$0<\delta<\min\{\varepsilon, \frac{\pi}{2}\}$，就能保证$\forall x \in ( x_0+\delta,x_0+\delta )$都有
   \[ |\sin{x}-\sin{x_0}| < \varepsilon \]
   成立，即证明了结论。
 
@@ -334,7 +334,7 @@
   只证明第一个，第二个也是类似的，固定$x_0$，
   有
   \[ \frac{\sin{x}-\sin{x_0}}{x-x_0} = 2\cos{\frac{x+x_0}{2}} \cdot \frac{\sin{\frac{x-x_0}{2}}}{x-x_0} \]
-  显然当$x \to x_0$时，后一个因式趋于$\dfrac{1}{2}$，而第一个因式我们已经证明了它趋于$\cos{x_0}$，因而便得结论。
+  显然当$x \to x_0$时，后一个因式趋于$\frac{1}{2}$，而第一个因式我们已经证明了它趋于$\cos{x_0}$，因而便得结论。
 \end{example}
 
 我们在数列极限的部分曾经证明过下面这个数列存在极限
@@ -366,7 +366,7 @@
 \end{theorem}
 
 \begin{proof}[证明]
-  以$x \to \infty$为例，因为$\lim\limits_{x \to \infty}(1+\dfrac{1}{x})^x = \mathrm{e}$，所以对于无论多么小的正实数$\varepsilon$，都存在正实数$M$，使得满足$|x|>M$的一切实数$x$都符合$|(1+\dfrac{1}{x})^x-\mathrm{e}|<\varepsilon$，又因为$f(x)$为无穷小，所以对于这个正实数$M$，存在另一正实数$K$，使得当$|x|>K$时，有$|f(x)|<\dfrac{1}{M}$成立，于是$\left| \frac{1}{f(x)} \right|>M$，从而就有
+  以$x \to \infty$为例，因为$\lim\limits_{x \to \infty}(1+\frac{1}{x})^x = \mathrm{e}$，所以对于无论多么小的正实数$\varepsilon$，都存在正实数$M$，使得满足$|x|>M$的一切实数$x$都符合$|(1+\frac{1}{x})^x-\mathrm{e}|<\varepsilon$，又因为$f(x)$为无穷小，所以对于这个正实数$M$，存在另一正实数$K$，使得当$|x|>K$时，有$|f(x)|<\frac{1}{M}$成立，于是$\left| \frac{1}{f(x)} \right|>M$，从而就有
   \[ \left| (1+f(x))^{1/f(x)} - \mathrm{e} \right| < \varepsilon \]
   这就证得结论。
 \end{proof}

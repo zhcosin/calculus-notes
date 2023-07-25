@@ -56,9 +56,9 @@
 
 \begin{example}
   \label{example:limit-of-1-devide-by-n-power-p}
-  前面在提炼极限定义时用了$\dfrac{1}{n}$在$n$无限增大时的情形，现在利用极限定义来证明这个极限:
+  前面在提炼极限定义时用了$\frac{1}{n}$在$n$无限增大时的情形，现在利用极限定义来证明这个极限:
   \[ \lim_{n \to \infty} \frac{1}{n} = 0 \]
-  对于任意小的正实数$\varepsilon$，要使$\dfrac{1}{n}<\varepsilon$，只要$n>\dfrac{1}{\varepsilon}$就可以了，于是可以取$N=1+\left[ \dfrac{1}{\varepsilon} \right]$就可以了，这就证明了它的极限是零，实际上这里的$N$，只要比$\dfrac{1}{\varepsilon}$大就都可以了，以后我们就不专门作取整处理了。
+  对于任意小的正实数$\varepsilon$，要使$\frac{1}{n}<\varepsilon$，只要$n>\frac{1}{\varepsilon}$就可以了，于是可以取$N=1+\left[ \frac{1}{\varepsilon} \right]$就可以了，这就证明了它的极限是零，实际上这里的$N$，只要比$\frac{1}{\varepsilon}$大就都可以了，以后我们就不专门作取整处理了。
 
   仿此还可以得到，当$p$是正有理数时，有
   \[ \lim_{n \to \infty} \frac{1}{n^p} = 0 \]
@@ -68,7 +68,7 @@
   \label{example:limit-of-q-power-n}
   设实数$q$满足$|q|<1$，则
   \[ \lim_{n \to \infty} q^n = 0 \]
-  对于任意小的正实数$\varepsilon$，要使不等式$|q^n - 0| < \varepsilon$，只要$n>\dfrac{\ln{\varepsilon}}{\ln{|q|}}$就行了，这就证明得了结论。
+  对于任意小的正实数$\varepsilon$，要使不等式$|q^n - 0| < \varepsilon$，只要$n>\frac{\ln{\varepsilon}}{\ln{|q|}}$就行了，这就证明得了结论。
 \end{example}
 
 \begin{example}
@@ -92,16 +92,16 @@
   \[ a^n=(1+\lambda)^n=\sum_{i=0}^nC_n^i\lambda^i > C_n^2 \lambda^2 \]
   因此有
   \[ \frac{n}{a^n} < \frac{n}{C_n^2 \lambda^2} = \frac{2}{(n-1)\lambda^2} \]
-  在$n>2$时，又有$n-1>\dfrac{n}{2}$，所以此时更有
+  在$n>2$时，又有$n-1>\frac{n}{2}$，所以此时更有
   \[ \frac{n}{a^n} < \frac{4}{n\lambda^2} \]
-  所以对于任意小的正实数$\varepsilon$，只要$n>\max\{2,\dfrac{4}{\lambda^2\varepsilon}\}$，便有$\dfrac{n}{a^n} < \varepsilon$，这就证得所要的极限。
+  所以对于任意小的正实数$\varepsilon$，只要$n>\max\{2,\frac{4}{\lambda^2\varepsilon}\}$，便有$\frac{n}{a^n} < \varepsilon$，这就证得所要的极限。
 \end{example}
 
 \begin{example}
   \label{example:limit-of-lnn-devide-by-n}
   在\autoref{example:limit-of-n-devide-by-a-power-n}的基础上，还可以建立下面的极限
   \[ \lim_{n \to \infty} \frac{\ln{n}}{n} = 0 \]
-  对于任意小的正实数$\varepsilon$，为了使得$n$充分大时$\dfrac{\ln{n}}{n} < \varepsilon$，只要使$n<(e^{\varepsilon})^n$就可以了，而根据\autoref{example:limit-of-n-devide-by-a-power-n}中所建立起的极限，这是可以在$n$充分大时恒成立的，故此就建立了此处的极限。
+  对于任意小的正实数$\varepsilon$，为了使得$n$充分大时$\frac{\ln{n}}{n} < \varepsilon$，只要使$n<(e^{\varepsilon})^n$就可以了，而根据\autoref{example:limit-of-n-devide-by-a-power-n}中所建立起的极限，这是可以在$n$充分大时恒成立的，故此就建立了此处的极限。
 \end{example}
 
 \begin{example}
@@ -112,11 +112,11 @@
   \[ a \cdot \frac{a}{2} \cdots \frac{a}{n} \]
   任取正整数$M$满足$M>a$，根据上式因式中分母与$M$的大小分成两部分(限定$n>M$)
   \[ \left( a \cdot \frac{a}{2} \cdots \frac{a}{M} \right) \left( \frac{a}{M+1} \cdot \frac{a}{M+2} \cdots \frac{a}{n} \right) \]
-  将后一个括号中的因式全部放大为$\dfrac{a}{M}$，成为
+  将后一个括号中的因式全部放大为$\frac{a}{M}$，成为
   \[ \left( a \cdot \frac{a}{2} \cdots \frac{a}{M} \right) \left( \frac{a}{M} \right)^{n-M} \]
   它具有形式
   \[ c q^n \]
-  其中$q=\dfrac{a}{M}$满足$|q|<1$，而$c$是一个正常数，所以此式极限是零，而原式也就以零为极限。
+  其中$q=\frac{a}{M}$满足$|q|<1$，而$c$是一个正常数，所以此式极限是零，而原式也就以零为极限。
 \end{example}
 
 \begin{example}
@@ -155,11 +155,11 @@
   \[ n!>M!M^{n-M} \]
   即
   \[ \frac{1}{\sqrt[n]{n!}} < \frac{1}{M \sqrt[n]{\frac{M!}{M^M}}} \]
-  而$\dfrac{M!}{M^M}<1$，根据\autoref{example:limit-of-n-sqrt-a-when-a-greater-than-1}的结论，当$n$充分大时，将有
+  而$\frac{M!}{M^M}<1$，根据\autoref{example:limit-of-n-sqrt-a-when-a-greater-than-1}的结论，当$n$充分大时，将有
   \[ \sqrt[n]{\frac{M!}{M^M}} > \frac{1}{2} \]
   从而此时有
   \[ \frac{1}{\sqrt[n]{n!}} < \frac{2}{M} \]
-  即对于任何确定的$M$，当$n$充分大时都有上式成立，所以对于任意小的正实数$\varepsilon$，只要让$\dfrac{2}{M}<\varepsilon$就可以了，这就证明了结论。
+  即对于任何确定的$M$，当$n$充分大时都有上式成立，所以对于任意小的正实数$\varepsilon$，只要让$\frac{2}{M}<\varepsilon$就可以了，这就证明了结论。
 \end{example}
 
 \begin{example}
@@ -176,13 +176,13 @@
   \[ \sum_{i=1}^Na_i + (n-N)(A-\varepsilon) < a_{1}+a_{2}+\cdots+a_n < \sum_{i=1}^Na_i + (n-N)(A+\varepsilon) \]
   从而
   \[ A-\varepsilon + \frac{1}{n} \left( \sum_{i=1}^Na_i - N(A-\varepsilon) \right) < M_n <  A+\varepsilon + \frac{1}{n} \left( \sum_{i=1}^Na_i - N(A+\varepsilon) \right)\]
-  因为$\lim\limits_{n \to \infty}\dfrac{1}{n} = 0$，所以对于前述正实数$\varepsilon$，令
+  因为$\lim\limits_{n \to \infty}\frac{1}{n} = 0$，所以对于前述正实数$\varepsilon$，令
   \[ \varepsilon_1= \frac{\varepsilon}{\left| \sum_{i=1}^Na_i - N(A-\varepsilon) \right|} \]
   和正实数
   \[ \varepsilon_2= \frac{\varepsilon}{\left| \sum_{i=1}^Na_i - N(A+\varepsilon) \right|} \]
-  再令$\varepsilon_0=\max\{\varepsilon_1,\varepsilon_2\}$，则存在正整数$N_0$，使得当$n>N_0$时，$\dfrac{1}{n}<\varepsilon_0$，于是在$n>N_1=\max\{N,N_0\}$时有
+  再令$\varepsilon_0=\max\{\varepsilon_1,\varepsilon_2\}$，则存在正整数$N_0$，使得当$n>N_0$时，$\frac{1}{n}<\varepsilon_0$，于是在$n>N_1=\max\{N,N_0\}$时有
   \[ A-2\varepsilon < M_n < A+2\varepsilon \]
-  这便说明$\lim\limits_{n \to \infty}M_n = A$，需要提醒的是这里出现的$2\varepsilon$似乎与极限定义不一致，但实际上，只要在这整个过程将$\varepsilon$替换为$\dfrac{1}{2}\varepsilon$，就可以与极限定义完全一致，而且从另一个角度来说，极限定义中只是说$\varepsilon$是任意正实数，那么如果$\varepsilon$是任意正实数，$2\varepsilon$照样可以取遍任意正实数，所以这并没有本质上的不同，关于这一点以后将不再说明了。
+  这便说明$\lim\limits_{n \to \infty}M_n = A$，需要提醒的是这里出现的$2\varepsilon$似乎与极限定义不一致，但实际上，只要在这整个过程将$\varepsilon$替换为$\frac{1}{2}\varepsilon$，就可以与极限定义完全一致，而且从另一个角度来说，极限定义中只是说$\varepsilon$是任意正实数，那么如果$\varepsilon$是任意正实数，$2\varepsilon$照样可以取遍任意正实数，所以这并没有本质上的不同，关于这一点以后将不再说明了。
 \end{example}
 
 \begin{example}[无穷级数的和]
@@ -234,10 +234,10 @@
 \end{theorem}
 
 \begin{proof}[证明]
-  反证法，若$A>B$，则取$\varepsilon=\dfrac{1}{2}(A-B)$，在$n$充分大时必同时有$a_n>A-\varepsilon=\dfrac{1}{2}(A+B)$以及$b_n<B+\varepsilon=\dfrac{1}{2}(A+B)$成立，这时显然有$a_n>b_n$，与定理条件矛盾，所以$A \leqslant B$.
+  反证法，若$A>B$，则取$\varepsilon=\frac{1}{2}(A-B)$，在$n$充分大时必同时有$a_n>A-\varepsilon=\frac{1}{2}(A+B)$以及$b_n<B+\varepsilon=\frac{1}{2}(A+B)$成立，这时显然有$a_n>b_n$，与定理条件矛盾，所以$A \leqslant B$.
 \end{proof}
 
-要注意的是由定理中的条件并不能得出$A<B$的结论来，例如$a_n=\dfrac{1}{n^2}$与$b_n=\dfrac{1}{n}$.
+要注意的是由定理中的条件并不能得出$A<B$的结论来，例如$a_n=\frac{1}{n^2}$与$b_n=\frac{1}{n}$.
 
 \begin{theorem}[夹逼准则，迫敛性]
  若三个数列$a_n$、$b_n$、$c_n$在$n$充分大时恒有$a_n \leqslant b_n \leqslant c_n$，并且$a_n$与$c_n$都收敛到同一极限$M$，则$b_n$亦必收敛到此极限值. 
@@ -340,9 +340,9 @@
   如果数列$a_n$满足: 对任意大的正实数$M$，总存在正整数$N$，使得当$n>N$时恒有$|a_n|\geqslant M$，则称这数列在$n$无限增大时是一个\emph{无穷大}，如果$a_n$在$n$充分大时还保持着一定的符号，则称之为\emph{正无穷大}或者\emph{负无穷大}，此时也称数列收敛到正无穷或者收敛到负无穷，记作$\lim\limits_{n \to \infty} a_n = + \infty$或者$\lim\limits_{n \to \infty} a_n = -\infty$.
 \end{definition}
 
-显然，当$a_n$是非零的无穷小时，$\dfrac{1}{a_n}$是无穷大，反之也对。
+显然，当$a_n$是非零的无穷小时，$\frac{1}{a_n}$是无穷大，反之也对。
 
-例如$\dfrac{1}{n}$便是无穷小的例子，而$n^2$则是一个无穷大的例子。
+例如$\frac{1}{n}$便是无穷小的例子，而$n^2$则是一个无穷大的例子。
 
 为讨论的方便，我们引入无穷大的邻域概念.
 \begin{definition}
@@ -366,7 +366,7 @@
 
   如果$m=l$，则分子分母同时除以最高次幂变形为
   \[ \frac{a_m+\frac{a_{m-1}}{n}+\cdots+\frac{a_0}{n^m}}{b_m+\frac{b_{m-1}}{n}+\cdots+\frac{b_0}{n^m}} \]
-  显然它的极限是$\dfrac{a_m}{b_m}$，即最高次项系数之比。
+  显然它的极限是$\frac{a_m}{b_m}$，即最高次项系数之比。
 
   如果$m<l$，则分子分母同时除以$n^l$后，原式成为
   \[ \frac{\frac{a_m}{n^{l-m}}+\cdots+\frac{a_0}{n^l}}{b_m+\frac{b_{m-1}}{n}+\cdots+\frac{b_0}{n^l}} \]
@@ -377,11 +377,11 @@
 
 \begin{definition}
    设数列$a_n$与$b_n$都是无穷小，即在$n$无限增大时都收敛到零，\\
-  (1). 若$\lim\limits_{n \to \infty} \dfrac{a_n}{b_n} = 0$，则称$a_n$是$b_n$的\emph{高阶无穷小}，记作$a_n=o(b_n)$. \\
-  (2). 若存在正实数$U$和$V$，使得当$n$充分大时有$U\leqslant \left| \dfrac{a_n}{b_n} \right| \leqslant V$，则称$a_n$与$b_n$是\emph{同阶无穷小}，特别的，如果$\lim\limits_{n \to \infty} \dfrac{a_n}{b_n} = 1$，则称它俩是\emph{等价无穷小}，记作$a_n \sim b_n$.
+  (1). 若$\lim\limits_{n \to \infty} \frac{a_n}{b_n} = 0$，则称$a_n$是$b_n$的\emph{高阶无穷小}，记作$a_n=o(b_n)$. \\
+  (2). 若存在正实数$U$和$V$，使得当$n$充分大时有$U\leqslant \left| \frac{a_n}{b_n} \right| \leqslant V$，则称$a_n$与$b_n$是\emph{同阶无穷小}，特别的，如果$\lim\limits_{n \to \infty} \frac{a_n}{b_n} = 1$，则称它俩是\emph{等价无穷小}，记作$a_n \sim b_n$.
 \end{definition}
 
-例如，$\dfrac{1}{n^2}$是$\dfrac{1}{n}$的高阶无穷小，而$\dfrac{1}{n}$与$\dfrac{1+\sin{n}}{n}$则是同阶无穷小，这个概念体现了无穷小之间的比较，需要说明的是，两个无穷小之间并不必然有阶的高低之分，因为它俩之比可以不收敛。
+例如，$\frac{1}{n^2}$是$\frac{1}{n}$的高阶无穷小，而$\frac{1}{n}$与$\frac{1+\sin{n}}{n}$则是同阶无穷小，这个概念体现了无穷小之间的比较，需要说明的是，两个无穷小之间并不必然有阶的高低之分，因为它俩之比可以不收敛。
 
 
 关于无穷小，还有如此结论
@@ -393,7 +393,7 @@
   由条件，存在正实数$M$，使得$b_n$中的所有项都满足$|b_n|\leqslant M$，所以$|a_nb_n| \leqslant M |a_n|$总是成立的，而$a_n$为无穷小，所以对于无论多么小的正实数$\varepsilon$，数列$a_n$总能从某项起恒满足$|a_n|<\varepsilon/M$，从而$|a_nb_n|<\varepsilon$，于是结论成立。
 \end{proof}
 
-由此知道，数列$\dfrac{\sin{n}}{n}$是无穷小.
+由此知道，数列$\frac{\sin{n}}{n}$是无穷小.
 
 \begin{theorem}
   有限个无穷小之和仍是无穷小.
@@ -411,7 +411,7 @@
 与无穷小类似，我们可以定义高阶无穷大的概念。
 
 \begin{definition}
-  设数列$x_n$和$y_n$在$n\to\infty$时都是无穷大，如果$\lim\limits_{n \to \infty} \left| \dfrac{x_n}{y_n} \right| = +\infty$，则称$x_n$是$y_n$的\emph{高阶无穷大}.
+  设数列$x_n$和$y_n$在$n\to\infty$时都是无穷大，如果$\lim\limits_{n \to \infty} \left| \frac{x_n}{y_n} \right| = +\infty$，则称$x_n$是$y_n$的\emph{高阶无穷大}.
 \end{definition}
 
 $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大小与$x_n$相比完全可以忽略不计，尽管$y_n$自身也是无穷大。
@@ -427,7 +427,7 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 \label{sec:stolz-theorem}
 
 \begin{theorem}[Stolz 定理]
-  对于两个数列$a_n$和$b_n$，其中$b_n$是一个(至少从某一项开始)严格增加到正无穷或者严格减小到负无穷的数列，如果$\lim\limits_{n\to\infty}\dfrac{a_{n+1}-a_n}{b_{n+1}-b_n} = M$，那么有$\lim\limits \dfrac{a_n}{b_n} = M$，这里的$M$可以是一个实数，也可以是正无穷或者负无穷。
+  对于两个数列$a_n$和$b_n$，其中$b_n$是一个(至少从某一项开始)严格增加到正无穷或者严格减小到负无穷的数列，如果$\lim\limits_{n\to\infty}\frac{a_{n+1}-a_n}{b_{n+1}-b_n} = M$，那么有$\lim\limits \frac{a_n}{b_n} = M$，这里的$M$可以是一个实数，也可以是正无穷或者负无穷。
 \end{theorem}
 
 \begin{proof}[证明]
@@ -467,13 +467,13 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
   \[ \lim_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} = \lim_{n \to \infty} \frac{(1+n)^m}{(1+n)^{m+1}-n^{m+1}} = \lim_{n \to \infty} \frac{n^m+\cdots}{(m+1)n^m+\cdots} = \frac{1}{m+1} \]
   根据Stolz定理，便得原式亦有相同极限。
 
-  在初等数学中，我们已经知道自然数的幂和$S(n,m)=\sum\limits_{i=1}^ni^m$是一个关于$n$的$m+1$次多项式，并且它的最高次项系数就是$\dfrac{1}{m+1}$，所以这里的极限是毫不意外的。
+  在初等数学中，我们已经知道自然数的幂和$S(n,m)=\sum\limits_{i=1}^ni^m$是一个关于$n$的$m+1$次多项式，并且它的最高次项系数就是$\frac{1}{m+1}$，所以这里的极限是毫不意外的。
 \end{example}
 
 \begin{example}
   现在把上一例的结果进行加强，上例中求出了
   \[ \lim_{n \to \infty} \frac{1^m+2^m+\cdots+n^m}{n^{m+1}} = \frac{1}{m+1} \]
-  那么左端的数列减去极限值便是一个无穷小，这个无穷小的阶是如何的呢，现在我们拿它与$\dfrac{1}{n}$进行比较，即要求极限
+  那么左端的数列减去极限值便是一个无穷小，这个无穷小的阶是如何的呢，现在我们拿它与$\frac{1}{n}$进行比较，即要求极限
   \[ \lim_{n \to \infty} n \left( \frac{1^m+2^m+\cdots+n^m}{n^{m+1}} - \frac{1}{m+1} \right) \]
   将原式通分变形为
   \[ \frac{(m+1)(1^m+2^m+\cdots+n^m)-n^{m+1}}{(m+1)n^m} \]
@@ -486,13 +486,13 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
   \[ \frac{(m+1)C_m^{m-1}-C_{m+1}^{m-1}}{(m+1)C_m^{m-1}} = \frac{1}{2} \]
   于是根据Stolz定理，就有
   \[ \lim_{n \to \infty} n \left( \frac{1^m+2^m+\cdots+n^m}{n^{m+1}} - \frac{1}{m+1} \right) = \frac{1}{2} \]
-  这就是说，上例中的数列与极限作差的无穷小，与$\dfrac{2}{n}$是等价无穷小.
+  这就是说，上例中的数列与极限作差的无穷小，与$\frac{2}{n}$是等价无穷小.
 \end{example}
 
 \begin{example}
   我们证明一个关于调和级数与对数之间关系的一个重要极限:
   \[ \lim_{n \to \infty} \frac{1+\frac{1}{2}+\cdots+\frac{1}{n}}{\ln{n}} = 1 \]
-  取$a_n=1+\dfrac{1}{2}+\cdots+\dfrac{1}{n}$，$b_n=\ln{n}$，则
+  取$a_n=1+\frac{1}{2}+\cdots+\frac{1}{n}$，$b_n=\ln{n}$，则
   \[ \lim_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} = \lim_{n \to \infty} \frac{1}{(n+1)\ln{\left( 1+ \frac{1}{n} \right)}} = 1 \]
   显然$b_n$是单调增加到正无穷的，因此由Stolz定理即得所要证的极限。
 
@@ -522,9 +522,9 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 
   可以看到，如果$x_1$的取值大于2，则这数列将单调减少并恒大于2，但会收敛到2.
 
-  类似的，对于递推数列$x_{n+1}=\sqrt{c+x_n}$，这里$c>0$为常数，如果数列收敛，设极限为$x$，显然$x=\sqrt{c+x}$，即$x=\dfrac{1+\sqrt{1+4c}}{2}$，又如果$x_n<x$，则显然$x_{n+1}<x$，如果$x_n>x$，则$x_{n+1}>x$，也就是说，只要首项$x_1$在$x$的某一边，则数列的全部项都在同一侧，而
+  类似的，对于递推数列$x_{n+1}=\sqrt{c+x_n}$，这里$c>0$为常数，如果数列收敛，设极限为$x$，显然$x=\sqrt{c+x}$，即$x=\frac{1+\sqrt{1+4c}}{2}$，又如果$x_n<x$，则显然$x_{n+1}<x$，如果$x_n>x$，则$x_{n+1}>x$，也就是说，只要首项$x_1$在$x$的某一边，则数列的全部项都在同一侧，而
   \[ x_{n+1}^2-x_n^2=c+x_n-x_n^2=\left( x_n - \frac{1+\sqrt{1+4c}}{2} \right)\left( \frac{1-\sqrt{1+4c}}{2}-x_n \right) \]
-  所以如果$x_1<x=\dfrac{1+\sqrt{1+4c}}{2}$，则$x_n$单调增加有上界，如果$x_1>x$，则数列单调减少有下界，无论哪种情况，都会收敛到$\dfrac{1+\sqrt{1+4c}}{2}$.
+  所以如果$x_1<x=\frac{1+\sqrt{1+4c}}{2}$，则$x_n$单调增加有上界，如果$x_1>x$，则数列单调减少有下界，无论哪种情况，都会收敛到$\frac{1+\sqrt{1+4c}}{2}$.
 \end{example}
 
 \begin{example}
@@ -537,13 +537,13 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
     & = & 1+\left( 1-\frac{1}{2} \right)+\cdots+\left( \frac{1}{n-1}-\frac{1}{n} \right) \\
     & = & 2-\frac{1}{m} < 2
   \end{eqnarray*}
-  因此它有上界，于是收敛，也就是说，级数$\lim\limits_{n=1}^{\infty}\dfrac{1}{n^2}$收敛，以后会看到，这个和是$\dfrac{\pi^2}{6}$.
+  因此它有上界，于是收敛，也就是说，级数$\lim\limits_{n=1}^{\infty}\frac{1}{n^2}$收敛，以后会看到，这个和是$\frac{\pi^2}{6}$.
 \end{example}
 
 \begin{example}
   序列
   \[ 1+\frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!} \]
-  它显然是单调增加的，而关于它上有界，则有两种放缩方式可以证明，其一是利用$\dfrac{1}{n!}<\dfrac{1}{2^{n-1}}(n \geqslant 2)$，其二是利用$\dfrac{1}{n!}<\dfrac{1}{(n-1)n}=\dfrac{1}{n-1}-\dfrac{1}{n}$，因此它也有上界，从而有极限，这就是说: 级数$\sum\limits_{n=0}^{\infty} \dfrac{1}{n!}$收敛，以后将看到，它会收敛到$\mathrm{e}$，自然对数的底数。
+  它显然是单调增加的，而关于它上有界，则有两种放缩方式可以证明，其一是利用$\frac{1}{n!}<\frac{1}{2^{n-1}}(n \geqslant 2)$，其二是利用$\frac{1}{n!}<\frac{1}{(n-1)n}=\frac{1}{n-1}-\frac{1}{n}$，因此它也有上界，从而有极限，这就是说: 级数$\sum\limits_{n=0}^{\infty} \frac{1}{n!}$收敛，以后将看到，它会收敛到$\mathrm{e}$，自然对数的底数。
 \end{example}
 
 \begin{example}
@@ -581,7 +581,7 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 \begin{example}
   数列
   \[ \frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n} \]
-  它共有$n$个加数，且依次减小，把所有加数都放大为第一个，则得出它小于$\dfrac{n}{n+1}<1$，这表明它有上界，再看单调性，当$n$变为$n+1$时，末尾会增加两项$\dfrac{1}{2n+1}$和$\dfrac{1}{2n+2}$，但前面会少一项$\dfrac{1}{n+1}$，因此其增量为
+  它共有$n$个加数，且依次减小，把所有加数都放大为第一个，则得出它小于$\frac{n}{n+1}<1$，这表明它有上界，再看单调性，当$n$变为$n+1$时，末尾会增加两项$\frac{1}{2n+1}$和$\frac{1}{2n+2}$，但前面会少一项$\frac{1}{n+1}$，因此其增量为
   \[ \frac{1}{2n+1}+\frac{1}{2n+2}-\frac{1}{n+1} > 2 \cdot \frac{1}{2n+2} - \frac{1}{n+1} = 0 \]
   故它又是递增的，因此有极限，且极限不超过1，以后将看到(\autoref{example:limit-of-sum-of-i/n+1-i-in-(1-n)})，它的极限是$\ln{2}$.
 \end{example}
@@ -650,7 +650,7 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 \begin{proof}[证明]
   先证必要性. 如果数列$x_n$收敛到$x$，那么对于任意正实数$\varepsilon$，都有正整数$N$，使得$n>N$时恒有$|x_n-x|<\varepsilon / 2$，于是对于任意$n_1>N$及$n_2>N$，便有$|x_{n_1}-x_{n_2}|=|(x_{n_1}-x)- (x_{n_2}-x)|\leqslant |x_{n_1}-x|+|x_{n_2}-x|<\varepsilon / 2+\varepsilon / 2 = \varepsilon$。必要性得证。
 
-  再证充分性，先任取一个正实数$\varepsilon_1$，数列中的项能够从某一项开始全部落在一个宽度为$2\varepsilon_1$的闭区间$I_1$，再取$\varepsilon_2 = \dfrac{1}{2}\varepsilon_1$，则数列又能够从另一项（一般来说需要向后推移若干个下标）开始尽数落在一个宽度为$2\varepsilon_2$的闭区间$I_2$上，且$I_1 \supseteq I_2$，依次类推，得出一个闭区间序列$I_1,I_2,\ldots$，其中每一个闭区间都能包含数列从某一项开始之后的全部项，且这些闭区间的长度趋于零，因此按闭区间套定理，存在唯一实数$M$同时处于所有的闭区间上，它将是这数列的极限，这是因为，对于任意正实数$\varepsilon$，显然存在某个闭区间$I_m$，使得$I_m \subset (M-\varepsilon,M+\varepsilon)$，而数列能够从某一项开始全部落在闭区间$I_m$上，也就从这一项开始全部落在$M$的$\varepsilon$邻域内，所以$M$就是这数列的极限。
+  再证充分性，先任取一个正实数$\varepsilon_1$，数列中的项能够从某一项开始全部落在一个宽度为$2\varepsilon_1$的闭区间$I_1$，再取$\varepsilon_2 = \frac{1}{2}\varepsilon_1$，则数列又能够从另一项（一般来说需要向后推移若干个下标）开始尽数落在一个宽度为$2\varepsilon_2$的闭区间$I_2$上，且$I_1 \supseteq I_2$，依次类推，得出一个闭区间序列$I_1,I_2,\ldots$，其中每一个闭区间都能包含数列从某一项开始之后的全部项，且这些闭区间的长度趋于零，因此按闭区间套定理，存在唯一实数$M$同时处于所有的闭区间上，它将是这数列的极限，这是因为，对于任意正实数$\varepsilon$，显然存在某个闭区间$I_m$，使得$I_m \subset (M-\varepsilon,M+\varepsilon)$，而数列能够从某一项开始全部落在闭区间$I_m$上，也就从这一项开始全部落在$M$的$\varepsilon$邻域内，所以$M$就是这数列的极限。
 \end{proof}
 
 我们还可以得出柯西收敛准则的否定叙述：数列$a_n$发散的充分必要条件是，存在正实数$r$，使得无论对于多大的正整数$N$，总是存在两个正整数$n_1$和$n_2$，使得$|a_{n_1}-a_{n_2}| \geqslant r$.
@@ -696,15 +696,15 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 
   仍然由
   \[ \frac{1}{2^m+1} + \frac{1}{2^m+2} + \cdots + \frac{1}{2^{m+1}} > 2^m \cdots \frac{1}{2^{m+1}} = \frac{1}{2} \]
-可知，对于任意正整数$N$，只要取一个$n_1=2^{m_1}>N$，再取$n_2=2^{m_1+1}$，就有$|H_{n_1}-H_{n_2}|>\dfrac{1}{2}$，于是部分和数列$H_n$发散，即调和级数发散。
+可知，对于任意正整数$N$，只要取一个$n_1=2^{m_1}>N$，再取$n_2=2^{m_1+1}$，就有$|H_{n_1}-H_{n_2}|>\frac{1}{2}$，于是部分和数列$H_n$发散，即调和级数发散。
 
 要说明的是，这里的放缩方式不是唯一的，比如说从级数中的任一项开始，作片段和
 \[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{n+m} > \frac{m}{n+m} \]
 为了让右端能够大于某个正整数，取$m=n$，即片段的长度要依赖于片段中首项的下标，下标越大，片段越长，这里有
 \[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n} > \frac{1}{2} \]
-于是我们将调和级数按下标划分片段，1和2分别为单独的片段，从3到4为一段，从5到8为一段，9到16为一段，这样划分之后，每一段上的和都大于$\dfrac{1}{2}$，但是这样的划分与前面的放缩其实是一致的，但是我们可以改为这里的$m$，以得出不同的划分，例如取$m=2n$，就得
+于是我们将调和级数按下标划分片段，1和2分别为单独的片段，从3到4为一段，从5到8为一段，9到16为一段，这样划分之后，每一段上的和都大于$\frac{1}{2}$，但是这样的划分与前面的放缩其实是一致的，但是我们可以改为这里的$m$，以得出不同的划分，例如取$m=2n$，就得
 \[ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{3n} > \frac{2}{3} \]
-于是片段的划分方式是，1是单独的片段，从2到3为一段，从4到9为一段，从10到27为一段，依次类推，每个片段上的倒数和都大于$\dfrac{2}{3}$，于是级数发散。
+于是片段的划分方式是，1是单独的片段，从2到3为一段，从4到9为一段，从10到27为一段，依次类推，每个片段上的倒数和都大于$\frac{2}{3}$，于是级数发散。
 \end{example}
 
 \subsection{聚点定理}
@@ -714,7 +714,7 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
   对于无穷数集$A$和某个实数$x$，若$x$的任意小的邻域$(x-\varepsilon,x_{\varepsilon})$内都包含了$A$中的无穷多个数，则称数$x$是数集$A$的一个\emph{聚点}.
 \end{definition}
 
-例如，零是数集$\left\{ \dfrac{1}{n} \right\}$的一个聚点。显然，定义中的邻域改成空心邻域也没有什么影响。
+例如，零是数集$\left\{ \frac{1}{n} \right\}$的一个聚点。显然，定义中的邻域改成空心邻域也没有什么影响。
 
 聚点可以在数集中，也可以不在集合中，事实上，如果聚点在集合中，那就从集合中除去此数，它仍然是新数集的聚点，并不受影响。
 
@@ -732,7 +732,7 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 \end{inference}
 
 \begin{proof}[证明]
-  将数列的所有项作成一个有界数集，如果该数集是有限集，则表明数列中有无穷多个项取相同的数值，那么取这些项作成的子列就是收敛的，如果此数集是无限集，由聚点定理知它至少有一个聚点$x$，那么任意取定一个正实数$\varepsilon_1$，则数集中有无穷多个数落在$(x-\varepsilon_1,x+\varepsilon_1)$内并且不等于$x$，任取其中一个记为$a_{n_1}$，即它在原数列中的下标是$n_1$，则再取$\varepsilon_2 = \min \{ \dfrac{1}{2}\varepsilon_1, |x-a_{n_1}| \}$，又可以选落在区间$(x-\varepsilon_2,x+\varepsilon)$中并且不等于$x$的项$a_{n_2}$，这里$n_2$的选法要保证$n_2>n_1$，因为是有无穷多个数落在区间内，所以这总是可以办到的。依次类推，得出一个子列$a_{n_1},a_{n_2},\ldots$，显然这个子列是收敛到$x$的。
+  将数列的所有项作成一个有界数集，如果该数集是有限集，则表明数列中有无穷多个项取相同的数值，那么取这些项作成的子列就是收敛的，如果此数集是无限集，由聚点定理知它至少有一个聚点$x$，那么任意取定一个正实数$\varepsilon_1$，则数集中有无穷多个数落在$(x-\varepsilon_1,x+\varepsilon_1)$内并且不等于$x$，任取其中一个记为$a_{n_1}$，即它在原数列中的下标是$n_1$，则再取$\varepsilon_2 = \min \{ \frac{1}{2}\varepsilon_1, |x-a_{n_1}| \}$，又可以选落在区间$(x-\varepsilon_2,x+\varepsilon)$中并且不等于$x$的项$a_{n_2}$，这里$n_2$的选法要保证$n_2>n_1$，因为是有无穷多个数落在区间内，所以这总是可以办到的。依次类推，得出一个子列$a_{n_1},a_{n_2},\ldots$，显然这个子列是收敛到$x$的。
 \end{proof}
 
 现在讨论下无穷聚点，在讨论之前，我们先用邻域重新描述一下聚点：数$x$是无穷数集$A$的一个聚点的充分必要条件是，$x$的任意邻域都包含了数集$A$中的无穷多个数。我们已经引进过，正无穷的邻域是开区间$(a,+\infty)$，负无穷的邻域是开区间$(-\infty,a)$，因此我们把聚点的这个用邻域的定义照搬到正无穷和负无穷上，就得出无穷聚点的定义。
@@ -868,9 +868,9 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
     \label{eq:example-equation-a-n-b-n}
    b^{n+1}>a^n(a-(n+1)(a-b))=a^n((n+1)b-na) 
   \end{equation}
-  在此式中取$a=1+\dfrac{1}{n}$, $b=1+\dfrac{1}{n+1}$，由于$(n+1)b-na=1$，故得
+  在此式中取$a=1+\frac{1}{n}$, $b=1+\frac{1}{n+1}$，由于$(n+1)b-na=1$，故得
   \[ \left( 1+\frac{1}{n+1} \right)^{n+1} < \left( 1+\frac{1}{n} \right)^n \]
-  即数列$x_n$单调增加，再在前式中取$a=1+\dfrac{1}{2n}$,$b=1$，则$(n+1)b-na=\dfrac{1}{2}$，则得
+  即数列$x_n$单调增加，再在前式中取$a=1+\frac{1}{2n}$,$b=1$，则$(n+1)b-na=\frac{1}{2}$，则得
   \[ \frac{1}{2} \left( 1 + \frac{1}{2n} \right)^n < 1 \]
   即
   \[ \left( 1 + \frac{1}{2n} \right)^{2n} < 4 \]
@@ -952,7 +952,7 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
   \[ \left( 1 + \frac{1}{n+1} \right)^{n+1} - \left( 1 + \frac{1}{n} \right)^n < \frac{3}{n(n+1)} \]
   设$a>b>0$，则
   \[ a^n-b^n=(a-b)(a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1})>nb^{n-1}(a-b) \]
-  取$a=1+\dfrac{1}{n}$，$b=1+\dfrac{1}{n+1}$，有
+  取$a=1+\frac{1}{n}$，$b=1+\frac{1}{n+1}$，有
   \[ \left( 1 + \frac{1}{n} \right)^{n} - \left( 1 + \frac{1}{n+1} \right)^{n} >\frac{1}{n+1}\left( 1+\frac{1}{n+1} \right)^{n-1} \]
   所以
   \begin{eqnarray*}
@@ -976,7 +976,7 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
               & < & \frac{1}{n!} \left( \frac{1}{n+1}+\frac{1}{(n+1)^2}+\cdots+\frac{1}{(n+1)^m} \right) \\
               & = & \frac{1}{n!} \cdot \frac{1}{n} \left(1-\frac{1}{(n+1)^m} \right)
 \end{eqnarray*}
-固定$n$，令$m \to \infty$，就得到(下式本来应该是小于等于，但只要在上面取更强的放缩，比如是提$\dfrac{1}{(n+1)!}$而不是$\dfrac{1}{n!}$，取极限之后就可以得到一个小于等于$\dfrac{1}{nn!}$的量)
+固定$n$，令$m \to \infty$，就得到(下式本来应该是小于等于，但只要在上面取更强的放缩，比如是提$\frac{1}{(n+1)!}$而不是$\frac{1}{n!}$，取极限之后就可以得到一个小于等于$\frac{1}{nn!}$的量)
 \[ \mathrm{e}-y_n < \frac{1}{nn!} \]
 于是对于任意正整数$n$，存在实数$\theta_n \in (0,1)$，使得
 \begin{equation}
@@ -986,7 +986,7 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 
 利用\autoref{eq:e-n-fractor}，我们可以证明$\mathrm{e}$是无理数，因为如果它是有理数，则有
  \[ \frac{m}{n} = 1+\frac{1}{1!}+\frac{1}{2!}+\cdots+\frac{1}{n!}+\frac{\theta_n}{nn!} \]
-注意这里是先用有理数$\dfrac{p}{q}$表示$\mathrm{e}$，再将右端展开到对应的$n=q$的，然后只要在此式的两端同时乘以$n!$，左端得出一个整数，但是右端却是一个整数加上一个真分数$\dfrac{\theta_n}{n}$，矛盾，所以$\mathrm{e}$是无理数，如此也可以说明\autoref{eq:e-n-fractor}中的$\theta_n$不可能取1.
+注意这里是先用有理数$\frac{p}{q}$表示$\mathrm{e}$，再将右端展开到对应的$n=q$的，然后只要在此式的两端同时乘以$n!$，左端得出一个整数，但是右端却是一个整数加上一个真分数$\frac{\theta_n}{n}$，矛盾，所以$\mathrm{e}$是无理数，如此也可以说明\autoref{eq:e-n-fractor}中的$\theta_n$不可能取1.
 
 现在利用\autoref{eq:e-n-fractor}估算一下，只要取$n=20$，就有
 \[ \frac{1}{20\times 20!}=\frac{1}{48658040163532800000}= 2.0551\ldots \times 10^{-20} < 3 \times 10^{-20} \]
