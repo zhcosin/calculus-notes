@@ -52,7 +52,9 @@
 \end{theorem}
 
 \begin{proof}[证明]
-  对于绝对收敛的级数$\sum_{n=1}^{\infty}a_n$，将它的项任意重新排列后所得新级数记为$\sum_{n=1}^{\infty}b_n$，记$A_n=\sum_{i=1}^n|a_i|$，$B_n=\sum_{i=1}^n|b_i|$，则对于任一$B_n$，组成它的各个$b_i$在原来的级数中的下标最大值记为$m$，则显然$B_n \leqslant A_m$，于是$B_n$单调增加有上界，故级数$\sum_{n=1}^{\infty}b_n$绝对收敛。
+  由于正项收敛级数任意重排后仍然收敛且和不变，因此将一个绝对收敛的(非全正项)级数的项任意重排后显然仍然是绝对收敛的。
+
+  (和不变待证)
 \end{proof}
 
 以下定理深刻提示了绝对收敛级数与非绝对收敛级数之间的区别。
@@ -60,7 +62,22 @@
   如果一个级数收敛但非绝对收敛，则将它的项进行适当的重新排列后，可使新级数收敛到任意预先指定的实数。
 \end{theorem}
 
+\subsection{幂级数}
+\label{sec:power-series}
+
+以下形状的级数称为 \emph{幂级数}:
+\[ \sum_{n=0}^{\infty} a_nx^n = a_0+a_1x+a_2x^2+\cdots + a_nx^n+\cdots \]
+该级数依赖于未知量$x$，其收敛性与 $x$ 的取值有关，如果当 $x=x_0$ 时上述幂级数收敛，则称上述幂级数在 $x_0$ 处收敛，显然，任意幂级数在 $x=0$ 处都收敛，此外，绝对收敛的概念同样可以照搬.
+
+关于幂级数的收敛性，有如下结论
+\begin{theorem}
+  若幂级数 $\sum_{n=0}^{\infty}a_nx^n$ 在 $x=x_0$处收敛，则它对于任意满足 $|x|<|x_0|$ 的 $x$ 均绝对收敛.
+\end{theorem}
+
+  
+\end{proof}
+
 %%% Local Variables:
 %%% mode: latex
-%%% TeX-master: "../book"
+%%% TeX-master: "../calculus-note"
 %%% End:
