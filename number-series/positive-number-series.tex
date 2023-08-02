@@ -1,8 +1,17 @@
 
-\section{正项级数的收敛性判别}
+\section{正项级数}
 \label{sec:positive-number-series}
 
+
+
+\subsection{基础讨论}
+\label{sec:base-of-positive-series}
+
+
+
 对于级数$\sum_{n=1}^{\infty}a_n$，如果它的每一项都是正数（或者当$n$充分大时恒保持正号），我们有一系列的判别方法可以判断它的收敛性。
+
+特别说明: 本节的主要结果实际上只要级数的项是非负的就都成立，后续使用的时候就不再特别说明了。
 
 由于正项级数的部分和是单调增加的，所以回想起数列极限的单调有界定理，我们就有
 
@@ -23,10 +32,11 @@
   级数$\sum_{n=1}^{\infty}\ln{\left( 1+\frac{1}{n} \right)}$，注意到$\ln{\left( 1+\frac{1}{n} \right)} = \ln{(n+1)}-\ln{n}$，所以部分和$S_n=\ln{(n+1)}$，显然无界，所以级数发散。
 \end{example}
 
+
 \subsection{比较判别法}
 \label{sec:compare-method-aboud-series-converage}
 
-如下的比较判别法是相当重要的:
+对于正项级数，有如下的比较判别法
 \begin{theorem}[比较判别法]
   \label{theorem:comparison-method-about-series-converage}
   对于两个正项级数$\sum_{n=1}^{\infty}a_n$和$\sum_{n=1}^{\infty}b_n$，如果从某一项起恒有$a_n \leqslant b_n$，那么由$\sum_{n=1}^{\infty}b_n$的收敛便能推得$\sum_{n=1}^{\infty}a_n$也收敛，同理，由$\sum_{n=1}^{\infty}a_n$发散便能推得$\sum_{n=1}^{\infty}b_n$也发散。
@@ -90,6 +100,27 @@
 \end{proof}
 
 利用比较判别法，我们把给定级数与一些已知为收敛的级数相比较，可以开发出一系列更具体的判别法，下文的判别法，基本都是如此。
+
+
+\subsection{正项级数的重排}
+\label{sec:re-order-of-positive-series}
+
+
+在有限个数相加的情形，成立着加法交换律，但是在无穷个数相加的情况下，加法一般来说就不一定成立了，以下结论给出一个加法交换律成立的充分条件:
+\begin{theorem}
+  \label{commutativity-of-positive-series}
+  如果级数$\sum_{n=1}^{\infty}a_n$收敛，而且所有项都是正的(实际只需要非负即可), 那么任意重排此级数的项后所得到的新级数也都收敛，而且仍然收到原来级数的和数.
+\end{theorem}
+
+\begin{proof}
+  设级数 $\sum_{n=1}^{\infty}b_n$是原级数任意重排后的一个新级数，并以 $A_n$ 和 $B_n$ 分别代表原级数和新级数的前$n$项和，那么对于新级数的的每一项而言，它在原级数中都有一个对应的下标，假若新级数前$n$项在原级数中的下标最大值为$m$( $m$ 跟 $n$ 有关且 $m \geqslant n$)，那么就有 $B_n \leqslant A_m$，因此就有 $B_n \leqslant A$，这里 $A$ 表原级数的和数，这表明新级数的部分和有上界，显然它又是递增的(项非负的情况下是单调不减)，因此新级数同样也是收敛的，且其和不会超过原级数的和数，记为 $B(\leqslant A)$.
+
+  再讨论新级数收敛到何值，由于原级数也可以视为新级数重排得来的，上面的推导过程中互换两个级数便可以得出 $A \leqslant B$，因此最终只能 $A=B$.
+\end{proof}
+这就是说，收敛的正项级数可以任意变更项的顺序，而其收敛性不变，和也不变. 换句话说，对于收敛的正项级数而言，加法交换律仍然成立.
+
+
+
 
 \subsection{柯西判别法与达朗贝尔判别法}
 \label{sec:cauchy-dalembert-method-aboud-series-converage}
