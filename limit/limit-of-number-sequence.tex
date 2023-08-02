@@ -1218,36 +1218,6 @@ $x_n$是$y_n$的高阶无穷大，就意味着当$n\to\infty$时，$y_n$的大�
 \end{theorem}
 
 
-关于每一项都是正值的级数的收敛性，有以下重要的比较判别法
-\begin{theorem}[比较判别法]
-  对于两个正项实数级数$\sum_{n=1}^{\infty}a_n$和$\sum_{n=1}^{\infty}b_n$，如果对每个正整数$n$都成立$a_n \leqslant b_n$(或者从某一项开始后续所有项都满足)，那么如果$\sum_{n=1}^{\infty}b_n$收敛则$\sum_{n=1}^{\infty}a_n$必然也收敛,如果$\sum_{n=1}^{\infty}a_n$发散则$\sum_{n=1}^{\infty}b_n$必然也发散.
-\end{theorem}
-由柯西收敛准则是容易证明的，这里从略.
-
-\begin{example}
-  讨论级数
-  \[ \sum_{n=1}^{\infty}\frac{1}{n^{\alpha}} \]
-  的收敛性，这里$\alpha>0$.
-
-  我们已经知道，当$\alpha=1$时级数发散，当$\alpha=2$时级数收敛，因此按照比较判别法，$0<\alpha<1$时级数都发散，而当$\alpha>2$时级数都收敛，唯有$1<\alpha<2$的情况还不明确，然而在这种情况下仿照前文对调和级数的处理方法，我们有
-  \begin{align*}
-    \frac{1}{3^{\alpha}+\frac{1}{4^{\alpha}}} & < \frac{2}{2^{\alpha}} \\
-    \frac{1}{5^{\alpha}}+\frac{1}{6^{\alpha}}+\frac{1}{7^{\alpha}}+\frac{1}{8^{\alpha}} & < \frac{4}{4^{\alpha}} \\
-     ... & \\
-    \frac{1}{(2^n+1)^{\alpha}}+\cdots+\frac{1}{(2^{n+1})^{\alpha}} & < \frac{2^n}{(2^n)^{\alpha}}
-  \end{align*}
-  但是级数
-  \[ \sum_{n=1}^{\infty} \frac{2^n}{(2^n)^{\alpha}} = \sum_{n=1}^{\infty} \frac{1}{(2^{\alpha-1})^n} \]
-  是收敛的，因此级数
-  \[ \sum_{n=1}^{\infty} \left( \frac{1}{(2^n+1)^{\alpha}}+\cdots+\frac{1}{(2^{n+1})^{\alpha}} \right) \]
-  收敛，也即
-  \[ \sum_{n=1}^{\infty}\frac{1}{n^{\alpha}} \]
-  在$1<\alpha<2$时也收敛.
-
-  最终结论就是，在$0<\alpha<1$时级数发散，当$\alpha>1$时级数收敛.
-\end{example}
-
-
 
 
 \subsection{复数数列的极限与复级数}
