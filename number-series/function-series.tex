@@ -1,0 +1,38 @@
+
+\section{函数级数}
+\label{sec:function-series}
+
+\subsection{一致收敛}
+\label{sec:uniform-convergence}
+
+
+
+\subsection{幂级数}
+\label{sec:power-series}
+
+以下形状的级数称为 \emph{幂级数}:
+\[ \sum_{n=0}^{\infty} a_nx^n = a_0+a_1x+a_2x^2+\cdots + a_nx^n+\cdots \]
+该级数依赖于未知量$x$，其收敛性与 $x$ 的取值有关，如果当 $x=x_0$ 时上述幂级数收敛，则称上述幂级数在 $x_0$ 处收敛，显然，任意幂级数在 $x=0$ 处都收敛，此外，绝对收敛的概念同样可以照搬.
+
+关于幂级数的收敛性，有如下结论
+\begin{theorem}
+  若幂级数 $\sum_{n=0}^{\infty}a_nx^n$ 在 $x=x_0(\neq 0)$处收敛，则它对于任意满足 $|x|<|x_0|$ 的 $x$ 均绝对收敛(从而更是收敛的).若它在 $x=x_0(\neq 0)$ 处发散，则对于任意符合 $|x|>|x_0|$的 $x$ 均发散.
+\end{theorem}
+
+\begin{proof}[证明]
+  如果这幂级数在$x=x_0(\neq 0)$处收敛，那么对于满足 $|x|<|x_0|$的 $x$ 而言，有
+  \[ |a_nx^n| = |a_nx_0^n| \cdot \left| \frac{x}{x_0} \right|^n \]
+  由于级数在 $x_0$处的收敛，可知 $a_nx_0^n \to 0 (n \to \infty)$，从而 $a_nx_0^n$ 是有界的，设 $|a_nx_0^n| \leqslant M$，而 $q=\left| \frac{x}{x_0} \right| < 1$，因此
+  \[ |a_nx^n| < Mq^n \]
+  而级数 $\sum_{n=0}^{\infty} Mq^n$ 显然是收敛的，故而级数 $\sum_{n=0}^n|a_nx^n|$ 收敛，定理前半部分获证.
+
+  定理的后半部分可以视前半部分的推论，因为如果这级数在 $x_0$ 处发散而在绝对值更大的 $x$ 处收敛，显然与前部分的结论是矛盾的.
+\end{proof}
+
+这定理显示能使幂级数 $\sum_{n=0}^{\infty} a_nx^n$收敛的 $x$ 的取值集合只能是以$0$为中心的某个区间(端点处的开闭暂不清楚)，将这区间长度的一半就称为这幂级数的 \emph{收敛半径}.
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../calculus-note"
+%%% End:
