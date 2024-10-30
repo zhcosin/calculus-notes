@@ -2,17 +2,38 @@
 \section{函数级数}
 \label{sec:function-series}
 
+\subsection{基本概念}
+\label{sec:concept-of-function-series}
+
+
+如果级数的每一项的数值都依赖于某一个(共同的)变量，那么这就是一个 \emph{函数项级数}，简称 \emph{函数级数}，其形如
+\[ \sum_{i=0}^n f_n(x) \]
+当变量 $x$ 取定一个确定的数值 $x_0$ 时，函数级数的各项也就都具备了确定的数值，成为一个普通的数项级数
+\[ \sum_{i=0}^n f_n(x_{0}) \]
+这时就可以讨论其收敛性了，如果函数级数 $\sum_{i=0}^n f_n(x)$ 在 $x=x_0$ 时的数项级数是收敛的，就称函数级数在 $x=x_0$ 处收敛，如果函数级数在自变量从某个区间(或数集)上任意取值所得的数项级数都收敛，那么就称这函数级数在该区间(数集)上是收敛的.
+
+如果函数级数在某个区间(或数集)上收敛，那么级数收敛到的数值显然也与自变量 $x$ 有关，这就形成一个新的函数 $f(x)$，即
+\[ f(x) = \sum_{i=0}^n f_n(x) \]
+注意 $f(x)$ 只有在使得函数级数收敛的那些自变量取值的数集上才有定义.
+
 \subsection{一致收敛}
 \label{sec:uniform-convergence}
 
+与函数在区间上一致连续的概念相仿，对于函数级数来说，对于确定的很小的正实数 $\varepsilon$，满足 $|f(x) - \sum_{i=0}^m f_n(x)|<\varepsilon$ 成立的下标下限 $(m>)N$ 是与自变量 $x$ 有关的，而一致收敛则是指，对任意确定的任意小正实数$\varepsilon$，(对使得函数级数收敛的自变量的不同取值)存在共同的 $N$ 使得接近不等式成立，严格描述就是
+\begin{definition}
+  \label{uniform-convergence-of-function-series}
+  设函数级数$\sum_{i=0}^n f_n(x)$与函数 $f(x)$ 在数集$I$上满足: 对于无论多么小的正实数 $\varepsilon$，都存在与$x$无关的正整数$N$,使得对一切 $n>N$ 成立 $|f(x) - \sum_{i=0}^m f_n(x)|<\varepsilon$，则称函数级数$\sum_{i=0}^n f_n(x)$在数集$I$上 \emph{一致收敛} 到 $f(x)$.
+\end{definition}
+
+显然，一致收敛是更强的收敛(即为收敛的充分不必要条件).
 
 
 \subsection{幂级数}
 \label{sec:power-series}
 
-以下形状的级数称为 \emph{幂级数}:
+以下形状的函数级数称为 \emph{幂级数}:
 \[ \sum_{n=0}^{\infty} a_nx^n = a_0+a_1x+a_2x^2+\cdots + a_nx^n+\cdots \]
-该级数依赖于未知量$x$，其收敛性与 $x$ 的取值有关，如果当 $x=x_0$ 时上述幂级数收敛，则称上述幂级数在 $x_0$ 处收敛，显然，任意幂级数在 $x=0$ 处都收敛，此外，绝对收敛的概念同样可以照搬.
+显然，任意幂级数在 $x=0$ 处都收敛，此外，绝对收敛的概念同样可以照搬.
 
 关于幂级数的收敛性，有如下结论
 \begin{theorem}
@@ -31,6 +52,13 @@
 
 这定理显示能使幂级数 $\sum_{n=0}^{\infty} a_nx^n$收敛的 $x$ 的取值集合只能是以$0$为中心的某个区间(端点处的开闭暂不清楚)，将这区间长度的一半就称为这幂级数的 \emph{收敛半径}.
 
+\begin{example}
+  借助常用基本初等函数的泰勒公式，可以罗列出以下的幂级数和对应的收敛半径.
+
+  指数函数的幂级数
+  \[ \mathrm{e}^x = 1 + x + \frac{x^2}{2!}+\cdots+\frac{x^n}{n!}+\cdots \]
+  它在整个 $\mathbb{R}$ 上都收敛.
+\end{example}
 
 %%% Local Variables:
 %%% mode: latex
