@@ -61,6 +61,18 @@
   在 $\rho$ 是无穷大的情形，$R=0$.
 \end{theorem}
 
+\begin{proof}[证明]
+  考虑 $\rho$ 是有限的情形，先证明幂级数对于符合 $|x|<R$ 的任意 $x$ 收敛, 任取绝对值小于 $R$ 的确定的数 $x_0$，由上极限概念，对于无论多么小的正实数 $\varepsilon$，当 $n$ 充分大时均有 $\sqrt[n]{|a_n|}<\rho+\varepsilon$，另一方面，对于 $x_0$ 来说，由于 $|x_0|<R=\frac{1}{\rho}$，可取一较小且固定的 $\delta>0$，使得 $|x_0|<\frac{1}{\rho + \delta}<\frac{1}{\rho}=R$，于是
+  \[ |a_nx_0^n| < \left( \frac{(\rho+\varepsilon}{\rho+\delta} \right)^n \]
+  这里 $\delta$ 是固定的，只要限定 $\varepsilon<\delta$，右侧括号中的部分就小于1，根据比较判别法，级数 $\sum_{n=0}^{\infty}a_nx^n$ 在 $x_0$ 处绝对收敛.
+
+  再证明级数对于符合 $|x|>R$ 的 $x_0$ 发散，仍由上极限概念，对于无论多么小的正实数 $\varepsilon$, 有任意大的下标$n$使得 $\sqrt[n]{|a_n|}>\rho-\varepsilon$成立，另一方面，对于 $x_0$ 来说，同样可取一较小且固定的 $\delta>0$，使得 $|x_0|>\frac{1}{\rho-\delta}>\frac{1}{\rho}=R$，于是
+  \[ |a_nx^n| > \left( \frac{\rho-\varepsilon}{\rho-\delta} \right)^n \] 
+  同样由于 $\delta$ 是固定的，只要限定 $\varepsilon<\delta$就能保证右侧括号中的部分大于1，通项不能趋于零，于是级数  $\sum_{n=0}^{\infty}a_nx^n$ 在 $x_0$ 处发散.
+
+  $\rho$ 为无穷的情形也类似的可以得出.
+\end{proof}
+
 \begin{example}
   借助常用基本初等函数的泰勒公式，可以罗列出以下的幂级数和对应的收敛半径.
 
