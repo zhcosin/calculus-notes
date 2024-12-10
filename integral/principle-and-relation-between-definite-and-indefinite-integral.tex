@@ -246,6 +246,18 @@
 因而可积.
 \end{example}
 
+\begin{example}
+  下列函数在闭区间 $[-1,1]$ 上是可积的.
+  \[
+    f(x) =
+    \begin{cases}
+      \sin{\frac{1}{x}} & x\in [-1,0)\cup(0,1] \\
+      0 & x=0
+    \end{cases}
+  \]
+  这函数在 $x=0$ 的邻域内完成无穷次振荡，对于闭区间的任意一个分划，包含0的小区间上的振幅始终为 1，但其区间总长可以任意小(一到两个小区间)，在剩下的那些小区间上，其振幅可以任意小，因而最终是可积的.
+\end{example}
+
 \begin{inference}
   \label{no-bound-function-not-integrable}
   闭区间上的无界函数不可积.
