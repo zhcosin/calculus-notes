@@ -10,6 +10,8 @@
 *.toc
 *.out
 *.dvi
+*.fls
+*.fdb_latexmk
 *~
 *#*#
 _*_.*
