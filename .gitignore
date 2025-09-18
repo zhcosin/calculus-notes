@@ -12,6 +12,8 @@
 *.dvi
 *.fls
 *.fdb_latexmk
+*.synctex
+*.synctex.gz
 *~
 *#*#
 _*_.*
