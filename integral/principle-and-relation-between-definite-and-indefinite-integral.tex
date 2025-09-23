@@ -584,6 +584,38 @@
 \[ \int f(x) dx = \left\{ \Phi(u,x) \left|  \right. u \in R \right\} = \left\{ \int_a^x f(t) dt +C \left| C \in R \right. \right\} \]
 这种去掉了积分上下限的积分，就称为 \emph{不定积分}. 而也正由于没有了上下限，所以它的结果就不是一个数值了，对于一个定积分而言，固定积分下限变动积分上限，定积分就成为变动的积分上限的函数，在此基础上积分下限也不固定了，那么它就成了一个函数族了，所以不定积分本质上就是变动的积分上限(主元)的函数在变动积分下限(参数)时形成的函数族(上下限反过来说也没问题，定积分作为积分限之一的函数，在变动另一积分限的情况下形成的函数族)，而且其中任一函数都是 $f(x)$ 的原函数，而且$f(x)$ 的所有原函数也都在其中，从这个角度说，\emph{ $f(x)$的不定积分就是它的所有原函数的集合}.
 
+易知，如果 $ F'(x) = f(x) $，那么
+\[ \int f(x) \dif x = F(x) + C \]
+据此，根据基本函数的求导法则，可得以下基本积分:
+\begin{theorem}[基本积分表]
+  \begin{enumerate}
+    \item $ \int a \dif x = a x + C (a \in \mathrm{R})$
+    \item $ \int x^a \dif x = \frac{x^{a+1}}{a+1} + C(a \neq -1)$
+    \item $ \int \frac{1}{x} \dif x = \ln |x| + C $
+    \item $ \int \sin x \dif x = -\cos x + C $
+    \item $ \int \cos x \dif x = \sin x + C $
+    \item $ \int \sec^2 x \dif x = \int \frac{1}{\cos^2 x} = \tan x + C $
+    \item $ \int \csc^2 x \dif x = \int \frac{1}{\sin^2 x} = -\cot x + C $
+    \item $ \int a^x \dif x = \frac{a^x}{\ln a} + C $ 特别的有 $ \int e^x \dif x = e^x + C $
+    \item $ \int \frac{1}{1+x^2} \dif x = \arctan x + C $
+    \item $ \int \frac{1}{\sqrt{1-x^2}} = \arcsin x + C $
+    \item $ \int \cosh x = \sinh x + C $
+    \item $ \int \sinh x = \cosh x + C $
+  \end{enumerate}
+\end{theorem}
+通过对右边的原函数进行求导就可以验证以上积分法则.
+
+根据函数求导的相关法则，可得不定积分的以下性质
+\begin{theorem}[不定积分的性质]
+  \begin{enumerate}
+    \item $ \int (f(x)\pm g(x)) \dif x = \int f(x) \dif x \pm \int g(x) \dif x $
+    \item $ \int a f(x) \dif x = a \int f(x) \dif x $
+  \end{enumerate}
+\end{theorem}
+这表明不定积分运算是线性的，可以推广如下
+\[ \int \sum_{m=1}^{n} a_m f_m(x) \dif x = \sum_{m=1}^{n} a_m \int f_m(x) \dif x \]
+
+
 
 
 

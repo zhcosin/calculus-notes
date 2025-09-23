@@ -5,11 +5,136 @@
 \subsection{不定积分的换元积分法}
 \label{sec:indefinite-integration-by-substitution}
 
+由复合函数求导法，反过来即有
+\begin{theorem}[不定积分的换元积分法]
+    如果
+    \[ \int f(x) \dif x = F(x)+C \]
+    那么有
+    \[ \int f(g'(x)) \dif g(x) = F(g(x)) + C \]
+\end{theorem}
+
+\begin{example}
+    考虑不定积分
+    \[ \int \frac{1}{1+x^4} \dif x \]
+    利用换元积分法，有
+    \begin{align*}
+        & \int \frac{1}{1+x^4} \dif x \\
+        = & \int \frac{\frac{1}{x^2}}{\left( x - \frac{1}{x} \right)^2+2} \dif x \\
+        = & \int \frac{\dif \left( x - \frac{1}{x} \right)}{\left( x - \frac{1}{x} \right)^2+2}
+    \end{align*}
+\end{example}
+
 \subsection{不定积分的分部积分法}
 \label{sec:indefinite-integration-by-partial}
+由函数乘积的求导，可得不定积分的分部积分法
+\begin{theorem}
+    \[ \int f'(x)g(x) \dif x = f(x)g(x) - \int f(x)g'(x) \dif x \]
+\end{theorem}
 
 \subsection{有理式的不定积分}
 \label{sec:indefinite-integration-of-rational-function}
+
+本节讨论形如
+\[ \int \frac{p(x)}{q(x)} \dif x \]
+的积分，其中$p(x)$和$q(x)$都是关于 $x$ 的实系数多项式。
+
+在实数范围内，任一整式最终都可以分解为若干一次因式与二次不可约因式的乘积，因此分母 $q(x)$ 有如下分解式
+\[ q(x) = a \prod_{i=1}^n(x+b_i)^r_i \prod_{j=1}^m(x^2+c_j x + d_j)^s_j \]
+这里 $r_i$ 和 $s_j$ 表示重因式的重数, 我们稍后将证明，任何关于 $x$ 的有理式 $ \frac{p(x)}{q(x)} $ 都能有如下分解式
+\begin{align*}
+ & \frac{p(x)}{q(x)} \\
+ = & I(x) + \sum_{i=1}^{n} \left( \frac{A_{i,1}}{x+b_i} + \frac{A_{i,2}}{(x+b_i)^2} + \cdots + \frac{A_{i,r_i}}{(x+b_i)^{r_i}}  \right) \\
+ & + \sum_{j=1}^m \left( \frac{B_{j,1}x+C_{j,1}}{x^2+c_j x + d_j} + \frac{B_{j,2}x+C_{j,2}}{(x^2+c_j x + d_j)^2} + \cdots + \frac{B_{j,s_j}x+C_{j,s_j}}{(x^2+c_j x + d_j)^{s_j}} \right)
+\end{align*}
+其中 $I(x)$ 是整式。这就是说，有理式的不定积分可以拆分为一个整式和若干个基本的有理真分式，其中的有理真分式有如下两种基本形式
+\[ \frac{a}{(x+b)^n} \]
+和
+\[ \frac{ax+b}{(x^2+cx+d)^m}  \]
+其中 $n$ 和 $m$ 都是正整数，我们先来考虑这两个有理真分式的不定积分，对于第一个，有
+\begin{align*}
+ & \int \frac{a}{(x+b)^n} \dif x \\
+ = & \int \frac{a}{(x+b)^n}  \dif (x+b) \\
+ = &\int \frac{a}{t^n} \dif t \\
+ = & 
+ \begin{cases}
+    a\ln{t} + C & n=1 \\
+    \frac{a}{(1-n)t^{n-1}} + C & n \neq 1
+ \end{cases} \\
+ = &
+  \begin{cases}
+    a\ln{(x+b)} + C & n=1 \\
+    \frac{a}{(1-n)(x+b)^{n-1}} + C & n \neq 1
+ \end{cases} \\
+\end{align*}
+
+对第二个，如果 $a=0$，即分子为常数，此时由于分母为不可约二次因式，有$c^2<4d$，因此有
+\[ x^2+cx+d=\left(x+\frac{c}{2}\right)^2+d-\frac{c^2}{4} = (x+\mu)^2+\lambda^2 \]
+其中 $\mu = \frac{c}{2}$, $\lambda = \sqrt{d-\frac{c^2}{4}}$，于是
+\begin{align*}
+ &  \int \frac{b}{x^2+cx+d} \dif x \\
+  = & \int \frac{b}{(x+\mu)^2+\lambda^2} \dif x \\
+  = & b \arctan{\frac{x+\mu}{\lambda}} + C \\
+  = & b \arctan{\frac{2x+c}{\sqrt{4d-c^2}}} + C
+\end{align*}
+
+再来看 $a \neq 0$ 的情况，此时有
+\begin{align*}
+    & \frac{ax+b}{x^2+cx+d} \\
+    = & \frac{\frac{a}{2}(2x+c)+b-\frac{ac}{2}}{x^2+cx+d} \\
+    = & \frac{a}{2} \cdot \frac{(2x+c)}{x^2+cx+d} + \frac{b-\frac{ac}{2}}{x^2+cx+d}
+\end{align*}
+后一项的不定积分刚刚已经讨论过了，对于前一项，有
+\[ \int \frac{2x+c}{x^2+cx+d} \dif x = \int \frac{\dif (x^2+cx+d)}{x^2+cx+d} = \ln{(x^2+cx+d)} + C \]
+于是分母为一次因式和二次不可约因式的两种基本不定积分就都解决了，而一般的有理真分式的不定积分，都可以拆分为这两种基本的有理真分式的和，于是在理论上，这类不定积分的求法就都解决了.
+
+现在需要回过头来证明，任何一个有理分式可以拆分为前述分母为一次因式的幂而分子为常数或分母为二次不可约因式的幂而分子为一次多项式的两种基本有理真分式(拆分出来的整式不在考虑范围)外加一个整式的形式. 具体来说，如果分母多项式含有一次因式的幂(即重因式) $(x+b)^n$，那么拆结果中会包含以下一些项:
+\[ \frac{A_{1}}{x+b} + \frac{A_{2}}{(x+b)^{2}} + \cdots + \frac{A_{n}}{(x+b)^n} \]
+而如果分母多项式含有二次不可约因式的幂 $(x^2+cx+d)^m$，那么拆分结果中会包含以下一些项:
+\[ \frac{B_{1}x+C_{1}}{x^2+cx+d} + \frac{B_{2}x+C_{2}}{(x^2+cx+d)^{2}} + \cdots + \frac{B_{m}x+C_{m}}{(x^2+cx+d)^{m}} \]
+
+第一步，先证明: 如果分子的次数高于或等于分母的次数，那么可以拆分为一个整式和一个有理真分式(即分子的次数低于分母的次数).
+
+设分母 $q(x)$ 的次数为 $n$，分子 $p(x)$ 的次数为 $n+m(m \geqslant 0)$，那么多项式 $p(x)-x^m q(x)$ 的次数必然低于 $n+m$(因为$x^{n+m}$的系数为0了)，从而
+\[ \frac{p(x)}{q(x)} = \frac{x^m q(x) + (p(x)-x^m q(x))}{q(x)} = x^m + \frac{p(x)-x^m q(x)}{q(x)} \]
+最右边的有理式，分子的次数低于 $n+m$，如果依然高于或者等于 $n$，那么再施以同样的方法，每次施行一次，剩下的有理式的分子的次数就至少会降低一次，同时会拆出一个单项式，这样的步骤在进行若干次以后，必然能将剩下的有理式的分子的次数降低到低于 $n$，从而得到一个整式和一个有理真分式的和，而这个整式就是每一步中拆分出来的那些单项式的和，这就证明了结论.
+
+第二步，需要证明: 任何一个有理真分式都能拆分为前述两种基本有理真分式的和，即设 $q(x)$ 的分解式为(注意出现的二次因式均为实数范围内不可约的)
+\[ q(x) = a \prod_{i=1}^n(x+b_i)^{r_i} \prod_{j=1}^m(x^2+c_j x + d_j)^{s_j} \]
+那么有理真分式 $\frac{p(x)}{q(x)}$ 可以被拆分为
+\begin{align*}
+ & \frac{p(x)}{q(x)} \\
+ = & \sum_{i=1}^{n} \left( \frac{A_{i,1}}{x+b_i} + \frac{A_{i,2}}{(x+b_i)^2} + \cdots + \frac{A_{i,r_i}}{(x+b_i)^{r_i}}  \right) \\
+ & + \sum_{j=1}^m \left( \frac{B_{j,1}x+C_{j,1}}{x^2+c_j x + d_j} + \frac{B_{j,2}x+C_{j,2}}{(x^2+c_j x + d_j)^2} + \cdots + \frac{B_{j,s_j}x+C_{j,s_j}}{(x^2+c_j x + d_j)^{s_j}} \right)
+\end{align*}
+
+首先由于 $\prod_{i=1}^n(x+b_i)^{r_i}$ 与  $\prod_{j=1}^m(x^2+c_j x + d_j)^{s_j}$ 互素，存在两个多项式 $u(x)$ 和 $v(x)$，使得
+\[ u(x) \prod_{i=1}^n(x+b_i)^{r_i} + v(x) \prod_{j=1}^m(x^2+c_j x + d_j)^{s_j} = 1 \]
+因此
+\[ \frac{p(x)}{q(x)} = \frac{v(x)p(x)}{a \prod_{i=1}^n(x+b_i)^{r_i}} + \frac{u(x)p(x)}{a \prod_{j=1}^m(x^2+c_j x + d_j)^{s_j}} \]
+这样，原来的有理真分式就被拆为了两部分，第一部分的分母只与分解出来的一次因式有关，第二部分的分母只与分解出来的二次不可约因式。接下来对这两部分继续进行拆分，对于第一部分而言，注意到所有的一次因式(带重数)也是互素的，所以存在多项式 $u_i(x)(i=1,2,\ldots,n)$，使得 $\sum_{i=1}^{n}u_i(x)(x+b_i)^{r_i}=1$，因此对于第一部分有
+\[ \frac{v(x)p(x)}{a \prod_{i=1}^n(x+b_i)^{r_i}} = \frac{v(x)p(x)\sum_{i=1}^{n}u_i(x)(x+b_i)^{r_i}}{a \prod_{i=1}^n(x+b_i)^{r_i}} = \sum_{i=1}^{n} \frac{v(x)p(x)u_i(x)}{a \prod_{k=1,k \neq i}^n(x+b_k)^{r_k}}  \]
+最左边的分式是包含 $q(x)$ 的所有一次因式的，而最右边每一个分式都少了一个一次因式，如果每一项中的分母仍然含有两个或者更多的一次因式，那么针对每一个分式重复这个过程，在有限步之后，所有的分式将只含有一个一次因式(含重数)，即成为如下的形状:
+\begin{equation}
+    \label{eq:split-rational-function-25rfwfwwq}
+\sum_{i=1}^{n} \left( \frac{u_{i,1}(x)}{x+b_i} + \frac{u_{i,2}(x)}{(x+b_i)^2} + \cdots + \frac{u_{i,r_i}(x)}{(x+b_i)^{r_i}}  \right) 
+\end{equation}
+这与我们期望的目标形式
+\[  \sum_{i=1}^{n} \left( \frac{A_{i,1}}{x+b_i} + \frac{A_{i,2}}{(x+b_i)^2} + \cdots + \frac{A_{i,r_i}}{(x+b_i)^{r_i}}  \right) \]
+的差别只在于分子有所不同，后者的分子均为常数，这启发对
+$ \frac{U(x)}{(x+b)^r} $
+这样的分式是否有进一步分解的可能，用换元法可以轻松实现这一点，令 $t=x+b$，则 $x=t-b$，代换之后有
+\[ \frac{U(x)}{(x+b)^r} = \frac{U(t-b)}{t^r} = V(t) + \frac{A_1}{t} + \frac{A_2}{t^2} + \cdots + \frac{A_r}{t^r} \]
+式中 $V(t)$ 为整式，对应于 $U(t-b)$ 中次数大于等于 $r$ 的那些项，而次数低于 $r$ 的项则形成右边的分式，最后将 $t=x+b$ 代换回去得到
+\[ \frac{U(x)}{(x+b)^r} = V(x+b) + \frac{A_1}{x+b} + \frac{A_2}{(x+b)^2} + \cdots + \frac{A_r}{(x+b)^{r}} \]
+于是把 \autoref{eq:split-rational-function-25rfwfwwq} 的每一项都这样拆分后再合并同类项就有
+\begin{align*}
+ &\sum_{i=1}^{n} \left( \frac{u_{i,1}(x)}{x+b_i} + \frac{u_{i,2}(x)}{(x+b_i)^2} + \cdots + \frac{u_{i,r_i}(x)}{(x+b_i)^{r_i}}  \right) \\
+ = & V(x) + \sum_{i=1}^{n} \left( \frac{A_{i,1}}{x+b_i} + \frac{A_{i,2}}{(x+b_i)^2} + \cdots + \frac{A_{i,r_i}}{(x+b_i)^{r_i}}  \right)
+\end{align*}
+式中 $V(x)$ 为整式(不一定与前面的 $V(t)$ 相同，只是将它们归结为一个统一的整式).
+
+
+
 
 \subsection{根式函数的不定积分}
 \label{sec:indefinite-integration-of-irrational-function}
