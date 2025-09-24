@@ -67,7 +67,7 @@
  \end{cases} \\
 \end{align*}
 
-对第二个，如果 $a=0$，即分子为常数，此时由于分母为不可约二次因式，有$c^2<4d$，因此有
+对第二个，先考虑分母次数为1的情况，此时如果 $a=0$，即分子为常数，此时由于分母为不可约二次因式，有$c^2<4d$，因此有
 \[ x^2+cx+d=\left(x+\frac{c}{2}\right)^2+d-\frac{c^2}{4} = (x+\mu)^2+\lambda^2 \]
 其中 $\mu = \frac{c}{2}$, $\lambda = \sqrt{d-\frac{c^2}{4}}$，于是
 \begin{align*}
@@ -77,7 +77,7 @@
   = & b \arctan{\frac{2x+c}{\sqrt{4d-c^2}}} + C
 \end{align*}
 
-再来看 $a \neq 0$ 的情况，此时有
+而对于 $a \neq 0$ 的情况，此时有
 \begin{align*}
     & \frac{ax+b}{x^2+cx+d} \\
     = & \frac{\frac{a}{2}(2x+c)+b-\frac{ac}{2}}{x^2+cx+d} \\
@@ -85,6 +85,19 @@
 \end{align*}
 后一项的不定积分刚刚已经讨论过了，对于前一项，有
 \[ \int \frac{2x+c}{x^2+cx+d} \dif x = \int \frac{\dif (x^2+cx+d)}{x^2+cx+d} = \ln{(x^2+cx+d)} + C \]
+所以
+\[ \int \frac{ax+b}{x^2+cx+d} \dif x = \ln{(x^2+cx+d)} + \left( b-\frac{ac}{2} \right) \arctan{\frac{2x+c}{\sqrt{4d-c^2}}} + C \]
+这样在分母的次数为1的情况下就解决了，再考虑分母次数大于1的情况，仍使用前述 $\mu$ 与 $\lambda$ 记号，有
+\begin{align*}
+  & \int \frac{1}{(x^2+\lambda^2)^s} \dif x \\
+  = & \frac{x}{(x^2+\lambda^2)^s}+2s \int \frac{x^2}{(x^2+\lambda^2)^{s+1}} \dif x \\
+  = & \frac{x}{(x^2+\lambda^2)^s}+2s \int \frac{(x^2+\lambda^2)-\lambda^2}{(x^2+\lambda^2)^{s+1}} \dif x \\
+  = & \frac{x}{(x^2+\lambda^2)^s}+2s \int \frac{1}{(x^2+\lambda^2)^{s-1}} \dif x -2\lambda^2s \int \frac{1}{(x^2+\lambda^2)^{s+1}} \dif x \\
+\end{align*}
+于是得到递推式
+\[ \int \frac{1}{(x^2+\lambda^2)^{s+1}} \dif x = \frac{x}{2\lambda^2s (x^2+\lambda^2)^s} + \frac{2s-1}{2s} \cdot \frac{1}{\lambda^2} \cdot \int \frac{1}{(x^2+\lambda^2)^s} \dif x \]
+借由此公式，分母次数大于1的情况就都得到了解决.
+
 于是分母为一次因式和二次不可约因式的两种基本不定积分就都解决了，而一般的有理真分式的不定积分，都可以拆分为这两种基本的有理真分式的和，于是在理论上，这类不定积分的求法就都解决了.
 
 现在需要回过头来证明，任何一个有理分式可以拆分为前述分母为一次因式的幂而分子为常数或分母为二次不可约因式的幂而分子为一次多项式的两种基本有理真分式(拆分出来的整式不在考虑范围)外加一个整式的形式. 具体来说，如果分母多项式含有一次因式的幂(即重因式) $(x+b)^n$，那么拆结果中会包含以下一些项:
@@ -145,7 +158,7 @@ $ \frac{U(x)}{(x+b)^r} $
 于是就有拆分
 \[ \frac{U(x)}{(x^2+cx+d)^s} = \frac{U_1(x)}{(x^2+cx+d)^{s-1}} + \frac{Bx+C}{(x^2+cx+d)^s} \]
 右边第二项已经成为基本的有理真分式，而第一项的分子次数与原先相比减少了2，如果它仍然高于等于2，则重复这个拆分过程，就能在若干次拆分之后，将其拆分为分子次数低于2的基本有理真分式之和:
-\[ \frac{U(x)}{(x^2+cx+d)^s} = \sum_{j=1}^s \frac{B_jx+C_j}{(x^2+cx_+d)^{j}} \]
+\[ \frac{U(x)}{(x^2+cx+d)^s} = \sum_{j=1}^s \frac{B_jx+C_j}{(x^2+cx+d)^{j}} \]
 这样就完成了整个证明.
 
 
