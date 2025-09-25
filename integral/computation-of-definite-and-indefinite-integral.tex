@@ -39,18 +39,18 @@
 的积分，其中$p(x)$和$q(x)$都是关于 $x$ 的实系数多项式。
 
 在实数范围内，任一整式最终都可以分解为若干一次因式与二次不可约因式的乘积，因此分母 $q(x)$ 有如下分解式
-\[ q(x) = a \prod_{i=1}^n(x+b_i)^r_i \prod_{j=1}^m(x^2+c_j x + d_j)^s_j \]
-这里 $r_i$ 和 $s_j$ 表示重因式的重数, 我们稍后将证明，任何关于 $x$ 的有理式 $ \frac{p(x)}{q(x)} $ 都能有如下分解式
+\[ q(x) = a \prod_{i=1}^n(x+b_i)^{r_i} \prod_{j=1}^m(x^2+c_j x + d_j)^{s_j} \]
+这里 $r_i$ 和 $s_j$ 表示重因式的重数, 本小节将证明，任何关于 $x$ 的有理式 $ \frac{p(x)}{q(x)} $ 都能有如下分解式
 \begin{align*}
  & \frac{p(x)}{q(x)} \\
  = & I(x) + \sum_{i=1}^{n} \left( \frac{A_{i,1}}{x+b_i} + \frac{A_{i,2}}{(x+b_i)^2} + \cdots + \frac{A_{i,r_i}}{(x+b_i)^{r_i}}  \right) \\
  & + \sum_{j=1}^m \left( \frac{B_{j,1}x+C_{j,1}}{x^2+c_j x + d_j} + \frac{B_{j,2}x+C_{j,2}}{(x^2+c_j x + d_j)^2} + \cdots + \frac{B_{j,s_j}x+C_{j,s_j}}{(x^2+c_j x + d_j)^{s_j}} \right)
 \end{align*}
-其中 $I(x)$ 是整式。这就是说，有理式的不定积分可以拆分为一个整式和若干个基本的有理真分式，其中的有理真分式有如下两种基本形式
+其中 $I(x)$ 是整式，$A$、$B$、$C$、$b$、$c$、$d$ 带下标者均为常数。这就是说，有理式的不定积分可以拆分为一个整式和若干个基本的有理真分式，其中的有理真分式有如下两种基本形式
 \[ \frac{a}{(x+b)^n} \]
 和
 \[ \frac{ax+b}{(x^2+cx+d)^m}  \]
-其中 $n$ 和 $m$ 都是正整数，我们先来考虑这两个有理真分式(姑且称之为两类基本有理真分式)的不定积分，对于第一个，有
+其中 $n$ 和 $m$ 都是正整数，证明先放一放，先来看看这样的分解对于计算不定积分有什么作用。先来考虑这两个有理真分式(姑且称之为两类基本有理真分式)的不定积分，对于第一个，有
 \begin{align*}
  & \int \frac{a}{(x+b)^n} \dif x \\
  = & \int \frac{a}{(x+b)^n}  \dif (x+b) \\
@@ -73,8 +73,8 @@
 \begin{align*}
  &  \int \frac{b}{x^2+cx+d} \dif x \\
   = & \int \frac{b}{(x+\mu)^2+\lambda^2} \dif x \\
-  = & b \arctan{\frac{x+\mu}{\lambda}} + C \\
-  = & b \arctan{\frac{2x+c}{\sqrt{4d-c^2}}} + C
+  = & \frac{b}{\lambda} \arctan{\frac{x+\mu}{\lambda}} + C \\
+  = & \frac{2b}{\sqrt{4d-c^{2}}} \arctan{\frac{2x+c}{\sqrt{4d-c^2}}} + C
 \end{align*}
 
 而对于 $a \neq 0$ 的情况，此时有
@@ -86,7 +86,7 @@
 后一项的不定积分刚刚已经讨论过了，对于前一项，有
 \[ \int \frac{2x+c}{x^2+cx+d} \dif x = \int \frac{\dif (x^2+cx+d)}{x^2+cx+d} = \ln{(x^2+cx+d)} + C \]
 所以
-\[ \int \frac{ax+b}{x^2+cx+d} \dif x = \ln{(x^2+cx+d)} + \left( b-\frac{ac}{2} \right) \arctan{\frac{2x+c}{\sqrt{4d-c^2}}} + C \]
+\[ \int \frac{ax+b}{x^2+cx+d} \dif x = \ln{(x^2+cx+d)} + \frac{2b-ac}{\sqrt{4d-c^{2}}} \arctan{\frac{2x+c}{\sqrt{4d-c^2}}} + C \]
 这样在分母的次数为1的情况下就解决了，再考虑分母次数大于1的情况，仍使用前述 $\mu$ 与 $\lambda$ 记号，有
 \begin{align*}
   & \int \frac{1}{(x^2+\lambda^2)^s} \dif x \\
